@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Carousel Preview</title>
+<style>
+  body { background: #0a0a0a; margin: 0; display: flex; flex-direction: column; align-items: center; padding: 20px; font-family: sans-serif; }
+  h2 { color: #fff; margin: 20px 0 10px; }
+  iframe { border: 2px solid #333; transform: scale(0.5); transform-origin: top left; width: 1080px; height: 1080px; }
+  .frame-wrap { width: 540px; height: 540px; overflow: hidden; margin-bottom: 20px; }
+  .nav { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+  .nav button { background: #2B8DD0; color: #fff; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-size: 14px; font-weight: 600; }
+  .nav button:hover { background: #1a7bc0; }
+  .nav button.active { background: #D4840A; }
+  .info { color: #888; font-size: 14px; margin-bottom: 10px; }
+</style>
+</head>
+<body>
+<h2>Instagram Carousel Preview</h2>
+<div class="nav" id="fileNav"></div>
+<div class="info" id="info"></div>
+<div class="nav" id="slideNav"></div>
+<div class="frame-wrap">
+  <iframe id="viewer" scrolling="no"></iframe>
+</div>
+
+<script>
+const files = [
+  { name: '1. FMPE Series', file: '1_FMPE_Series.html', slides: 5 },
+  { name: '2. FMPP Series', file: '2_FMPP_Series.html', slides: 5 },
+  { name: '3. Coraplast Range', file: '3_Coraplast_Range.html', slides: 6 },
+  { name: '4. Partnership', file: '4_Partnership_Announcement.html', slides: 1 },
+  { name: '5. Cost Optimization', file: '5_Cost_Optimization.html', slides: 5 },
+  { name: '6. Company Story', file: '6_Company_Story.html', slides: 6 },
+  { name: '7. Technical Guide', file: '7_Technical_Guide.html', slides: 7 },
+];
+
+let currentFile = 0;
+let currentSlide = 0;
+
+function loadFile(idx) {
+  currentFile = idx;
+  currentSlide = 0;
+  const iframe = document.getElementById('viewer');
+  iframe.src = files[idx].file;
+  iframe.onload = () => { scrollToSlide(0); buildSlideNav(); };
+  buildFileNav();
+}
+
+function scrollToSlide(idx) {
+  currentSlide = idx;
+  const iframe = document.getElementById('viewer');
+  const slides = iframe.contentDocument.querySelectorAll('.slide');
+  if (slides[idx]) {
+    const top = slides[idx].offsetTop;
+    iframe.style.transform = 'scale(0.5)';
+    iframe.style.marginTop = (-top * 0.5) + 'px';
+    iframe.style.height = '1080px';
+  }
+  document.getElementById('info').textContent = files[currentFile].name + ' — Slide ' + (idx+1) + ' of ' + files[currentFile].slides;
+  buildSlideNav();
+}
+
+function buildFileNav() {
+  const nav = document.getElementById('fileNav');
+  nav.innerHTML = '';
+  files.forEach((f, i) => {
+    const btn = document.createElement('button');
+    btn.textContent = f.name;
+    btn.className = i === currentFile ? 'active' : '';
+    btn.onclick = () => loadFile(i);
+    nav.appendChild(btn);
+  });
+}
+
+function buildSlideNav() {
+  const nav = document.getElementById('slideNav');
+  nav.innerHTML = '';
+  for (let i = 0; i < files[currentFile].slides; i++) {
+    const btn = document.createElement('button');
+    btn.textContent = 'Slide ' + (i+1);
+    btn.className = i === currentSlide ? 'active' : '';
+    btn.onclick = () => scrollToSlide(i);
+    nav.appendChild(btn);
+  }
+}
+
+loadFile(0);
+</script>
+</body>
+</html>

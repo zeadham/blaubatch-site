@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coraplast Range — Instagram Carousel</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #0a0a0a; display: flex; flex-direction: column; align-items: center; gap: 40px; padding: 40px; font-family: 'Open Sans', sans-serif; }
+  .slide-label { color: #666; font-size: 14px; margin-bottom: -30px; }
+  .slide { width: 1080px; height: 1080px; position: relative; overflow: hidden; background: #141B3E; display: flex; flex-direction: column; color: #fff; }
+
+  /* Shared */
+  .tag { font-family: 'Open Sans', sans-serif; font-size: 16px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: #2B8DD0; margin-bottom: 16px; }
+  .logo-bar { position: absolute; bottom: 48px; left: 0; right: 0; text-align: center; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 18px; color: rgba(255,255,255,0.4); letter-spacing: 6px; text-transform: uppercase; }
+
+  /* ── Slide 1: Title ── */
+  .slide-1 { justify-content: center; align-items: center; text-align: center; background: radial-gradient(ellipse at 50% 60%, #23447A 0%, #141B3E 55%); }
+  .slide-1 h1 { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 64px; letter-spacing: 4px; text-transform: uppercase; line-height: 1.1; max-width: 800px; }
+  .slide-1 .accent-line { width: 120px; height: 4px; background: #2B8DD0; margin: 32px auto; }
+  .slide-1 .sub { font-family: 'Open Sans', sans-serif; font-size: 24px; color: #DCDCDC; max-width: 650px; line-height: 1.6; }
+  .slide-1 .partnership { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 20px; color: #2B8DD0; margin-top: 32px; letter-spacing: 2px; }
+
+  /* ── Slide 2: Black MB ── */
+  .product-slide { padding: 80px 72px; justify-content: center; }
+  .product-slide h2 { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 52px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 16px; }
+  .product-slide .subtitle { font-family: 'Open Sans', sans-serif; font-size: 24px; color: #DCDCDC; margin-bottom: 40px; }
+  .product-slide .stat-row { display: flex; gap: 24px; margin-bottom: 40px; }
+  .stat-box { flex: 1; background: rgba(35,68,122,0.4); border: 1px solid rgba(220,220,220,0.15); border-radius: 12px; padding: 28px 24px; text-align: center; }
+  .stat-box .number { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 48px; color: #2B8DD0; }
+  .stat-box .label { font-family: 'Open Sans', sans-serif; font-size: 18px; color: #DCDCDC; margin-top: 8px; }
+  .product-slide .apps { font-family: 'Open Sans', sans-serif; font-size: 22px; color: #DCDCDC; line-height: 1.8; }
+  .product-slide .apps strong { color: #fff; }
+
+  .slide-2 { background: linear-gradient(160deg, #141B3E 0%, #0d1225 100%); }
+  .slide-2 h2 { color: #fff; }
+
+  /* ── Slide 3: White MB ── */
+  .slide-3 { background: radial-gradient(ellipse at 70% 30%, #23447A 0%, #141B3E 60%); }
+
+  /* ── Slide 4: Color MB ── */
+  .slide-4 { background: linear-gradient(160deg, #1a2348 0%, #141B3E 100%); }
+  .color-chips { display: flex; gap: 16px; margin-bottom: 40px; }
+  .chip { width: 80px; height: 80px; border-radius: 12px; border: 2px solid rgba(255,255,255,0.2); }
+
+  /* ── Slide 5: Additives ── */
+  .slide-5 { padding: 80px 72px; background: radial-gradient(ellipse at 30% 70%, #23447A 0%, #141B3E 60%); }
+  .slide-5 h2 { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 48px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 48px; }
+  .additive-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .additive-item { background: rgba(35,68,122,0.35); border: 1px solid rgba(220,220,220,0.12); border-radius: 12px; padding: 28px 28px; display: flex; align-items: center; gap: 16px; }
+  .additive-item .icon { font-size: 32px; }
+  .additive-item .text { font-family: 'Open Sans', sans-serif; font-size: 22px; color: #DCDCDC; }
+  .additive-item .text strong { color: #fff; font-weight: 700; }
+
+  /* ── Slide 6: CTA ── */
+  .slide-6 { justify-content: center; align-items: center; text-align: center; background: radial-gradient(ellipse at 50% 50%, #23447A 0%, #141B3E 60%); }
+  .slide-6 .headline { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 44px; text-transform: uppercase; letter-spacing: 2px; max-width: 800px; line-height: 1.3; margin-bottom: 16px; }
+  .slide-6 .sub-text { font-family: 'Open Sans', sans-serif; font-size: 24px; color: #DCDCDC; margin-bottom: 40px; }
+  .slide-6 .accent-line { width: 120px; height: 4px; background: #2B8DD0; margin: 0 auto 40px; }
+  .slide-6 .cta-item { font-family: 'Open Sans', sans-serif; font-size: 24px; color: #DCDCDC; margin-bottom: 12px; }
+  .slide-6 .cta-item strong { color: #2B8DD0; }
+  .slide-6 .cta-button { display: inline-block; margin-top: 36px; background: #2B8DD0; color: #fff; border-radius: 8px; padding: 20px 56px; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 22px; text-transform: uppercase; letter-spacing: 2px; }
+</style>
+</head>
+<body>
+
+<p class="slide-label">Slide 1 — Title Card</p>
+<div class="slide slide-1">
+  <div class="tag">Full Spectrum</div>
+  <h1>Beyond<br>Filler</h1>
+  <div class="accent-line"></div>
+  <div class="sub">Black, white, color, and specialty masterbatch — now available through Blau Batch as an authorized Coraplast distributor.</div>
+  <div class="partnership">Blau Batch × Coraplast</div>
+  <div class="logo-bar">Blau Batch</div>
+</div>
+
+<p class="slide-label">Slide 2 — Black Masterbatch</p>
+<div class="slide slide-2 product-slide">
+  <div class="tag">Black Masterbatch</div>
+  <h2>40+ Grades</h2>
+  <div class="subtitle">PE & PP carriers — standard to high-jetness carbon black</div>
+  <div class="stat-row">
+    <div class="stat-box">
+      <div class="number">40+</div>
+      <div class="label">Grades Available</div>
+    </div>
+    <div class="stat-box">
+      <div class="number">PE</div>
+      <div class="label">& PP Carriers</div>
+    </div>
+  </div>
+  <div class="apps">
+    <strong>Applications:</strong> Film · Pipe · Automotive · Geomembranes · Wire & Cable
+  </div>
+</div>
+
+<p class="slide-label">Slide 3 — White Masterbatch</p>
+<div class="slide slide-3 product-slide">
+  <div class="tag">White Masterbatch</div>
+  <h2>High-Opacity TiO₂</h2>
+  <div class="subtitle">Concentrations from 21% to 75% — general purpose to ultra-premium</div>
+  <div class="stat-row">
+    <div class="stat-box">
+      <div class="number">21%</div>
+      <div class="label">to</div>
+    </div>
+    <div class="stat-box">
+      <div class="number">75%</div>
+      <div class="label">TiO₂ Content</div>
+    </div>
+  </div>
+  <div class="apps">
+    <strong>Applications:</strong> Packaging film · Agricultural film · Injection molding · Blow molding
+  </div>
+</div>
+
+<p class="slide-label">Slide 4 — Color Masterbatch</p>
+<div class="slide slide-4 product-slide">
+  <div class="tag">Color Masterbatch</div>
+  <h2>Custom Color</h2>
+  <div class="subtitle">Pantone & RAL matching — food-contact compliant grades available</div>
+  <div class="color-chips">
+    <div class="chip" style="background:#E63946;"></div>
+    <div class="chip" style="background:#457B9D;"></div>
+    <div class="chip" style="background:#2A9D8F;"></div>
+    <div class="chip" style="background:#E9C46A;"></div>
+    <div class="chip" style="background:#F4A261;"></div>
+    <div class="chip" style="background:#264653;"></div>
+    <div class="chip" style="background:#6A0572;"></div>
+    <div class="chip" style="background:#1D3557;"></div>
+  </div>
+  <div class="stat-row">
+    <div class="stat-box">
+      <div class="number" style="font-size:36px;">PANTONE</div>
+      <div class="label">Matching</div>
+    </div>
+    <div class="stat-box">
+      <div class="number" style="font-size:36px;">RAL</div>
+      <div class="label">Matching</div>
+    </div>
+    <div class="stat-box">
+      <div class="number" style="font-size:36px;">FDA</div>
+      <div class="label">Compliant Grades</div>
+    </div>
+  </div>
+  <div class="apps">
+    <strong>Carriers:</strong> PE · PP · Engineering Resins
+  </div>
+</div>
+
+<p class="slide-label">Slide 5 — Specialty Additives</p>
+<div class="slide slide-5">
+  <div class="tag">Specialty Additives</div>
+  <h2>Complete Range</h2>
+  <div class="additive-grid">
+    <div class="additive-item">
+      <div class="icon">☀️</div>
+      <div class="text"><strong>UV Stabilizers</strong><br>Outdoor durability</div>
+    </div>
+    <div class="additive-item">
+      <div class="icon">⚡</div>
+      <div class="text"><strong>Processing Aids</strong><br>Improved flow & output</div>
+    </div>
+    <div class="additive-item">
+      <div class="icon">🔲</div>
+      <div class="text"><strong>Anti-Blocking</strong><br>Film separation</div>
+    </div>
+    <div class="additive-item">
+      <div class="icon">💧</div>
+      <div class="text"><strong>Anti-Fog</strong><br>Optical clarity</div>
+    </div>
+    <div class="additive-item">
+      <div class="icon">✨</div>
+      <div class="text"><strong>Slip Agents</strong><br>Reduced friction</div>
+    </div>
+    <div class="additive-item">
+      <div class="icon">🌡️</div>
+      <div class="text"><strong>Desiccants</strong><br>Moisture control</div>
+    </div>
+  </div>
+</div>
+
+<p class="slide-label">Slide 6 — CTA</p>
+<div class="slide slide-6">
+  <div class="headline">One Supplier.<br>Full Spectrum.</div>
+  <div class="sub-text">Filler + Black + White + Color + Additives</div>
+  <div class="accent-line"></div>
+  <div class="cta-item"><strong>Email:</strong> info@blaubatch.com</div>
+  <div class="cta-item"><strong>WhatsApp:</strong> +2 0102 222 7723</div>
+  <div class="cta-button">Explore the Range</div>
+  <div class="logo-bar">Blau Batch</div>
+</div>
+
+</body>
+</html>

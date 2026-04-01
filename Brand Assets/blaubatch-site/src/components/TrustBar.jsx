@@ -1,0 +1,45 @@
+const PILLS = [
+  '✓  ISO 9001 Aligned Production',
+  '✓  In-House Lab Testing',
+  '✓  TDS & CoA Per Shipment',
+  '✓  Coraplast Authorised Distributor',
+  '✓  MENA · Europe · Global',
+  '✓  25 kg Bags & FIBC Big Bags',
+  '✓  Custom Formulation Service',
+  '✓  Full Batch Traceability',
+  '✓  PE & PP Carrier Systems',
+  '✓  Fast Enquiry-to-Quote',
+]
+
+const ALL = [...PILLS, ...PILLS]
+
+export default function TrustBar() {
+  return (
+    <div style={{
+      background: '#23447A',
+      borderTop: '1px solid rgba(255,255,255,0.08)',
+      borderBottom: '1px solid rgba(255,255,255,0.08)',
+      padding: '14px 0',
+      overflow: 'hidden',
+      position: 'relative',
+    }}>
+      {/* Fade edges */}
+      <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: 80, background: 'linear-gradient(to right, #23447A, transparent)', zIndex: 2, pointerEvents: 'none' }} />
+      <div style={{ position: 'absolute', right: 0, top: 0, bottom: 0, width: 80, background: 'linear-gradient(to left, #23447A, transparent)', zIndex: 2, pointerEvents: 'none' }} />
+
+      <div className="scroll-x" style={{ display: 'flex', gap: 0, whiteSpace: 'nowrap', width: 'max-content' }}>
+        {ALL.map((pill, i) => (
+          <span key={i} style={{
+            display: 'inline-flex', alignItems: 'center', gap: 6,
+            padding: '0 24px',
+            fontFamily: 'Montserrat, sans-serif', fontSize: 11, fontWeight: 700,
+            letterSpacing: '0.05em', color: 'rgba(255,255,255,0.65)',
+            borderRight: '1px solid rgba(255,255,255,0.09)',
+          }}>
+            {pill}
+          </span>
+        ))}
+      </div>
+    </div>
+  )
+}

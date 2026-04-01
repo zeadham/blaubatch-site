@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cost Optimization — Instagram Carousel</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #0a0a0a; display: flex; flex-direction: column; align-items: center; gap: 40px; padding: 40px; font-family: 'Open Sans', sans-serif; }
+  .slide-label { color: #666; font-size: 14px; margin-bottom: -30px; }
+  .slide { width: 1080px; height: 1080px; position: relative; overflow: hidden; background: #141B3E; display: flex; flex-direction: column; color: #fff; }
+  .tag { font-family: 'Open Sans', sans-serif; font-size: 16px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: #2B8DD0; margin-bottom: 16px; }
+  .logo-bar { position: absolute; bottom: 48px; left: 0; right: 0; text-align: center; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 18px; color: rgba(255,255,255,0.4); letter-spacing: 6px; text-transform: uppercase; }
+
+  /* ── Slide 1: Hook ── */
+  .slide-1 { justify-content: center; align-items: center; text-align: center; background: radial-gradient(ellipse at 40% 60%, #23447A 0%, #141B3E 55%); }
+  .slide-1 .big-stat { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 160px; color: #2B8DD0; line-height: 1; }
+  .slide-1 .stat-label { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 40px; text-transform: uppercase; letter-spacing: 3px; margin-top: 8px; }
+  .slide-1 .sub { font-family: 'Open Sans', sans-serif; font-size: 26px; color: #DCDCDC; margin-top: 24px; max-width: 650px; line-height: 1.6; }
+  .slide-1 .corner { position: absolute; border: 2px solid rgba(43,141,208,0.15); border-radius: 50%; }
+  .slide-1 .c1 { width: 300px; height: 300px; bottom: -100px; right: -50px; }
+  .slide-1 .c2 { width: 180px; height: 180px; top: -40px; left: -40px; }
+
+  /* ── Slide 2: The Math ── */
+  .slide-2 { padding: 80px 72px; background: linear-gradient(160deg, #141B3E 0%, #1a2348 100%); }
+  .slide-2 h2 { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 48px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 40px; }
+  .equation { display: flex; align-items: center; justify-content: center; gap: 20px; margin-bottom: 48px; }
+  .eq-box { background: rgba(35,68,122,0.5); border: 1px solid rgba(220,220,220,0.15); border-radius: 12px; padding: 28px 32px; text-align: center; }
+  .eq-box .val { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 32px; color: #2B8DD0; }
+  .eq-box .lbl { font-family: 'Open Sans', sans-serif; font-size: 16px; color: #DCDCDC; margin-top: 6px; }
+  .eq-op { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 36px; color: rgba(255,255,255,0.4); }
+  .table-container { background: rgba(20,27,62,0.7); border: 1px solid rgba(220,220,220,0.15); border-radius: 12px; overflow: hidden; }
+  table { width: 100%; border-collapse: collapse; }
+  th { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 18px; text-transform: uppercase; letter-spacing: 1px; padding: 20px 24px; text-align: center; background: #23447A; color: #fff; }
+  td { font-family: 'Open Sans', sans-serif; font-size: 22px; padding: 18px 24px; text-align: center; color: #DCDCDC; border-bottom: 1px solid rgba(220,220,220,0.08); }
+  td.highlight { color: #2B8DD0; font-weight: 700; font-size: 24px; }
+  tr:last-child td { border-bottom: none; }
+
+  /* ── Slide 3: Where It Works ── */
+  .slide-3 { padding: 80px 72px; background: radial-gradient(ellipse at 70% 30%, #23447A 0%, #141B3E 60%); }
+  .slide-3 h2 { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 48px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 48px; }
+  .works-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; flex: 1; }
+  .works-card { background: rgba(35,68,122,0.35); border: 1px solid rgba(220,220,220,0.12); border-radius: 12px; padding: 32px 28px; }
+  .works-card .icon { font-size: 40px; margin-bottom: 12px; }
+  .works-card h4 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 24px; text-transform: uppercase; margin-bottom: 8px; }
+  .works-card p { font-family: 'Open Sans', sans-serif; font-size: 18px; color: #DCDCDC; line-height: 1.5; }
+
+  /* ── Slide 4: Where It Fails ── */
+  .slide-4 { padding: 80px 72px; background: linear-gradient(160deg, #141B3E 0%, #1a2348 100%); }
+  .slide-4 h2 { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 48px; text-transform: uppercase; letter-spacing: 2px; color: #E05555; margin-bottom: 48px; }
+  .fail-item { background: rgba(224,85,85,0.08); border: 1px solid rgba(224,85,85,0.2); border-radius: 12px; padding: 32px 36px; margin-bottom: 24px; display: flex; align-items: flex-start; gap: 20px; }
+  .fail-item .x-mark { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 32px; color: #E05555; flex-shrink: 0; }
+  .fail-item h4 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 24px; margin-bottom: 6px; }
+  .fail-item p { font-family: 'Open Sans', sans-serif; font-size: 20px; color: #DCDCDC; line-height: 1.5; }
+
+  /* ── Slide 5: CTA ── */
+  .slide-5 { justify-content: center; align-items: center; text-align: center; background: radial-gradient(ellipse at 50% 50%, #23447A 0%, #141B3E 60%); }
+  .slide-5 .quote { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 38px; text-transform: uppercase; letter-spacing: 2px; max-width: 800px; line-height: 1.3; margin-bottom: 16px; }
+  .slide-5 .sub { font-family: 'Open Sans', sans-serif; font-size: 24px; color: #DCDCDC; margin-bottom: 40px; }
+  .slide-5 .accent-line { width: 120px; height: 4px; background: #2B8DD0; margin: 0 auto 40px; }
+  .slide-5 .cta-button { display: inline-block; background: #2B8DD0; color: #fff; border-radius: 8px; padding: 20px 56px; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 22px; text-transform: uppercase; letter-spacing: 2px; }
+</style>
+</head>
+<body>
+
+<p class="slide-label">Slide 1 — Hook</p>
+<div class="slide slide-1">
+  <div class="corner c1"></div>
+  <div class="corner c2"></div>
+  <div class="tag">Industry Insight</div>
+  <div class="big-stat">10–25%</div>
+  <div class="stat-label">Material Cost Reduction</div>
+  <div class="sub">How CaCO₃ filler masterbatch cuts packaging costs — without cutting quality.</div>
+  <div class="logo-bar">Blau Batch</div>
+</div>
+
+<p class="slide-label">Slide 2 — The Math</p>
+<div class="slide slide-2">
+  <div class="tag">The Economics</div>
+  <h2>The Math</h2>
+  <div class="equation">
+    <div class="eq-box">
+      <div class="val">CaCO₃</div>
+      <div class="lbl">Fraction of resin cost</div>
+    </div>
+    <div class="eq-op">+</div>
+    <div class="eq-box">
+      <div class="val">70–80%</div>
+      <div class="lbl">Loading in masterbatch</div>
+    </div>
+    <div class="eq-op">=</div>
+    <div class="eq-box">
+      <div class="val">10–25%</div>
+      <div class="lbl">Cost reduction</div>
+    </div>
+  </div>
+  <div class="table-container">
+    <table>
+      <tr><th>Loading</th><th>Let-Down</th><th>CaCO₃ in Final</th></tr>
+      <tr><td>70%</td><td>20%</td><td class="highlight">14%</td></tr>
+      <tr><td>75%</td><td>20%</td><td class="highlight">15%</td></tr>
+      <tr><td>80%</td><td>20%</td><td class="highlight">16%</td></tr>
+      <tr><td>70%</td><td>30%</td><td class="highlight">21%</td></tr>
+      <tr><td>80%</td><td>30%</td><td class="highlight">24%</td></tr>
+    </table>
+  </div>
+</div>
+
+<p class="slide-label">Slide 3 — Where It Works</p>
+<div class="slide slide-3">
+  <div class="tag">Applications</div>
+  <h2>Where It Works</h2>
+  <div class="works-grid">
+    <div class="works-card">
+      <div class="icon">🎞️</div>
+      <h4>Blown Film</h4>
+      <p>Shopping bags, garbage bags, industrial liners. LLDPE carrier maintains tear resistance.</p>
+    </div>
+    <div class="works-card">
+      <div class="icon">🧵</div>
+      <h4>Woven Sacks</h4>
+      <p>Agriculture, cement, bulk. PPH carrier adds stiffness at high volume.</p>
+    </div>
+    <div class="works-card">
+      <div class="icon">⚙️</div>
+      <h4>Injection Molding</h4>
+      <p>Containers, closures, pails. PP carrier improves cycle time.</p>
+    </div>
+    <div class="works-card">
+      <div class="icon">📦</div>
+      <h4>Sheet & Thermoforming</h4>
+      <p>Trays, lids, protective packaging. Controlled loading adds stiffness.</p>
+    </div>
+  </div>
+</div>
+
+<p class="slide-label">Slide 4 — Where It Fails</p>
+<div class="slide slide-4">
+  <div class="tag" style="color:#E05555;">Warning</div>
+  <h2>Where It Fails</h2>
+  <div class="fail-item">
+    <div class="x-mark">✕</div>
+    <div>
+      <h4>Wrong Carrier Resin</h4>
+      <p>PP carrier in a PE process = poor dispersion, gel formation, mechanical failure.</p>
+    </div>
+  </div>
+  <div class="fail-item">
+    <div class="x-mark">✕</div>
+    <div>
+      <h4>Inconsistent Particle Size</h4>
+      <p>Uncontrolled CaCO₃ distribution = die buildup, fish eyes, surface defects.</p>
+    </div>
+  </div>
+  <div class="fail-item">
+    <div class="x-mark">✕</div>
+    <div>
+      <h4>Batch-to-Batch Variation</h4>
+      <p>Different every time = constant process adjustment, scrap, and downtime.</p>
+    </div>
+  </div>
+</div>
+
+<p class="slide-label">Slide 5 — CTA</p>
+<div class="slide slide-5">
+  <div class="quote">Filler Masterbatch Is<br>a Precision Input.<br>Not a Commodity.</div>
+  <div class="sub">That is the standard we manufacture to.</div>
+  <div class="accent-line"></div>
+  <div class="cta-button">Request a Sample</div>
+  <div class="logo-bar">Blau Batch</div>
+</div>
+
+</body>
+</html>

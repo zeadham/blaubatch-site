@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Company Story — Instagram Carousel</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #0a0a0a; display: flex; flex-direction: column; align-items: center; gap: 40px; padding: 40px; font-family: 'Open Sans', sans-serif; }
+  .slide-label { color: #666; font-size: 14px; margin-bottom: -30px; }
+  .slide { width: 1080px; height: 1080px; position: relative; overflow: hidden; background: #141B3E; display: flex; flex-direction: column; color: #fff; }
+  .tag { font-family: 'Open Sans', sans-serif; font-size: 16px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: #2B8DD0; margin-bottom: 16px; }
+  .logo-bar { position: absolute; bottom: 48px; left: 0; right: 0; text-align: center; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 18px; color: rgba(255,255,255,0.4); letter-spacing: 6px; text-transform: uppercase; }
+
+  /* ── Slide 1: Title ── */
+  .slide-1 { justify-content: center; align-items: center; text-align: center; background: radial-gradient(ellipse at 50% 50%, #23447A 0%, #141B3E 55%); }
+  .slide-1 h1 { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 72px; letter-spacing: 4px; text-transform: uppercase; line-height: 1.1; }
+  .slide-1 .accent-line { width: 120px; height: 4px; background: #2B8DD0; margin: 32px auto; }
+  .slide-1 .sub { font-family: 'Open Sans', sans-serif; font-size: 26px; color: #DCDCDC; max-width: 650px; line-height: 1.6; }
+
+  /* ── Timeline slides ── */
+  .timeline-slide { padding: 80px 72px; justify-content: center; }
+  .timeline-slide .year { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 120px; color: #2B8DD0; line-height: 1; margin-bottom: 16px; }
+  .timeline-slide h2 { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 44px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 32px; }
+  .timeline-slide .body-text { font-family: 'Open Sans', sans-serif; font-size: 26px; color: #DCDCDC; line-height: 1.7; max-width: 900px; }
+  .timeline-slide .body-text strong { color: #fff; }
+
+  .timeline-bar { position: absolute; left: 72px; top: 0; bottom: 0; width: 4px; background: linear-gradient(to bottom, transparent, #2B8DD0 20%, #2B8DD0 80%, transparent); }
+
+  .slide-2 { background: linear-gradient(160deg, #141B3E 0%, #1a2348 100%); }
+  .slide-3 { background: radial-gradient(ellipse at 70% 40%, #23447A 0%, #141B3E 60%); }
+  .slide-4 { background: linear-gradient(160deg, #1a2348 0%, #141B3E 100%); }
+
+  /* ── Slide 5: Key Stats ── */
+  .slide-5 { padding: 80px 72px; background: radial-gradient(ellipse at 30% 70%, #23447A 0%, #141B3E 60%); justify-content: center; }
+  .slide-5 h2 { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 48px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 56px; text-align: center; }
+  .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+  .stat-card { background: rgba(35,68,122,0.4); border: 1px solid rgba(220,220,220,0.15); border-radius: 12px; padding: 40px 32px; text-align: center; }
+  .stat-card .number { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 48px; color: #2B8DD0; margin-bottom: 8px; }
+  .stat-card .label { font-family: 'Open Sans', sans-serif; font-size: 20px; color: #DCDCDC; }
+
+  /* ── Slide 6: CTA ── */
+  .slide-6 { justify-content: center; align-items: center; text-align: center; background: radial-gradient(ellipse at 50% 50%, #23447A 0%, #141B3E 60%); }
+  .slide-6 .quote { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 44px; text-transform: uppercase; letter-spacing: 2px; max-width: 800px; line-height: 1.3; margin-bottom: 32px; }
+  .slide-6 .accent-line { width: 120px; height: 4px; background: #2B8DD0; margin: 0 auto 40px; }
+  .slide-6 .values { display: flex; flex-direction: column; gap: 16px; margin-bottom: 40px; }
+  .slide-6 .value-item { font-family: 'Open Sans', sans-serif; font-size: 24px; color: #DCDCDC; }
+  .slide-6 .value-item .arrow { color: #2B8DD0; font-weight: 700; margin-right: 8px; }
+  .slide-6 .follow { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 22px; color: #2B8DD0; letter-spacing: 2px; }
+</style>
+</head>
+<body>
+
+<p class="slide-label">Slide 1 — Title</p>
+<div class="slide slide-1">
+  <div class="tag">Our Story</div>
+  <h1>The Blau<br>Batch Story</h1>
+  <div class="accent-line"></div>
+  <div class="sub">We did not start because the market needed another masterbatch company. We started because it needed a reliable one.</div>
+  <div class="logo-bar">Blau Batch</div>
+</div>
+
+<p class="slide-label">Slide 2 — 2022</p>
+<div class="slide slide-2 timeline-slide">
+  <div class="year">2022</div>
+  <h2>We Saw a Gap</h2>
+  <div class="body-text">
+    Not a supply gap — a <strong>reliability gap</strong>.<br><br>
+    Converters importing filler from distant suppliers. Long lead times. Inconsistent quality. No direct technical support.<br><br>
+    So we built a manufacturing facility in <strong>6th of October City, Egypt</strong>. Focused on one thing: CaCO₃-based filler masterbatch for PE and PP.
+  </div>
+</div>
+
+<p class="slide-label">Slide 3 — 2024</p>
+<div class="slide slide-3 timeline-slide">
+  <div class="year">2024</div>
+  <h2>MENA to Europe</h2>
+  <div class="body-text">
+    Expanded logistics from MENA to <strong>European markets</strong>.<br><br>
+    Poland was among our first EU destinations.<br><br>
+    The demand was the same everywhere: <strong>consistent product</strong> from a supplier that actually responds.
+  </div>
+</div>
+
+<p class="slide-label">Slide 4 — 2025</p>
+<div class="slide slide-4 timeline-slide">
+  <div class="year">2025</div>
+  <h2>Full Spectrum</h2>
+  <div class="body-text">
+    Became an authorized distributor for <strong>Coraplast Industries</strong>.<br><br>
+    Added <strong>black, white, color, and specialty masterbatch</strong> to our range.<br><br>
+    One source for the full spectrum — because that is what our customers asked for.
+  </div>
+</div>
+
+<p class="slide-label">Slide 5 — Key Stats</p>
+<div class="slide slide-5">
+  <div class="tag">By the Numbers</div>
+  <h2>Where We Stand</h2>
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="number">70–80%</div>
+      <div class="label">CaCO₃ Loading</div>
+    </div>
+    <div class="stat-card">
+      <div class="number">MENA + EU</div>
+      <div class="label">Supply Reach</div>
+    </div>
+    <div class="stat-card">
+      <div class="number">PE · PP</div>
+      <div class="label">Carrier Systems</div>
+    </div>
+    <div class="stat-card">
+      <div class="number">24h</div>
+      <div class="label">Quote Response</div>
+    </div>
+  </div>
+</div>
+
+<p class="slide-label">Slide 6 — CTA</p>
+<div class="slide slide-6">
+  <div class="quote">We Are Just<br>Getting Started.</div>
+  <div class="accent-line"></div>
+  <div class="values">
+    <div class="value-item"><span class="arrow">→</span> We pick up the phone</div>
+    <div class="value-item"><span class="arrow">→</span> Quotes within 24 hours</div>
+    <div class="value-item"><span class="arrow">→</span> Every batch performs like the last</div>
+    <div class="value-item"><span class="arrow">→</span> We know our customers by name</div>
+  </div>
+  <div class="follow">Follow @blaubatch</div>
+  <div class="logo-bar">Blau Batch</div>
+</div>
+
+</body>
+</html>

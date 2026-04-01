@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FMPP Series — Instagram Carousel</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #0a0a0a; display: flex; flex-direction: column; align-items: center; gap: 40px; padding: 40px; font-family: 'Open Sans', sans-serif; }
+  .slide-label { color: #666; font-size: 14px; font-family: 'Open Sans', sans-serif; margin-bottom: -30px; }
+  .slide {
+    width: 1080px; height: 1080px;
+    position: relative; overflow: hidden;
+    background: #141B3E;
+    display: flex; flex-direction: column;
+    color: #fff;
+  }
+
+  /* ── Slide 1: Title ── */
+  .slide-1 {
+    justify-content: center; align-items: center; text-align: center;
+    background: radial-gradient(ellipse at 70% 30%, #23447A 0%, #141B3E 60%);
+  }
+  .slide-1 .tag { font-family: 'Open Sans', sans-serif; font-size: 18px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: #2B8DD0; margin-bottom: 24px; }
+  .slide-1 h1 { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 96px; letter-spacing: 6px; text-transform: uppercase; line-height: 1.05; }
+  .slide-1 .accent-line { width: 120px; height: 4px; background: #2B8DD0; margin: 32px auto; }
+  .slide-1 .sub { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 28px; color: #DCDCDC; letter-spacing: 2px; text-transform: uppercase; }
+  .slide-1 .desc { font-family: 'Open Sans', sans-serif; font-size: 22px; color: #DCDCDC; margin-top: 20px; max-width: 700px; line-height: 1.6; }
+  .slide-1 .corner-accent { position: absolute; width: 200px; height: 200px; border: 2px solid rgba(43,141,208,0.2); border-radius: 50%; }
+  .slide-1 .ca-tr { top: -60px; right: -60px; }
+  .slide-1 .ca-bl { bottom: -80px; left: -80px; width: 300px; height: 300px; }
+  .slide-1 .logo-bar { position: absolute; bottom: 48px; left: 0; right: 0; text-align: center; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 18px; color: rgba(255,255,255,0.4); letter-spacing: 6px; text-transform: uppercase; }
+
+  /* ── Slide 2: Four Grades ── */
+  .slide-2 { padding: 80px 72px; background: linear-gradient(160deg, #141B3E 0%, #1a2348 100%); }
+  .slide-2 .tag { font-family: 'Open Sans', sans-serif; font-size: 16px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: #2B8DD0; margin-bottom: 16px; }
+  .slide-2 h2 { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 48px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 48px; }
+  .grade-card { background: rgba(35,68,122,0.4); border: 1px solid rgba(220,220,220,0.15); border-radius: 12px; padding: 28px 36px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; }
+  .grade-card .name { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 32px; color: #2B8DD0; }
+  .grade-card .specs { font-family: 'Open Sans', sans-serif; font-size: 20px; color: #DCDCDC; text-align: right; line-height: 1.5; }
+  .grade-card .specs strong { color: #fff; font-weight: 700; }
+  .grade-card.highlight-card { border-color: #D4840A; background: rgba(212,132,10,0.1); }
+  .grade-card.highlight-card .name { color: #D4840A; }
+  .mfg-badge { display: inline-block; background: #D4840A; color: #fff; font-family: 'Open Sans', sans-serif; font-size: 13px; font-weight: 700; padding: 4px 12px; border-radius: 4px; letter-spacing: 1px; text-transform: uppercase; margin-left: 12px; vertical-align: middle; }
+
+  /* ── Slide 3: PPH Focus ── */
+  .slide-3 { padding: 80px 72px; justify-content: center; background: radial-gradient(ellipse at 30% 70%, #23447A 0%, #141B3E 60%); }
+  .slide-3 .tag { font-family: 'Open Sans', sans-serif; font-size: 16px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: #D4840A; margin-bottom: 16px; }
+  .slide-3 h2 { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 52px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; }
+  .slide-3 .subtitle { font-family: 'Open Sans', sans-serif; font-size: 24px; color: #DCDCDC; margin-bottom: 48px; line-height: 1.5; }
+  .feature-list { list-style: none; }
+  .feature-list li { font-family: 'Open Sans', sans-serif; font-size: 26px; color: #DCDCDC; padding: 16px 0; border-bottom: 1px solid rgba(220,220,220,0.1); display: flex; align-items: center; gap: 16px; }
+  .feature-list li:last-child { border-bottom: none; }
+  .feature-list .arrow { color: #D4840A; font-weight: 700; font-size: 28px; }
+  .feature-list strong { color: #fff; }
+
+  /* ── Slide 4: Applications Grid ── */
+  .slide-4 { padding: 80px 72px; background: linear-gradient(160deg, #141B3E 0%, #1a2348 100%); }
+  .slide-4 .tag { font-family: 'Open Sans', sans-serif; font-size: 16px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: #2B8DD0; margin-bottom: 16px; }
+  .slide-4 h2 { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 48px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 48px; }
+  .app-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; flex: 1; }
+  .app-card { background: rgba(35,68,122,0.35); border: 1px solid rgba(220,220,220,0.12); border-radius: 12px; padding: 36px 32px; display: flex; flex-direction: column; justify-content: center; }
+  .app-card .icon { font-size: 48px; margin-bottom: 16px; }
+  .app-card h4 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 24px; margin-bottom: 10px; text-transform: uppercase; }
+  .app-card p { font-family: 'Open Sans', sans-serif; font-size: 18px; color: #DCDCDC; line-height: 1.5; }
+
+  /* ── Slide 5: CTA ── */
+  .slide-5 { justify-content: center; align-items: center; text-align: center; background: radial-gradient(ellipse at 50% 50%, #23447A 0%, #141B3E 60%); }
+  .slide-5 .quote-text { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 40px; text-transform: uppercase; letter-spacing: 2px; max-width: 800px; line-height: 1.3; margin-bottom: 32px; }
+  .slide-5 .accent-line { width: 120px; height: 4px; background: #2B8DD0; margin: 0 auto 40px; }
+  .slide-5 .cta-item { font-family: 'Open Sans', sans-serif; font-size: 24px; color: #DCDCDC; margin-bottom: 12px; }
+  .slide-5 .cta-item strong { color: #2B8DD0; }
+  .slide-5 .cta-button { display: inline-block; margin-top: 40px; background: #2B8DD0; color: #fff; border-radius: 8px; padding: 20px 56px; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 22px; text-transform: uppercase; letter-spacing: 2px; }
+  .slide-5 .response-time { margin-top: 20px; font-family: 'Open Sans', sans-serif; font-size: 20px; color: rgba(255,255,255,0.5); }
+  .slide-5 .logo-bar { position: absolute; bottom: 48px; left: 0; right: 0; text-align: center; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 18px; color: rgba(255,255,255,0.4); letter-spacing: 6px; text-transform: uppercase; }
+</style>
+</head>
+<body>
+
+<p class="slide-label">Slide 1 — Title Card</p>
+<div class="slide slide-1">
+  <div class="corner-accent ca-tr"></div>
+  <div class="corner-accent ca-bl"></div>
+  <div class="tag">Product Spotlight</div>
+  <h1>FMPP<br>SERIES</h1>
+  <div class="accent-line"></div>
+  <div class="sub">PP Filler Masterbatch</div>
+  <div class="desc">Four grades. Two carrier systems.<br>CaCO₃ loading from 70% to 80%.</div>
+  <div class="logo-bar">Blau Batch</div>
+</div>
+
+<p class="slide-label">Slide 2 — The Four Grades</p>
+<div class="slide slide-2">
+  <div class="tag">Specifications</div>
+  <h2>Four Grades</h2>
+  <div class="grade-card">
+    <div class="name">FMPP-1070</div>
+    <div class="specs">PP Carrier · <strong>70% CaCO₃</strong></div>
+  </div>
+  <div class="grade-card">
+    <div class="name">FMPP-1075</div>
+    <div class="specs">PP Carrier · <strong>75% CaCO₃</strong></div>
+  </div>
+  <div class="grade-card">
+    <div class="name">FMPP-1080</div>
+    <div class="specs">PP Carrier · <strong>80% CaCO₃</strong></div>
+  </div>
+  <div class="grade-card highlight-card">
+    <div class="name">FMPP-2180</div>
+    <div class="specs">PPH Carrier · <strong>80% CaCO₃</strong></div>
+  </div>
+</div>
+
+<p class="slide-label">Slide 3 — FMPP-2180 Deep Dive</p>
+<div class="slide slide-3">
+  <div class="tag">Featured Grade</div>
+  <h2>FMPP-2180</h2>
+  <div class="subtitle">PPH (Homopolymer) Carrier — 80% CaCO₃ Loading</div>
+  <ul class="feature-list">
+    <li><span class="arrow">→</span> <strong>Maximum stiffness</strong> — homopolymer crystallinity</li>
+    <li><span class="arrow">→</span> <strong>Higher heat resistance</strong> — elevated HDT</li>
+    <li><span class="arrow">→</span> <strong>Woven sacks & raffia</strong> — where rigidity is the spec</li>
+    <li><span class="arrow">→</span> <strong>Strapping tape</strong> — tensile strength under load</li>
+    <li><span class="arrow">→</span> <strong>No unwanted flexibility</strong> — unlike copolymer carriers</li>
+  </ul>
+</div>
+
+<p class="slide-label">Slide 4 — Applications</p>
+<div class="slide slide-4">
+  <div class="tag">Applications</div>
+  <h2>Where FMPP Works</h2>
+  <div class="app-grid">
+    <div class="app-card">
+      <div class="icon">🧵</div>
+      <h4>Woven Sacks</h4>
+      <p>Agriculture, cement, fertilizer, bulk packaging</p>
+    </div>
+    <div class="app-card">
+      <div class="icon">⚙️</div>
+      <h4>Injection Molding</h4>
+      <p>Furniture, housewares, automotive, industrial containers</p>
+    </div>
+    <div class="app-card">
+      <div class="icon">🔲</div>
+      <h4>Thermoforming</h4>
+      <p>Food trays, lids, clamshells, blister packs</p>
+    </div>
+    <div class="app-card">
+      <div class="icon">📏</div>
+      <h4>Strapping & Raffia</h4>
+      <p>Strapping tape, woven fabrics, rope, twine</p>
+    </div>
+  </div>
+</div>
+
+<p class="slide-label">Slide 5 — CTA</p>
+<div class="slide slide-5">
+  <div class="quote-text">Consistency Is Not<br>a Feature.<br>It Is the Baseline.</div>
+  <div class="accent-line"></div>
+  <div class="cta-item"><strong>Email:</strong> info@blaubatch.com</div>
+  <div class="cta-item"><strong>WhatsApp:</strong> +2 0102 222 7723</div>
+  <div class="cta-button">Request a TDS</div>
+  <div class="response-time">Response time: 24 hours</div>
+  <div class="logo-bar">Blau Batch</div>
+</div>
+
+</body>
+</html>

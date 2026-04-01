@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blau Batch — Product Card (Print)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  /* ─── VARIABLES ─────────────────────────────────────────────── */
+  :root {
+    --navy:       #141B3E;
+    --steel:      #23447A;
+    --sky:        #2B8DD0;
+    --amber:      #D4840A;
+    --lgrey:      #DCDCDC;
+    --white:      #FFFFFF;
+    --line:       rgba(220,220,220,0.15);
+
+    /* A5 landscape */
+    --w: 210mm;
+    --h: 148mm;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #2a2a2a;
+    font-family: 'Open Sans', Arial, sans-serif;
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px 0 48px;
+    gap: 0;
+  }
+
+  /* ─── SCREEN LABELS ─────────────────────────────────────────── */
+  .side-label {
+    width: var(--w);
+    padding: 10px 0 6px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #999;
+  }
+
+  .cut-line {
+    width: var(--w);
+    border: none;
+    border-top: 1px dashed #555;
+    margin: 12px 0;
+    position: relative;
+  }
+  .cut-line::after {
+    content: '✂  fold / cut here';
+    position: absolute;
+    right: 0;
+    top: -9px;
+    font-size: 9px;
+    color: #666;
+    font-family: 'Open Sans', sans-serif;
+    letter-spacing: 0.08em;
+  }
+
+  /* ─── CARD BASE ──────────────────────────────────────────────── */
+  .card {
+    width: var(--w);
+    height: var(--h);
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════
+     FRONT
+  ═══════════════════════════════════════════════════════════════ */
+  .front {
+    background: var(--navy);
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* — Header ————————————————————————————————————————————————————— */
+  .front-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 7mm 8mm 5mm;
+    border-bottom: 1px solid var(--line);
+    flex-shrink: 0;
+  }
+
+  .logo-block {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .logo-block img {
+    height: 28px;
+    width: auto;
+    display: block;
+  }
+  .logo-text {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-weight: 900;
+    font-size: 18px;
+    letter-spacing: 0.06em;
+    color: var(--white);
+    line-height: 1;
+  }
+  .logo-sub {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 7px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--sky);
+    margin-top: 3px;
+  }
+
+  .tagline {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-weight: 700;
+    font-size: 9.5px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--lgrey);
+    text-align: right;
+    line-height: 1.4;
+  }
+  .tagline span {
+    display: block;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 7.5px;
+    letter-spacing: 0.06em;
+    color: rgba(220,220,220,0.5);
+    margin-top: 2px;
+  }
+
+  /* — Body columns ──────────────────────────────────────────────── */
+  .front-body {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    overflow: hidden;
+  }
+
+  .col {
+    padding: 5mm 6mm 4mm;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .col-left  { border-right: 1px solid var(--line); }
+
+  /* — Column header badge ───────────────────────────────────────── */
+  .col-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 3px 8px 3px 6px;
+    border-radius: 3px;
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-weight: 800;
+    font-size: 7px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    width: fit-content;
+    margin-bottom: 4px;
+  }
+  .col-badge.amber { background: var(--amber); color: var(--white); }
+  .col-badge.sky   { background: var(--sky);   color: var(--white); }
+
+  .col-badge svg {
+    width: 9px; height: 9px; flex-shrink: 0;
+  }
+
+  /* — Product group ─────────────────────────────────────────────── */
+  .prod-group {
+    margin-bottom: 5px;
+  }
+
+  .prod-title {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-weight: 800;
+    font-size: 8.5px;
+    letter-spacing: 0.08em;
+    color: var(--white);
+    line-height: 1.2;
+    margin-bottom: 2px;
+  }
+  .prod-title-sub {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 7px;
+    font-weight: 600;
+    color: var(--lgrey);
+    margin-bottom: 3px;
+    letter-spacing: 0.04em;
+  }
+
+  .grade-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3px;
+    margin-bottom: 3px;
+  }
+  .chip {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: 7px;
+    letter-spacing: 0.04em;
+    padding: 2px 5px;
+    border-radius: 2px;
+    background: var(--steel);
+    color: var(--lgrey);
+    border: 1px solid rgba(43,141,208,0.25);
+  }
+
+  .prod-apps {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 7px;
+    color: rgba(220,220,220,0.6);
+    line-height: 1.4;
+    letter-spacing: 0.02em;
+  }
+
+  /* — Divider ───────────────────────────────────────────────────── */
+  .prod-divider {
+    border: none;
+    border-top: 1px solid var(--line);
+    margin: 4px 0;
+  }
+
+  /* — Custom FMPC ─────────────────────────────────────────────── */
+  .custom-block {
+    background: rgba(35,68,122,0.35);
+    border: 1px solid rgba(43,141,208,0.2);
+    border-radius: 4px;
+    padding: 4px 7px;
+    margin-top: auto;
+  }
+  .custom-block .prod-title { color: var(--sky); font-size: 7.5px; }
+  .custom-block p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 6.5px;
+    color: rgba(220,220,220,0.65);
+    line-height: 1.5;
+    margin-top: 2px;
+  }
+
+  /* — Right column distributed products ────────────────────────── */
+  .dist-category {
+    margin-bottom: 3px;
+  }
+  .dist-cat-name {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-weight: 700;
+    font-size: 7.5px;
+    color: var(--white);
+    letter-spacing: 0.05em;
+    margin-bottom: 1px;
+  }
+  .dist-grades {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 6.5px;
+    color: rgba(220,220,220,0.55);
+    line-height: 1.4;
+    letter-spacing: 0.02em;
+  }
+
+  .additive-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px 6px;
+    margin-top: 4px;
+  }
+  .additive-item {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 6.5px;
+    color: rgba(220,220,220,0.65);
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    line-height: 1.3;
+  }
+  .additive-item::before {
+    content: '';
+    display: block;
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: var(--sky);
+    flex-shrink: 0;
+  }
+
+  /* — Bottom contact bar ─────────────────────────────────────────── */
+  .front-footer {
+    background: var(--steel);
+    border-top: 1px solid rgba(43,141,208,0.3);
+    padding: 3.5mm 8mm;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+  }
+
+  .contact-strip {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .contact-item svg {
+    width: 10px; height: 10px; flex-shrink: 0;
+    color: var(--sky);
+  }
+  .contact-item span {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 7.5px;
+    font-weight: 600;
+    color: var(--lgrey);
+    letter-spacing: 0.02em;
+  }
+
+  .qr-block {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+  .qr-label {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 6.5px;
+    color: rgba(220,220,220,0.6);
+    text-align: right;
+    line-height: 1.4;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .qr-box {
+    width: 60px;
+    height: 60px;
+    border: 1.5px dashed rgba(43,141,208,0.6);
+    border-radius: 4px;
+    background: rgba(43,141,208,0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 3px;
+    flex-shrink: 0;
+  }
+  .qr-box svg {
+    width: 20px; height: 20px;
+    color: rgba(43,141,208,0.5);
+  }
+  .qr-box-text {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 5.5px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgba(43,141,208,0.7);
+    text-align: center;
+    line-height: 1.3;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════
+     BACK
+  ═══════════════════════════════════════════════════════════════ */
+  .back {
+    background: var(--navy);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* decorative circle ring */
+  .back-ring {
+    position: absolute;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    border: 1px solid rgba(35,68,122,0.55);
+    pointer-events: none;
+  }
+  .back-ring-2 {
+    position: absolute;
+    width: 270px; height: 270px;
+    border-radius: 50%;
+    border: 1px solid rgba(35,68,122,0.28);
+    pointer-events: none;
+  }
+  .back-ring-3 {
+    position: absolute;
+    width: 350px; height: 350px;
+    border-radius: 50%;
+    border: 1px solid rgba(35,68,122,0.14);
+    pointer-events: none;
+  }
+
+  /* subtle horizontal rule */
+  .back-line-top,
+  .back-line-bottom {
+    position: absolute;
+    left: 0; right: 0;
+    height: 1px;
+    background: rgba(35,68,122,0.4);
+  }
+  .back-line-top    { top: 22mm; }
+  .back-line-bottom { bottom: 22mm; }
+
+  .back-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    z-index: 1;
+  }
+
+  .back-logo-wrap {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .back-logo-wrap img {
+    height: 46px;
+    width: auto;
+    filter: brightness(1.05);
+  }
+
+  .back-wordmark {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-weight: 900;
+    font-size: 36px;
+    letter-spacing: 0.08em;
+    color: var(--white);
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  .back-rule {
+    width: 60mm;
+    border: none;
+    border-top: 1px solid rgba(35,68,122,0.8);
+    margin: 2px auto;
+  }
+
+  .back-tagline {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--lgrey);
+    text-align: center;
+    opacity: 0.75;
+  }
+
+  .back-contact {
+    display: flex;
+    gap: 18px;
+    margin-top: 4px;
+  }
+  .back-contact-item {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 7.5px;
+    color: rgba(220,220,220,0.45);
+    letter-spacing: 0.04em;
+    text-align: center;
+  }
+
+  /* ─── PRINT ─────────────────────────────────────────────────── */
+  @media print {
+    body {
+      background: white;
+      padding: 0;
+    }
+    .side-label,
+    .cut-line { display: none !important; }
+    .card {
+      page-break-after: always;
+      break-after: page;
+    }
+    /* bleed-safe */
+    @page {
+      size: 210mm 148mm landscape;
+      margin: 0;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════════ FRONT ══════════════ -->
+<div class="side-label">FRONT</div>
+
+<div class="card front">
+
+  <!-- HEADER -->
+  <header class="front-header">
+    <div class="logo-block">
+      <img
+        src="../Logos/BlauBatch_Logo_Mono_White_Transparent.png"
+        alt="Blau Batch logo"
+        onerror="this.style.display='none'"
+      >
+      <div>
+        <div class="logo-text">BLAU BATCH</div>
+        <div class="logo-sub">Masterbatch Manufacturer · Egypt</div>
+      </div>
+    </div>
+    <div class="tagline">
+      Full-Spectrum Masterbatch Solutions
+      <span>MENA · Europe · Global</span>
+    </div>
+  </header>
+
+  <!-- BODY -->
+  <div class="front-body">
+
+    <!-- LEFT: Manufactured -->
+    <div class="col col-left">
+      <div class="col-badge amber">
+        <!-- factory icon -->
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="7" width="20" height="14" rx="1"/><path d="M16 7V3H8v4"/><line x1="12" y1="12" x2="12" y2="16"/>
+        </svg>
+        Manufactured by Blau Batch
+      </div>
+
+      <!-- FMPE -->
+      <div class="prod-group">
+        <div class="prod-title">FMPE Series</div>
+        <div class="prod-title-sub">PE Filler Masterbatch — LLDPE / LDPE Carrier</div>
+        <div class="grade-chips">
+          <span class="chip">FMPE-1070</span>
+          <span class="chip">FMPE-1075</span>
+          <span class="chip">FMPE-1080</span>
+          <span class="chip">FMPE-2070</span>
+        </div>
+        <div class="prod-apps">Blown film · Cast film · Bags · Liners · Injection</div>
+      </div>
+
+      <hr class="prod-divider">
+
+      <!-- FMPP -->
+      <div class="prod-group">
+        <div class="prod-title">FMPP Series</div>
+        <div class="prod-title-sub">PP Filler Masterbatch — PP / PPH Carrier</div>
+        <div class="grade-chips">
+          <span class="chip">FMPP-1070</span>
+          <span class="chip">FMPP-1075</span>
+          <span class="chip">FMPP-1080</span>
+          <span class="chip">FMPP-2180</span>
+        </div>
+        <div class="prod-apps">Raffia · Woven bags · BOPP film · Thermoforming · Non-woven</div>
+      </div>
+
+      <hr class="prod-divider">
+
+      <!-- Custom -->
+      <div class="custom-block">
+        <div class="prod-title">FMPC Series — Custom Formulations</div>
+        <p>Any PE or PP carrier · Any CaCO₃ loading per specification<br>MOQ 1 MT &nbsp;·&nbsp; Development time 2–4 weeks</p>
+      </div>
+    </div>
+
+    <!-- RIGHT: Distributed -->
+    <div class="col col-right">
+      <div class="col-badge sky">
+        <!-- globe icon -->
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+        </svg>
+        Distributed via Coraplast
+      </div>
+
+      <!-- Black MB -->
+      <div class="dist-category">
+        <div class="dist-cat-name">Black Masterbatch  <span style="font-weight:400;color:rgba(220,220,220,0.5);font-size:6.5px;">(14 grades)</span></div>
+        <div class="dist-grades">BLACK 03 FF · 08 FF · 10 FF/FS · 15 FF · 31 FF · 51 FF · 58 FS · 93 FF · 101 FF · 141 FF · 179 FF · 207 FY · 210 FF · 284 FY</div>
+      </div>
+
+      <hr class="prod-divider">
+
+      <!-- White MB -->
+      <div class="dist-category">
+        <div class="dist-cat-name">White Masterbatch  <span style="font-weight:400;color:rgba(220,220,220,0.5);font-size:6.5px;">(10 grades)</span></div>
+        <div class="dist-grades">WHITE 57 FF · 71 FF/FE · 175 FF · 220 FF · 224 FF · 304 FF · 309 FF · 313 FF · 356 FF · 491 MD</div>
+      </div>
+
+      <hr class="prod-divider">
+
+      <!-- Additives -->
+      <div class="dist-cat-name" style="margin-bottom:4px;">Additive Masterbatch</div>
+      <div class="additive-grid">
+        <div class="additive-item">UV Stabilizers</div>
+        <div class="additive-item">Processing Aids</div>
+        <div class="additive-item">Slip Agents</div>
+        <div class="additive-item">Anti-blocking</div>
+        <div class="additive-item">Anti-fog</div>
+        <div class="additive-item">Anti-static</div>
+        <div class="additive-item">Optical Brightener</div>
+        <div class="additive-item">Desiccant</div>
+      </div>
+    </div>
+
+  </div><!-- /front-body -->
+
+  <!-- FOOTER / CONTACT + QR -->
+  <footer class="front-footer">
+    <div class="contact-strip">
+
+      <div class="contact-item">
+        <!-- phone -->
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.58 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.56a16 16 0 0 0 6.29 6.29l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
+        <span>+2 0102 222 7723</span>
+      </div>
+
+      <div class="contact-item">
+        <!-- mail -->
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+        </svg>
+        <span>info@blaubatch.com</span>
+      </div>
+
+      <div class="contact-item">
+        <!-- globe -->
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+        </svg>
+        <span>blaubatch.com</span>
+      </div>
+
+    </div>
+
+    <!-- QR PLACEHOLDER -->
+    <div class="qr-block">
+      <div class="qr-label">Scan for<br>website</div>
+      <div class="qr-box">
+        <!-- qr icon placeholder -->
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/>
+          <rect x="5" y="5" width="3" height="3" rx="0.5" fill="currentColor" stroke="none"/><rect x="16" y="5" width="3" height="3" rx="0.5" fill="currentColor" stroke="none"/><rect x="5" y="16" width="3" height="3" rx="0.5" fill="currentColor" stroke="none"/>
+          <line x1="14" y1="14" x2="14" y2="14.01" stroke-width="2.5" stroke-linecap="round"/><line x1="17" y1="14" x2="17" y2="17"/><line x1="17" y1="17" x2="21" y2="17"/><line x1="21" y1="14" x2="21" y2="14.01" stroke-width="2.5" stroke-linecap="round"/><line x1="14" y1="17" x2="14" y2="21"/><line x1="14" y1="21" x2="17" y2="21"/>
+        </svg>
+        <div class="qr-box-text">Place QR<br>here</div>
+      </div>
+    </div>
+
+  </footer>
+
+</div><!-- /front -->
+
+<!-- ══════════════ CUT LINE ══════════════ -->
+<hr class="cut-line">
+
+<!-- ══════════════ BACK ══════════════ -->
+<div class="side-label">BACK</div>
+
+<div class="card back">
+
+  <!-- decorative rings -->
+  <div class="back-ring"></div>
+  <div class="back-ring-2"></div>
+  <div class="back-ring-3"></div>
+
+  <!-- horizontal rules -->
+  <div class="back-line-top"></div>
+  <div class="back-line-bottom"></div>
+
+  <!-- centered content -->
+  <div class="back-content">
+    <div class="back-logo-wrap">
+      <img
+        src="../Logos/BlauBatch_Logo_Mono_White_Transparent.png"
+        alt="Blau Batch"
+        onerror="this.style.display='none'"
+      >
+      <div class="back-wordmark">BLAU BATCH</div>
+    </div>
+
+    <hr class="back-rule">
+
+    <div class="back-tagline">Full-Spectrum Masterbatch Solutions</div>
+
+    <div class="back-contact">
+      <div class="back-contact-item">info@blaubatch.com</div>
+      <div class="back-contact-item" style="color:rgba(35,68,122,0.8);">·</div>
+      <div class="back-contact-item">blaubatch.com</div>
+      <div class="back-contact-item" style="color:rgba(35,68,122,0.8);">·</div>
+      <div class="back-contact-item">6th October City, Egypt</div>
+    </div>
+  </div>
+
+</div><!-- /back -->
+
+</body>
+</html>

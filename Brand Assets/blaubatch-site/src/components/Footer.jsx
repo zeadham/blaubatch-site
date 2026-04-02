@@ -60,7 +60,7 @@ export default function Footer() {
 
   return (
     <footer style={{
-      background: '#141b3e',
+      background: '#141b3f',
       borderTop: '1px solid rgba(255,255,255,0.08)',
       padding: '64px 48px 32px',
     }}>
@@ -82,7 +82,7 @@ export default function Footer() {
                 <img src="/logo-mark.png" alt="Blau Batch" style={{ height: 32, objectFit: 'contain' }} />
                 <span style={{
                   fontFamily: 'Montserrat, sans-serif', fontWeight: 900,
-                  fontSize: 14, color: '#fff', letterSpacing: '0.12em',
+                  fontSize: 14, color: '#fffffe', letterSpacing: '0.12em',
                   textTransform: 'uppercase', lineHeight: 1,
                 }}>BLAU BATCH</span>
               </div>
@@ -134,7 +134,7 @@ export default function Footer() {
                     <a href={link.href} style={{
                       fontSize: 13, color: 'rgba(255,255,255,0.58)', transition: 'color 0.15s', fontWeight: 400,
                     }}
-                    onMouseEnter={e => e.currentTarget.style.color = '#fff'}
+                    onMouseEnter={e => e.currentTarget.style.color = '#fffffe'}
                     onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.58)'}
                     >{link.label}</a>
                   </li>

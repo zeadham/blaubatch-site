@@ -26,7 +26,7 @@ const REGIONS = [
 
 const inputStyle = {
   width: '100%', padding: '12px 14px',
-  background: '#141B3E', border: '1px solid rgba(255,255,255,0.12)',
+  background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)',
   borderRadius: 8, color: '#fff', fontFamily: 'Open Sans, sans-serif', fontSize: 14,
   outline: 'none', transition: 'border-color 0.2s', boxSizing: 'border-box',
 }
@@ -38,7 +38,7 @@ const labelStyle = {
 
 function FocusInput(props) {
   const [focused, setFocused] = useState(false)
-  const style = { ...inputStyle, borderColor: focused ? 'rgba(43,141,208,0.6)' : 'rgba(255,255,255,0.12)' }
+  const style = { ...inputStyle, borderColor: focused ? 'rgba(255,255,255,0.8)' : 'rgba(255,255,255,0.2)' }
   const isTextarea = props.as === 'textarea'
   const isSelect = props.as === 'select'
   const commonProps = {
@@ -59,8 +59,8 @@ function FocusInput(props) {
 }
 
 const btnNext = {
-  padding: '12px 24px', background: '#2B8DD0', color: '#fff', border: 'none',
-  borderRadius: 7, fontFamily: 'Montserrat, sans-serif', fontSize: 13, fontWeight: 700,
+  padding: '12px 24px', background: '#fff', color: '#1A5AB8', border: 'none',
+  borderRadius: 7, fontFamily: 'Montserrat, sans-serif', fontSize: 13, fontWeight: 800,
   cursor: 'pointer', transition: 'background 0.2s',
 }
 const btnBack = {
@@ -124,9 +124,9 @@ export default function QuoteForm({
   }
 
   return (
-    <div ref={formRef} style={{ background: '#23447A', border: '1px solid rgba(255,255,255,0.15)', borderRadius: 16, overflow: 'hidden' }}>
+    <div ref={formRef} style={{ background: '#1A5AB8', border: '1px solid rgba(26,90,184,0.3)', borderRadius: 16, overflow: 'hidden', boxShadow: '0 20px 40px rgba(26,90,184,0.15)' }}>
       {!done && (
-        <div style={{ display: 'flex', borderBottom: '1px solid rgba(255,255,255,0.09)' }}>
+        <div style={{ display: 'flex', borderBottom: '1px solid rgba(255,255,255,0.15)' }}>
           {STEP_LABELS.map((label, i) => {
             const n = i + 1
             const active = step === n
@@ -134,14 +134,14 @@ export default function QuoteForm({
             return (
               <div key={n} style={{
                 flex: 1, padding: '16px', textAlign: 'center',
-                borderBottom: `2px solid ${active ? '#2B8DD0' : 'transparent'}`,
+                borderBottom: `3px solid ${active ? '#fff' : 'transparent'}`,
                 transition: 'all 0.2s', cursor: completed ? 'pointer' : 'default',
               }}
               onClick={() => completed && goStep(n)}
               >
                 <div style={{
                   fontFamily: 'Montserrat, sans-serif', fontSize: 11, fontWeight: 800,
-                  color: completed ? '#2B8DD0' : active ? '#2B8DD0' : 'rgba(255,255,255,0.3)',
+                  color: completed ? '#fff' : active ? '#fff' : 'rgba(255,255,255,0.5)',
                   marginBottom: 2, letterSpacing: '0.05em',
                 }}>
                   {completed ? '✓' : `0${n}`}
@@ -197,8 +197,8 @@ export default function QuoteForm({
                   onClick={() => setProduct(p.value)}
                   style={{
                     padding: '14px', borderRadius: 8, cursor: 'pointer', transition: 'all 0.2s',
-                    border: product === p.value ? '1px solid #2B8DD0' : '1px solid rgba(255,255,255,0.09)',
-                    background: product === p.value ? 'rgba(43,141,208,0.12)' : '#141B3E',
+                    border: product === p.value ? '2px solid #fff' : '1px solid rgba(255,255,255,0.2)',
+                    background: product === p.value ? 'rgba(255,255,255,0.15)' : 'rgba(255,255,255,0.05)',
                   }}
                 >
                   <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 13, fontWeight: 700, marginBottom: 3, color: '#fff' }}>{p.name}</div>
@@ -220,10 +220,10 @@ export default function QuoteForm({
               </FocusInput>
             </div>
 
-            <div style={{ display: 'flex', justifyContent: 'flex-end', paddingTop: 20, borderTop: '1px solid rgba(255,255,255,0.09)' }}>
+            <div style={{ display: 'flex', justifyContent: 'flex-end', paddingTop: 20, borderTop: '1px solid rgba(255,255,255,0.15)' }}>
               <button onClick={() => goStep(2)} style={btnNext}
-                onMouseEnter={e => e.currentTarget.style.background = '#23447A'}
-                onMouseLeave={e => e.currentTarget.style.background = '#2B8DD0'}
+                onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.9)'; e.currentTarget.style.transform = 'translateY(-1px)' }}
+                onMouseLeave={e => { e.currentTarget.style.background = '#fff'; e.currentTarget.style.transform = 'none' }}
               >Next: Quantity & Region →</button>
             </div>
           </motion.div>
@@ -270,14 +270,14 @@ export default function QuoteForm({
               <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.3)', marginTop: 6 }}>The more detail you provide, the more precise our quote.</div>
             </div>
 
-            <div style={{ display: 'flex', justifyContent: 'space-between', paddingTop: 20, borderTop: '1px solid rgba(255,255,255,0.09)' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', paddingTop: 20, borderTop: '1px solid rgba(255,255,255,0.15)' }}>
               <button onClick={() => goStep(1)} style={btnBack}
-                onMouseEnter={e => { e.currentTarget.style.color = '#fff'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.35)' }}
+                onMouseEnter={e => { e.currentTarget.style.color = '#fff'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.5)' }}
                 onMouseLeave={e => { e.currentTarget.style.color = 'rgba(255,255,255,0.6)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.15)' }}
               >← Back</button>
               <button onClick={() => goStep(3)} style={btnNext}
-                onMouseEnter={e => e.currentTarget.style.background = '#23447A'}
-                onMouseLeave={e => e.currentTarget.style.background = '#2B8DD0'}
+                onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.9)'; e.currentTarget.style.transform = 'translateY(-1px)' }}
+                onMouseLeave={e => { e.currentTarget.style.background = '#fff'; e.currentTarget.style.transform = 'none' }}
               >Next: Your Details →</button>
             </div>
           </motion.div>
@@ -329,14 +329,14 @@ export default function QuoteForm({
             </div>
 
             <button onClick={submit} disabled={submitting} style={{
-              width: '100%', padding: '14px', background: submitting ? '#1a5a9a' : '#2B8DD0', color: '#fff', border: 'none',
-              borderRadius: 7, fontFamily: 'Montserrat, sans-serif', fontSize: 13, fontWeight: 800,
+              width: '100%', padding: '14px', background: submitting ? 'rgba(255,255,255,0.5)' : '#fff', color: '#1A5AB8', border: 'none',
+              borderRadius: 7, fontFamily: 'Montserrat, sans-serif', fontSize: 13, fontWeight: 900,
               letterSpacing: '0.06em', textTransform: 'uppercase', cursor: submitting ? 'not-allowed' : 'pointer',
-              display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, transition: 'background 0.2s',
+              display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, transition: 'all 0.2s',
               opacity: submitting ? 0.75 : 1,
             }}
-            onMouseEnter={e => !submitting && (e.currentTarget.style.background = '#23447A')}
-            onMouseLeave={e => !submitting && (e.currentTarget.style.background = '#2B8DD0')}
+            onMouseEnter={e => !submitting && (e.currentTarget.style.background = 'rgba(255,255,255,0.9)')}
+            onMouseLeave={e => !submitting && (e.currentTarget.style.background = '#fff')}
             >{submitting ? 'Sending…' : 'Submit Quote Request ↗'}</button>
           </motion.div>
         )}

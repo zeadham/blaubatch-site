@@ -139,7 +139,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <ErrorBoundary>
-        <div style={{ background: '#141B3E', minHeight: '100vh' }}>
+        <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
           <Navbar />
           <ErrorBoundary>
             <AnimatedRoutes />

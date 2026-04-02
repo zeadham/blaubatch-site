@@ -27,9 +27,9 @@ export default function Navbar() {
     height: 68,
     display: 'flex', alignItems: 'center', justifyContent: 'space-between',
     padding: '0 48px',
-    background: scrolled ? 'rgba(255,255,255,0.95)' : 'transparent',
-    backdropFilter: scrolled ? 'blur(12px)' : 'none',
-    borderBottom: scrolled ? '1px solid rgba(20,27,62,0.08)' : 'none',
+    background: scrolled ? '#141b3f' : 'transparent',
+    backdropFilter: scrolled ? 'none' : 'none',
+    borderBottom: scrolled ? '1px solid rgba(255,255,255,0.08)' : 'none',
     transition: 'all 0.3s ease',
   }
 
@@ -41,7 +41,7 @@ export default function Navbar() {
           <img src="/logo-mark.png" alt="Blau Batch" style={{ height: 36, objectFit: 'contain', filter: 'drop-shadow(0 0 6px rgba(0,0,0,0.8))' }} />
           <span style={{
             fontFamily: 'Montserrat, sans-serif', fontWeight: 900,
-            fontSize: 15, color: '#fff', letterSpacing: '0.12em',
+            fontSize: 15, color: '#fffffe', letterSpacing: '0.12em',
             textTransform: 'uppercase', lineHeight: 1,
             textShadow: '0 1px 6px rgba(0,0,0,0.7)',
           }}>BLAU BATCH</span>
@@ -60,7 +60,7 @@ export default function Navbar() {
               padding: '8px 14px', background: 'none', border: 'none', cursor: 'pointer',
               fontFamily: 'Montserrat, sans-serif', fontSize: 11, fontWeight: 700,
               letterSpacing: '0.07em', textTransform: 'uppercase',
-              color: productsOpen ? '#141B3E' : 'rgba(20,27,62,0.65)',
+              color: productsOpen ? '#fffffe' : (scrolled ? 'rgba(254,254,254,0.8)' : 'rgba(20,27,62,0.65)'),
               borderRadius: 6, transition: 'all 0.2s',
             }}>
               Products <ChevronDown size={12} style={{ opacity: 0.6, transform: productsOpen ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s' }} />
@@ -106,10 +106,10 @@ export default function Navbar() {
             <Link key={label} to={href} style={{
               padding: '8px 14px', fontFamily: 'Montserrat, sans-serif', fontSize: 11,
               fontWeight: 700, letterSpacing: '0.07em', textTransform: 'uppercase',
-              color: 'rgba(20,27,62,0.65)', borderRadius: 6, transition: 'all 0.2s',
+              color: scrolled ? 'rgba(254,254,254,0.8)' : 'rgba(20,27,62,0.65)', borderRadius: 6, transition: 'all 0.2s',
             }}
-            onMouseEnter={e => { e.currentTarget.style.color = '#141B3E'; e.currentTarget.style.background = 'rgba(20,27,62,0.05)' }}
-            onMouseLeave={e => { e.currentTarget.style.color = 'rgba(20,27,62,0.65)'; e.currentTarget.style.background = 'transparent' }}
+            onMouseEnter={e => { e.currentTarget.style.color = scrolled ? '#fffffe' : '#141b3f'; e.currentTarget.style.background = scrolled ? 'rgba(255,255,255,0.1)' : 'rgba(20,27,62,0.05)' }}
+            onMouseLeave={e => { e.currentTarget.style.color = scrolled ? 'rgba(254,254,254,0.8)' : 'rgba(20,27,62,0.65)'; e.currentTarget.style.background = 'transparent' }}
             >{label}</Link>
           ))}
         </div>
@@ -129,7 +129,7 @@ export default function Navbar() {
           {/* Mobile hamburger */}
           <button
             onClick={() => setMobileOpen(o => !o)}
-            style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#141B3E', padding: 4, display: 'none' }}
+            style={{ background: 'none', border: 'none', cursor: 'pointer', color: scrolled ? '#fffffe' : '#141b3f', padding: 4, display: 'none' }}
             className="mobile-hamburger"
           >
             {mobileOpen ? <X size={22} /> : <Menu size={22} />}

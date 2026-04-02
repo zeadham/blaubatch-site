@@ -54,3 +54,54 @@ a { text-decoration: none; color: inherit; }
   from { opacity: 0; transform: translateY(24px); }
   to   { opacity: 1; transform: translateY(0); }
 }
+
+/* =========================================================================
+   LIGHT THEME GLOBAL INVERSION
+   Overrides hardcoded React inline styles for instant light theme deployment
+   ========================================================================= */
+
+/* Invert dark body backgrounds */
+[style*="background: #141B3E"],
+[style*="background: rgb(20, 27, 62)"] {
+  background: transparent !important;
+}
+
+/* Invert dark cards and inputs */
+[style*="background: #23447A"],
+[style*="background: rgb(35, 68, 122)"] {
+  background: rgba(255, 255, 255, 0.8) !important;
+  color: #141B3E !important;
+  border-color: rgba(20, 27, 62, 0.08) !important;
+}
+
+/* Invert subtle light text to subtle dark text */
+[style*="color: rgba(255, 255, 255, 0.55)"],
+[style*="color: rgba(255, 255, 255, 0.6)"],
+[style*="color: rgba(255, 255, 255, 0.65)"] {
+  color: rgba(20, 27, 62, 0.65) !important;
+}
+
+/* Invert pure white text to dark navy */
+[style*="color: #fff"], 
+[style*="color: rgb(255, 255, 255)"] {
+  color: #141B3E !important;
+}
+
+/* Exception: Buttons and accents must keep white text */
+a[style*="background: #2B8DD0"],
+button[style*="background: #2B8DD0"],
+[style*="background: rgb(43, 141, 208)"] {
+  color: #fff !important;
+}
+
+/* Invert light borders to subtle dark borders */
+[style*="border: 1px solid rgba(255, 255, 255, 0.09)"],
+[style*="border-bottom: 1px solid rgba(255, 255, 255, 0.07)"] {
+  border-color: rgba(20, 27, 62, 0.08) !important;
+}
+
+/* Invert faint white glassmorphism to faint dark glassmorphism */
+[style*="background: rgba(255, 255, 255, 0.04)"],
+[style*="background: rgba(255, 255, 255, 0.1)"] {
+  background: rgba(20, 27, 62, 0.03) !important;
+}

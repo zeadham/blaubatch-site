@@ -9,14 +9,11 @@ const PRODUCTS = [
     badge: 'MANUFACTURED',
     badgeColor: '#D4840A',
     desc: 'CaCO₃-based filler in PE and PP carriers for blown film, extrusion, and injection moulding.',
-    specs: ['70% · 75% · 80% CaCO₃', 'LDPE · LLDPE · HDPE carrier', 'Blown Film · Cast Film · Injection'],
+    specs: ['70% · 75% · 80% CaCO₃', 'LDPE · LLDPE · HDPE', 'Blown Film · Cast Film'],
     featured: true,
     href: '/fmpe',
     hrefs: [{ label: 'FMPE Series', url: '/fmpe' }, { label: 'FMPP Series', url: '/fmpp' }],
-    iconColor: '#D4840A',
-    visual: 'linear-gradient(135deg, #2a1500 0%, #4a2800 40%, #6b3a00 70%, #3d2000 100%)',
-    visualDots: 'rgba(212,132,10,0.25)',
-    visualLabel: 'CaCO₃',
+    imgUrl: '/images/heroes/filler.png',
   },
   {
     code: 'WMB Series',
@@ -24,12 +21,9 @@ const PRODUCTS = [
     badge: 'CORAPLAST',
     badgeColor: '#23447A',
     desc: 'TiO₂-based white concentrates. High opacity, multiple grades including food-contact compliant.',
-    specs: ['PE & PP carriers', 'Food-contact grades', 'High-whiteness variants'],
+    specs: ['PE & PP carriers', 'Food-contact grades', 'High-whiteness'],
     href: '/white-masterbatch',
-    iconColor: '#2B8DD0',
-    visual: 'linear-gradient(135deg, #a8b8c4 0%, #d8e8f0 40%, #eef5f9 70%, #c8d8e4 100%)',
-    visualDots: 'rgba(255,255,255,0.7)',
-    visualLabel: 'TiO₂',
+    imgUrl: '/images/heroes/white.png',
   },
   {
     code: 'BMB Series',
@@ -39,10 +33,7 @@ const PRODUCTS = [
     desc: 'Carbon black concentrates with UV-stable grades for pipes, agricultural film, and cable.',
     specs: ['UV-stable grades', 'Pipe · Cable · Film', 'PE & PP carriers'],
     href: '/black-masterbatch',
-    iconColor: '#2B8DD0',
-    visual: 'linear-gradient(135deg, #000000 0%, #0d0d0d 40%, #1a1a1a 70%, #080808 100%)',
-    visualDots: 'rgba(255,255,255,0.06)',
-    visualLabel: 'CB',
+    imgUrl: '/images/heroes/black.png',
   },
   {
     code: 'CMB Series',
@@ -50,12 +41,9 @@ const PRODUCTS = [
     badge: 'CORAPLAST',
     badgeColor: '#23447A',
     desc: 'Full-spectrum colour matching — RAL, Pantone, and custom development in PE and PP.',
-    specs: ['RAL · Pantone matching', 'Custom colour development', 'Food-contact grades'],
+    specs: ['RAL · Pantone matching', 'Custom development', 'Food-contact grades'],
     href: '/color-masterbatch',
-    iconColor: '#2B8DD0',
-    visual: 'linear-gradient(135deg, #c94b4b 0%, #e8962a 25%, #d4c020 45%, #43b07c 65%, #2d6eb5 100%)',
-    visualDots: 'rgba(255,255,255,0.18)',
-    visualLabel: 'RGB',
+    imgUrl: '/images/heroes/colour.png',
   },
 ]
 
@@ -64,12 +52,12 @@ function ProductCard({ p, index }) {
   const inView = useInView(ref, { once: true, margin: '-60px' })
 
   const isFeatured = p.featured
-  const cardBg = '#FFFFFF'
+  const cardBg = '#ffffff'
   const textColor = '#141B3E'
-  const subColor = 'rgba(20,27,62,0.55)'
-  const specBg = 'rgba(20,27,62,0.05)'
-  const specText = 'rgba(20,27,62,0.55)'
-  const borderColor = isFeatured ? 'rgba(212,132,10,0.35)' : 'rgba(20,27,62,0.1)'
+  const subColor = 'rgba(20,27,62,0.65)'
+  const specBg = 'rgba(43,141,208,0.1)'
+  const specText = '#2B8DD0'
+  const borderColor = isFeatured ? 'rgba(212,132,10,0.5)' : '#CBD5E1'
 
   return (
     <motion.div
@@ -82,102 +70,89 @@ function ProductCard({ p, index }) {
         border: `1px solid ${borderColor}`,
         borderRadius: 14, padding: 0,
         display: 'flex', flexDirection: 'column',
-        transition: 'all 0.25s', cursor: 'pointer',
+        transition: 'all 0.3s', cursor: 'pointer',
         position: 'relative', overflow: 'hidden',
+        boxShadow: '0 10px 30px rgba(26,59,110,0.15)',
       }}
-      whileHover={{ y: -4, boxShadow: isFeatured ? '0 20px 50px rgba(212,132,10,0.15)' : '0 16px 40px rgba(0,0,0,0.25)' }}
+      whileHover={{ y: -6, boxShadow: isFeatured ? '0 20px 50px rgba(212,132,10,0.25)' : '0 20px 50px rgba(26,59,110,0.35)', borderColor: isFeatured ? '#D4840A' : 'rgba(255,255,255,0.4)' }}
     >
-      {/* Product visual banner — taller */}
+      {/* Product Photo Banner */}
       <div style={{
-        height: 150, background: p.visual, position: 'relative', overflow: 'hidden',
-        borderRadius: '14px 14px 0 0', flexShrink: 0,
+        height: 180, position: 'relative', overflow: 'hidden',
+        backgroundImage: `url(${p.imgUrl})`,
+        backgroundSize: 'cover', backgroundPosition: 'center',
+        flexShrink: 0, borderBottom: `1px solid ${borderColor}`,
       }}>
-        <div style={{
-          position: 'absolute', inset: 0,
-          backgroundImage: `radial-gradient(circle, ${p.visualDots} 2.5px, transparent 2.5px)`,
-          backgroundSize: '20px 20px',
-        }} />
-        <div style={{
-          position: 'absolute', inset: 0,
-          background: 'linear-gradient(to bottom, transparent 30%, rgba(0,0,0,0.55) 100%)',
-        }} />
-        <div style={{
-          position: 'absolute', bottom: 9, left: 12,
-          fontFamily: 'Montserrat, sans-serif', fontSize: 9, fontWeight: 900,
-          letterSpacing: '0.14em', color: 'rgba(255,255,255,0.5)',
-          textTransform: 'uppercase',
-        }}>{p.visualLabel}</div>
         {isFeatured && (
           <div style={{
-            position: 'absolute', top: 0, left: 0, right: 0, height: 2,
+            position: 'absolute', top: 0, left: 0, right: 0, height: 4,
             background: 'linear-gradient(to right, transparent, #D4840A, transparent)',
           }} />
         )}
       </div>
 
-      <div style={{ padding: '16px 18px 20px', display: 'flex', flexDirection: 'column', flex: 1 }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 12 }}>
+      <div style={{ padding: '24px 20px 28px', display: 'flex', flexDirection: 'column', flex: 1, alignItems: 'center', textAlign: 'center' }}>
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginBottom: 12, gap: 10 }}>
         <div>
           <span style={{
-            fontFamily: 'Montserrat, sans-serif', fontSize: 9, fontWeight: 800,
+            fontFamily: 'Montserrat, sans-serif', fontSize: 10, fontWeight: 800,
             letterSpacing: '0.12em', textTransform: 'uppercase',
             color: p.badgeColor === '#D4840A' ? '#D4840A' : '#2B8DD0',
             border: `1px solid ${p.badgeColor === '#D4840A' ? 'rgba(212,132,10,0.35)' : 'rgba(46,127,208,0.3)'}`,
-            borderRadius: 4, padding: '2px 6px', display: 'inline-block', marginBottom: 6,
+            borderRadius: 4, padding: '3px 8px', display: 'inline-block', marginBottom: 6,
           }}>{p.badge}</span>
-          <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 9, color: subColor, letterSpacing: '0.06em', fontWeight: 600 }}>{p.code}</div>
+          <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 10, color: subColor, letterSpacing: '0.06em', fontWeight: 600 }}>{p.code}</div>
         </div>
-        {isFeatured && (
-          <div style={{
-            width: 27, height: 27, borderRadius: 6,
-            background: 'rgba(212,132,10,0.15)', border: '1px solid rgba(212,132,10,0.25)',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            fontFamily: 'Montserrat, sans-serif', fontWeight: 900, fontSize: 11, color: '#D4840A',
-          }}>B</div>
-        )}
       </div>
 
-      <h3 style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 13, fontWeight: 800, marginBottom: 8, letterSpacing: '-0.01em', color: textColor }}>{p.name}</h3>
-      <p style={{ fontSize: 11, color: subColor, lineHeight: 1.65, marginBottom: 14, flex: 1 }}>{p.desc}</p>
+      <h3 style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 18, fontWeight: 900, marginBottom: 12, letterSpacing: '-0.01em', color: textColor }}>{p.name}</h3>
+      <p style={{ fontSize: 13, color: subColor, lineHeight: 1.65, marginBottom: 18, flex: 1 }}>{p.desc}</p>
 
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 4, marginBottom: 15 }}>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginBottom: 20, justifyContent: 'center' }}>
         {p.specs.map(s => (
           <span key={s} style={{
-            fontSize: 9, padding: '2px 7px',
-            background: specBg, borderRadius: 4,
-            fontFamily: 'Montserrat, sans-serif', fontWeight: 600, letterSpacing: '0.04em',
+            fontSize: 10, padding: '3px 9px',
+            background: specBg, borderRadius: 5,
+            fontFamily: 'Montserrat, sans-serif', fontWeight: 700, letterSpacing: '0.04em',
             color: specText,
           }}>{s}</span>
         ))}
       </div>
 
       {p.hrefs ? (
-        <div style={{ display: 'flex', gap: 8 }}>
+        <div style={{ display: 'flex', gap: 10, width: '100%' }}>
           {p.hrefs.map(link => (
             <a key={link.url} href={link.url} style={{
-              display: 'inline-flex', alignItems: 'center', gap: 4, flex: 1, justifyContent: 'center',
-              fontFamily: 'Montserrat, sans-serif', fontSize: 9, fontWeight: 800,
-              letterSpacing: '0.05em', textTransform: 'uppercase',
-              color: '#D4840A', border: '1px solid rgba(212,132,10,0.3)',
-              borderRadius: 5, padding: '6px 9px',
-              transition: 'background 0.2s, border-color 0.2s',
+              display: 'inline-flex', alignItems: 'center', gap: 8, flex: 1, justifyContent: 'center',
+              fontFamily: 'Montserrat, sans-serif', fontSize: 12, fontWeight: 900,
+              letterSpacing: '0.04em', textTransform: 'uppercase',
+              color: '#D4840A', border: '2px solid rgba(212,132,10,0.6)',
+              borderRadius: 6, padding: '12px 0px',
+              transition: 'all 0.2s',
+              background: 'rgba(212,132,10,0.1)',
             }}
-            onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,132,10,0.12)'; e.currentTarget.style.borderColor = 'rgba(212,132,10,0.6)' }}
-            onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.borderColor = 'rgba(212,132,10,0.3)' }}
+            onMouseEnter={e => { e.currentTarget.style.background = '#D4840A'; e.currentTarget.style.color = '#fff' }}
+            onMouseLeave={e => { e.currentTarget.style.background = 'rgba(212,132,10,0.1)'; e.currentTarget.style.color = '#D4840A' }}
             >
-              {link.label} <ArrowRight size={8} />
+              {link.label} <ArrowRight size={12} />
             </a>
           ))}
         </div>
       ) : (
         <a href={p.href} style={{
-          display: 'inline-flex', alignItems: 'center', gap: 4,
-          fontFamily: 'Montserrat, sans-serif', fontSize: 9, fontWeight: 800,
+          display: 'inline-flex', alignItems: 'center', gap: 6, width: '100%', justifyContent: 'center',
+          fontFamily: 'Montserrat, sans-serif', fontSize: 11, fontWeight: 800,
           letterSpacing: '0.05em', textTransform: 'uppercase',
-          color: isFeatured ? '#D4840A' : '#5BB8F5',
-          transition: 'gap 0.2s',
-        }}>
-          View Details <ArrowRight size={10} />
+          color: isFeatured ? '#D4840A' : '#fff',
+          background: isFeatured ? 'transparent' : '#2B8DD0',
+          border: isFeatured ? '1px solid rgba(212,132,10,0.3)' : 'none',
+          padding: '12px 16px', borderRadius: 6,
+          transition: 'all 0.2s',
+        }}
+        onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 6px 15px rgba(46,127,208,0.3)' }}
+        onMouseLeave={e => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = 'none' }}
+        >
+          View Details <ArrowRight size={12} />
         </a>
       )}
       </div>
@@ -219,12 +194,18 @@ export default function Products() {
           </motion.p>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(225px, 1fr))', gap: 16 }}>
+        <div id="products-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 24 }}>
           {PRODUCTS.map((p, i) => <ProductCard key={p.name} p={p} index={i} />)}
         </div>
       </div>
 
-      <style>{`@media (max-width: 600px) { #products { padding: 64px 20px !important; } }`}</style>
+      <style>{`
+        @media (max-width: 1100px) { #products-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 16px !important; } }
+        @media (max-width: 600px) { 
+          #products { padding: 64px 20px !important; } 
+          #products-grid { grid-template-columns: 1fr !important; }
+        }
+      `}</style>
     </section>
   )
 }

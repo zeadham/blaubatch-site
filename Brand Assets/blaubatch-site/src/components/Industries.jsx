@@ -4,14 +4,14 @@ import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 
 const INDUSTRIES = [
-  { icon: '📦', name: 'Packaging & Flexible Film', desc: 'Blown film, cast film, stretch wrap, lamination, carrier bags, food packaging', products: ['Filler MB', 'Colour MB', 'Additive MB'], href: '/industries/packaging' },
-  { icon: '🔧', name: 'Pipes, Fittings & Profiles', desc: 'HDPE pipes, PPR hot water, PVC drainage, corrugated pipes, irrigation', products: ['Black MB', 'White MB', 'Filler MB'], href: '/industries/pipes' },
-  { icon: '🌾', name: 'Agriculture', desc: 'Mulch film, greenhouse film, silage wrap, drip irrigation, shade netting', products: ['UV Additive MB', 'Black MB', 'Filler MB'], href: '/industries/agriculture' },
-  { icon: '🧵', name: 'Textiles & Fibre', desc: 'PP non-woven, filament yarn, staple fibre, spunbond, geotextiles', products: ['Colour MB', 'White MB', 'Filler MB'], href: '/industries/textiles' },
-  { icon: '🏗️', name: 'Construction', desc: 'Geomembranes, waterproofing sheets, drainage boards, wall panels', products: ['Black MB', 'Filler MB', 'Additive MB'], href: null },
-  { icon: '⚡', name: 'Wire & Cable', desc: 'Cable jacketing, insulation compounds, conduit, armoured sheathing', products: ['Cable Black MB', 'Flame Retardant MB'], href: '/industries/wire-cable' },
-  { icon: '🚗', name: 'Automotive & Technical', desc: 'Interior components, under-hood parts, technical injection, foams', products: ['Colour MB', 'Additive MB', 'Filler MB'], href: '/industries/automotive' },
-  { icon: '🛍️', name: 'Consumer Goods', desc: 'Housewares, toys, appliances, furniture components, caps and closures', products: ['Colour MB', 'Anti-static MB', 'Filler MB'], href: null },
+  { img: '/images/industries/packaging.png', name: 'Packaging & Flexible Film', desc: 'Blown film, cast film, stretch wrap, lamination', products: ['Filler MB', 'Colour MB', 'Additive MB'], href: '/industries/packaging' },
+  { img: '/images/industries/pipes.png', name: 'Pipes, Fittings & Profiles', desc: 'HDPE pipes, PPR hot water, PVC drainage, irrigation', products: ['Black MB', 'White MB', 'Filler MB'], href: '/industries/pipes' },
+  { img: '/images/industries/agriculture.png', name: 'Agriculture', desc: 'Mulch film, greenhouse, silage wrap, shade netting', products: ['UV Additive', 'Black MB', 'Filler MB'], href: '/industries/agriculture' },
+  { img: '/images/industries/textiles.png', name: 'Textiles & Fibre', desc: 'PP non-woven, filament yarn, staple fibre, spunbond', products: ['Colour MB', 'White MB', 'Filler MB'], href: '/industries/textiles' },
+  { img: '/images/industries/construction.png', name: 'Construction', desc: 'Geomembranes, waterproofing sheets, drainage boards', products: ['Black MB', 'Filler MB', 'Additive MB'], href: null },
+  { img: '/images/industries/wire_cable.png', name: 'Wire & Cable', desc: 'Cable jacketing, conduit, armoured sheathing', products: ['Cable Black', 'Flame Retardant'], href: '/industries/wire-cable' },
+  { img: '/images/industries/automotive.png', name: 'Automotive & Technical', desc: 'Interior components, under-hood parts, technical injection', products: ['Colour MB', 'Additive MB'], href: '/industries/automotive' },
+  { img: '/images/industries/consumer_goods.png', name: 'Consumer Goods', desc: 'Housewares, toys, appliances, caps and closures', products: ['Colour MB', 'Anti-static', 'Filler MB'], href: null },
 ]
 
 export default function Industries() {
@@ -59,45 +59,48 @@ export default function Industries() {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.1 + i * 0.05, ease: [0.22, 1, 0.36, 1] }}
               style={{
-                background: '#fff', border: '1px solid rgba(20,27,62,0.08)',
-                borderRadius: 12, padding: '20px 18px', cursor: ind.href ? 'pointer' : 'default', transition: 'all 0.2s',
-                display: 'flex', flexDirection: 'column',
+                backgroundImage: `url(${ind.img})`, backgroundSize: 'cover', backgroundPosition: 'center',
+                border: '1px solid rgba(20,27,62,0.1)',
+                borderRadius: 12, padding: '24px 20px', cursor: ind.href ? 'pointer' : 'default', transition: 'all 0.3s',
+                display: 'flex', flexDirection: 'column', minHeight: 280, justifyContent: 'flex-end',
+                position: 'relative', overflow: 'hidden',
               }}
-              whileHover={{ background: '#F0F7FF', borderColor: 'rgba(43,141,208,0.3)', y: -2 }}
+              whileHover={{ borderColor: 'rgba(43,141,208,0.5)', y: -4, boxShadow: '0 20px 40px rgba(0,0,0,0.15)' }}
             >
-              <div style={{
-                fontSize: 28, marginBottom: 12, lineHeight: 1,
-              }}>{ind.icon}</div>
+              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, #141B3E 0%, rgba(20,27,62,0.6) 40%, transparent 100%)', zIndex: 0 }} />
+              
+              <div style={{ position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column' }}>
+                <h3 style={{
+                  fontFamily: 'Montserrat, sans-serif', fontSize: 16, fontWeight: 800,
+                  marginBottom: 8, lineHeight: 1.25, color: '#fff',
+                }}>{ind.name}</h3>
 
-              <h3 style={{
-                fontFamily: 'Montserrat, sans-serif', fontSize: 13, fontWeight: 800,
-                marginBottom: 8, lineHeight: 1.3, color: '#141B3E',
-              }}>{ind.name}</h3>
+                <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.7)', lineHeight: 1.6, marginBottom: 16 }}>{ind.desc}</p>
 
-              <p style={{ fontSize: 11, color: 'rgba(20,27,62,0.55)', lineHeight: 1.65, marginBottom: 12, flex: 1 }}>{ind.desc}</p>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginBottom: ind.href ? 18 : 0 }}>
+                  {ind.products.map(p => (
+                    <span key={p} style={{
+                      fontSize: 9, padding: '3px 8px',
+                      background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.15)', borderRadius: 4,
+                      fontFamily: 'Montserrat, sans-serif', fontWeight: 700, letterSpacing: '0.04em',
+                      color: '#fff',
+                    }}>{p}</span>
+                  ))}
+                </div>
 
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 4, marginBottom: ind.href ? 14 : 0 }}>
-                {ind.products.map(p => (
-                  <span key={p} style={{
-                    fontSize: 9, padding: '2px 7px',
-                    background: 'rgba(74,170,224,0.12)', borderRadius: 3,
-                    fontFamily: 'Montserrat, sans-serif', fontWeight: 700, letterSpacing: '0.04em',
-                    color: '#2B8DD0',
-                  }}>{p}</span>
-                ))}
+                {ind.href && (
+                  <Link to={ind.href} style={{
+                    display: 'inline-flex', alignItems: 'center', gap: 6,
+                    fontSize: 10, fontFamily: 'Montserrat, sans-serif', fontWeight: 800,
+                    letterSpacing: '0.08em', textTransform: 'uppercase',
+                    color: '#2B8DD0', transition: 'all 0.2s', alignSelf: 'flex-start',
+                    background: 'rgba(255,255,255,0.95)', padding: '6px 12px', borderRadius: 4,
+                  }}
+                  onMouseEnter={e => { e.currentTarget.style.background = '#fff'; e.currentTarget.style.transform = 'translateY(-1px)' }}
+                  onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.95)'; e.currentTarget.style.transform = 'none' }}
+                  >Explore <ArrowRight size={10} /></Link>
+                )}
               </div>
-
-              {ind.href && (
-                <Link to={ind.href} style={{
-                  display: 'inline-flex', alignItems: 'center', gap: 5,
-                  fontSize: 10, fontFamily: 'Montserrat, sans-serif', fontWeight: 700,
-                  letterSpacing: '0.06em', textTransform: 'uppercase',
-                  color: '#2B8DD0', opacity: 0.8, transition: 'opacity 0.15s',
-                }}
-                onMouseEnter={e => e.currentTarget.style.opacity = '1'}
-                onMouseLeave={e => e.currentTarget.style.opacity = '0.8'}
-                >View industry <ArrowRight size={10} /></Link>
-              )}
             </motion.div>
           ))}
         </div>

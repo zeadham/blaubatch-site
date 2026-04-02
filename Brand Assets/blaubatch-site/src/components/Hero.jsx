@@ -36,27 +36,20 @@ export default function Hero() {
   return (
     <section style={{
       minHeight: '100vh',
-      paddingTop: 68,
+      paddingTop: 140, // Pushed text down
       display: 'flex', alignItems: 'center',
       position: 'relative', overflow: 'hidden',
     }}>
-      {/* Full background image */}
+      {/* Background color for the left side */}
+      <div style={{ position: 'absolute', inset: 0, background: '#FAFAFC' }} />
+
+      {/* Hero Image anchored to the right fading into white */}
       <div style={{
-        position: 'absolute', inset: 0,
-        backgroundImage: 'url("https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1920&h=1080&fit=crop&auto=format")',
+        position: 'absolute', top: 0, right: 0, bottom: 0, width: '65%',
+        backgroundImage: 'url("/images/heroes/home.png")',
         backgroundSize: 'cover', backgroundPosition: 'center',
-      }} />
-
-      {/* Left-side frosted underlay — text legibility without killing the image */}
-      <div style={{
-        position: 'absolute', inset: 0,
-        background: 'linear-gradient(105deg, rgba(255,255,255,0.78) 0%, rgba(255,255,255,0.52) 48%, rgba(255,255,255,0) 72%)',
-      }} />
-
-      {/* Bottom fade — blends into the page background */}
-      <div style={{
-        position: 'absolute', inset: 0,
-        background: 'linear-gradient(to bottom, transparent 60%, rgba(250,250,252,0.65) 100%)',
+        WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 40%)',
+        maskImage: 'linear-gradient(to right, transparent 0%, black 40%)',
       }} />
 
       {/* ── Background grid ── */}
@@ -83,9 +76,9 @@ export default function Hero() {
         {/* H1 with animated product word */}
         <motion.h1 {...fadeUp(0.12)} style={{
           fontFamily: 'Montserrat, sans-serif', fontWeight: 900,
-          fontSize: 'clamp(40px, 5vw, 72px)', lineHeight: 1.05,
-          letterSpacing: '-0.03em', margin: '0 0 22px',
-          maxWidth: 680,
+          fontSize: 'clamp(36px, 4vw, 56px)', lineHeight: 1.1, // Smaller text
+          letterSpacing: '-0.02em', margin: '0 0 22px',
+          maxWidth: 600,
         }}>
           Egypt's{' '}
           <AnimatePresence mode="wait">

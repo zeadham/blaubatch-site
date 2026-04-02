@@ -9,11 +9,11 @@ export default function CTA() {
   return (
     <section style={{
       background: `
-        radial-gradient(ellipse 60% 80% at 50% 50%, rgba(46,127,208,0.12) 0%, transparent 65%),
-        #141B3E
+        radial-gradient(ellipse 60% 80% at 50% 50%, rgba(43,141,208,0.08) 0%, transparent 65%),
+        #F0F5FA
       `,
       padding: '100px 48px',
-      borderTop: '1px solid rgba(255,255,255,0.08)',
+      borderTop: '1px solid rgba(20,27,62,0.08)',
     }}>
       <div ref={ref} style={{ maxWidth: 1000, margin: '0 auto', textAlign: 'center' }}>
 
@@ -46,7 +46,7 @@ export default function CTA() {
         <motion.p
           initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.55, delay: 0.16 }}
-          style={{ fontSize: 16, color: 'rgba(255,255,255,0.58)', lineHeight: 1.8, maxWidth: 560, margin: '0 auto 44px' }}
+          style={{ fontSize: 16, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, maxWidth: 560, margin: '0 auto 44px' }}
         >
           Send your specification and our technical team will respond with a grade recommendation and quote within 24 hours.
         </motion.p>
@@ -98,18 +98,18 @@ export default function CTA() {
           ].map(({ icon: Icon, label, val, href }) => (
             <a key={label} href={href} style={{
               display: 'flex', alignItems: 'center', gap: 12,
-              background: '#23447A', border: '1px solid rgba(255,255,255,0.09)',
+              background: '#fff', border: '1px solid rgba(20,27,62,0.1)',
               borderRadius: 12, padding: '16px 20px', textAlign: 'left', transition: 'all 0.2s',
             }}
-            onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(46,127,208,0.3)'; e.currentTarget.style.background = '#23447A' }}
-            onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.09)'; e.currentTarget.style.background = '#23447A' }}
+            onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(43,141,208,0.3)'; e.currentTarget.style.background = '#F5F9FF' }}
+            onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(20,27,62,0.1)'; e.currentTarget.style.background = '#fff' }}
             >
               <div style={{ width: 38, height: 38, borderRadius: 9, background: 'rgba(46,127,208,0.12)', border: '1px solid rgba(46,127,208,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                 <Icon size={16} color="#2B8DD0" />
               </div>
               <div>
-                <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.4)', marginBottom: 3 }}>{label}</div>
-                <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.8)', fontWeight: 500 }}>{val}</div>
+                <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(20,27,62,0.45)', marginBottom: 3 }}>{label}</div>
+                <div style={{ fontSize: 12, color: '#141B3E', fontWeight: 500 }}>{val}</div>
               </div>
             </a>
           ))}

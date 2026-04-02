@@ -64,12 +64,12 @@ function ProductCard({ p, index }) {
   const inView = useInView(ref, { once: true, margin: '-60px' })
 
   const isFeatured = p.featured
-  const cardBg = '#1a3562'
-  const textColor = '#fff'
-  const subColor = 'rgba(255,255,255,0.6)'
-  const specBg = 'rgba(255,255,255,0.06)'
-  const specText = 'rgba(255,255,255,0.6)'
-  const borderColor = isFeatured ? 'rgba(212,132,10,0.35)' : 'rgba(255,255,255,0.1)'
+  const cardBg = '#FFFFFF'
+  const textColor = '#141B3E'
+  const subColor = 'rgba(20,27,62,0.55)'
+  const specBg = 'rgba(20,27,62,0.05)'
+  const specText = 'rgba(20,27,62,0.55)'
+  const borderColor = isFeatured ? 'rgba(212,132,10,0.35)' : 'rgba(20,27,62,0.1)'
 
   return (
     <motion.div

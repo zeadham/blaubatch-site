@@ -23,7 +23,7 @@ export default function Specs() {
   const tableInView = useInView(tableRef, { once: true, margin: '-60px' })
 
   return (
-    <section id="specs" style={{ background: '#141B3E', padding: '96px 48px' }}>
+    <section id="specs" style={{ background: '#F5F7FA', padding: '96px 48px' }}>
       <div style={{ maxWidth: 1200, margin: '0 auto' }}>
 
         <div ref={headRef} style={{ marginBottom: 52 }}>
@@ -40,13 +40,13 @@ export default function Specs() {
           <motion.h2
             initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.55, delay: 0.07 }}
-            style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 'clamp(26px, 3vw, 40px)', fontWeight: 900, letterSpacing: '-0.025em', marginBottom: 12, lineHeight: 1.1, color: '#FFFFFF' }}
+            style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 'clamp(26px, 3vw, 40px)', fontWeight: 900, letterSpacing: '-0.025em', marginBottom: 12, lineHeight: 1.1, color: '#141B3E' }}
           >Filler Masterbatch<br />Grade Reference</motion.h2>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.55, delay: 0.14 }}
-            style={{ fontSize: 15, color: 'rgba(255,255,255,0.58)', lineHeight: 1.8, maxWidth: 540 }}
+            style={{ fontSize: 15, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, maxWidth: 540 }}
           >
             In-house manufactured grades with full batch traceability. Technical data sheets and certificates of analysis issued with every shipment. Custom formulations available on request.
           </motion.p>
@@ -58,19 +58,19 @@ export default function Specs() {
           animate={tableInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           style={{
-            background: '#23447A', border: '1px solid rgba(255,255,255,0.09)',
+            background: '#fff', border: '1px solid rgba(20,27,62,0.1)',
             borderRadius: 14, overflow: 'hidden', marginBottom: 40,
           }}
         >
           <div style={{
             display: 'grid', gridTemplateColumns: '120px 1fr 100px 80px 1fr 100px',
-            background: 'rgba(255,255,255,0.04)', borderBottom: '1px solid rgba(255,255,255,0.09)',
+            background: 'rgba(20,27,62,0.03)', borderBottom: '1px solid rgba(20,27,62,0.08)',
             padding: '12px 20px',
           }}>
             {['Series', 'Grade Code', 'Carrier', 'Loading', 'Application', 'MFI'].map(h => (
               <div key={h} style={{
                 fontFamily: 'Montserrat, sans-serif', fontSize: 10, fontWeight: 800,
-                letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(107,180,232,0.8)',
+                letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(20,27,62,0.5)',
               }}>{h}</div>
             ))}
           </div>
@@ -78,15 +78,15 @@ export default function Specs() {
           {GRADES.map((g, i) => (
             <div key={g.code} style={{
               display: 'grid', gridTemplateColumns: '120px 1fr 100px 80px 1fr 100px',
-              padding: '14px 20px', borderBottom: i < GRADES.length - 1 ? '1px solid rgba(255,255,255,0.07)' : 'none',
+              padding: '14px 20px', borderBottom: i < GRADES.length - 1 ? '1px solid rgba(20,27,62,0.07)' : 'none',
               transition: 'background 0.15s',
             }}
-            onMouseEnter={e => e.currentTarget.style.background = 'rgba(255,255,255,0.04)'}
+            onMouseEnter={e => e.currentTarget.style.background = 'rgba(20,27,62,0.02)'}
             onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
             >
-              <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 11, fontWeight: 700, color: 'rgba(107,180,232,0.6)' }}>{g.series}</div>
+              <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 11, fontWeight: 700, color: 'rgba(20,27,62,0.5)' }}>{g.series}</div>
               <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                <span style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 12, fontWeight: 800, color: '#FFFFFF' }}>{g.code}</span>
+                <span style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 12, fontWeight: 800, color: '#141B3E' }}>{g.code}</span>
                 <span style={{
                   fontSize: 9, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase',
                   padding: '2px 6px', borderRadius: 3,
@@ -94,9 +94,9 @@ export default function Specs() {
                   color: g.badge === 'PE' ? '#2B8DD0' : '#2B8DD0',
                 }}>{g.badge}</span>
               </div>
-              <div style={{ fontSize: 12, color: 'rgba(107,180,232,0.75)' }}>{g.carrier}</div>
+              <div style={{ fontSize: 12, color: 'rgba(20,27,62,0.6)' }}>{g.carrier}</div>
               <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 13, fontWeight: 800, color: '#D4840A' }}>{g.loading}</div>
-              <div style={{ fontSize: 12, color: 'rgba(107,180,232,0.75)' }}>{g.app}</div>
+              <div style={{ fontSize: 12, color: 'rgba(20,27,62,0.6)' }}>{g.app}</div>
               <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 11, fontWeight: 700, color: '#2B8DD0' }}>{g.mfi}</div>
             </div>
           ))}
@@ -106,13 +106,13 @@ export default function Specs() {
           <motion.div
             initial={{ opacity: 0, y: 20 }} animate={tableInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.1 }}
-            style={{ background: '#23447A', border: '1px solid rgba(255,255,255,0.09)', borderRadius: 12, padding: '22px' }}
+            style={{ background: '#fff', border: '1px solid rgba(20,27,62,0.1)', borderRadius: 12, padding: '22px' }}
           >
             <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#2B8DD0', marginBottom: 14 }}>In-House QC Tests</div>
             {QC_TESTS.map(t => (
-              <div key={t} style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '7px 0', borderBottom: '1px solid rgba(255,255,255,0.09)' }}>
+              <div key={t} style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '7px 0', borderBottom: '1px solid rgba(20,27,62,0.08)' }}>
                 <div style={{ width: 5, height: 5, borderRadius: '50%', background: '#2B8DD0', flexShrink: 0 }} />
-                <span style={{ fontSize: 12, color: 'rgba(107,180,232,0.85)' }}>{t}</span>
+                <span style={{ fontSize: 12, color: 'rgba(20,27,62,0.7)' }}>{t}</span>
               </div>
             ))}
           </motion.div>
@@ -120,7 +120,7 @@ export default function Specs() {
           <motion.div
             initial={{ opacity: 0, y: 20 }} animate={tableInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.18 }}
-            style={{ background: '#23447A', border: '1px solid rgba(255,255,255,0.09)', borderRadius: 12, padding: '22px' }}
+            style={{ background: '#fff', border: '1px solid rgba(20,27,62,0.1)', borderRadius: 12, padding: '22px' }}
           >
             <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#D4840A', marginBottom: 14 }}>Packaging & Delivery</div>
             {[
@@ -131,9 +131,9 @@ export default function Specs() {
               { label: 'Lead Times', val: 'Agreed per order' },
               { label: 'Sample Quantities', val: 'Within days' },
             ].map(r => (
-              <div key={r.label} style={{ display: 'flex', justifyContent: 'space-between', padding: '7px 0', borderBottom: '1px solid rgba(255,255,255,0.09)', fontSize: 12 }}>
-                <span style={{ color: 'rgba(107,180,232,0.7)' }}>{r.label}</span>
-                <span style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700, color: '#FFFFFF', fontSize: 11 }}>{r.val}</span>
+              <div key={r.label} style={{ display: 'flex', justifyContent: 'space-between', padding: '7px 0', borderBottom: '1px solid rgba(20,27,62,0.08)', fontSize: 12 }}>
+                <span style={{ color: 'rgba(20,27,62,0.55)' }}>{r.label}</span>
+                <span style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700, color: '#141B3E', fontSize: 11 }}>{r.val}</span>
               </div>
             ))}
           </motion.div>
@@ -142,15 +142,15 @@ export default function Specs() {
             initial={{ opacity: 0, y: 20 }} animate={tableInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.26 }}
             style={{
-              background: 'linear-gradient(150deg, #23447A, #23447A)',
-              border: '1px solid rgba(46,127,208,0.25)', borderRadius: 12, padding: '22px',
+              background: 'linear-gradient(150deg, #EEF4FF, #F0F6FF)',
+              border: '1px solid rgba(43,141,208,0.2)', borderRadius: 12, padding: '22px',
               display: 'flex', flexDirection: 'column', justifyContent: 'space-between',
             }}
           >
             <div>
               <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#2B8DD0', marginBottom: 14 }}>Documentation</div>
-              <h3 style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 16, fontWeight: 800, marginBottom: 10, letterSpacing: '-0.01em', color: '#fff' }}>Technical Data Sheets</h3>
-              <p style={{ fontSize: 13, color: 'rgba(107,180,232,0.85)', lineHeight: 1.7, marginBottom: 20 }}>
+              <h3 style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 16, fontWeight: 800, marginBottom: 10, letterSpacing: '-0.01em', color: '#141B3E' }}>Technical Data Sheets</h3>
+              <p style={{ fontSize: 13, color: 'rgba(20,27,62,0.6)', lineHeight: 1.7, marginBottom: 20 }}>
                 Full technical data sheets and safety data sheets available for all manufactured grades. Request documents with your enquiry.
               </p>
             </div>

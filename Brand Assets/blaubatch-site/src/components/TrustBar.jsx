@@ -16,16 +16,16 @@ const ALL = [...PILLS, ...PILLS]
 export default function TrustBar() {
   return (
     <div style={{
-      background: '#23447A',
-      borderTop: '1px solid rgba(255,255,255,0.08)',
-      borderBottom: '1px solid rgba(255,255,255,0.08)',
+      background: '#EEF4FA',
+      borderTop: '1px solid rgba(20,27,62,0.1)',
+      borderBottom: '1px solid rgba(20,27,62,0.1)',
       padding: '14px 0',
       overflow: 'hidden',
       position: 'relative',
     }}>
       {/* Fade edges */}
-      <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: 80, background: 'linear-gradient(to right, #23447A, transparent)', zIndex: 2, pointerEvents: 'none' }} />
-      <div style={{ position: 'absolute', right: 0, top: 0, bottom: 0, width: 80, background: 'linear-gradient(to left, #23447A, transparent)', zIndex: 2, pointerEvents: 'none' }} />
+      <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: 80, background: 'linear-gradient(to right, #EEF4FA, transparent)', zIndex: 2, pointerEvents: 'none' }} />
+      <div style={{ position: 'absolute', right: 0, top: 0, bottom: 0, width: 80, background: 'linear-gradient(to left, #EEF4FA, transparent)', zIndex: 2, pointerEvents: 'none' }} />
 
       <div className="scroll-x" style={{ display: 'flex', gap: 0, whiteSpace: 'nowrap', width: 'max-content' }}>
         {ALL.map((pill, i) => (
@@ -33,8 +33,8 @@ export default function TrustBar() {
             display: 'inline-flex', alignItems: 'center', gap: 6,
             padding: '0 24px',
             fontFamily: 'Montserrat, sans-serif', fontSize: 11, fontWeight: 700,
-            letterSpacing: '0.05em', color: 'rgba(255,255,255,0.65)',
-            borderRight: '1px solid rgba(255,255,255,0.09)',
+            letterSpacing: '0.05em', color: 'rgba(20,27,62,0.6)',
+            borderRight: '1px solid rgba(20,27,62,0.08)',
           }}>
             {pill}
           </span>

@@ -20,7 +20,7 @@ export default function Industries() {
 
   return (
     <section id="industries" style={{
-      background: '#141B3E',
+      background: '#F5F7FA',
       padding: '96px 48px',
     }}>
       <div style={{ maxWidth: 1200, margin: '0 auto' }}>
@@ -39,13 +39,13 @@ export default function Industries() {
           <motion.h2
             initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.55, delay: 0.07 }}
-            style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 'clamp(26px, 3vw, 40px)', fontWeight: 900, letterSpacing: '-0.025em', marginBottom: 12, lineHeight: 1.1, color: '#FFFFFF' }}
+            style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 'clamp(26px, 3vw, 40px)', fontWeight: 900, letterSpacing: '-0.025em', marginBottom: 12, lineHeight: 1.1, color: '#141B3E' }}
           >Built for Plastics Processing</motion.h2>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.55, delay: 0.14 }}
-            style={{ fontSize: 15, color: 'rgba(255,255,255,0.58)', lineHeight: 1.8, maxWidth: 560 }}
+            style={{ fontSize: 15, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, maxWidth: 560 }}
           >
             Grades formulated for PE, PP, PVC, PET, and ABS across film, injection, pipe extrusion, and fibre spinning.
           </motion.p>
@@ -59,11 +59,11 @@ export default function Industries() {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.1 + i * 0.05, ease: [0.22, 1, 0.36, 1] }}
               style={{
-                background: 'rgba(74,170,224,0.05)', border: '1px solid rgba(74,170,224,0.2)',
+                background: '#fff', border: '1px solid rgba(20,27,62,0.08)',
                 borderRadius: 12, padding: '20px 18px', cursor: ind.href ? 'pointer' : 'default', transition: 'all 0.2s',
                 display: 'flex', flexDirection: 'column',
               }}
-              whileHover={{ background: 'rgba(74,170,224,0.1)', borderColor: 'rgba(74,170,224,0.45)', y: -2 }}
+              whileHover={{ background: '#F0F7FF', borderColor: 'rgba(43,141,208,0.3)', y: -2 }}
             >
               <div style={{
                 fontSize: 28, marginBottom: 12, lineHeight: 1,
@@ -71,10 +71,10 @@ export default function Industries() {
 
               <h3 style={{
                 fontFamily: 'Montserrat, sans-serif', fontSize: 13, fontWeight: 800,
-                marginBottom: 8, lineHeight: 1.3, color: '#FFFFFF',
+                marginBottom: 8, lineHeight: 1.3, color: '#141B3E',
               }}>{ind.name}</h3>
 
-              <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.55)', lineHeight: 1.65, marginBottom: 12, flex: 1 }}>{ind.desc}</p>
+              <p style={{ fontSize: 11, color: 'rgba(20,27,62,0.55)', lineHeight: 1.65, marginBottom: 12, flex: 1 }}>{ind.desc}</p>
 
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: 4, marginBottom: ind.href ? 14 : 0 }}>
                 {ind.products.map(p => (

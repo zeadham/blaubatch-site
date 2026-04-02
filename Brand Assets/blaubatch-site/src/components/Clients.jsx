@@ -56,7 +56,7 @@ export default function Clients() {
   const inView = useInView(ref, { once: true, margin: '-60px' })
 
   return (
-    <section style={{ background: '#141B3E', padding: '52px 48px' }}>
+    <section style={{ background: '#F0F6FF', padding: '52px 48px' }}>
       <div style={{ maxWidth: 1200, margin: '0 auto' }}>
         <motion.div
           ref={ref}
@@ -68,7 +68,7 @@ export default function Clients() {
           <div style={{
             fontFamily: 'Montserrat, sans-serif', fontSize: 10, fontWeight: 800,
             letterSpacing: '0.14em', textTransform: 'uppercase',
-            color: 'rgba(255,255,255,0.45)',
+            color: 'rgba(20,27,62,0.5)',
           }}>
             Trusted by plastics manufacturers across the region
           </div>
@@ -81,7 +81,7 @@ export default function Clients() {
           style={{
             background: '#FFFFFF',
             borderRadius: 14,
-            border: '1px solid rgba(255,255,255,0.12)',
+            border: '1px solid rgba(20,27,62,0.1)',
             display: 'grid',
             gridTemplateColumns: 'repeat(4, 1fr)',
             alignItems: 'center',

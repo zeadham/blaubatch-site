@@ -47,22 +47,22 @@ export default function Hero() {
         backgroundSize: 'cover', backgroundPosition: 'center',
       }} />
 
-      {/* Subtle overlay — left side darker for text legibility, right side almost clear */}
+      {/* Left-side frosted underlay — text legibility without killing the image */}
       <div style={{
         position: 'absolute', inset: 0,
-        background: 'linear-gradient(105deg, rgba(10,14,40,0.72) 0%, rgba(10,14,40,0.45) 55%, rgba(10,14,40,0.15) 100%)',
+        background: 'linear-gradient(105deg, rgba(255,255,255,0.78) 0%, rgba(255,255,255,0.52) 48%, rgba(255,255,255,0) 72%)',
       }} />
 
-      {/* Bottom fade */}
+      {/* Bottom fade — blends into the page background */}
       <div style={{
         position: 'absolute', inset: 0,
-        background: 'linear-gradient(to bottom, transparent 60%, rgba(10,14,40,0.5) 100%)',
+        background: 'linear-gradient(to bottom, transparent 60%, rgba(250,250,252,0.65) 100%)',
       }} />
 
       {/* ── Background grid ── */}
       <div style={{
         position: 'absolute', inset: 0, pointerEvents: 'none',
-        backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.018'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E")`,
+        backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23141b3e' fill-opacity='0.012'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E")`,
       }} />
 
       <div style={{ maxWidth: 1200, width: '100%', margin: '0 auto', padding: '80px 48px', position: 'relative', textAlign: 'left' }}>
@@ -74,7 +74,7 @@ export default function Hero() {
           padding: '5px 14px', marginBottom: 24,
           fontFamily: 'Montserrat, sans-serif', fontSize: 10, fontWeight: 800,
           letterSpacing: '0.16em', textTransform: 'uppercase', color: '#2B8DD0',
-          background: 'rgba(0,0,0,0.2)', backdropFilter: 'blur(8px)',
+          background: 'rgba(255,255,255,0.75)', backdropFilter: 'blur(8px)',
         }}>
           <span className="pulse-dot" style={{ width: 6, height: 6, background: '#2B8DD0', borderRadius: '50%', display: 'inline-block' }} />
           Egypt · MENA · Europe
@@ -109,7 +109,7 @@ export default function Hero() {
 
         {/* Sub */}
         <motion.p {...fadeUp(0.2)} style={{
-          fontSize: 17, color: 'rgba(255,255,255,0.78)', lineHeight: 1.8,
+          fontSize: 17, color: 'rgba(20,27,62,0.72)', lineHeight: 1.8,
           maxWidth: 520, marginBottom: 40, fontWeight: 300,
         }}>
           High-performance masterbatch for plastics producers across MENA and Europe. Filler, White, Black, Additive, and Colour — one supplier, one relationship.
@@ -144,14 +144,14 @@ export default function Hero() {
           </a>
           <a href="#products" style={{
             display: 'inline-flex', alignItems: 'center', gap: 8,
-            padding: '14px 30px', background: 'rgba(255,255,255,0.08)', color: '#fff',
+            padding: '14px 30px', background: 'rgba(20,27,62,0.07)', color: '#141B3E',
             borderRadius: 8, fontFamily: 'Montserrat, sans-serif', fontSize: 13,
             fontWeight: 700, letterSpacing: '0.06em',
-            border: '1px solid rgba(255,255,255,0.2)', transition: 'all 0.2s',
+            border: '1px solid rgba(20,27,62,0.18)', transition: 'all 0.2s',
             backdropFilter: 'blur(8px)',
           }}
-          onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.4)'; e.currentTarget.style.background = 'rgba(255,255,255,0.14)' }}
-          onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)'; e.currentTarget.style.background = 'rgba(255,255,255,0.08)' }}
+          onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(20,27,62,0.35)'; e.currentTarget.style.background = 'rgba(20,27,62,0.12)' }}
+          onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(20,27,62,0.18)'; e.currentTarget.style.background = 'rgba(20,27,62,0.07)' }}
           >
             View Products
           </a>
@@ -160,19 +160,19 @@ export default function Hero() {
         {/* Stats row */}
         <motion.div {...fadeUp(0.36)} style={{
           display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)',
-          gap: '1px', background: 'rgba(255,255,255,0.1)',
-          border: '1px solid rgba(255,255,255,0.1)', borderRadius: 12, overflow: 'hidden',
+          gap: '1px', background: 'rgba(20,27,62,0.08)',
+          border: '1px solid rgba(20,27,62,0.1)', borderRadius: 12, overflow: 'hidden',
           maxWidth: 540,
           backdropFilter: 'blur(8px)',
         }}>
           {STATS.map(s => (
             <div key={s.label} style={{
-              background: 'rgba(20,27,62,0.6)', padding: '16px 10px', textAlign: 'center',
+              background: 'rgba(255,255,255,0.82)', padding: '16px 10px', textAlign: 'center',
             }}>
-              <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 20, fontWeight: 900, color: '#fff', lineHeight: 1 }}>
+              <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 20, fontWeight: 900, color: '#141B3E', lineHeight: 1 }}>
                 {s.n}<span style={{ color: '#2B8DD0', fontSize: 15 }}>{s.unit}</span>
               </div>
-              <div style={{ fontSize: 9, color: 'rgba(255,255,255,0.55)', textTransform: 'uppercase', letterSpacing: '0.1em', fontFamily: 'Montserrat, sans-serif', marginTop: 5, fontWeight: 700 }}>{s.label}</div>
+              <div style={{ fontSize: 9, color: 'rgba(20,27,62,0.55)', textTransform: 'uppercase', letterSpacing: '0.1em', fontFamily: 'Montserrat, sans-serif', marginTop: 5, fontWeight: 700 }}>{s.label}</div>
             </div>
           ))}
         </motion.div>

@@ -16,7 +16,7 @@ export default function Process() {
 
   return (
     <section id="process" style={{
-      background: '#141B3E',
+      background: '#FAFAFC',
       padding: '96px 48px',
     }}>
       <div style={{ maxWidth: 1200, margin: '0 auto' }}>
@@ -35,13 +35,13 @@ export default function Process() {
           <motion.h2
             initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.55, delay: 0.07 }}
-            style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 'clamp(26px, 3vw, 40px)', fontWeight: 900, letterSpacing: '-0.025em', marginBottom: 12, lineHeight: 1.1, color: '#FFFFFF' }}
+            style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 'clamp(26px, 3vw, 40px)', fontWeight: 900, letterSpacing: '-0.025em', marginBottom: 12, lineHeight: 1.1, color: '#141B3E' }}
           >From Enquiry to Delivery</motion.h2>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.55, delay: 0.14 }}
-            style={{ fontSize: 15, color: 'rgba(255,255,255,0.58)', lineHeight: 1.8, maxWidth: 520, margin: '0 auto' }}
+            style={{ fontSize: 15, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, maxWidth: 520, margin: '0 auto' }}
           >
             From first contact to ongoing technical partnership — structured and transparent.
           </motion.p>
@@ -83,10 +83,10 @@ export default function Process() {
 
                 <h3 style={{
                   fontFamily: 'Montserrat, sans-serif', fontSize: 13, fontWeight: 800,
-                  marginBottom: 10, lineHeight: 1.35, letterSpacing: '-0.01em', color: '#FFFFFF',
+                  marginBottom: 10, lineHeight: 1.35, letterSpacing: '-0.01em', color: '#141B3E',
                 }}>{step.title}</h3>
 
-                <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.55)', lineHeight: 1.7 }}>{step.body}</p>
+                <p style={{ fontSize: 12, color: 'rgba(20,27,62,0.55)', lineHeight: 1.7 }}>{step.body}</p>
               </motion.div>
             )
           })}
@@ -98,7 +98,7 @@ export default function Process() {
           transition={{ duration: 0.5, delay: 0.65 }}
           style={{ textAlign: 'center', marginTop: 56 }}
         >
-          <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.55)', marginBottom: 16 }}>
+          <p style={{ fontSize: 14, color: 'rgba(20,27,62,0.55)', marginBottom: 16 }}>
             Not sure which grade fits your process? Our technical team will review your specification.
           </p>
           <a href="mailto:info@blaubatch.com" style={{

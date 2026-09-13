@@ -62,3 +62,6 @@ yarn-error.log
 .claude/
 .gemini/
 docs/PLAN.md
+
+# Sales Tools live data (client/sample info — not code)
+Sales Tools/data/

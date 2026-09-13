@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blau Batch — Sales Tools</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Montserrat:wght@900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:       #F7F8FC;
+      --surface:  #FFFFFF;
+      --border:   rgba(20,27,62,0.10);
+      --border-lt:rgba(20,27,62,0.18);
+      --text:     #141B3E;
+      --muted:    rgba(20,27,62,0.50);
+      --dim:      rgba(20,27,62,0.28);
+      --blue:     #2B8DD0;
+      --amber:    #D4840A;
+      --amber-dim:rgba(212,132,10,0.06);
+      --green:    #16a34a;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      -webkit-font-smoothing: antialiased;
+      background-image: radial-gradient(circle, rgba(20,27,62,0.07) 1px, transparent 1px);
+      background-size: 28px 28px;
+      background-attachment: fixed;
+    }
+
+    /* ── Header ── */
+    header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .header-shimmer {
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--blue), #5babdf, var(--blue), transparent);
+      background-size: 200% auto;
+      animation: shimmer 3s linear infinite;
+    }
+    @keyframes shimmer { 0%{background-position:200% center} 100%{background-position:-200% center} }
+
+    .header-inner {
+      max-width: 1100px; margin: 0 auto;
+      padding: 14px 28px;
+      display: flex; align-items: center; gap: 16px;
+    }
+    .logo-wrap { display: flex; align-items: center; gap: 12px; }
+    .logo-wrap img { height: 36px; display: block; }
+    .wordmark {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900; font-size: 16px;
+      letter-spacing: 2.5px; color: var(--text); line-height: 1;
+    }
+    .divider-v { width: 1px; height: 24px; background: var(--border); margin: 0 6px; }
+    .header-label { font-size: 11px; color: var(--muted); letter-spacing: .3px; }
+
+    /* ── Hero ── */
+    .hero {
+      max-width: 1100px; margin: 0 auto;
+      padding: 56px 28px 36px;
+    }
+    .hero-eyebrow {
+      font-size: 10px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 2px; color: var(--blue); margin-bottom: 14px;
+    }
+    .hero h1 {
+      font-size: 32px; font-weight: 900; color: var(--text);
+      letter-spacing: -.8px; line-height: 1.2; margin-bottom: 12px;
+    }
+    .hero h1 span { color: var(--blue); }
+    .hero p {
+      font-size: 14px; color: var(--muted); line-height: 1.75; max-width: 480px;
+    }
+
+    /* ── Grid ── */
+    .tools-grid {
+      max-width: 1100px; margin: 0 auto;
+      padding: 0 28px 80px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 16px;
+    }
+
+    /* ── Tool card ── */
+    .tool-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      transition: border-color .15s, box-shadow .15s, transform .15s;
+      cursor: pointer;
+    }
+    .tool-card:hover {
+      border-color: rgba(43,141,208,0.45);
+      box-shadow: 0 4px 24px rgba(43,141,208,0.10), 0 1px 4px rgba(20,27,62,0.06);
+      transform: translateY(-2px);
+    }
+    .tool-card.coming-soon {
+      opacity: .45; cursor: default; pointer-events: none;
+    }
+
+    .card-icon {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: rgba(43,141,208,0.08);
+      border: 1px solid rgba(43,141,208,0.18);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--blue); flex-shrink: 0;
+    }
+    .card-icon.amber {
+      background: var(--amber-dim);
+      border-color: rgba(212,132,10,0.18);
+      color: var(--amber);
+    }
+    .card-icon.green {
+      background: rgba(22,163,74,0.08);
+      border-color: rgba(22,163,74,0.18);
+      color: var(--green);
+    }
+
+    .card-title {
+      font-size: 14px; font-weight: 700; color: var(--text);
+      margin-bottom: 5px; letter-spacing: -.15px;
+    }
+    .card-desc {
+      font-size: 12.5px; color: var(--muted); line-height: 1.65;
+    }
+
+    .card-footer {
+      display: flex; align-items: center; justify-content: space-between;
+      padding-top: 14px; border-top: 1px solid var(--border);
+      margin-top: auto;
+    }
+    .card-tags { display: flex; gap: 5px; flex-wrap: wrap; }
+    .card-tag {
+      padding: 2px 8px; border-radius: 20px; font-size: 10px; font-weight: 600;
+      background: rgba(20,27,62,0.04); color: var(--muted);
+      border: 1px solid var(--border);
+    }
+    .card-arrow {
+      color: var(--dim); transition: color .15s, transform .15s; flex-shrink: 0;
+    }
+    .tool-card:hover .card-arrow { color: var(--blue); transform: translateX(3px); }
+
+    .badge-soon {
+      display: inline-block; padding: 2px 8px; border-radius: 20px;
+      font-size: 10px; font-weight: 700;
+      background: rgba(20,27,62,0.05); color: var(--dim);
+      border: 1px solid var(--border); letter-spacing: .3px;
+      margin-bottom: 2px;
+    }
+
+    /* ── Footer ── */
+    footer {
+      margin-top: auto;
+      max-width: 1100px; margin-left: auto; margin-right: auto;
+      width: 100%; padding: 20px 28px;
+      border-top: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 10px;
+    }
+    footer p { font-size: 11px; color: var(--dim); }
+    .status-dot { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--dim); }
+    .dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--green); box-shadow: 0 0 5px rgba(22,163,74,.5);
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-shimmer"></div>
+    <div class="header-inner">
+      <div class="logo-wrap">
+        <img src="/logo-horizontal-white.svg" alt="Blau Batch" style="height:30px;display:block" />
+      </div>
+      <div class="divider-v"></div>
+      <span class="header-label">Sales Tools by Adham Zahran</span>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div class="hero-eyebrow">Internal Tools Directory</div>
+    <h1>Your <span>sales intelligence</span> toolkit.</h1>
+    <p>AI-powered tools for prospect research, product matching, proposal generation, and pipeline tracking.</p>
+  </div>
+
+  <div class="tools-grid">
+
+    <a href="/client-matcher.html" class="tool-card">
+      <div class="card-icon">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+      </div>
+      <div>
+        <div class="card-title">Client Intelligence Tool</div>
+        <div class="card-desc">Paste a prospect's website — AI matches products, generates a tailored pitch, exports a proposal PDF, and tracks the client through the pipeline.</div>
+      </div>
+      <div class="card-footer">
+        <div class="card-tags">
+          <span class="card-tag">AI Matching</span>
+          <span class="card-tag">Proposal Export</span>
+          <span class="card-tag">Pipeline</span>
+        </div>
+        <svg class="card-arrow" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </div>
+    </a>
+
+    <a href="/pipeline-tracker.html" class="tool-card">
+      <div class="card-icon">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+          <path d="M9 11l3 3L22 4"/>
+          <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+        </svg>
+      </div>
+      <div>
+        <div class="card-title">Pipeline &amp; Sample Tracker</div>
+        <div class="card-desc">Track each client's problem, log samples sent to the India lab for matching, and generate a follow-up email referencing their sample codes.</div>
+      </div>
+      <div class="card-footer">
+        <div class="card-tags">
+          <span class="card-tag">Sample Tracking</span>
+          <span class="card-tag">AI Email</span>
+        </div>
+        <svg class="card-arrow" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </div>
+    </a>
+
+    <a href="/sample-proposal.html" class="tool-card">
+      <div class="card-icon amber">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+          <polyline points="14 2 14 8 20 8"/>
+          <line x1="16" y1="13" x2="8" y2="13"/>
+          <line x1="16" y1="17" x2="8" y2="17"/>
+        </svg>
+      </div>
+      <div>
+        <div class="card-title">Proposal Reference</div>
+        <div class="card-desc">Live preview of the exported proposal design — review layout and branding before sending to a prospect.</div>
+      </div>
+      <div class="card-footer">
+        <div class="card-tags">
+          <span class="card-tag">Design Reference</span>
+          <span class="card-tag">PDF Export</span>
+        </div>
+        <svg class="card-arrow" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </div>
+    </a>
+
+    <div class="tool-card coming-soon">
+      <div class="card-icon green">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+          <rect x="2" y="3" width="20" height="14" rx="2"/>
+          <line x1="8" y1="21" x2="16" y2="21"/>
+          <line x1="12" y1="17" x2="12" y2="21"/>
+        </svg>
+      </div>
+      <div>
+        <span class="badge-soon">Coming Soon</span>
+        <div class="card-title">Price Calculator</div>
+        <div class="card-desc">Quick pricing estimate by product, loading rate, polymer, and quantity — output a formatted quote.</div>
+      </div>
+      <div class="card-footer">
+        <div class="card-tags">
+          <span class="card-tag">Pricing</span>
+          <span class="card-tag">Quote Generation</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tool-card coming-soon">
+      <div class="card-icon">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+          <path d="M2 20h20M4 20V10l8-6 8 6v10"/>
+          <path d="M9 20v-5h6v5"/>
+        </svg>
+      </div>
+      <div>
+        <span class="badge-soon">Coming Soon</span>
+        <div class="card-title">Competitor Intel</div>
+        <div class="card-desc">Research competing suppliers — pricing signals, product gaps, and positioning angles to sharpen your pitch.</div>
+      </div>
+      <div class="card-footer">
+        <div class="card-tags">
+          <span class="card-tag">Research</span>
+          <span class="card-tag">Positioning</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>Blau Batch Sales Tools · Internal use only · © 2026</p>
+    <div class="status-dot">
+      <div class="dot"></div>
+      <span>Running on localhost:5179</span>
+    </div>
+  </footer>
+
+</body>
+</html>

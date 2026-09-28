@@ -143,7 +143,7 @@ function buildHtml(d) {
         <tr>
           <td style="padding:20px 0;text-align:center;">
             <p style="margin:0;font-size:11px;color:#aaa;">
-              Submitted via <a href="https://blaubatch.com" style="color:#aaa;">blaubatch.com</a> quote form
+              Submitted via <a href="https://www.blaubatch.com" style="color:#aaa;">blaubatch.com</a> quote form
             </p>
           </td>
         </tr>

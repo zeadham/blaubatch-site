@@ -30,7 +30,7 @@ export default function BlogIndex() {
   useSEO({
     title: 'Blog — Masterbatch Insights & Industry Knowledge | Blau Batch',
     description: 'Technical articles on filler masterbatch, sustainability in plastics, and manufacturing best practices from the Blau Batch team.',
-    canonical: 'https://blaubatch.com/blog',
+    canonical: 'https://www.blaubatch.com/blog',
   })
 
   return (

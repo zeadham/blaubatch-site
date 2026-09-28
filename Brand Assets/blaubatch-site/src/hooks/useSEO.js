@@ -44,7 +44,7 @@ export default function useSEO({ title, description, canonical, ogImage } = {}) 
       setMeta('meta[property="og:title"]', 'Blau Batch | Masterbatch Manufacturer')
       setMeta('meta[name="twitter:title"]', 'Blau Batch | Masterbatch Manufacturer')
       let link = document.querySelector('link[rel="canonical"]')
-      if (link) link.setAttribute('href', 'https://blaubatch.com/')
+      if (link) link.setAttribute('href', 'https://www.blaubatch.com/')
     }
   }, [title, description, canonical, ogImage])
 }

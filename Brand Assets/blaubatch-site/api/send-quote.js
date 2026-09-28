@@ -1,25 +1,24 @@
-const nodemailer = require('nodemailer')
+import nodemailer from 'nodemailer'
 
 const RECIPIENTS = 'adham.zahran@blaubatch.com, zeadham@gmail.com'
 
-exports.handler = async function (event) {
-  if (event.httpMethod !== 'POST') {
-    return { statusCode: 405, body: 'Method Not Allowed' }
+// Vercel serverless function: POST /api/send-quote
+export default async function handler(req, res) {
+  if (req.method !== 'POST') {
+    return res.status(405).send('Method Not Allowed')
   }
 
-  let d
-  try {
-    d = JSON.parse(event.body)
-  } catch {
-    return { statusCode: 400, body: 'Invalid JSON' }
+  const d = typeof req.body === 'string' ? safeParse(req.body) : req.body
+  if (!d || typeof d !== 'object') {
+    return res.status(400).send('Invalid JSON')
   }
 
-  // Require Gmail credentials set as Netlify environment variables:
+  // Require Gmail credentials set as Vercel environment variables:
   //   GMAIL_USER          → the Gmail address used to send (e.g. zeadham@gmail.com)
   //   GMAIL_APP_PASSWORD  → 16-char Gmail App Password (not your normal password)
   if (!process.env.GMAIL_USER || !process.env.GMAIL_APP_PASSWORD) {
     console.error('Missing GMAIL_USER or GMAIL_APP_PASSWORD env vars')
-    return { statusCode: 500, body: 'Email configuration missing' }
+    return res.status(500).send('Email configuration missing')
   }
 
   const transporter = nodemailer.createTransport({
@@ -40,13 +39,26 @@ exports.handler = async function (event) {
       to: RECIPIENTS,
       replyTo: d.email || '',
       subject,
-      html: buildHtml(d),
+      html: buildHtml(escapeFields(d)),
     })
-    return { statusCode: 200, body: JSON.stringify({ ok: true }) }
+    return res.status(200).json({ ok: true })
   } catch (err) {
     console.error('Email send error:', err.message)
-    return { statusCode: 500, body: JSON.stringify({ error: err.message }) }
+    return res.status(500).json({ error: err.message })
   }
+}
+
+function safeParse(s) {
+  try { return JSON.parse(s) } catch { return null }
+}
+
+// Escape user input before it goes into the email HTML
+function escapeFields(d) {
+  return Object.fromEntries(Object.entries(d).map(([k, v]) => [k, typeof v === 'string' ? escapeHtml(v) : v]))
+}
+
+function escapeHtml(s) {
+  return String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]))
 }
 
 function row(label, value, bold = false) {

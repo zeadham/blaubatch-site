@@ -1,6 +1,0 @@
-# Send the bare domain to www (the canonical host)
-https://blaubatch.com/*  https://www.blaubatch.com/:splat  301!
-http://blaubatch.com/*   https://www.blaubatch.com/:splat  301!
-
-# SPA fallback — let React Router handle every path
-/*    /index.html   200

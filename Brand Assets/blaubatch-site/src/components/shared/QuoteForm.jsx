@@ -95,11 +95,6 @@ export default function QuoteForm({
 
   const [submitting, setSubmitting] = useState(false)
 
-  const encode = (data) =>
-    Object.keys(data)
-      .map(k => encodeURIComponent(k) + '=' + encodeURIComponent(data[k]))
-      .join('&')
-
   const submit = async () => {
     if (!form.name || !form.email || !form.phone || !form.company) {
       alert('Please fill in all required fields.')
@@ -107,18 +102,18 @@ export default function QuoteForm({
     }
     setSubmitting(true)
     const payload = { product, ...form }
-    await Promise.allSettled([
-      fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: encode({ 'form-name': 'quote-request', ...payload }),
-      }),
-      fetch('/.netlify/functions/send-quote', {
+    try {
+      const res = await fetch('/api/send-quote', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
-      }),
-    ])
+      })
+      if (!res.ok) throw new Error(`HTTP ${res.status}`)
+    } catch {
+      setSubmitting(false)
+      alert('Sorry, your request could not be sent. Please email us at adham.zahran@blaubatch.com.')
+      return
+    }
     setSubmitting(false)
     setDone(true)
   }

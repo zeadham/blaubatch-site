@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Blau Batch — A5 Flyer (EN / AR)</title>
+<link href="assets/fonts.css" rel="stylesheet">
+<style>
+  /* A5 portrait, two sides: page 1 English, page 2 Arabic (brand guide 14.4:
+     Arabic and English on opposite sides, never mixed in one block). */
+  @page { size: 148mm 210mm; margin: 0; }
+  :root {
+    --navy: #141B3E;
+    --steel: #23447A;
+    --sky: #2B8DD0;
+    --amber: #D4840A;
+    --lgrey: #DCDCDC;
+    --tint: #F0F4F8;
+    --ink: #1E2433;
+    --muted: #5B6478;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { background: #fff; }
+  body { font-family: 'Open Sans', Arial, sans-serif; color: var(--ink); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+  .page {
+    width: 148mm; height: 210mm; overflow: hidden; position: relative;
+    display: flex; flex-direction: column; page-break-after: always; break-after: page;
+  }
+  .page:last-child { page-break-after: auto; break-after: auto; }
+
+  /* ── Hero ── */
+  .hero {
+    background: var(--navy); color: #fff; padding: 9mm 10mm 8mm; position: relative;
+    background-image: radial-gradient(rgba(255,255,255,.06) 1px, transparent 1px);
+    background-size: 4mm 4mm;
+  }
+  .hero .logo { height: 11mm; display: block; }
+  .hero h1 {
+    font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 25pt; line-height: 1.05;
+    margin-top: 8mm; letter-spacing: -.01em;
+  }
+  .hero h1 span { color: var(--sky); }
+  .hero .rule { width: 60%; height: 1.2mm; background: var(--sky); margin: 4mm 0 3.5mm; }
+  .hero p { font-size: 9.5pt; line-height: 1.45; color: #D5DBE8; max-width: 112mm; }
+  .hero p b { color: #fff; font-weight: 700; }
+
+  /* ── Two offers ── */
+  .offers { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; padding: 6mm 10mm 0; }
+  .card { border-radius: 2mm; padding: 4mm 4mm 3.5mm; background: var(--tint); border-top: 1.4mm solid var(--amber); }
+  .card.dist { border-top-color: var(--sky); }
+  .badge {
+    font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 6.5pt; letter-spacing: .14em;
+    color: var(--amber); text-transform: uppercase;
+  }
+  .card.dist .badge { color: var(--sky); }
+  .card h2 { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 11pt; color: var(--navy); margin: 1.5mm 0 2.5mm; line-height: 1.15; }
+  .card ul { list-style: none; }
+  .card li { font-size: 7.8pt; line-height: 1.35; padding: 1mm 0; border-bottom: .25mm solid #DCE3EC; display: flex; justify-content: space-between; gap: 2mm; }
+  .card li:last-child { border-bottom: 0; }
+  .card li b { font-weight: 700; color: var(--navy); white-space: nowrap; }
+  .card .cp { height: 6mm; margin-top: 2mm; display: block; }
+  .card .note { font-size: 7pt; color: var(--muted); margin-top: 2mm; line-height: 1.35; }
+
+  /* ── Industries ── */
+  .section { padding: 5mm 10mm 0; }
+  .label { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 6.5pt; letter-spacing: .14em; color: var(--steel); text-transform: uppercase; margin-bottom: 2mm; }
+  .chips { display: flex; flex-wrap: wrap; gap: 1.6mm; }
+  .chip { font-size: 7.6pt; font-weight: 600; color: var(--navy); border: .3mm solid var(--steel); border-radius: 10mm; padding: .8mm 2.6mm; }
+
+  /* ── One-source strip ── */
+  .strip {
+    margin: 5mm 10mm 0; display: grid; grid-template-columns: repeat(3, 1fr);
+    border: .3mm solid var(--lgrey); border-radius: 2mm; overflow: hidden;
+  }
+  .strip div { text-align: center; padding: 2.6mm 1mm; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 8pt; color: var(--navy); }
+  .strip div + div { border-left: .3mm solid var(--lgrey); }
+  .strip small { display: block; font-family: 'Open Sans', sans-serif; font-weight: 400; font-size: 6.5pt; color: var(--muted); margin-top: .5mm; }
+
+  /* ── Footer ── */
+  .footer {
+    margin-top: auto; background: var(--navy); color: #fff; padding: 5mm 10mm;
+    display: flex; align-items: center; justify-content: space-between; gap: 6mm;
+  }
+  .contact { font-size: 7.8pt; line-height: 1.6; color: #D5DBE8; }
+  .contact b { color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 9pt; display: block; margin-bottom: .8mm; }
+  .qr { display: flex; align-items: center; gap: 3mm; }
+  .qr img { width: 19mm; height: 19mm; background: #fff; padding: 1mm; border-radius: 1mm; }
+  .qr span { font-size: 7pt; line-height: 1.35; color: #D5DBE8; max-width: 24mm; }
+  .qr span b { color: var(--amber); display: block; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 7.5pt; }
+
+  /* ── Arabic side ── */
+  .ar { font-family: 'Cairo', 'Noto Sans Arabic', sans-serif; direction: rtl; }
+  .ar .hero { padding-bottom: 6mm; }
+  .ar .hero h1 { font-family: 'Cairo', sans-serif; font-weight: 900; font-size: 25pt; line-height: 1.12; letter-spacing: 0; margin-top: 5mm; }
+  .ar .hero .rule { margin: 3mm 0 3mm auto; }
+  .ar .hero p { font-size: 9.5pt; line-height: 1.55; }
+  .ar .badge, .ar .label { font-family: 'Cairo', sans-serif; font-weight: 700; letter-spacing: 0; font-size: 8pt; }
+  .ar .card h2 { font-family: 'Cairo', sans-serif; font-weight: 700; font-size: 11pt; line-height: 1.4; }
+  .ar .card li { font-size: 8.2pt; line-height: 1.35; }
+  .ar .card h2 { margin: .5mm 0 1.5mm; }
+  .ar .offers { padding-top: 5mm; }
+  .ar .section { padding-top: 4mm; }
+  .ar .strip { margin-top: 4mm; }
+  .ar .footer { padding: 4mm 10mm; }
+  .ar .card .note { font-size: 7.6pt; line-height: 1.45; margin-top: 1.5mm; }
+  .ar .chip { font-size: 7.8pt; padding: .3mm 2.4mm; }
+  .ar .strip div { font-family: 'Cairo', sans-serif; font-weight: 700; font-size: 8.6pt; }
+  .ar .strip small { font-family: 'Cairo', sans-serif; font-size: 7pt; }
+  .ar .strip div + div { border-left: 0; border-right: .3mm solid var(--lgrey); }
+  .ar .contact { line-height: 1.45; }
+  .ar .contact b { font-family: 'Cairo', sans-serif; font-weight: 700; font-size: 9.5pt; }
+  .ar .qr span { font-size: 7.6pt; line-height: 1.5; }
+  .ar .qr span b { font-family: 'Cairo', sans-serif; font-weight: 700; font-size: 8.2pt; }
+  .ltr { direction: ltr; unicode-bidi: isolate; display: block; text-align: right; }
+</style>
+</head>
+<body>
+
+<!-- ═════════════ SIDE 1 — ENGLISH ═════════════ -->
+<section class="page en">
+  <header class="hero">
+    <img class="logo" src="assets/BlauBatch_Horizontal_on_Navy.svg" alt="Blau Batch">
+    <h1>One Source.<br><span>Full Spectrum.</span></h1>
+    <div class="rule"></div>
+    <p><b>Filler masterbatch manufactured in Egypt</b>, plus the complete Coraplast range of black, white, UV and additive masterbatch, all from one supplier.</p>
+  </header>
+
+  <div class="offers">
+    <div class="card">
+      <div class="badge">We manufacture</div>
+      <h2>Filler Masterbatch</h2>
+      <ul>
+        <li>PE series <b>FMPE</b></li>
+        <li>PP series <b>FMPP</b></li>
+        <li>CaCO₃ loading <b>70–80%</b></li>
+        <li>Grades <b>8</b></li>
+      </ul>
+      <p class="note">Made at our 6th of October factory with full in-house quality control and batch traceability.</p>
+    </div>
+    <div class="card dist">
+      <div class="badge">We distribute</div>
+      <h2>The Coraplast Range</h2>
+      <ul>
+        <li>Black <b>15 grades</b></li>
+        <li>White <b>11 grades</b></li>
+        <li>UV stabilisers <b>5 grades</b></li>
+        <li>Additives <b>17 grades</b></li>
+      </ul>
+      <img class="cp" src="assets/coraplast-logo0d-01-01.png" alt="Coraplast">
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="label">Built for</div>
+    <div class="chips">
+      <span class="chip">Film &amp; packaging</span>
+      <span class="chip">Bags &amp; sacks</span>
+      <span class="chip">Agricultural film</span>
+      <span class="chip">Pipe &amp; profiles</span>
+      <span class="chip">Injection moulding</span>
+      <span class="chip">Textiles</span>
+    </div>
+  </div>
+
+  <div class="strip">
+    <div>One supplier<small>for every grade</small></div>
+    <div>One invoice<small>simpler purchasing</small></div>
+    <div>One contact<small>technical support included</small></div>
+  </div>
+
+  <footer class="footer">
+    <div class="contact">
+      <b>Talk to our team</b>
+      +2 0102 222 7723<br>
+      info@blaubatch.com<br>
+      www.blaubatch.com
+    </div>
+    <div class="qr">
+      <span><b>Scan for</b>catalogue &amp; technical data sheets</span>
+      <img src="assets/qr_campaign.svg" alt="QR code to blaubatch.com/campaign">
+    </div>
+  </footer>
+</section>
+
+<!-- ═════════════ SIDE 2 — ARABIC (needs native review before print) ═════════════ -->
+<section class="page ar" lang="ar" dir="rtl">
+  <header class="hero">
+    <img class="logo" src="assets/BlauBatch_Horizontal_on_Navy.svg" alt="Blau Batch">
+    <h1>مصدر واحد.<br><span>طيف كامل.</span></h1>
+    <div class="rule"></div>
+    <p><b>ماستر باتش الفيلر من تصنيعنا في مصر</b>، بالإضافة إلى المجموعة الكاملة لشريكنا الأوروبي من الماستر باتش الأسود والأبيض ومثبتات الأشعة فوق البنفسجية والإضافات، من مورّد واحد.</p>
+  </header>
+
+  <div class="offers">
+    <div class="card">
+      <div class="badge">نُصنّع</div>
+      <h2>ماستر باتش الفيلر</h2>
+      <ul>
+        <li>للبولي إيثيلين <b>FMPE</b></li>
+        <li>للبولي بروبيلين <b>FMPP</b></li>
+        <li>نسبة كربونات الكالسيوم <b>٧٠–٨٠٪</b></li>
+        <li>عدد الدرجات <b>٨</b></li>
+      </ul>
+      <p class="note">يُنتج في مصنعنا بمدينة ٦ أكتوبر مع رقابة جودة داخلية كاملة وتتبّع لكل تشغيلة.</p>
+    </div>
+    <div class="card dist">
+      <div class="badge">نُوزّع</div>
+      <h2>مجموعة شريكنا الأوروبي</h2>
+      <ul>
+        <li>ماستر باتش أسود <b>١٥ درجة</b></li>
+        <li>ماستر باتش أبيض <b>١١ درجة</b></li>
+        <li>مثبتات الأشعة فوق البنفسجية <b>٥ درجات</b></li>
+        <li>إضافات <b>١٧ درجة</b></li>
+      </ul>
+      <img class="cp" src="assets/coraplast-logo0d-01-01.png" alt="Coraplast">
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="label">مناسب لـ</div>
+    <div class="chips">
+      <span class="chip">الأفلام والتغليف</span>
+      <span class="chip">الأكياس والشكائر</span>
+      <span class="chip">الأفلام الزراعية</span>
+      <span class="chip">المواسير والقطاعات</span>
+      <span class="chip">منتجات الحقن</span>
+      <span class="chip">المنسوجات</span>
+    </div>
+  </div>
+
+  <div class="strip">
+    <div>مورّد واحد<small>لكل الدرجات</small></div>
+    <div>فاتورة واحدة<small>مشتريات أبسط</small></div>
+    <div>مسؤول واحد<small>دعم فني مشمول</small></div>
+  </div>
+
+  <footer class="footer">
+    <div class="contact">
+      <b>تواصل مع فريقنا</b>
+      <span class="ltr">+2 0102 222 7723</span>
+      <span class="ltr">info@blaubatch.com</span>
+      <span class="ltr">www.blaubatch.com</span>
+    </div>
+    <div class="qr">
+      <span><b>امسح الكود</b>للكتالوج والنشرات الفنية</span>
+      <img src="assets/qr_campaign.svg" alt="QR">
+    </div>
+  </footer>
+</section>
+
+</body>
+</html>

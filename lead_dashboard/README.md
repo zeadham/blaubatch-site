@@ -9,7 +9,14 @@ A local web dashboard for LinkedIn lead generation, ported from `../linkedin_age
 - **Integrations:** outgoing webhooks and SMTP email fallback
 - **Frontend:** plain HTML, CSS and JavaScript (`frontend/`), served by FastAPI
 
-## Run it (Windows, from this folder)
+## Run it (Windows)
+
+**Easiest:** double-click `start.bat` in this folder. The first run installs
+everything (a few minutes) and opens Notepad so you can paste your
+`GEMINI_API_KEY`. After that it starts the dashboard and opens your browser.
+Use the same file every time you want to start it.
+
+**By hand**, from this folder:
 
 ```bash
 python -m venv .venv

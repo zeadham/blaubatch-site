@@ -65,3 +65,10 @@ docs/PLAN.md
 
 # Sales Tools live data (client/sample info — not code)
 Sales Tools/data/
+
+# Playwright browser profile (LinkedIn session cookies/logins — never commit)
+linkedin_agent/browser_data/
+
+# Lead dashboard: local data and LinkedIn browser profile
+lead_dashboard/browser_data/
+lead_dashboard/data/

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lead Dashboard · Blau Batch</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23141B3E'/%3E%3Ctext x='16' y='22' font-family='Arial' font-weight='700' font-size='16' fill='white' text-anchor='middle'%3EBB%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <header class="topbar">
+        <div class="topbar-inner">
+            <h1>Lead Dashboard</h1>
+            <div class="actions">
+                <span id="task-status" class="task-status" role="status" aria-live="polite">Idle</span>
+                <button id="dispatch-button" class="button button-secondary" type="button">Dispatch</button>
+                <button id="sync-button" class="button button-primary" type="button">Sync Inbox</button>
+                <button id="settings-button" class="button button-icon" type="button" aria-label="Settings" title="Settings">
+                    <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="3"></circle>
+                        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="stats" aria-label="Analytics">
+            <article class="stat-card">
+                <span class="stat-label">Total leads</span>
+                <span class="stat-value" id="stat-total">–</span>
+            </article>
+            <article class="stat-card">
+                <span class="stat-label"><span class="dot dot-pending"></span>Pending</span>
+                <span class="stat-value" id="stat-pending">–</span>
+            </article>
+            <article class="stat-card">
+                <span class="stat-label"><span class="dot dot-sent"></span>Sent</span>
+                <span class="stat-value" id="stat-sent">–</span>
+            </article>
+            <article class="stat-card">
+                <span class="stat-label"><span class="dot dot-accepted"></span>Accepted</span>
+                <span class="stat-value" id="stat-accepted">–</span>
+            </article>
+            <article class="stat-card">
+                <span class="stat-label"><span class="dot dot-replied"></span>Replied</span>
+                <span class="stat-value" id="stat-replied">–</span>
+            </article>
+            <article class="stat-card">
+                <span class="stat-label"><span class="dot dot-emailed"></span>Emailed</span>
+                <span class="stat-value" id="stat-emailed">–</span>
+            </article>
+        </section>
+
+        <p id="automation-status" class="automation-status"></p>
+
+        <div id="message" class="message" role="alert" hidden></div>
+
+        <section class="panel">
+            <h2>Add leads</h2>
+            <form id="add-leads-form" class="add-leads">
+                <label for="lead-urls" class="visually-hidden">LinkedIn profile URLs, optionally followed by an email</label>
+                <textarea id="lead-urls" rows="3"
+                    placeholder="Paste LinkedIn profile URLs, one per line. Add an email after the URL for the email fallback.&#10;https://www.linkedin.com/in/jane-doe/, jane@example.com"></textarea>
+                <button class="button button-secondary" type="submit">Add leads</button>
+            </form>
+        </section>
+
+        <section class="panel">
+            <div class="panel-header">
+                <h2>Leads</h2>
+                <button id="retry-button" class="button button-link" type="button">Retry failed</button>
+            </div>
+            <div class="table-wrapper">
+                <table class="leads-table">
+                    <thead>
+                        <tr>
+                            <th>Lead</th>
+                            <th>Status</th>
+                            <th>Message sent</th>
+                            <th>Reply</th>
+                            <th><span class="visually-hidden">Actions</span></th>
+                        </tr>
+                    </thead>
+                    <tbody id="leads-body"></tbody>
+                </table>
+                <p id="empty-state" class="empty-state" hidden>No leads yet. Paste some profile URLs above to get started.</p>
+            </div>
+        </section>
+    </main>
+
+    <dialog id="settings-dialog" class="dialog" aria-labelledby="settings-title">
+        <form id="settings-form" class="dialog-form" novalidate>
+            <header class="dialog-header">
+                <h2 id="settings-title">Settings</h2>
+                <button class="button button-icon button-close" type="button" data-close-dialog aria-label="Close">×</button>
+            </header>
+
+            <div class="dialog-body">
+                <fieldset class="settings-section">
+                    <legend>Automation</legend>
+                    <label class="toggle">
+                        <input type="checkbox" name="scheduler_enabled">
+                        <span>Run dispatch and sync automatically</span>
+                    </label>
+                    <div class="field-grid">
+                        <label class="field">
+                            <span>Dispatch every (minutes)</span>
+                            <input type="number" name="dispatch_interval_minutes" min="15" max="10080" required>
+                        </label>
+                        <label class="field">
+                            <span>Sync inbox every (minutes)</span>
+                            <input type="number" name="sync_interval_minutes" min="15" max="10080" required>
+                        </label>
+                        <label class="field">
+                            <span>Max invitations per dispatch</span>
+                            <input type="number" name="dispatch_max_per_run" min="1" max="50" required>
+                        </label>
+                    </div>
+                    <p class="hint">Scheduled runs are skipped while another browser task is running. Keep the dashboard running for automation to work.</p>
+                </fieldset>
+
+                <fieldset class="settings-section">
+                    <legend>Webhook</legend>
+                    <label class="toggle">
+                        <input type="checkbox" name="webhook_enabled">
+                        <span>Send lead events to a webhook</span>
+                    </label>
+                    <label class="field">
+                        <span>Webhook URL</span>
+                        <input type="url" name="webhook_url" placeholder="https://hooks.zapier.com/…" autocomplete="off">
+                    </label>
+                    <p class="hint">Events: <code>lead.accepted</code>, <code>lead.replied</code>, <code>lead.emailed</code>. <span id="webhook-secret-status"></span></p>
+                    <div class="inline-actions">
+                        <button id="test-webhook-button" class="button button-secondary" type="button">Send test event</button>
+                        <span id="test-webhook-result" class="test-result" role="status"></span>
+                    </div>
+                    <details class="delivery-log">
+                        <summary>Recent deliveries</summary>
+                        <ul id="webhook-log"></ul>
+                    </details>
+                </fieldset>
+
+                <fieldset class="settings-section">
+                    <legend>Email fallback</legend>
+                    <label class="toggle">
+                        <input type="checkbox" name="email_fallback_enabled">
+                        <span>Email leads LinkedIn could not reach</span>
+                    </label>
+                    <p class="hint">After each sync, leads with an email address are emailed once if their invitation failed or got no answer within the waiting period.</p>
+                    <div class="field-grid">
+                        <label class="field">
+                            <span>Wait before emailing (days)</span>
+                            <input type="number" name="email_fallback_after_days" min="1" max="90" required>
+                        </label>
+                        <label class="field">
+                            <span>Max emails per run</span>
+                            <input type="number" name="email_max_per_run" min="1" max="200" required>
+                        </label>
+                        <label class="field">
+                            <span>SMTP host</span>
+                            <input type="text" name="smtp_host" placeholder="smtp.gmail.com" autocomplete="off">
+                        </label>
+                        <label class="field">
+                            <span>SMTP port</span>
+                            <input type="number" name="smtp_port" min="1" max="65535" required>
+                        </label>
+                        <label class="field">
+                            <span>SMTP username</span>
+                            <input type="text" name="smtp_username" autocomplete="off">
+                        </label>
+                        <label class="field">
+                            <span>From address</span>
+                            <input type="email" name="smtp_from" placeholder="you@blaubatch.com" autocomplete="off">
+                        </label>
+                    </div>
+                    <label class="toggle">
+                        <input type="checkbox" name="smtp_starttls">
+                        <span>Use STARTTLS (port 587). Port 465 always uses SSL.</span>
+                    </label>
+                    <p class="hint">SMTP password: <span id="smtp-password-status"></span></p>
+                    <label class="field">
+                        <span>Subject</span>
+                        <input type="text" name="email_subject" maxlength="200" required>
+                    </label>
+                    <label class="field">
+                        <span>Body</span>
+                        <textarea name="email_body" rows="7" maxlength="5000" required></textarea>
+                    </label>
+                    <p class="hint">Placeholders: <span id="placeholder-list"></span></p>
+                    <div class="inline-actions">
+                        <label class="visually-hidden" for="test-email-to">Send test email to</label>
+                        <input id="test-email-to" type="email" placeholder="Send a test to…" autocomplete="email">
+                        <button id="test-email-button" class="button button-secondary" type="button">Send test email</button>
+                        <span id="test-email-result" class="test-result" role="status"></span>
+                    </div>
+                    <p class="hint">Save your changes before sending a test.</p>
+                </fieldset>
+            </div>
+
+            <footer class="dialog-footer">
+                <span id="settings-error" class="form-error" role="alert"></span>
+                <button class="button button-secondary" type="button" data-close-dialog>Cancel</button>
+                <button class="button button-solid" type="submit">Save settings</button>
+            </footer>
+        </form>
+    </dialog>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lead Dashboard · Blau Batch</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <header class="topbar">
+        <div class="topbar-inner">
+            <h1>Lead Dashboard</h1>
+            <div class="actions">
+                <span id="task-status" class="task-status" role="status" aria-live="polite">Idle</span>
+                <button id="dispatch-button" class="button button-secondary" type="button">Dispatch</button>
+                <button id="sync-button" class="button button-primary" type="button">Sync Inbox</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="stats" aria-label="Analytics">
+            <article class="stat-card">
+                <span class="stat-label">Total leads</span>
+                <span class="stat-value" id="stat-total">–</span>
+            </article>
+            <article class="stat-card">
+                <span class="stat-label"><span class="dot dot-pending"></span>Pending</span>
+                <span class="stat-value" id="stat-pending">–</span>
+            </article>
+            <article class="stat-card">
+                <span class="stat-label"><span class="dot dot-sent"></span>Sent</span>
+                <span class="stat-value" id="stat-sent">–</span>
+            </article>
+            <article class="stat-card">
+                <span class="stat-label"><span class="dot dot-accepted"></span>Accepted</span>
+                <span class="stat-value" id="stat-accepted">–</span>
+            </article>
+            <article class="stat-card">
+                <span class="stat-label"><span class="dot dot-replied"></span>Replied</span>
+                <span class="stat-value" id="stat-replied">–</span>
+            </article>
+        </section>
+
+        <div id="message" class="message" role="alert" hidden></div>
+
+        <section class="panel">
+            <h2>Add leads</h2>
+            <form id="add-leads-form" class="add-leads">
+                <label for="lead-urls" class="visually-hidden">LinkedIn profile URLs</label>
+                <textarea id="lead-urls" rows="3"
+                    placeholder="Paste LinkedIn profile URLs, one per line&#10;https://www.linkedin.com/in/jane-doe/"></textarea>
+                <button class="button button-secondary" type="submit">Add leads</button>
+            </form>
+        </section>
+
+        <section class="panel">
+            <div class="panel-header">
+                <h2>Leads</h2>
+                <button id="retry-button" class="button button-link" type="button">Retry failed</button>
+            </div>
+            <div class="table-wrapper">
+                <table class="leads-table">
+                    <thead>
+                        <tr>
+                            <th>Lead</th>
+                            <th>Status</th>
+                            <th>Message sent</th>
+                            <th>Reply</th>
+                            <th><span class="visually-hidden">Actions</span></th>
+                        </tr>
+                    </thead>
+                    <tbody id="leads-body"></tbody>
+                </table>
+                <p id="empty-state" class="empty-state" hidden>No leads yet. Paste some profile URLs above to get started.</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>

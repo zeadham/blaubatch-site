@@ -1,0 +1,9 @@
+fastapi>=0.115
+uvicorn>=0.30
+playwright>=1.45
+google-genai>=1.0
+python-dotenv>=1.0
+
+# Development / tests
+pytest>=8.0
+httpx>=0.27

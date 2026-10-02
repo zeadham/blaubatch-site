@@ -1,6 +1,7 @@
 # Blau Batch Lead Dashboard
 
-A local web dashboard for LinkedIn lead generation, ported from `../linkedin_agent`.
+A local web dashboard for LinkedIn lead generation. It replaces the older
+`linkedin_agent` command-line scripts.
 
 - **Backend:** FastAPI + SQLite (`data/leads.db`)
 - **Browser automation:** Playwright, reusing one persistent Chromium profile (`browser_data/`)

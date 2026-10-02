@@ -1,6 +1,6 @@
 """Dispatch: scrape each pending lead, write a note, send a connection request.
 
-Ported from `linkedin_agent/bulk_agent.py` and `scraper.py`.
+Based on the original `linkedin_agent` bulk and scraper scripts.
 
 LinkedIn renames its CSS classes from time to time. All selectors live at
 the top of this file so they are easy to update in one place.

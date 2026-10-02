@@ -1,6 +1,6 @@
 """Opens the persistent LinkedIn browser session.
 
-Ported from `linkedin_agent/scraper.py`. The profile in `browser_data/`
+Based on the original `linkedin_agent` scraper. The profile in `browser_data/`
 keeps the login cookies, so you only log in by hand the first time.
 
 Only call `linkedin_session()` from inside a TaskRunner job: it assumes

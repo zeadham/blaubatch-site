@@ -1,6 +1,6 @@
 """Writes personalised connection notes with Gemini.
 
-Ported from `linkedin_agent/bulk_agent.py`.
+Based on the prompt from the original `linkedin_agent` bulk script.
 """
 
 import logging

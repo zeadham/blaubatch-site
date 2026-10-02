@@ -21,7 +21,9 @@ def test_analytics_endpoint():
         response = client.get("/api/analytics")
 
     assert response.status_code == 200
-    assert response.json() == {"total": 1, "pending": 1, "sent": 0, "accepted": 0, "replied": 0}
+    assert response.json() == {
+        "total": 1, "pending": 1, "sent": 0, "accepted": 0, "replied": 0, "emailed": 0,
+    }
 
 
 def test_sync_is_rejected_while_dispatch_runs(runner, monkeypatch):
@@ -35,7 +37,7 @@ def test_sync_is_rejected_while_dispatch_runs(runner, monkeypatch):
         return {"accepted": 0, "replied": 0}
 
     monkeypatch.setattr(main, "run_dispatch", slow_dispatch)
-    monkeypatch.setattr(main, "run_sync", fake_sync)
+    monkeypatch.setattr(main, "run_sync_and_email_fallback", fake_sync)
 
     with TestClient(main.app) as client:
         assert client.post("/api/dispatch").status_code == 202
@@ -64,7 +66,7 @@ def test_task_error_is_reported_and_releases_lock(runner, monkeypatch):
     async def broken_sync():
         raise RuntimeError("Not logged in")
 
-    monkeypatch.setattr(main, "run_sync", broken_sync)
+    monkeypatch.setattr(main, "run_sync_and_email_fallback", broken_sync)
 
     with TestClient(main.app) as client:
         client.post("/api/sync")

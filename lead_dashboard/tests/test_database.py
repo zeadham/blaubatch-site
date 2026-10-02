@@ -35,13 +35,13 @@ def test_analytics_counts_each_status():
     database.mark_failed(leads[3]["id"], "No Connect button")
 
     assert database.get_analytics() == {
-        "total": 5, "pending": 1, "sent": 1, "accepted": 1, "replied": 1,
+        "total": 5, "pending": 1, "sent": 1, "accepted": 1, "replied": 1, "emailed": 0,
     }
 
 
 def test_analytics_on_empty_database_returns_zeros():
     assert database.get_analytics() == {
-        "total": 0, "pending": 0, "sent": 0, "accepted": 0, "replied": 0,
+        "total": 0, "pending": 0, "sent": 0, "accepted": 0, "replied": 0, "emailed": 0,
     }
 
 

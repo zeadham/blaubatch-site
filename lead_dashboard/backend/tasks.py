@@ -37,6 +37,7 @@ class TaskBusyError(Exception):
 @dataclass
 class TaskResult:
     name: str
+    trigger: str
     started_at: str
     finished_at: str | None = None
     result: dict = field(default_factory=dict)
@@ -58,17 +59,28 @@ class TaskRunner:
     def running_task(self) -> str | None:
         return self._running_name
 
-    def start(self, name: str, job: TaskJob) -> None:
-        """Start `job` in the background, or raise TaskBusyError."""
+    def start(self, name: str, job: TaskJob, trigger: str = "manual") -> None:
+        """Start `job` in the background, or raise TaskBusyError.
+
+        `trigger` records who asked for the run ("manual" or "schedule").
+        """
         if self._running_name is not None:
             raise TaskBusyError(self._running_name)
 
         # Claim the runner before yielding to the event loop.
         self._running_name = name
-        self._current = asyncio.create_task(self._run(name, job))
+        self._current = asyncio.create_task(self._run(name, job, trigger))
 
-    async def _run(self, name: str, job: TaskJob) -> None:
-        record = TaskResult(name=name, started_at=_now())
+    def try_start(self, name: str, job: TaskJob, trigger: str = "manual") -> bool:
+        """Like start(), but returns False instead of raising when busy."""
+        try:
+            self.start(name, job, trigger)
+        except TaskBusyError:
+            return False
+        return True
+
+    async def _run(self, name: str, job: TaskJob, trigger: str) -> None:
+        record = TaskResult(name=name, trigger=trigger, started_at=_now())
         self.last_run = record
         try:
             record.result = await self.run_exclusive(job)
@@ -90,6 +102,7 @@ class TaskRunner:
         if self.last_run is not None:
             last_run = {
                 "name": self.last_run.name,
+                "trigger": self.last_run.trigger,
                 "started_at": self.last_run.started_at,
                 "finished_at": self.last_run.finished_at,
                 "result": self.last_run.result,

@@ -15,12 +15,14 @@ const elements = {
     leadUrls: document.getElementById("lead-urls"),
     leadsBody: document.getElementById("leads-body"),
     emptyState: document.getElementById("empty-state"),
+    automationStatus: document.getElementById("automation-status"),
     stats: {
         total: document.getElementById("stat-total"),
         pending: document.getElementById("stat-pending"),
         sent: document.getElementById("stat-sent"),
         accepted: document.getElementById("stat-accepted"),
         replied: document.getElementById("stat-replied"),
+        emailed: document.getElementById("stat-emailed"),
     },
 };
 
@@ -37,9 +39,23 @@ async function api(path, options = {}) {
     });
     const body = await response.json().catch(() => ({}));
     if (!response.ok) {
-        throw new Error(body.detail || `Request failed (${response.status})`);
+        throw new Error(describeErrorDetail(body.detail) || `Request failed (${response.status})`);
     }
     return body;
+}
+
+// FastAPI sends validation errors (422) as a list: turn them into one readable line.
+function describeErrorDetail(detail) {
+    if (!Array.isArray(detail)) {
+        return detail;
+    }
+    return detail
+        .map((item) => {
+            const field = (item.loc || []).filter((part) => part !== "body").join(".");
+            const text = String(item.msg || "").replace(/^Value error, /, "");
+            return field ? `${field.replaceAll("_", " ")}: ${text}` : text;
+        })
+        .join(" · ");
 }
 
 function showMessage(text, isError = false) {
@@ -98,7 +114,47 @@ function buildLeadCell(lead) {
         headline.textContent = lead.headline;
         cell.append(headline);
     }
+
+    cell.append(buildEmailLine(lead));
     return cell;
+}
+
+function buildEmailLine(lead) {
+    const line = document.createElement("div");
+    line.className = "lead-email";
+
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "button button-link";
+    button.addEventListener("click", () => editEmail(lead));
+
+    if (lead.email) {
+        const address = document.createElement("span");
+        address.textContent = lead.email;
+        button.textContent = "Edit";
+        button.setAttribute("aria-label", `Edit email for ${lead.name || profileSlug(lead.profile_url)}`);
+        line.append(address, button);
+    } else {
+        button.textContent = "+ Add email";
+        line.append(button);
+    }
+    return line;
+}
+
+async function editEmail(lead) {
+    const answer = prompt("Email address for the email fallback (leave empty to remove):", lead.email || "");
+    if (answer === null) {
+        return; // cancelled
+    }
+    try {
+        await api(`/api/leads/${lead.id}`, {
+            method: "PATCH",
+            body: JSON.stringify({ email: answer.trim() }),
+        });
+        await refreshData();
+    } catch (error) {
+        showMessage(error.message, true);
+    }
 }
 
 function buildStatusCell(lead) {
@@ -113,6 +169,13 @@ function buildStatusCell(lead) {
         error.className = "error-text";
         error.textContent = lead.error;
         cell.append(error);
+    }
+
+    if (lead.emailed_at) {
+        const emailed = document.createElement("span");
+        emailed.className = "emailed-note";
+        emailed.textContent = `✉ Emailed ${formatDate(lead.emailed_at)}`;
+        cell.append(emailed);
     }
     return cell;
 }
@@ -224,6 +287,26 @@ function renderTaskStatus(status) {
     } else {
         elements.taskStatus.textContent = "Idle";
     }
+
+    renderAutomationStatus(status.scheduler);
+}
+
+const JOB_LABELS = { dispatch: "dispatch", sync: "sync" };
+
+function renderAutomationStatus(schedulerStatus) {
+    const jobs = (schedulerStatus && schedulerStatus.jobs) || [];
+    if (jobs.length === 0) {
+        elements.automationStatus.textContent = "Automation is off. Turn it on in Settings.";
+        return;
+    }
+    const parts = jobs
+        .filter((job) => job.next_run_at)
+        .map((job) => `next ${JOB_LABELS[job.id] || job.id} ${formatTime(job.next_run_at)}`);
+    elements.automationStatus.textContent = `Automation on: ${parts.join(" · ")}`;
+}
+
+function formatTime(isoString) {
+    return new Date(isoString).toLocaleTimeString(undefined, { hour: "2-digit", minute: "2-digit" });
 }
 
 function describeFinishedTask(lastRun) {
@@ -232,7 +315,11 @@ function describeFinishedTask(lastRun) {
     }
     const result = lastRun.result || {};
     if (lastRun.name === "sync") {
-        return `Sync finished: ${result.accepted ?? 0} newly accepted, ${result.replied ?? 0} new replies.`;
+        let text = `Sync finished: ${result.accepted ?? 0} newly accepted, ${result.replied ?? 0} new replies.`;
+        if (result.emailed) text += ` ${result.emailed} fallback email(s) sent.`;
+        if (result.email_failed) text += ` ${result.email_failed} email(s) failed.`;
+        if (result.email_error) text += ` Email fallback problem: ${result.email_error}`;
+        return text;
     }
     return `Dispatch finished: ${result.sent ?? 0} sent, ${result.failed ?? 0} failed.`;
 }
@@ -257,7 +344,9 @@ async function pollTaskStatus() {
         await refreshData();
         if (watchingTask && status.last_run) {
             watchingTask = false;
-            showMessage(describeFinishedTask(status.last_run), Boolean(status.last_run.error));
+            const lastRun = status.last_run;
+            const hasProblem = Boolean(lastRun.error || (lastRun.result && lastRun.result.email_error));
+            showMessage(describeFinishedTask(lastRun), hasProblem);
         }
     } catch (error) {
         pollTimer = null;
@@ -336,7 +425,199 @@ async function removeLead(lead) {
     }
 }
 
+// --- Settings dialog ---
+
+const settingsElements = {
+    dialog: document.getElementById("settings-dialog"),
+    form: document.getElementById("settings-form"),
+    openButton: document.getElementById("settings-button"),
+    error: document.getElementById("settings-error"),
+    smtpPasswordStatus: document.getElementById("smtp-password-status"),
+    webhookSecretStatus: document.getElementById("webhook-secret-status"),
+    placeholderList: document.getElementById("placeholder-list"),
+    webhookLog: document.getElementById("webhook-log"),
+    testWebhookButton: document.getElementById("test-webhook-button"),
+    testWebhookResult: document.getElementById("test-webhook-result"),
+    testEmailTo: document.getElementById("test-email-to"),
+    testEmailButton: document.getElementById("test-email-button"),
+    testEmailResult: document.getElementById("test-email-result"),
+};
+
+// Every form control named after a setting, e.g. <input name="smtp_host">.
+function settingInputs() {
+    return Array.from(settingsElements.form.querySelectorAll("[name]"));
+}
+
+function fillSettingsForm(settings) {
+    for (const input of settingInputs()) {
+        const value = settings[input.name];
+        if (input.type === "checkbox") {
+            input.checked = Boolean(value);
+        } else {
+            input.value = value ?? "";
+        }
+    }
+}
+
+function readSettingsForm() {
+    const values = {};
+    for (const input of settingInputs()) {
+        if (input.type === "checkbox") {
+            values[input.name] = input.checked;
+        } else if (input.type === "number") {
+            values[input.name] = Number(input.value);
+        } else {
+            values[input.name] = input.value;
+        }
+    }
+    return values;
+}
+
+function renderSecretStatus(element, isSet, missingText, isOptional = false) {
+    element.textContent = isSet ? "set in .env ✓" : missingText;
+    if (isSet) {
+        element.className = "secret-set";
+    } else {
+        element.className = isOptional ? "" : "secret-missing";
+    }
+}
+
+function renderWebhookLog(entries) {
+    if (entries.length === 0) {
+        const empty = document.createElement("li");
+        empty.textContent = "No deliveries yet.";
+        settingsElements.webhookLog.replaceChildren(empty);
+        return;
+    }
+    settingsElements.webhookLog.replaceChildren(...entries.map((entry) => {
+        const item = document.createElement("li");
+        const outcome = entry.ok ? "✓" : "✗";
+        item.textContent = `${outcome} ${formatDate(entry.at)} · ${entry.event} · ${entry.detail}`;
+        return item;
+    }));
+}
+
+function renderSettings(response) {
+    fillSettingsForm(response.settings);
+    renderSecretStatus(settingsElements.smtpPasswordStatus, response.secrets.smtp_password_set,
+        "not set. Add SMTP_PASSWORD to .env (only needed if your server requires a login).");
+    renderSecretStatus(settingsElements.webhookSecretStatus, response.secrets.webhook_secret_set,
+        "Optional: add WEBHOOK_SECRET to .env to sign requests.", true);
+    settingsElements.placeholderList.textContent = response.placeholders.map((name) => `{${name}}`).join(", ");
+    renderWebhookLog(response.webhook_log);
+}
+
+function setTestResult(element, text, isOk) {
+    element.textContent = text;
+    element.classList.toggle("is-ok", isOk);
+    element.classList.toggle("is-error", !isOk);
+}
+
+async function openSettings() {
+    settingsElements.error.textContent = "";
+    settingsElements.testWebhookResult.textContent = "";
+    settingsElements.testEmailResult.textContent = "";
+    try {
+        renderSettings(await api("/api/settings"));
+        settingsElements.dialog.showModal();
+    } catch (error) {
+        showMessage(`Could not load settings: ${error.message}`, true);
+    }
+}
+
+async function saveSettings(event) {
+    event.preventDefault();
+    settingsElements.error.textContent = "";
+
+    if (!settingsElements.form.checkValidity()) {
+        settingsElements.form.reportValidity();
+        return;
+    }
+
+    try {
+        const response = await api("/api/settings", {
+            method: "PUT",
+            body: JSON.stringify(readSettingsForm()),
+        });
+        renderSettings(response);
+        settingsElements.dialog.close();
+        showMessage("Settings saved.");
+        pollTaskStatus(); // refresh the automation schedule line
+    } catch (error) {
+        settingsElements.error.textContent = error.message;
+    }
+}
+
+async function sendTestWebhook() {
+    const url = settingsElements.form.elements.webhook_url.value.trim();
+    if (!url) {
+        setTestResult(settingsElements.testWebhookResult, "Enter a webhook URL first.", false);
+        return;
+    }
+    settingsElements.testWebhookButton.disabled = true;
+    setTestResult(settingsElements.testWebhookResult, "Sending…", true);
+    try {
+        const outcome = await api("/api/settings/test-webhook", {
+            method: "POST",
+            body: JSON.stringify({ url }),
+        });
+        setTestResult(settingsElements.testWebhookResult,
+            outcome.ok ? `Delivered (${outcome.detail})` : `Failed: ${outcome.detail}`, outcome.ok);
+        const fresh = await api("/api/settings");
+        renderWebhookLog(fresh.webhook_log);
+    } catch (error) {
+        setTestResult(settingsElements.testWebhookResult, error.message, false);
+    } finally {
+        settingsElements.testWebhookButton.disabled = false;
+    }
+}
+
+async function sendTestEmail() {
+    const to = settingsElements.testEmailTo.value.trim();
+    if (!to) {
+        setTestResult(settingsElements.testEmailResult, "Enter an address to send the test to.", false);
+        return;
+    }
+    settingsElements.testEmailButton.disabled = true;
+    setTestResult(settingsElements.testEmailResult, "Sending…", true);
+    try {
+        const result = await api("/api/settings/test-email", {
+            method: "POST",
+            body: JSON.stringify({ to }),
+        });
+        setTestResult(settingsElements.testEmailResult, `Sent to ${result.sent_to}`, true);
+    } catch (error) {
+        setTestResult(settingsElements.testEmailResult, error.message, false);
+    } finally {
+        settingsElements.testEmailButton.disabled = false;
+    }
+}
+
+settingsElements.openButton.addEventListener("click", openSettings);
+settingsElements.form.addEventListener("submit", saveSettings);
+settingsElements.form.addEventListener("input", () => {
+    settingsElements.error.textContent = ""; // the old error no longer applies
+});
+settingsElements.testWebhookButton.addEventListener("click", sendTestWebhook);
+settingsElements.testEmailButton.addEventListener("click", sendTestEmail);
+for (const button of settingsElements.form.querySelectorAll("[data-close-dialog]")) {
+    button.addEventListener("click", () => settingsElements.dialog.close());
+}
+// Clicking the dimmed backdrop (outside the dialog box) closes it too.
+settingsElements.dialog.addEventListener("click", (event) => {
+    if (event.target === settingsElements.dialog) {
+        settingsElements.dialog.close();
+    }
+});
+
 // --- Start up ---
 
 refreshData();
 pollTaskStatus();
+
+// Pick up scheduled runs (started by the server, not this page) once a minute.
+setInterval(() => {
+    if (pollTimer === null) {
+        pollTaskStatus();
+    }
+}, 60000);

@@ -1,7 +1,8 @@
 """Central settings for the lead dashboard.
 
 Every value can be overridden from the environment or a `.env` file
-placed in the `lead_dashboard/` folder.
+placed in the `lead_dashboard/` folder. Settings you change often
+(schedule, webhook, email) live in the database instead: see settings.py.
 """
 
 import os
@@ -42,6 +43,9 @@ LOGIN_TIMEOUT_SECONDS = 90
 # LinkedIn limits a connection note to 300 characters.
 CONNECTION_NOTE_MAX_CHARS = 300
 
-DISPATCH_MAX_PER_RUN = _int_setting("DISPATCH_MAX_PER_RUN", 10)
 DISPATCH_DELAY_SECONDS = _int_setting("DISPATCH_DELAY_SECONDS", 20)
 SYNC_MAX_CONVERSATIONS = _int_setting("SYNC_MAX_CONVERSATIONS", 30)
+
+# --- Secrets (kept out of the database and never sent to the browser) ---
+SMTP_PASSWORD = os.environ.get("SMTP_PASSWORD", "")
+WEBHOOK_SECRET = os.environ.get("WEBHOOK_SECRET", "").strip()

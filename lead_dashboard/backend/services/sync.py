@@ -5,6 +5,9 @@ Two passes, both inside one browser session:
   1. Connections page -> any 'sent' lead now in our connections is 'accepted'.
   2. Messaging inbox  -> the newest message a lead sent us becomes `reply_text`.
 
+Every status change fires a webhook (see webhooks.py). Webhooks are
+fire-and-forget, so an unreachable webhook URL never slows or breaks sync.
+
 The inbox links people by an internal ID rather than their /in/ URL, so
 conversations are matched to leads by the name dispatch scraped.
 
@@ -17,8 +20,9 @@ import logging
 
 from playwright.async_api import Page
 
-from backend import config, database
+from backend import config, database, webhooks
 from backend.browser import linkedin_session
+from backend.services.email_fallback import run_email_fallback
 
 logger = logging.getLogger(__name__)
 
@@ -66,17 +70,31 @@ def latest_reply_from(messages: list[dict], lead_name: str) -> str | None:
 async def run_sync() -> dict:
     """Update accepted/replied statuses. Runs under the browser lock."""
     summary = {"accepted": 0, "replied": 0}
-    awaiting = (
-        database.get_leads_by_status(database.STATUS_SENT)
-        + database.get_leads_by_status(database.STATUS_ACCEPTED)
-        + database.get_leads_by_status(database.STATUS_REPLIED)
-    )
-    if not awaiting:
-        return summary
+    counts = database.get_analytics()
+    if counts["sent"] + counts["accepted"] + counts["replied"] == 0:
+        return summary  # nobody has been contacted yet, so skip opening the browser
 
     async with linkedin_session() as page:
         summary["accepted"] = await _sync_accepted(page)
         summary["replied"] = await _sync_replies(page)
+    return summary
+
+
+async def run_sync_and_email_fallback() -> dict:
+    """Sync first, then email whoever is still unreached.
+
+    Order matters: sync must update statuses first, so nobody who has just
+    accepted or replied gets a fallback email. An email problem is reported
+    in the result instead of hiding the sync results.
+    """
+    summary = await run_sync()
+    try:
+        email_summary = await run_email_fallback()
+        summary["emailed"] = email_summary["emailed"]
+        summary["email_failed"] = email_summary["failed"]
+    except Exception as exc:
+        logger.warning("Email fallback failed: %s", exc)
+        summary["email_error"] = str(exc)
     return summary
 
 
@@ -102,6 +120,7 @@ async def _sync_accepted(page: Page) -> int:
     for lead in sent_leads:
         if lead["profile_url"] in connected_urls and database.mark_accepted(lead["id"]):
             accepted += 1
+            webhooks.notify(webhooks.EVENT_ACCEPTED, database.get_lead(lead["id"]))
     return accepted
 
 
@@ -143,5 +162,6 @@ async def _sync_replies(page: Page) -> int:
         reply_text = latest_reply_from(messages, lead["name"])
         if reply_text and database.mark_replied(lead["id"], reply_text):
             replied += 1
+            webhooks.notify(webhooks.EVENT_REPLIED, database.get_lead(lead["id"]))
 
     return replied

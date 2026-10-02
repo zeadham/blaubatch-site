@@ -13,6 +13,7 @@ from playwright.async_api import Page
 
 from backend import ai, config, database
 from backend.browser import linkedin_session, read_text
+from backend.settings import get_settings
 
 logger = logging.getLogger(__name__)
 
@@ -34,8 +35,9 @@ class AlreadyInvitedError(Exception):
 
 
 async def run_dispatch() -> dict:
-    """Process up to DISPATCH_MAX_PER_RUN pending leads. Runs under the browser lock."""
-    leads = database.get_leads_by_status(database.STATUS_PENDING, limit=config.DISPATCH_MAX_PER_RUN)
+    """Process up to `dispatch_max_per_run` pending leads. Runs under the browser lock."""
+    max_per_run = get_settings().dispatch_max_per_run
+    leads = database.get_leads_by_status(database.STATUS_PENDING, limit=max_per_run)
     summary = {"processed": 0, "sent": 0, "failed": 0}
     if not leads:
         return summary

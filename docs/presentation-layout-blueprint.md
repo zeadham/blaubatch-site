@@ -10,7 +10,7 @@
 
 Where the two differ, the stricter rule is used and the conflict is noted.
 
-> **Imagery rule.** Both guides prohibit AI-generated and stock imagery ([BG §16.4], [VI §15.3]). Every image zone in this deck is reserved for **real Blau Batch photography**: studio product shots, process shots or application samples. Each slide carries a shot brief for the photographer. All photography needs approval from the Marketing & Operations Manager before use ([BG §16.4], [VI §20]).
+> **Imagery: approved exception.** [BG §16.4] and [VI §15.3] prohibit AI-generated imagery. The Marketing & Operations Manager, the brand approval authority [VI §20], approved **photorealistic AI images generated in Antigravity** for this deck on 2026-10-28. Every other photography rule in [BG §16.4] still applies: clean, sharp, colour-accurate, studio-lit, and on white, light grey or navy backgrounds. Each image zone carries an **Antigravity shot brief**. See §0.7 for the conditions on generated images.
 
 ---
 
@@ -101,36 +101,54 @@ All levels come from the [BG §5.3] / [VI §13] type scale. Heading line height 
 
 ### 0.5 Logo & Persistent Chrome
 
-| Slide type | Logo file | Placement | Source |
-|---|---|---|---|
-| Title (navy) | Horizontal lockup, white, **with tagline** | Top-left, x 80, y 80 | [VI §2.2, §3.3] |
-| Dark content slides | `BlauBatch_Logo_Mono_White_Transparent.png` | Footer, left | [VI §7, §8.3] |
-| Light content slides | `BlauBatch_Logo_Mono_SteelBlue_on_White.png` ("for presentations") | Footer, left | [VI §8.3] |
-| Over photography | Logo on a Deep Navy panel at ≥ 80% opacity | — | [VI §7.3] |
-| End card | Full lockup centred on navy, tagline below | Centre | [VI §18.3] |
+All files are in `Brand Assets/Logos/`. Paths below are relative to that folder.
 
-- **Minimum logo width:** 120 px (60 pt). **Clear space:** at least 20 px, preferably 40 px [VI §5.1b, §5.2].
+| Use | File | Size / placement | Source |
+|---|---|---|---|
+| Title slide (navy) | `Export/Horizontal/BlauBatch_Horizontal_on_Navy.png`. The tagline is built in and the box is `#141B3E`, so it blends into the slide. | Top-left, x 80, y 80, 400 px wide (122 px tall) | [VI §2.2] |
+| Light-slide title / header uses | `Export/Horizontal/BlauBatch_Horizontal_Transparent.png` (navy wordmark, tagline built in) | As needed, ≥ 120 px wide | [VI §2.2] |
+| Footer, dark slides | `Export/Logomark/BlauBatch_Logomark_Transparent.png` (full-colour B, white stem) | x 80, 40 px tall | [VI §2.3] |
+| Footer, light slides | `BlauBatch_Logo_Mono_SteelBlue_Transparent.png` (single-tone B, the "presentations" variant) | x 80, 40 px tall | [VI §8.3] |
+| Over photography | `Export/Primary/BlauBatch_Logo_Primary.png` (B inside its navy container) | — | [VI §7.0, §7.3] |
+| End card | `Export/Horizontal/BlauBatch_Horizontal_on_Navy.png`, centred | 640 px wide | [VI §18.3] |
+| Co-brand (slide 10) | `Export/Horizontal/BlauBatch_Horizontal_Transparent.png` + `coraplast-logo0d-01-01.png` | See slide 10 | [VI §19] |
+| Wordmark pattern tile | `Export/TextOnly/BlauBatch_TextOnly_White_on_Navy.png` (dark) / `Export/TextOnly/BlauBatch_TextOnly_Navy_Transparent.png` (light) | See §0.6 | [VI §17.2] |
+
+- **Footer logos:** the logomark-only versions are allowed because the brand is established on the title slide [VI §2.3].
+- **Don't use on a light background:** `BlauBatch_Logomark_Transparent.png` or `Blaubatch_cutout-logo.png`. Their white stem disappears.
+- **File format:** use the PNG files in PowerPoint. The SVG lockups import Montserrat from Google Fonts for their text, so they render wrongly where that font isn't loaded. Use the EPS files only for print.
+- **Minimum size and clear space:** at least 120 px wide (60 pt) for any lockup. Clear space at least 20 px, preferably 40 px [VI §5.1b, §5.2]. Never recolour, stretch or re-typeset a logo [BG §3.1].
 - **Footer band:** y 1016 → 1080 (64 px). Logo at x 80. Page number right-aligned at x 1840 in Footnote style.
 - **No footer** on slides 1 and 12.
-- **Asset gap:** the horizontal lockup files aren't in this repo (only the primary and mono marks are). Request them from the Marketing & Operations Manager [VI §2.4]. Never rebuild the lockup by typesetting next to the mark.
 
 ### 0.6 Background Pattern
 
 The text-only BLAU BATCH wordmark pattern is the preferred pattern [VI §17.2].
+- **Tile:** build it from the TextOnly files listed in §0.5.
 - **Opacity:** White at 10% on navy slides; Deep Navy at 8% on white slides.
 - **Where:** slides 1, 3 and 12 only, behind content and never behind the logo.
 - **Rules:** never use Amber in it, and never rotate or skew it [VI §17.4].
 
-### 0.7 Photography: Global Art Direction
+### 0.7 Antigravity Imagery: Global Art Direction
 
-All image zones share one look, per [BG §16.4]:
-- **Subject:** real Blau Batch pellets, process and application samples, from the "Product", "Process" and "Material Detail" categories.
-- **Lighting:** studio light. Clean, well lit and sharp across the subject. No blur used as a stylistic effect.
-- **Background:** White, Light Grey `#DCDCDC` or Deep Navy seamless.
-- **Colour accuracy:** masterbatch colours must be rendered faithfully. No heavy filters or stylisation.
+All image zones share one look, following the [BG §16.4] visual style rules.
+
+**Style**
+- **Subjects:** masterbatch pellets, application samples (film, raffia, pipe and others), lab and process scenes. These map to the "Product", "Material Detail" and "Process" categories.
+- **Realism:** must read as authentic studio or industrial photography. No illustrative, 3D-render or painterly look, no heavy filters or stylisation [BG §16.4].
+- **Lighting:** studio light, clean and evenly lit, sharp across the subject. No blur used as a stylistic effect.
+- **Background:** White, Light Grey `#DCDCDC` or Deep Navy `#141B3E` seamless.
+- **Colour accuracy:** pellet colours must match the real product. White filler reads neutral white, with no blue or yellow cast.
 - **Composition:** subject weighted away from the text zone, with about 15% negative space on the edge facing the text.
-- **Resolution:** at least 2× the panel size (for a 768 × 1080 panel, supply 1536 × 2160). For print versions of the deck, 300 dpi.
-- **Never:** stock photography or AI-generated images.
+- **Resolution:** generate at least 2× the panel size (for a 768 × 1080 panel, 1536 × 2160). For print versions, upscale to 300 dpi.
+
+**Conditions on generated images**
+- **No text, logos or labels in the generated image.** Image generators distort logos. Where a branded bag or sign is needed, generate it blank and composite the real logo file from §0.5 afterwards.
+- **No identifiable people.** Hands or gloved hands are fine. [BG §16.4] reserves people imagery for real Blau Batch staff.
+- **Proof-of-capability shots stay real.** Slide 9 (the factory) uses the actual `BlauBatchFacility.jpg`, so the claim "our line" is backed by a real photo.
+- **Approval:** final selects are approved by the Marketing & Operations Manager [VI §20].
+
+**Base prompt suffix** (append to every brief): *"photorealistic studio product photography, 100 mm macro lens, f/8, soft key light from top-left, sharp focus throughout, accurate neutral colour, clean seamless background, no text, no logos, no people's faces"*.
 
 ### 0.8 Transitions
 
@@ -148,12 +166,12 @@ Following [VI §18.3–18.4]:
 
 ### Slide 1 — Title
 
-**Framing:** 55 / 45. The **left 55%** is a Deep Navy type panel with the wordmark pattern at 10%. The **right 45%** (x 1056 → 1920, full height, bleeding top, right and bottom) is reserved for a studio product photograph.
+**Framing:** 55 / 45. The **left 55%** is a Deep Navy type panel with the wordmark pattern at 10%. The **right 45%** (x 1056 → 1920, full height, bleeding top, right and bottom) is reserved for an Antigravity product image.
 
 ```
 ┌───────────────────────────────┬──────────────────────┐
 │ [BLAU BATCH lockup + tagline] │                      │
-│                               │   STUDIO PHOTO       │
+│                               │   ANTIGRAVITY IMAGE  │
 │ EYEBROW (caption)             │   filler pellets     │
 │ ONE SOURCE.                   │   on navy seamless   │
 │ FULL SPECTRUM.                │                      │
@@ -165,14 +183,14 @@ Following [VI §18.3–18.4]:
 
 | Element | Level | Copy | Position |
 |---|---|---|---|
-| Logo | Horizontal lockup, white, with tagline | — | x 80, y 80, ≥ 240 px wide |
+| Logo | `Export/Horizontal/BlauBatch_Horizontal_on_Navy.png` | — | x 80, y 80, 400 px wide |
 | Eyebrow | Caption, White | MASTERBATCH PORTFOLIO 2026 | x 80, y 392 |
 | Title | Display, White | ONE SOURCE. / FULL SPECTRUM. | x 80, y 424, 2 lines |
 | Accent line | Sky Blue 2 px, 60% of text-zone width | — | title + 32 px |
 | Sub-header | H2, White | Filler, White, Black, Colour and Additive Masterbatch | line + 32 px, max width 912 px |
 | Chip | Amber fill, Deep Navy Caption text, 2 px radius, 8 / 16 px padding | MANUFACTURED: FILLER MASTERBATCH | y 904 |
 
-**Shot brief:** Studio close-up of Blau Batch white CaCO₃ filler pellets in a loose diagonal spill on a Deep Navy seamless background. Soft top-left key light. Every pellet in focus. Subject weighted right.
+**Antigravity shot brief:** *"Close-up of matte white calcium carbonate filler masterbatch pellets, cylindrical, about 3 mm, in a loose diagonal spill from upper right to lower centre on a deep navy (#141B3E) seamless background, pellets concentrated in the right two-thirds of the frame"* + base suffix. Output 1728 × 2160 (portrait).
 
 ---
 
@@ -224,7 +242,7 @@ This layout has the text on the left and the cards on the right, so it uses a 40
 |---|---|
 | Eyebrow / H1 | Caption, White: FULL-SPECTRUM PORTFOLIO / H1, White: ONE SUPPLIER. EVERY GRADE. |
 | Columns | 5 equal cards, 333 px wide, 24 px gutters. Steel Blue fill, 4 px radius, 32 px padding. |
-| Card image | 269 px square studio photo of that product family's pellets on a White background. All five shot under identical lighting. |
+| Card image | 269 px square Antigravity image of that product family's pellets on a White background. All five use one prompt, changing only the pellet colour (white / black / one bright colour / translucent natural for additive / matte white filler), so the lighting matches. |
 | Card title | H3, White: Filler / White / Black / Colour / Additive |
 | Origin chip | **Filler:** Amber fill, Deep Navy Caption text "MANUFACTURED". **The other four:** 1 px White outline, White Caption text "VIA CORAPLAST" (Sky Blue text would fail on Steel Blue). |
 | Card body | Body, White, 2 lines max. e.g. "PE and PP grades, 70–80% CaCO₃." |
@@ -233,15 +251,15 @@ This layout has the text on the left and the cards on the right, so it uses a 40
 
 ### Slide 4 — PE Filler Masterbatch Range
 
-**Framing:** 60 / 40, **light slide** (White). The **left 60%** (x 80 → 1088) contains a 2 × 2 grid of grade cards, each with a 3-column specs row. The **right 40%** (x 1152 → 1920, full bleed) is reserved for a studio photograph.
+**Framing:** 60 / 40, **light slide** (White). The **left 60%** (x 80 → 1088) contains a 2 × 2 grid of grade cards, each with a 3-column specs row. The **right 40%** (x 1152 → 1920, full bleed) is reserved for an Antigravity image.
 
 ```
 ┌──────────────────────────────────────┬───────────────────┐
 │ EYEBROW  [MANUFACTURED chip]         │                   │
 │ HIGH LOADING FOR FILM & BAGS         │                   │
-│ Sub-header (Sky Blue H2)             │   STUDIO PHOTO    │
-│ ┌────────────────┐ ┌────────────────┐│   pellets + film  │
-│ │FMPE-1070       │ │FMPE-1075       ││   sample on white │
+│ Sub-header (Sky Blue H2)             │   ANTIGRAVITY     │
+│ ┌────────────────┐ ┌────────────────┐│   IMAGE: pellets  │
+│ │FMPE-1070       │ │FMPE-1075       ││   on blown film   │
 │ │CaCO₃│MFI│DENS. │ │CaCO₃│MFI│DENS. ││                   │
 │ └────────────────┘ └────────────────┘│                   │
 │ ┌────────────────┐ ┌────────────────┐│                   │
@@ -272,13 +290,13 @@ This layout has the text on the left and the cards on the right, so it uses a 40
 - **Highlighting:** none on individual values. Amber is reserved for the "MANUFACTURED" chip.
 - **Footnote** (Footnote style, y 968): *Typical values. See the individual TDS for full specification.*
 
-**Shot brief:** Studio close-up of white PE filler pellets resting on a finished blown-film sample (an application sample per [BG §16.4]) on a White seamless background. Even, colour-accurate light. Subject weighted right.
+**Antigravity shot brief:** *"Close-up of matte white filler masterbatch pellets scattered on a sheet of thin translucent white blown polyethylene film with soft natural creases, on a pure white seamless background, pellets weighted to the right of frame"* + base suffix. Output 1536 × 2160.
 
 ---
 
 ### Slide 5 — PP Filler Masterbatch Range
 
-**Framing:** The mirror of Slide 4: 40 / 60. The **left 40%** (x 0 → 768, full bleed) is reserved for a studio photograph. The **right 60%** (x 832 → 1840) contains the 2 × 2 grade-card grid with 3-column specs rows. All other specs match Slide 4.
+**Framing:** The mirror of Slide 4: 40 / 60. The **left 40%** (x 0 → 768, full bleed) is reserved for an Antigravity image. The **right 60%** (x 832 → 1840) contains the 2 × 2 grade-card grid with 3-column specs rows. All other specs match Slide 4.
 
 | Element | Level | Copy |
 |---|---|---|
@@ -293,7 +311,7 @@ This layout has the text on the left and the cards on the right, so it uses a 40
 | FMPP-1080 | PP | 80 % ±2 | 8 g/10 min | 2.1 |
 | FMPP-2180 | PPH | 80 % ±2 | 8 g/10 min | 2.1 |
 
-**Shot brief:** Studio close-up of PP filler pellets resting on a section of woven PP raffia sack, side-lit to show the weave, on a Light Grey seamless background. Subject weighted left.
+**Antigravity shot brief:** *"Close-up of matte white filler masterbatch pellets resting on a section of woven white polypropylene raffia sack fabric, low side light raking across the weave texture, light grey seamless background, pellets weighted to the left of frame"* + base suffix. Output 1536 × 2160.
 
 ---
 
@@ -324,16 +342,16 @@ This layout has the text on the left and the cards on the right, so it uses a 40
 |---|---|
 | Eyebrow / H1 | Caption, White: APPLICATIONS / H1, White: BUILT FOR THE LINES YOU RUN |
 | Tiles | 8 tiles, 422 × 300 px, 24 px gutters, 4 px radius |
-| Tile image | Real application-sample photos [BG §16.4 "Material Detail"]: Packaging film, Pipe, Agricultural film, Textiles / non-woven, Construction sheet, Wire & cable jacket, Automotive moulding, Consumer goods |
+| Tile image | Application-sample images [BG §16.4 "Material Detail"]: Packaging film, Pipe, Agricultural film, Textiles / non-woven, Construction sheet, Wire & cable jacket, Automotive moulding, Consumer goods. Reuse the existing set in `public/images/industries/` (`packaging.png`, `pipes.png`, `agriculture.png`, `textiles.png`, `construction.png`, `wire_cable.png`, `automotive.png`, `consumer_goods.png`) so the deck matches the website. |
 | Tile label | Separate Deep Navy strip below each tile (64 px tall) with an H3 White label and Caption grade codes, e.g. "FMPE-1070 · FMPE-1080". This avoids text over photography. |
 
-**Shot brief (set):** Each tile is a studio close-up of a finished product sample made with Blau Batch masterbatch, on a White seamless background, all under identical light. The images in `public/images/industries/` should only be reused once confirmed as real photographs; they were produced during the site's image-sourcing phase (PLAN.md Phase 4–5), and AI images are not permitted.
+**Antigravity shot brief (only for gaps in the existing set):** *"Close-up of [finished product sample, e.g. cut end of HDPE pipe] on a white seamless background, centred"* + base suffix. Tiles are centre-weighted because their labels sit below the image.
 
 ---
 
 ### Slide 8 — Processing & Handling
 
-**Framing:** 60 / 40, **light slide** (White). The **left 60%** contains a 3-column × 2-row specs grid. The **right 40%** is reserved for a studio photograph.
+**Framing:** 60 / 40, **light slide** (White). The **left 60%** contains a 3-column × 2-row specs grid. The **right 40%** is reserved for an Antigravity image.
 
 | Tile | Label (Caption) | Value (H2 style) | Unit (Body) | Icon (Phosphor, Deep Navy, 32 px) |
 |---|---|---|---|---|
@@ -346,7 +364,7 @@ This layout has the text on the left and the cards on the right, so it uses a 40
 
 **Tile style:** 320 × 200 px, no fill, 2 px Sky Blue accent line along the top edge. No Amber on this slide, because this is handling data rather than manufacturing content.
 
-**Shot brief:** Real process photo: the open mouth of a branded 25 kg Blau Batch bag with pellets visible, shot at the factory against a neutral background. Process category [BG §16.4].
+**Antigravity shot brief:** *"Open mouth of a plain white woven polypropylene 25 kg industrial bag, folded down to reveal matte white masterbatch pellets inside, low three-quarter angle, deep navy seamless background"* + base suffix. Output 1536 × 2160. The bag is generated **blank**. If branding is wanted, composite `BlauBatch_Logo_Mono_Navy_Transparent.png` onto the bag face in post, following the bag's perspective.
 
 ---
 
@@ -356,25 +374,25 @@ This layout has the text on the left and the cards on the right, so it uses a 40
 
 | Element | Level | Copy / Spec |
 |---|---|---|
-| Background | — | `Brand Assets/Photos & Visuals/BlauBatchFacility.jpg`, cropped to 1920 × 1080 with the subject right of centre. Confirm it is a real photo and approved. |
+| Background | — | `Brand Assets/Photos & Visuals/BlauBatchFacility.jpg` (real photo, per §0.7), cropped to 1920 × 1080 with the subject right of centre |
 | Eyebrow + chip | Caption, White, followed by the Amber "MANUFACTURED" chip | IN-HOUSE PRODUCTION |
 | Title | H1, White | OUR LINE. OUR FORMULATION. |
 | Proof points | 3 stacked spec blocks, Value in White H2 style plus a Body line | "8" filler grades · "PE & PP" carriers · "70–80%" CaCO₃ loading |
-| Logo | Footer White mono, on the navy panel | — |
+| Logo | Footer `Export/Logomark/BlauBatch_Logomark_Transparent.png`, on the navy panel | — |
 
 ---
 
 ### Slide 10 — Distribution Partnership (Coraplast)
 
-**Framing:** 50 / 50, **light slide** (White). The **left 50%** holds text and the co-brand lock-up. The **right 50%** is a 2 × 2 grid of product-family photo tiles.
+**Framing:** 50 / 50, **light slide** (White). The **left 50%** holds text and the co-brand lock-up. The **right 50%** is a 2 × 2 grid of product-family image tiles.
 
 | Element | Spec | Source |
 |---|---|---|
-| Lock-up | BLAU BATCH primary logo **first (left)**, then a 1 px Light Grey vertical divider, then the Coraplast logo. Logos at equal visual weight, 2× standard clear space between them (≥ 80 px). | [VI §19] |
+| Lock-up | `Export/Horizontal/BlauBatch_Horizontal_Transparent.png` **first (left)**, 96 px tall. Then a 1 px Light Grey vertical divider, then `coraplast-logo0d-01-01.png` scaled to equal visual weight (about 96 px tall). 2× standard clear space between them (≥ 80 px each side of the divider). | [VI §19] |
 | Lock-up label | Caption, Steel Blue: AUTHORISED DISTRIBUTION PARTNER | [VI §19, 16.1] |
 | Title | H1: WHITE, BLACK, COLOUR & ADDITIVE | — |
 | Body | One order, one invoice, one technical contact: Blau Batch. | [BG §14.2] "cite the Coraplast partnership as a portfolio credential" |
-| Photo tiles | White · Black · Colour · Additive; 416 × 416 px each, 24 px gutter, 4 px radius. Real studio pellet photos on White or Light Grey. H3 label below each tile. | [BG §16.4] |
+| Image tiles | White · Black · Colour · Additive; 416 × 416 px each, 24 px gutter, 4 px radius. Reuse the slide 3 Antigravity pellet images, cropped square. H3 label below each tile. | [BG §16.4] |
 | Amber | None (distributed products) | [VI §11] |
 
 The co-branded slide needs approval from the Marketing & Operations Manager [VI §19].
@@ -383,7 +401,7 @@ The co-branded slide needs approval from the Marketing & Operations Manager [VI 
 
 ### Slide 11 — Custom Formulation
 
-**Framing:** 40 / 60, **dark slide** (Deep Navy). The **left 40%** is reserved for a studio photograph. The **right 60%** holds a 4-step horizontal process strip.
+**Framing:** 40 / 60, **dark slide** (Deep Navy). The **left 40%** is reserved for an Antigravity image. The **right 60%** holds a 4-step horizontal process strip.
 
 | Step | Number | H3 (White) | Body (White) |
 |---|---|---|---|
@@ -395,7 +413,7 @@ The co-branded slide needs approval from the Marketing & Operations Manager [VI 
 - **Connector:** a 2 px Sky Blue line runs through the steps at the height of the numbers' midline.
 - **Copy:** follows the custom formulation process in [BG §6.3 / §11] and promises no lead times [BG §14.2].
 
-**Shot brief:** Real lab photo: a Blau Batch technician's gloved hands weighing pellet samples, or a lab dish of pellets in clean, even light. Use `Brand Assets/Photos & Visuals/Blue masterbatch in lab.png` if it is confirmed as an authentic photo.
+**Antigravity shot brief:** *"Gloved hands in a laboratory weighing a small sample of blue masterbatch pellets on a precision balance, glass petri dishes of white and blue pellets beside it, clean white lab bench, deep navy background falling off on the right"* + base suffix. Output 1536 × 2160. Hands only, with no faces. Alternatively, use the existing `Brand Assets/Photos & Visuals/Blue masterbatch in lab.png`.
 
 ---
 
@@ -406,8 +424,8 @@ The co-branded slide needs approval from the Marketing & Operations Manager [VI 
 ```
 ┌──────────────────────────────────────────────────────┐
 │                                                      │
-│              [BLAU BATCH full lockup]                │
-│          Full-Spectrum Masterbatch Solutions         │
+│      [BLAU BATCH horizontal lockup + tagline]        │
+│                                                      │
 │                                                      │
 │            REQUEST SAMPLES OR A TDS (H2)             │
 │                 [ REQUEST SAMPLES ]                  │
@@ -418,8 +436,7 @@ The co-branded slide needs approval from the Marketing & Operations Manager [VI 
 
 | Element | Level / Spec | Copy |
 |---|---|---|
-| Logo | Full lockup, white, centred, ≥ 480 px wide, 40 px clear space | — |
-| Tagline | Open Sans Regular, title case, White | Full-Spectrum Masterbatch Solutions |
+| Logo | `Export/Horizontal/BlauBatch_Horizontal_on_Navy.png`, centred, 640 px wide, 40 px clear space. The tagline is built into the file, so don't set it again as text. | — |
 | Sub-header | H2, White | Request Samples or a Technical Data Sheet |
 | CTA button | Sky Blue fill, White Montserrat Bold 18 pt in all caps (large text, 3.6:1, passes AA-large), 4 px radius, 64 px tall, 32 px horizontal padding | REQUEST SAMPLES |
 | Contact | Body, White | info@blaubatch.com · +2 0102 2227723 · blaubatch.com [BG cover page] |
@@ -427,26 +444,32 @@ The co-branded slide needs approval from the Marketing & Operations Manager [VI 
 
 ---
 
-## Appendix A — Photography Shot List
+## Appendix A — Image List
 
-None of these may be AI-generated or stock [BG §16.4]. All need approval before use.
-
-| # | Shot | Category [BG §16.4] | Background | Slide(s) |
+| # | Image | Source | Background | Slide(s) |
 |---|---|---|---|---|
-| P1 | White filler pellet spill | Product | Deep Navy seamless | 1 |
-| P2 | 5 product-family pellet close-ups, identical light | Product | White | 3, 10 |
-| P3 | PE pellets on a blown-film sample | Material Detail | White | 4 |
-| P4 | PP pellets on raffia weave | Material Detail | Light Grey | 5 |
-| P5 | 8 application samples | Material Detail | White | 7 |
-| P6 | 25 kg bag, pellets visible | Process | Neutral factory | 8 |
-| P7 | Facility / extrusion line | Process | — | 9 (existing `BlauBatchFacility.jpg`, if approved) |
-| P8 | Lab sample weighing | Process | — | 11 (existing lab image, if approved) |
+| P1 | White filler pellet spill | Antigravity | Deep Navy | 1 |
+| P2 | 5 product-family pellet close-ups, one prompt | Antigravity | White | 3, 10 |
+| P3 | PE pellets on blown film | Antigravity | White | 4 |
+| P4 | PP pellets on raffia weave | Antigravity | Light Grey | 5 |
+| P5 | 8 application samples | Existing `public/images/industries/` set | White | 7 |
+| P6 | Blank 25 kg bag with pellets (logo composited in post) | Antigravity | Deep Navy | 8 |
+| P7 | Facility | **Real:** `Photos & Visuals/BlauBatchFacility.jpg` | — | 9 |
+| P8 | Lab sample weighing, hands only | Antigravity or existing `Blue masterbatch in lab.png` | Navy fall-off | 11 |
 
-## Appendix B — Assets to Request
+## Appendix B — Logo Files Used
 
-- **Horizontal lockup, white and navy, with and without tagline (PNG transparent).** Not in the repo; request per [VI §2.4].
-- **BLAU BATCH text-only wordmark pattern source file** [VI §17.4].
-- **Origin confirmation** for everything in `Brand Assets/Photos & Visuals/` and `public/images/industries/`.
+All files are in `Brand Assets/Logos/`.
+
+| File | Slides |
+|---|---|
+| `Export/Horizontal/BlauBatch_Horizontal_on_Navy.png` | 1, 12 |
+| `Export/Horizontal/BlauBatch_Horizontal_Transparent.png` | 10 |
+| `Export/Logomark/BlauBatch_Logomark_Transparent.png` | Footers on dark slides: 3, 7, 9, 11 |
+| `BlauBatch_Logo_Mono_SteelBlue_Transparent.png` | Footers on light slides: 2, 4, 5, 6, 8, 10 |
+| `BlauBatch_Logo_Mono_Navy_Transparent.png` | Bag composite on slide 8 (optional) |
+| `Export/TextOnly/BlauBatch_TextOnly_White_on_Navy.png` | Pattern tile on slides 1, 3, 12 |
+| `coraplast-logo0d-01-01.png` | 10 |
 
 ## Appendix C — Data Note
 

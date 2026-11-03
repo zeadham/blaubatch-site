@@ -113,6 +113,6 @@ Git history keeps every deleted file, so any of these can be restored later.
 | Logo SVG/PNG/EPS files | The logo wordmark stays Montserrat Black. |
 | Supplier Coraplast TDS originals and original filler TDS PDFs | Not Blau Batch-designed. |
 
-**Follow-up (website):** in `zeadham/blaubatch`, Open Sans is still loaded and used in `app/globals.css`, `app/[lang]/layout.jsx` and 14 components (forms, hero, footer, product pages, blog layout). Switch these to Inter to finish the change.
+**Website:** `zeadham/blaubatch` branch `claude/zen-noether-k0gx2z` removes the last Open Sans (16 files) so Inter is the only Latin font; Arabic stays Cairo. Build and lint pass, and pages were checked in a browser. Not live until merged into `main`.
 
 **Follow-up:** the AfroPlast 2027 print files on the unmerged branch `claude/inspiring-clarke-tnhvyb` still bundle Montserrat and Open Sans. Switch them to Inter before the files go to print.

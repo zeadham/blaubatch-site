@@ -115,4 +115,4 @@ Git history keeps every deleted file, so any of these can be restored later.
 
 **Website:** `zeadham/blaubatch` branch `claude/zen-noether-k0gx2z` removes the last Open Sans (16 files) so Inter is the only Latin font; Arabic stays Cairo. Build and lint pass, and pages were checked in a browser. Not live until merged into `main`.
 
-**Follow-up:** the AfroPlast 2027 print files on the unmerged branch `claude/inspiring-clarke-tnhvyb` still bundle Montserrat and Open Sans. Switch them to Inter before the files go to print.
+**AfroPlast 2027 print files:** the A5 flyer and A4 filler savings sheet now use Inter, bundled locally in `assets/fonts/` with Cairo for Arabic. Their PDFs and previews were re-rendered, with the same page sizes and counts as before. The logo SVGs keep their Montserrat wordmark.

@@ -37,8 +37,9 @@ from reportlab.lib.utils import ImageReader
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))  # the "Blau Batch Master" folder
 BRAND_DIR = os.path.join(BASE_DIR, "Brand Assets")
 FONTS_DIR = os.path.join(BRAND_DIR, "Fonts")
-LOGO_BB = os.path.join(BRAND_DIR, "Logos", "BlauBatch_Logo_Primary.jpg")
-LOGO_CP = os.path.join(BRAND_DIR, "Logos", "coraplast-logo0d-01-01.png")
+LOGO_PACK = os.path.join(BRAND_DIR, "Logos", "BlauBatch_Logo_Pack")
+LOGO_BB = os.path.join(LOGO_PACK, "01_Primary", "JPG", "BlauBatch_Primary_Master.jpg")
+LOGO_CP = os.path.join(LOGO_PACK, "09_Coraplast", "PNG", "Coraplast_Logo_WithSlogan.png")
 CORAPLAST_DIR = os.path.join(BRAND_DIR, "Technical Sheets", "Coraplast_extracted")
 OUT_BB = os.path.join(BRAND_DIR, "Generated TDS", "Blau Batch")
 OUT_CP = os.path.join(BRAND_DIR, "Generated TDS", "Coraplast Co-branded")

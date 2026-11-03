@@ -101,22 +101,23 @@ The guides define no slide grid, so this deck uses the web grid tokens ([VI §11
 
 ### 0.5 Logo & Persistent Chrome
 
-All files are in `Brand Assets/Logos/`. Paths below are relative to that folder.
+All files are in the logo pack, `Brand Assets/Logos/BlauBatch_Logo_Pack/`. Paths below are relative to that folder. The wordmark is drawn in Inter Black, and the horizontal logos have no tagline.
 
 | Use | File | Size / placement | Source |
 |---|---|---|---|
-| Title slide (navy) | `Export/Horizontal/BlauBatch_Horizontal_on_Navy.png`. The tagline is built in and the box is `#141B3E`, so it blends into the slide. | Top-left, x 80, y 80, 400 px wide (122 px tall) | [VI §2.2] |
-| Light-slide title / header uses | `Export/Horizontal/BlauBatch_Horizontal_Transparent.png` (navy wordmark, tagline built in) | As needed, ≥ 120 px wide | [VI §2.2] |
-| Footer, dark slides | `Export/Logomark/BlauBatch_Logomark_Transparent.png` (full-colour B, white stem) | x 80, 40 px tall | [VI §2.3] |
-| Footer, light slides | `BlauBatch_Logo_Mono_SteelBlue_Transparent.png` (single-tone B, the "presentations" variant) | x 80, 40 px tall | [VI §8.3] |
-| Over photography | `Export/Primary/BlauBatch_Logo_Primary.png` (B inside its navy container) | — | [VI §7.0, §7.3] |
-| End card | `Export/Horizontal/BlauBatch_Horizontal_on_Navy.png`, centred | 640 px wide | [VI §18.3] |
-| Co-brand (slide 10) | `Export/Horizontal/BlauBatch_Horizontal_Transparent.png` + `coraplast-logo0d-01-01.png` | See slide 10 | [VI §19] |
-| Wordmark pattern tile | `Export/TextOnly/BlauBatch_TextOnly_White_on_Navy.png` (dark) / `Export/TextOnly/BlauBatch_TextOnly_Navy_Transparent.png` (light) | See §0.6 | [VI §17.2] |
+| Title slide (navy) | `03_Horizontal/PNG/BlauBatch_Horizontal_DarkBG.png` (white wordmark, transparent) | Top-left, x 80, y 80, 400 px wide (90 px tall) | [VI §2.2] |
+| Light-slide title / header uses | `03_Horizontal/PNG/BlauBatch_Horizontal_LightBG.png` (navy wordmark, transparent) | As needed, ≥ 120 px wide | [VI §2.2] |
+| Footer, dark slides | `02_Logomark/PNG/BlauBatch_Logomark_DarkBG.png` (full-colour B, white stem) | x 80, 40 px tall | [VI §2.3] |
+| Footer, light slides | `01_Primary/PNG/BlauBatch_Primary.png` (B on its navy square) | x 80, 40 px tall | [VI §2.1] |
+| Over photography | `01_Primary/PNG/BlauBatch_Primary.png` | — | [VI §7.0, §7.3] |
+| End card | `03_Horizontal/PNG/BlauBatch_Horizontal_DarkBG.png`, centred | 640 px wide | [VI §18.3] |
+| Co-brand (slide 10) | `10_CoBrand/PNG/BlauBatch_x_Coraplast_Horizontal.png` (approved lockup with divider) | See slide 10 | [VI §19] |
+| Wordmark pattern tile | `05_Wordmark/PNG/BlauBatch_Wordmark_White.png` (dark) / `05_Wordmark/PNG/BlauBatch_Wordmark_Navy.png` (light) | See §0.6 | [VI §17.2] |
+| Arabic version of the deck | `04_Arabic/PNG/BlauBatch_Arabic_DarkBG.png` / `_LightBG.png` in place of the horizontal logos | Same as horizontal | [VI §4] |
 
 - **Footer logos:** the logomark-only versions are allowed because the brand is established on the title slide [VI §2.3].
-- **Don't use on a light background:** `BlauBatch_Logomark_Transparent.png` or `Blaubatch_cutout-logo.png`. Their white stem disappears.
-- **File format:** use the PNG files in PowerPoint. The SVG lockups import Montserrat from Google Fonts for their text, so they render wrongly where that font isn't loaded. The logo files keep their Montserrat Black wordmark; Inter is for slide text only, so never retype the logo in Inter. Use the EPS files only for print.
+- **Don't use on a light background:** `02_Logomark` files, whose white stem disappears.
+- **File format:** use the PNG files in PowerPoint and Canva, and the SVG files anywhere that scales. The SVGs are fully outlined, so they render the same everywhere.
 - **Minimum size and clear space:** at least 120 px wide (60 pt) for any lockup. Clear space at least 20 px, preferably 40 px [VI §5.1b, §5.2]. Never recolour, stretch or re-typeset a logo [BG §3.1].
 - **Footer band:** y 1016 → 1080 (64 px). Logo at x 80. Page number right-aligned at x 1840 in Footnote style.
 - **No footer** on slides 1 and 12.
@@ -124,7 +125,7 @@ All files are in `Brand Assets/Logos/`. Paths below are relative to that folder.
 ### 0.6 Background Pattern
 
 The text-only BLAU BATCH wordmark pattern is the preferred pattern [VI §17.2].
-- **Tile:** build it from the TextOnly files listed in §0.5.
+- **Tile:** build it from the Wordmark files listed in §0.5.
 - **Opacity:** White at 10% on navy slides; Deep Navy at 8% on white slides.
 - **Where:** slides 1, 3 and 12 only, behind content and never behind the logo.
 - **Rules:** never use Amber in it, and never rotate or skew it [VI §17.4].
@@ -170,7 +171,7 @@ Following [VI §18.3–18.4]:
 
 ```
 ┌───────────────────────────────┬──────────────────────┐
-│ [BLAU BATCH lockup + tagline] │                      │
+│ [BLAU BATCH horizontal logo]  │                      │
 │                               │   ANTIGRAVITY IMAGE  │
 │ EYEBROW (caption)             │   filler pellets     │
 │ ONE SOURCE.                   │   on navy seamless   │
@@ -183,7 +184,7 @@ Following [VI §18.3–18.4]:
 
 | Element | Level | Copy | Position |
 |---|---|---|---|
-| Logo | `Export/Horizontal/BlauBatch_Horizontal_on_Navy.png` | — | x 80, y 80, 400 px wide |
+| Logo | `03_Horizontal/PNG/BlauBatch_Horizontal_DarkBG.png` | — | x 80, y 80, 400 px wide |
 | Eyebrow | Caption, White | MASTERBATCH PORTFOLIO 2026 | x 80, y 392 |
 | Title | Display, White | ONE SOURCE. / FULL SPECTRUM. | x 80, y 424, 2 lines |
 | Accent line | Sky Blue 2 px, 60% of text-zone width | — | title + 32 px |
@@ -378,7 +379,7 @@ This layout has the text on the left and the cards on the right, so it uses a 40
 | Eyebrow + chip | Caption, White, followed by the Amber "MANUFACTURED" chip | IN-HOUSE PRODUCTION |
 | Title | H1, White | OUR LINE. OUR FORMULATION. |
 | Proof points | 3 stacked spec blocks, Value in White H2 style plus a Body line | "8" filler grades · "PE & PP" carriers · "70–80%" CaCO₃ loading |
-| Logo | Footer `Export/Logomark/BlauBatch_Logomark_Transparent.png`, on the navy panel | — |
+| Logo | Footer `02_Logomark/PNG/BlauBatch_Logomark_DarkBG.png`, on the navy panel | — |
 
 ---
 
@@ -388,7 +389,7 @@ This layout has the text on the left and the cards on the right, so it uses a 40
 
 | Element | Spec | Source |
 |---|---|---|
-| Lock-up | `Export/Horizontal/BlauBatch_Horizontal_Transparent.png` **first (left)**, 96 px tall. Then a 1 px Light Grey vertical divider, then `coraplast-logo0d-01-01.png` scaled to equal visual weight (about 96 px tall). 2× standard clear space between them (≥ 80 px each side of the divider). | [VI §19] |
+| Lock-up | `10_CoBrand/PNG/BlauBatch_x_Coraplast_Horizontal.png`, the approved co-brand lockup (BLAU BATCH first, divider, Coraplast at equal weight). Place it at 96 px tall on White; the pack allows only White behind it. | [VI §19] |
 | Lock-up label | Caption, Steel Blue: AUTHORISED DISTRIBUTION PARTNER | [VI §19, 16.1] |
 | Title | H1: WHITE, BLACK, COLOUR & ADDITIVE | — |
 | Body | One order, one invoice, one technical contact: Blau Batch. | [BG §14.2] "cite the Coraplast partnership as a portfolio credential" |
@@ -419,13 +420,13 @@ The co-branded slide needs approval from the Marketing & Operations Manager [VI 
 
 ### Slide 12 — End Card
 
-**Framing:** An end card per [VI §18.3]: a full BLAU BATCH lockup **centred** on Deep Navy with the tagline below, wordmark pattern at 10%, and no photography. Hold for at least 4 s when the deck is presented as video.
+**Framing:** An end card per [VI §18.3]: a full BLAU BATCH lockup **centred** on Deep Navy with the tagline set below it as text, wordmark pattern at 10%, and no photography. Hold for at least 4 s when the deck is presented as video.
 
 ```
 ┌──────────────────────────────────────────────────────┐
 │                                                      │
-│      [BLAU BATCH horizontal lockup + tagline]        │
-│                                                      │
+│          [BLAU BATCH horizontal logo]                │
+│          Full-Spectrum Masterbatch Solutions         │
 │                                                      │
 │            REQUEST SAMPLES OR A TDS (H2)             │
 │                 [ REQUEST SAMPLES ]                  │
@@ -436,7 +437,8 @@ The co-branded slide needs approval from the Marketing & Operations Manager [VI 
 
 | Element | Level / Spec | Copy |
 |---|---|---|
-| Logo | `Export/Horizontal/BlauBatch_Horizontal_on_Navy.png`, centred, 640 px wide, 40 px clear space. The tagline is built into the file, so don't set it again as text. | — |
+| Logo | `03_Horizontal/PNG/BlauBatch_Horizontal_DarkBG.png`, centred, 640 px wide, 40 px clear space | — |
+| Tagline | Inter Regular, title case, White, 32 px below the logo | Full-Spectrum Masterbatch Solutions |
 | Sub-header | H2, White | Request Samples or a Technical Data Sheet |
 | CTA button | Sky Blue fill, White Inter Bold 18 pt in all caps (large text, 3.6:1, passes AA-large), 4 px radius, 64 px tall, 32 px horizontal padding | REQUEST SAMPLES |
 | Contact | Body, White | info@blaubatch.com · +2 0102 2227723 · blaubatch.com [BG cover page] |
@@ -459,17 +461,16 @@ The co-branded slide needs approval from the Marketing & Operations Manager [VI 
 
 ## Appendix B — Logo Files Used
 
-All files are in `Brand Assets/Logos/`.
+All files are in `Brand Assets/Logos/BlauBatch_Logo_Pack/`.
 
 | File | Slides |
 |---|---|
-| `Export/Horizontal/BlauBatch_Horizontal_on_Navy.png` | 1, 12 |
-| `Export/Horizontal/BlauBatch_Horizontal_Transparent.png` | 10 |
-| `Export/Logomark/BlauBatch_Logomark_Transparent.png` | Footers on dark slides: 3, 7, 9, 11 |
-| `BlauBatch_Logo_Mono_SteelBlue_Transparent.png` | Footers on light slides: 2, 4, 5, 6, 8, 10 |
-| `BlauBatch_Logo_Mono_Navy_Transparent.png` | Bag composite on slide 8 (optional) |
-| `Export/TextOnly/BlauBatch_TextOnly_White_on_Navy.png` | Pattern tile on slides 1, 3, 12 |
-| `coraplast-logo0d-01-01.png` | 10 |
+| `03_Horizontal/PNG/BlauBatch_Horizontal_DarkBG.png` | 1, 12 |
+| `10_CoBrand/PNG/BlauBatch_x_Coraplast_Horizontal.png` | 10 |
+| `02_Logomark/PNG/BlauBatch_Logomark_DarkBG.png` | Footers on dark slides: 3, 7, 9, 11 |
+| `01_Primary/PNG/BlauBatch_Primary.png` | Footers on light slides: 2, 4, 5, 6, 8, 10 |
+| `06_Mono/PNG/BlauBatch_Mono_Navy.png` | Bag composite on slide 8 (optional) |
+| `05_Wordmark/PNG/BlauBatch_Wordmark_White.png` | Pattern tile on slides 1, 3, 12 |
 
 ## Appendix C — Data Note
 

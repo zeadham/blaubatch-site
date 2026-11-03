@@ -100,7 +100,7 @@ VERIFY EACH IMAGE (regenerate if any item fails)
 
 OPTIONAL — branded bag
 After P6 passes, create bb_p6_bag_branded.png by compositing
-Brand Assets/Logos/BlauBatch_Logo_Mono_Navy_Transparent.png onto the bag face:
+Brand Assets/Logos/BlauBatch_Logo_Pack/06_Mono/PNG/BlauBatch_Mono_Navy.png onto the bag face:
 about 18% of the bag width, perspective-warped to the bag's surface, multiply
 blend at 90% opacity so the weave texture shows through. Keep the original
 bb_p6_bag.png.
@@ -130,12 +130,12 @@ Do this before pasting the prompt, so Canva applies the brand automatically.
    - Subtitle: Inter Bold
    - Heading: Inter SemiBold
    - Body: Inter Regular
-3. **Brand Kit → Logos:** upload these files from `Brand Assets/Logos/`:
-   - `Export/Horizontal/BlauBatch_Horizontal_on_Navy.png`
-   - `Export/Horizontal/BlauBatch_Horizontal_Transparent.png`
-   - `Export/Logomark/BlauBatch_Logomark_Transparent.png`
-   - `BlauBatch_Logo_Mono_SteelBlue_Transparent.png`
-   - `coraplast-logo0d-01-01.png`
+3. **Brand Kit → Logos:** upload these files from `Brand Assets/Logos/BlauBatch_Logo_Pack/`:
+   - `03_Horizontal/PNG/BlauBatch_Horizontal_DarkBG.png`
+   - `03_Horizontal/PNG/BlauBatch_Horizontal_LightBG.png`
+   - `02_Logomark/PNG/BlauBatch_Logomark_DarkBG.png`
+   - `01_Primary/PNG/BlauBatch_Primary.png`
+   - `10_CoBrand/PNG/BlauBatch_x_Coraplast_Horizontal.png`
 4. **Uploads:** upload these images:
    - all PNGs from `Brand Assets/Photos & Visuals/Presentation/` (from the Antigravity step)
    - `Brand Assets/Photos & Visuals/BlauBatchFacility.jpg`
@@ -251,9 +251,8 @@ SLIDES
    proof points, large white value + small line: "8" filler grades · "PE & PP"
    carriers · "70–80%" CaCO₃ loading.
 
-10. DISTRIBUTION PARTNER (light). Left 50%: BLAU BATCH horizontal logo
-    (transparent version) first, a thin light grey vertical divider, then the
-    Coraplast logo at equal visual size with generous space between them;
+10. DISTRIBUTION PARTNER (light). Left 50%: the BLAU BATCH x Coraplast
+    co-brand logo (one uploaded file, already laid out with a divider);
     label "AUTHORISED DISTRIBUTION PARTNER"; title "WHITE, BLACK, COLOUR &
     ADDITIVE"; body "One order, one invoice, one technical contact: Blau
     Batch." Right 50%: 2×2 square image tiles (bb_p2_white, bb_p2_black,
@@ -268,8 +267,8 @@ SLIDES
       03 Sample: Trial quantity shipped with its TDS.
       04 Supply: Scale to production volumes.
 
-12. END CARD (dark). Centred: BLAU BATCH horizontal logo (navy version, the
-    tagline is part of the logo); white subtitle "Request Samples or a
+12. END CARD (dark). Centred: BLAU BATCH horizontal logo (DarkBG version), with
+    "Full-Spectrum Masterbatch Solutions" in white Inter Regular below it; white subtitle "Request Samples or a
     Technical Data Sheet"; Sky Blue button with white bold caps text "REQUEST
     SAMPLES"; contact line "info@blaubatch.com · +2 0102 2227723 ·
     blaubatch.com". A very faint repeating "BLAU BATCH" text pattern in the
@@ -285,6 +284,6 @@ Canva AI tends to drift from long prompts, so check these by hand:
 - [ ] **Amber:** appears only on the "MANUFACTURED" chips (slides 1, 3, 4, 5, 9).
 - [ ] **Fonts:** Inter only. Titles all caps in Inter ExtraBold, body in Inter Regular. Canva AI sometimes substitutes template fonts, so select all text and check.
 - [ ] **No stray content:** no Canva stock photos, illustrations or extra colours slipped in. Swap any you find for the uploaded images.
-- [ ] **Logos:** not stretched or recoloured. The transparent horizontal logo appears only on light slides; the navy version only on slides 1 and 12.
+- [ ] **Logos:** not stretched or recoloured. The LightBG horizontal logo appears only on light slides; the DarkBG version only on slides 1 and 12.
 - [ ] **Spec values:** match the tables above exactly.
 - [ ] **Prompt length:** if Canva truncates it, paste the STYLE RULES plus 3–4 slides at a time, using "Add slides" with the same Brand Kit.

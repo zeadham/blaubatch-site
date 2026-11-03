@@ -1,11 +1,13 @@
 # BLAU BATCH — 16:9 Presentation Layout Blueprint
 
+> **Note (2026-11-03):** the deck being produced is the **company profile**: see `Company Profile 2026/Company Profile Prompts.md`. The global system in §0 (grid, colour, Inter type scale, logo use, imagery rules) applies to it. The slide-by-slide section below describes the earlier product-deck draft.
+
 **Deck:** "One Source. Full Spectrum." — Filler Masterbatch & Portfolio Overview
 **Format:** 16:9 widescreen · 1920 × 1080 px (13.333 × 7.5 in / 960 × 540 pt). Sizes are given in pt (PowerPoint) with px at 1920 wide (px = pt × 2).
 **Spec data:** `generate_tds_pdfs.py` (TDS values for the 8 filler grades)
 
 **Governing documents** (cited inline):
-- **[BG]** `Brand Assets/BlauBatch_BrandGuidelines_v5.1.docx`: Corporate Brand Identity Manual v5.1
+- **[BG]** `Brand Assets/BlauBatch_BrandGuidelines_v5.2.docx`: Corporate Brand Identity Manual v5.2
 - **[VI]** `Brand Assets/BlauBatch_VisualIdentityGuide_v1.2.docx`: Visual Identity Guide v1.2
 
 Where the two differ, the stricter rule is used and the conflict is noted.

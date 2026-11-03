@@ -7,7 +7,7 @@ Generates branded PDF Technical Data Sheets:
 - Blau Batch branded for manufactured products (Filler Masterbatch)
 - Blau Batch + Coraplast co-branded for distributed products
 
-Brand Guidelines v5.1 compliance:
+Brand Guidelines v5.2 compliance:
 - Colors: Deep Navy #141B3E, Steel Blue #23447A, Sky Blue #2B8DD0, Mfg Amber #D4840A
 - Typography: Inter (headings and body), from Brand Assets/Fonts — Helvetica fallback
 - Logos: Blau Batch primary + Coraplast logo for co-branded

@@ -1,5 +1,7 @@
 # BLAU BATCH Logos → Inter: Audit & Claude Design Prompt
 
+> **Status: done (2026-11-03).** The new logo pack is in `Brand Assets/Logos/BlauBatch_Logo_Pack/` and replaces every file listed below. The follow-up steps in §3 are complete for the brand repo. See `docs/brand-audit-2026-11.md` §6.
+
 **Date:** 2026-11-03 · **Goal:** every BLAU BATCH logo wordmark and tagline set in **Inter**, matching the rest of the brand. The B lettermark is unchanged.
 
 ---

@@ -5,8 +5,8 @@
 **Spec data:** `generate_tds_pdfs.py` (TDS values for the 8 filler grades)
 
 **Governing documents** (cited inline):
-- **[BG]** `Brand Assets/BlauBatch_BrandGuidelines_v5.docx`: Corporate Brand Identity Manual v5.0
-- **[VI]** `Brand Assets/BlauBatch_VisualIdentityGuide_v1.1.docx`: Visual Identity Guide v1.1
+- **[BG]** `Brand Assets/BlauBatch_BrandGuidelines_v5.1.docx`: Corporate Brand Identity Manual v5.1
+- **[VI]** `Brand Assets/BlauBatch_VisualIdentityGuide_v1.2.docx`: Visual Identity Guide v1.2
 
 Where the two differ, the stricter rule is used and the conflict is noted.
 

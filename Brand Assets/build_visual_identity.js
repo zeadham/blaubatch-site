@@ -6,27 +6,30 @@ const {
   PageNumber, PageBreak, ImageRun, TabStopType, TabStopPosition
 } = require("docx");
 
-// ── Load logo image ──
-const LOGO_PATH = __dirname + "/Logos/BlauBatch_Logo_Primary.jpg";
+// ── Load logo files (Brand Assets/Logos/BlauBatch_Logo_Pack) ──
+const PACK = __dirname + "/Logos/BlauBatch_Logo_Pack";
+const LOGO_PATH = PACK + "/01_Primary/JPG/BlauBatch_Primary_Master.jpg";
 const logoBuffer = fs.readFileSync(LOGO_PATH);
-const CORAPLAST_PATH = __dirname + "/Logos/coraplast-logo0d-01-01.png";
+const CORAPLAST_PATH = PACK + "/09_Coraplast/PNG/Coraplast_Logo_WithSlogan.png";
 const coraplastBuffer = fs.readFileSync(CORAPLAST_PATH);
 
-// ── Monochrome logo variants ──
-const LOGOS_DIR = __dirname + "/Logos";
-const monoNavyOnWhite     = fs.readFileSync(`${LOGOS_DIR}/BlauBatch_Logo_Mono_Navy_on_White.png`);
-const monoWhiteOnNavy     = fs.readFileSync(`${LOGOS_DIR}/BlauBatch_Logo_Mono_White_on_Navy.png`);
-const monoBlackOnWhite    = fs.readFileSync(`${LOGOS_DIR}/BlauBatch_Logo_Mono_Black_on_White.png`);
-const monoWhiteOnBlack    = fs.readFileSync(`${LOGOS_DIR}/BlauBatch_Logo_Mono_White_on_Black.png`);
-const monoSteelBlueOnWhite= fs.readFileSync(`${LOGOS_DIR}/BlauBatch_Logo_Mono_SteelBlue_on_White.png`);
-const monoNavyTransp      = fs.readFileSync(`${LOGOS_DIR}/BlauBatch_Logo_Mono_Navy_Transparent.png`);
-const monoWhiteTransp     = fs.readFileSync(`${LOGOS_DIR}/BlauBatch_Logo_Mono_White_Transparent.png`);
-const monoBlackTransp     = fs.readFileSync(`${LOGOS_DIR}/BlauBatch_Logo_Mono_Black_Transparent.png`);
+// ── Logo pack variants ──
+const monoNavy            = fs.readFileSync(`${PACK}/06_Mono/PNG/BlauBatch_Mono_Navy.png`);
+const monoWhite           = fs.readFileSync(`${PACK}/06_Mono/PNG/BlauBatch_Mono_White.png`);
+const horizontalLight     = fs.readFileSync(`${PACK}/03_Horizontal/PNG/BlauBatch_Horizontal_LightBG.png`);
+const horizontalDark      = fs.readFileSync(`${PACK}/03_Horizontal/PNG/BlauBatch_Horizontal_DarkBG.png`);
+const arabicLight         = fs.readFileSync(`${PACK}/04_Arabic/PNG/BlauBatch_Arabic_LightBG.png`);
+const arabicDark          = fs.readFileSync(`${PACK}/04_Arabic/PNG/BlauBatch_Arabic_DarkBG.png`);
 
 // ── Pattern assets ──
-const cutoutBuffer        = fs.readFileSync(`${LOGOS_DIR}/Blaubatch_cutout-logo.png`);
-const textOnlyNavyBuffer  = fs.readFileSync(`${LOGOS_DIR}/Export/TextOnly/BlauBatch_TextOnly_Navy_Transparent.png`);
-const textOnlyWhiteBuffer = fs.readFileSync(`${LOGOS_DIR}/Export/TextOnly/BlauBatch_TextOnly_White_on_Navy.png`);
+const cutoutBuffer        = fs.readFileSync(`${PACK}/02_Logomark/PNG/BlauBatch_Logomark_DarkBG.png`);
+const textOnlyNavyBuffer  = fs.readFileSync(`${PACK}/05_Wordmark/PNG/BlauBatch_Wordmark_Navy.png`);
+const textOnlyWhiteBuffer = fs.readFileSync(`${PACK}/05_Wordmark/PNG/BlauBatch_Wordmark_White.png`);
+
+function packImage(buf, w, h, title) {
+  return new ImageRun({ type: "png", data: buf, transformation: { width: w, height: h },
+    altText: { title, description: title, name: title } });
+}
 
 function cutoutImage(w, h) {
   return new ImageRun({ type: "png", data: cutoutBuffer, transformation: { width: w, height: h },
@@ -149,7 +152,7 @@ function contentHeader() {
   return new Header({ children: [new Paragraph({
     alignment: AlignmentType.RIGHT,
     children: [
-      new TextRun({ text: "BLAU BATCH", font: "Montserrat", bold: true, size: 16, color: STEEL_BLUE }),
+      new TextRun({ text: "BLAU BATCH", font: "Inter Black", size: 16, color: STEEL_BLUE }),
       new TextRun({ text: "  Visual Identity Guide", font: "Inter", size: 16, color: MID_GREY }),
     ],
   })] });
@@ -227,13 +230,13 @@ const doc = new Document({
                 spacer(1200),
                 new Paragraph({ alignment: AlignmentType.LEFT, children: [logoImage(200, 216)] }),
                 spacer(400),
-                new Paragraph({ alignment: AlignmentType.LEFT, children: [new TextRun({ text: "BLAU BATCH", font: "Montserrat", bold: true, size: 56, color: WHITE })] }),
+                new Paragraph({ alignment: AlignmentType.LEFT, children: [new TextRun({ text: "BLAU BATCH", font: "Inter Black", size: 56, color: WHITE })] }),
                 new Paragraph({ alignment: AlignmentType.LEFT, spacing: { before: 80 },
                   border: { bottom: { style: BorderStyle.SINGLE, size: 4, color: SKY_BLUE, space: 12 } },
                   children: [new TextRun({ text: "Visual Identity Guide", font: "Inter", size: 36, color: SKY_BLUE })] }),
                 spacer(300),
                 new Paragraph({ alignment: AlignmentType.LEFT, children: [new TextRun({ text: "Full-Spectrum Masterbatch Solutions", font: "Inter", size: 22, color: LIGHT_GREY })] }),
-                new Paragraph({ alignment: AlignmentType.LEFT, spacing: { before: 120 }, children: [new TextRun({ text: "v1.1  |  2026", font: "Inter", size: 20, color: MID_GREY })] }),
+                new Paragraph({ alignment: AlignmentType.LEFT, spacing: { before: 120 }, children: [new TextRun({ text: "v1.2  |  2026", font: "Inter", size: 20, color: MID_GREY })] }),
                 spacer(2000),
                 new Paragraph({ alignment: AlignmentType.LEFT, children: [new TextRun({ text: "www.blaubatch.com", font: "Inter", size: 18, color: SKY_BLUE })] }),
                 new Paragraph({ alignment: AlignmentType.LEFT, spacing: { before: 40 }, children: [new TextRun({ text: "Confidential \u2014 For authorised use only", font: "Inter", size: 16, color: MID_GREY })] }),
@@ -317,7 +320,7 @@ const doc = new Document({
 
         // ── 02 THE LOGO SYSTEM ──
         sectionTitle("02  The Logo System"),
-        bodyText("The Blau Batch logo is built around a distinctive geometric \u2018B\u2019 lettermark composed of layered blue tones that convey precision, depth, and industrial confidence. The logo system consists of four official versions, each designed for specific contexts."),
+        bodyText("The Blau Batch logo is built around a distinctive geometric \u2018B\u2019 lettermark composed of layered blue tones that convey precision, depth, and industrial confidence. The logo system is supplied as one logo pack (Brand Assets/Logos/BlauBatch_Logo_Pack) with versions designed for specific contexts; the main ones are shown below."),
 
         subTitle("2.1  Primary Logo (Full Lockup)"),
         bodyText("The primary logo consists of the \u2018B\u2019 lettermark on its official navy square background. This is the default logo for all branded communications including brochures, trade show displays, proposals, product catalogues, and formal print materials."),
@@ -326,19 +329,22 @@ const doc = new Document({
         bodyText("Always use this version when space permits and the logo will be displayed at a prominent size."),
 
         subTitle("2.2  Horizontal Logo (Wordmark Lockup)"),
-        bodyText("The horizontal logo combines the \u2018B\u2019 lettermark with the company name \u2018BLAU BATCH\u2019 set in Montserrat Black, arranged in a single horizontal lockup. Use for letterheads, email signatures, website navigation, presentation title slides, and trade show banners."),
+        bodyText("The horizontal logo combines the \u2018B\u2019 lettermark with the company name \u2018BLAU BATCH\u2019 set in Inter Black (900, \u22120.02em tracking), arranged in a single horizontal lockup. The tagline is not part of the lockup; when needed, set it separately in Inter. Use for letterheads, email signatures, website navigation, presentation title slides, and trade show banners."),
         new Table({
           width: { size: 9360, type: WidthType.DXA },
-          columnWidths: [2200, 7160],
+          columnWidths: [4680, 4680],
           rows: [new TableRow({
-            height: { value: 1100, rule: "exact" },
+            height: { value: 1400, rule: "exact" },
             children: [
-              new TableCell({ borders: thinBorders, width: { size: 2200, type: WidthType.DXA }, shading: { fill: DEEP_NAVY, type: ShadingType.CLEAR }, verticalAlign: "center", margins: { top: 80, bottom: 80, left: 200, right: 80 },
-                children: [new Paragraph({ alignment: AlignmentType.CENTER, children: [logoImage(100, 108)] })] }),
-              new TableCell({ borders: thinBorders, width: { size: 7160, type: WidthType.DXA }, shading: { fill: WHITE, type: ShadingType.CLEAR }, verticalAlign: "center", margins: { top: 80, bottom: 80, left: 300, right: 120 },
+              new TableCell({ borders: thinBorders, width: { size: 4680, type: WidthType.DXA }, shading: { fill: WHITE, type: ShadingType.CLEAR }, verticalAlign: "center", margins: { top: 80, bottom: 80, left: 120, right: 120 },
                 children: [
-                  new Paragraph({ children: [new TextRun({ text: "BLAU BATCH", font: "Montserrat", bold: true, size: 44, color: DEEP_NAVY })] }),
-                  new Paragraph({ spacing: { before: 40 }, children: [new TextRun({ text: "Full-Spectrum Masterbatch Solutions", font: "Inter", size: 18, color: MID_GREY })] }),
+                  new Paragraph({ alignment: AlignmentType.CENTER, children: [packImage(horizontalLight, 240, 54, "Horizontal logo, light background")] }),
+                  new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 60 }, children: [new TextRun({ text: "03_Horizontal \u2014 LightBG", font: "Inter", size: 14, color: MID_GREY, italics: true })] }),
+                ] }),
+              new TableCell({ borders: thinBorders, width: { size: 4680, type: WidthType.DXA }, shading: { fill: DEEP_NAVY, type: ShadingType.CLEAR }, verticalAlign: "center", margins: { top: 80, bottom: 80, left: 120, right: 120 },
+                children: [
+                  new Paragraph({ alignment: AlignmentType.CENTER, children: [packImage(horizontalDark, 240, 54, "Horizontal logo, dark background")] }),
+                  new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 60 }, children: [new TextRun({ text: "03_Horizontal \u2014 DarkBG", font: "Inter", size: 14, color: LIGHT_GREY, italics: true })] }),
                 ] }),
             ],
           })],
@@ -371,10 +377,9 @@ const doc = new Document({
           width: { size: 9360, type: WidthType.DXA },
           columnWidths: [2340, 7020],
           rows: [
-            ["AI / EPS", "Print, large format, press materials \u2014 vector source, fully scalable"],
-            ["SVG", "Web, icons, responsive digital design \u2014 vector, lightweight, scalable"],
-            ["PNG", "Presentations, email signatures, digital collateral \u2014 transparent background"],
-            ["JPG", "Social media backgrounds, digital contexts only \u2014 no transparency"],
+            ["SVG", "Preferred. Web, apps, print and anything that scales \u2014 fully outlined vector, no font needed"],
+            ["PNG", "PowerPoint, Word, email, social media \u2014 transparent background"],
+            ["JPG", "Master reference only (01_Primary)"],
           ].map(([fmt, desc]) =>
             new TableRow({
               children: [
@@ -398,7 +403,7 @@ const doc = new Document({
             children: [
               new Paragraph({ children: [
                 new TextRun({ text: "\u2139  ASSET NOTE:  ", font: "Inter", bold: true, size: 18, color: STEEL_BLUE }),
-                new TextRun({ text: "Logo files in all four versions (Primary, Horizontal, Logomark, Text-Only) and all formats (AI/EPS, SVG, PNG, JPG) are available from the Marketing & Operations Manager upon request. Always use the official supplied files \u2014 never recreate, trace, or screenshot the logo.", font: "Inter", size: 18, color: DARK_GREY }),
+                new TextRun({ text: "All official logo files are in Brand Assets/Logos/BlauBatch_Logo_Pack: 01 Primary, 02 Logomark, 03 Horizontal, 04 Arabic, 05 Wordmark, 06 Mono, 07 Favicon & App Icon, 08 Boxed, 09 Coraplast, 10 Co-brand. Always use these files \u2014 never recreate, trace, retype or screenshot the logo.", font: "Inter", size: 18, color: DARK_GREY }),
               ] }),
             ],
           })] })],
@@ -410,7 +415,7 @@ const doc = new Document({
         // 03 TEXT-ONLY LOGO
         // ══════════════════════════════════════════════════
         sectionTitle("03  Text-Only Logo"),
-        bodyText("The text-only logo is the brand name \u2018BLAU BATCH\u2019 set in Montserrat Black, all caps, with controlled letter-spacing. It is an approved logo variant for contexts where the B lettermark is not suitable or when a typographic-only treatment is preferred."),
+        bodyText("The text-only logo is the brand name \u2018BLAU BATCH\u2019 set in Inter Black (900), all caps, at \u22120.02em tracking, supplied as 05_Wordmark files. It is an approved logo variant for contexts where the B lettermark is not suitable or when a typographic-only treatment is preferred."),
 
         subTitle("3.1  Text-Only Logo \u2014 Navy on Light Backgrounds"),
         bodyText("Use the Deep Navy (#141B3E) text-only logo on white, off-white, and light grey backgrounds."),
@@ -418,21 +423,21 @@ const doc = new Document({
           width: { size: 9360, type: WidthType.DXA },
           columnWidths: [3120, 3120, 3120],
           rows: [new TableRow({
-            height: { value: 900, rule: "exact" },
+            height: { value: 1000, rule: "exact" },
             children: [
               new TableCell({ borders: thinBorders, width: { size: 3120, type: WidthType.DXA }, shading: { fill: WHITE, type: ShadingType.CLEAR }, verticalAlign: "center", margins: { top: 80, bottom: 80, left: 80, right: 80 },
                 children: [
-                  new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "BLAU BATCH", font: "Montserrat", bold: true, size: 28, color: DEEP_NAVY })] }),
+                  new Paragraph({ alignment: AlignmentType.CENTER, children: [packImage(textOnlyNavyBuffer, 160, 19, "BLAU BATCH wordmark")] }),
                   new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 40 }, children: [new TextRun({ text: "White (#FFFFFF)", font: "Inter", size: 14, color: MID_GREY })] }),
                 ] }),
               new TableCell({ borders: thinBorders, width: { size: 3120, type: WidthType.DXA }, shading: { fill: "F5F5F5", type: ShadingType.CLEAR }, verticalAlign: "center", margins: { top: 80, bottom: 80, left: 80, right: 80 },
                 children: [
-                  new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "BLAU BATCH", font: "Montserrat", bold: true, size: 28, color: DEEP_NAVY })] }),
+                  new Paragraph({ alignment: AlignmentType.CENTER, children: [packImage(textOnlyNavyBuffer, 160, 19, "BLAU BATCH wordmark")] }),
                   new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 40 }, children: [new TextRun({ text: "Off-White (#F5F5F5)", font: "Inter", size: 14, color: MID_GREY })] }),
                 ] }),
               new TableCell({ borders: thinBorders, width: { size: 3120, type: WidthType.DXA }, shading: { fill: LIGHT_GREY, type: ShadingType.CLEAR }, verticalAlign: "center", margins: { top: 80, bottom: 80, left: 80, right: 80 },
                 children: [
-                  new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "BLAU BATCH", font: "Montserrat", bold: true, size: 28, color: DEEP_NAVY })] }),
+                  new Paragraph({ alignment: AlignmentType.CENTER, children: [packImage(textOnlyNavyBuffer, 160, 19, "BLAU BATCH wordmark")] }),
                   new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 40 }, children: [new TextRun({ text: "Light Grey (#DCDCDC)", font: "Inter", size: 14, color: MID_GREY })] }),
                 ] }),
             ],
@@ -445,21 +450,21 @@ const doc = new Document({
           width: { size: 9360, type: WidthType.DXA },
           columnWidths: [3120, 3120, 3120],
           rows: [new TableRow({
-            height: { value: 900, rule: "exact" },
+            height: { value: 1000, rule: "exact" },
             children: [
               new TableCell({ borders: thinBorders, width: { size: 3120, type: WidthType.DXA }, shading: { fill: DEEP_NAVY, type: ShadingType.CLEAR }, verticalAlign: "center", margins: { top: 80, bottom: 80, left: 80, right: 80 },
                 children: [
-                  new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "BLAU BATCH", font: "Montserrat", bold: true, size: 28, color: WHITE })] }),
+                  new Paragraph({ alignment: AlignmentType.CENTER, children: [packImage(textOnlyWhiteBuffer, 160, 19, "BLAU BATCH wordmark")] }),
                   new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 40 }, children: [new TextRun({ text: "Deep Navy (#141B3E)", font: "Inter", size: 14, color: LIGHT_GREY })] }),
                 ] }),
               new TableCell({ borders: thinBorders, width: { size: 3120, type: WidthType.DXA }, shading: { fill: STEEL_BLUE, type: ShadingType.CLEAR }, verticalAlign: "center", margins: { top: 80, bottom: 80, left: 80, right: 80 },
                 children: [
-                  new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "BLAU BATCH", font: "Montserrat", bold: true, size: 28, color: WHITE })] }),
+                  new Paragraph({ alignment: AlignmentType.CENTER, children: [packImage(textOnlyWhiteBuffer, 160, 19, "BLAU BATCH wordmark")] }),
                   new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 40 }, children: [new TextRun({ text: "Steel Blue (#23447A)", font: "Inter", size: 14, color: LIGHT_GREY })] }),
                 ] }),
               new TableCell({ borders: thinBorders, width: { size: 3120, type: WidthType.DXA }, shading: { fill: BLACK, type: ShadingType.CLEAR }, verticalAlign: "center", margins: { top: 80, bottom: 80, left: 80, right: 80 },
                 children: [
-                  new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "BLAU BATCH", font: "Montserrat", bold: true, size: 28, color: WHITE })] }),
+                  new Paragraph({ alignment: AlignmentType.CENTER, children: [packImage(textOnlyWhiteBuffer, 160, 19, "BLAU BATCH wordmark")] }),
                   new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 40 }, children: [new TextRun({ text: "Black (#000000)", font: "Inter", size: 14, color: LIGHT_GREY })] }),
                 ] }),
             ],
@@ -467,22 +472,22 @@ const doc = new Document({
         }),
 
         subTitle("3.3  Text-Only Logo with Tagline"),
-        bodyText("The text-only logo may optionally include the tagline \u2018Full-Spectrum Masterbatch Solutions\u2019 set below, exactly as supplied in the official logo files. This version is used for presentations, proposals, and document covers."),
+        bodyText("The text-only logo may optionally include the tagline \u2018Full-Spectrum Masterbatch Solutions\u2019 set below it in Inter Regular. The tagline is set as text; it is not part of the wordmark files. This version is used for presentations, proposals, and document covers."),
         new Table({
           width: { size: 9360, type: WidthType.DXA },
           columnWidths: [4680, 4680],
           rows: [new TableRow({
-            height: { value: 1100, rule: "exact" },
+            height: { value: 1400, rule: "exact" },
             children: [
               new TableCell({ borders: thinBorders, width: { size: 4680, type: WidthType.DXA }, shading: { fill: WHITE, type: ShadingType.CLEAR }, verticalAlign: "center", margins: { top: 80, bottom: 80, left: 80, right: 80 },
                 children: [
-                  new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "BLAU BATCH", font: "Montserrat", bold: true, size: 36, color: DEEP_NAVY })] }),
+                  new Paragraph({ alignment: AlignmentType.CENTER, children: [packImage(textOnlyNavyBuffer, 220, 26, "BLAU BATCH wordmark")] }),
                   new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 40 }, children: [new TextRun({ text: "Full-Spectrum Masterbatch Solutions", font: "Inter", size: 18, color: STEEL_BLUE })] }),
                   new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 60 }, children: [new TextRun({ text: "Navy on White", font: "Inter", size: 14, color: MID_GREY, italics: true })] }),
                 ] }),
               new TableCell({ borders: thinBorders, width: { size: 4680, type: WidthType.DXA }, shading: { fill: DEEP_NAVY, type: ShadingType.CLEAR }, verticalAlign: "center", margins: { top: 80, bottom: 80, left: 80, right: 80 },
                 children: [
-                  new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "BLAU BATCH", font: "Montserrat", bold: true, size: 36, color: WHITE })] }),
+                  new Paragraph({ alignment: AlignmentType.CENTER, children: [packImage(textOnlyWhiteBuffer, 220, 26, "BLAU BATCH wordmark")] }),
                   new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 40 }, children: [new TextRun({ text: "Full-Spectrum Masterbatch Solutions", font: "Inter", size: 18, color: SKY_BLUE })] }),
                   new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 60 }, children: [new TextRun({ text: "White on Navy", font: "Inter", size: 14, color: LIGHT_GREY, italics: true })] }),
                 ] }),
@@ -491,8 +496,8 @@ const doc = new Document({
         }),
 
         subTitle("3.4  Text-Only Logo Rules"),
-        bulletItem("Always set in Montserrat Black (900 weight), all caps"),
-        bulletItem("Maintain consistent letter-spacing as defined in the official logo files"),
+        bulletItem("Always place the supplied 05_Wordmark file (Inter Black 900, all caps, \u22120.02em tracking)"),
+        bulletItem("Never retype the wordmark, even in Inter; the files are drawn and optically spaced"),
         bulletItem("Never use a different typeface, weight, or case for the text-only logo"),
         bulletItem("The text-only logo follows the same clear space rules as the primary logo"),
         bulletItem("Never combine the text-only logo and the B lettermark in an unofficial arrangement"),
@@ -525,7 +530,7 @@ const doc = new Document({
         new Paragraph({
           alignment: AlignmentType.CENTER,
           spacing: { before: 60, after: 200 },
-          children: [new TextRun({ text: "Cairo Bold \u00B7 Approved Arabic rendering of BLAU BATCH", font: "Inter", italics: true, size: 16, color: MID_GREY })],
+          children: [new TextRun({ text: "Cairo Black \u00B7 Approved Arabic rendering of BLAU BATCH (04_Arabic logo files)", font: "Inter", italics: true, size: 16, color: MID_GREY })],
         }),
 
         subTitle("4.2  Arabic on Light Backgrounds"),
@@ -593,14 +598,14 @@ const doc = new Document({
               // Light version
               new TableCell({ borders: thinBorders, width: { size: 4680, type: WidthType.DXA }, shading: { fill: WHITE, type: ShadingType.CLEAR }, verticalAlign: "center", margins: { top: 80, bottom: 80, left: 200, right: 200 },
                 children: [
-                  new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "BLAU BATCH", font: "Montserrat", bold: true, size: 32, color: DEEP_NAVY })] }),
+                  new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "BLAU BATCH", font: "Inter Black", size: 32, color: DEEP_NAVY })] }),
                   new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 60 }, children: [new TextRun({ text: "\u0628\u0640\u0640\u0644\u0627\u0648 \u0628\u0640\u0640\u0627\u062A\u0634", font: "Cairo", bold: true, size: 28, color: STEEL_BLUE })] }),
                   new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 60 }, children: [new TextRun({ text: "Bilingual \u2014 Light", font: "Inter", size: 14, color: MID_GREY, italics: true })] }),
                 ] }),
               // Dark version
               new TableCell({ borders: thinBorders, width: { size: 4680, type: WidthType.DXA }, shading: { fill: DEEP_NAVY, type: ShadingType.CLEAR }, verticalAlign: "center", margins: { top: 80, bottom: 80, left: 200, right: 200 },
                 children: [
-                  new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "BLAU BATCH", font: "Montserrat", bold: true, size: 32, color: WHITE })] }),
+                  new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "BLAU BATCH", font: "Inter Black", size: 32, color: WHITE })] }),
                   new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 60 }, children: [new TextRun({ text: "\u0628\u0640\u0640\u0644\u0627\u0648 \u0628\u0640\u0640\u0627\u062A\u0634", font: "Cairo", bold: true, size: 28, color: SKY_BLUE })] }),
                   new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 60 }, children: [new TextRun({ text: "Bilingual \u2014 Dark", font: "Inter", size: 14, color: LIGHT_GREY, italics: true })] }),
                 ] }),
@@ -609,7 +614,7 @@ const doc = new Document({
         }),
 
         subTitle("4.5  Arabic Brand Name Rules"),
-        bulletItem("Always set in Cairo Bold (Google Fonts)"),
+        bulletItem("For the logo, use the 04_Arabic lockup files (Cairo Black). In running Arabic text, set the name in Cairo Bold"),
         bulletItem("Noto Sans Arabic Bold is an approved alternative"),
         bulletItem("Always use the exact approved rendering: \u0628\u0640\u0640\u0644\u0627\u0648 \u0628\u0640\u0640\u0627\u062A\u0634"),
         bulletItem("Never alter, respace, or re-typeset the Arabic name independently"),
@@ -721,7 +726,7 @@ const doc = new Document({
                 alignment: AlignmentType.CENTER,
                 children: [
                   logoImage(60, 65),
-                  new TextRun({ text: "   BLAU BATCH", font: "Montserrat", bold: true, size: 48, color: DEEP_NAVY }),
+                  new TextRun({ text: "   BLAU BATCH", font: "Inter Black", size: 48, color: DEEP_NAVY }),
                 ],
               })],
             })],
@@ -738,7 +743,7 @@ const doc = new Document({
               children: [
                 new Paragraph({ children: [new TextRun({ text: "\u2713  CORRECT", font: "Inter", bold: true, size: 20, color: "22883E" })] }),
                 spacer(60),
-                new Paragraph({ children: [new TextRun({ text: "BLAU BATCH", font: "Montserrat", bold: true, size: 22, color: DARK_GREY })] }),
+                new Paragraph({ children: [new TextRun({ text: "BLAU BATCH", font: "Inter Black", size: 22, color: DARK_GREY })] }),
                 new Paragraph({ spacing: { before: 20 }, children: [new TextRun({ text: "All logo and display uses \u2014 always caps", font: "Inter", size: 16, color: MID_GREY, italics: true })] }),
                 spacer(60),
                 new Paragraph({ children: [new TextRun({ text: "Blau Batch", font: "Inter", bold: true, size: 22, color: DARK_GREY })] }),
@@ -857,96 +862,53 @@ const doc = new Document({
         bodyText("For single-colour print, embossing, engraving, fax, or merchandise, use approved monochrome versions of the logo. In monochrome applications, the multi-tonal B lettermark is reduced to a single flat colour, preserving the outer silhouette shape only."),
 
         subTitle("8.1  Monochrome Versions"),
-        bodyText("The table below defines the three approved single-colour treatments. Each version flattens the layered B lettermark into one solid colour."),
+        bodyText("Two approved single-colour versions. Each flattens the layered B lettermark into one solid colour inside its square."),
         new Table({
           width: { size: 9360, type: WidthType.DXA },
-          columnWidths: [3120, 3120, 3120],
+          columnWidths: [4680, 4680],
           rows: [
-            // Header row
             new TableRow({ children: [
-              new TableCell({ borders: thinBorders, width: { size: 3120, type: WidthType.DXA }, shading: { fill: DEEP_NAVY, type: ShadingType.CLEAR }, margins: { top: 80, bottom: 80, left: 80, right: 80 },
+              new TableCell({ borders: thinBorders, width: { size: 4680, type: WidthType.DXA }, shading: { fill: DEEP_NAVY, type: ShadingType.CLEAR }, margins: { top: 80, bottom: 80, left: 80, right: 80 },
                 children: [new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "NAVY ON LIGHT", font: "Inter", bold: true, size: 16, color: WHITE })] })] }),
-              new TableCell({ borders: thinBorders, width: { size: 3120, type: WidthType.DXA }, shading: { fill: DEEP_NAVY, type: ShadingType.CLEAR }, margins: { top: 80, bottom: 80, left: 80, right: 80 },
+              new TableCell({ borders: thinBorders, width: { size: 4680, type: WidthType.DXA }, shading: { fill: DEEP_NAVY, type: ShadingType.CLEAR }, margins: { top: 80, bottom: 80, left: 80, right: 80 },
                 children: [new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "WHITE ON DARK", font: "Inter", bold: true, size: 16, color: WHITE })] })] }),
-              new TableCell({ borders: thinBorders, width: { size: 3120, type: WidthType.DXA }, shading: { fill: DEEP_NAVY, type: ShadingType.CLEAR }, margins: { top: 80, bottom: 80, left: 80, right: 80 },
-                children: [new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "BLACK (GREYSCALE)", font: "Inter", bold: true, size: 16, color: WHITE })] })] }),
             ] }),
-            // Visual row — actual monochrome logo files
             new TableRow({ height: { value: 1800, rule: "exact" }, children: [
-              // Navy on White
-              new TableCell({ borders: thinBorders, width: { size: 3120, type: WidthType.DXA }, shading: { fill: WHITE, type: ShadingType.CLEAR }, verticalAlign: "center", margins: { top: 80, bottom: 80, left: 80, right: 80 },
+              new TableCell({ borders: thinBorders, width: { size: 4680, type: WidthType.DXA }, shading: { fill: WHITE, type: ShadingType.CLEAR }, verticalAlign: "center", margins: { top: 80, bottom: 80, left: 80, right: 80 },
                 children: [
-                  new Paragraph({ alignment: AlignmentType.CENTER, children: [monoImage(monoNavyOnWhite, 110, 110)] }),
+                  new Paragraph({ alignment: AlignmentType.CENTER, children: [monoImage(monoNavy, 110, 110)] }),
                   spacer(40),
                   new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "Flat Navy  #141B3E", font: "Inter", bold: true, size: 14, color: DEEP_NAVY })] }),
-                  new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "Letterheads, embossing, engraving", font: "Inter", size: 13, color: MID_GREY, italics: true })] }),
+                  new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "Single-ink print, embossing, engraving", font: "Inter", size: 13, color: MID_GREY, italics: true })] }),
                 ] }),
-              // White on Navy
-              new TableCell({ borders: thinBorders, width: { size: 3120, type: WidthType.DXA }, shading: { fill: DEEP_NAVY, type: ShadingType.CLEAR }, verticalAlign: "center", margins: { top: 80, bottom: 80, left: 80, right: 80 },
+              new TableCell({ borders: thinBorders, width: { size: 4680, type: WidthType.DXA }, shading: { fill: DEEP_NAVY, type: ShadingType.CLEAR }, verticalAlign: "center", margins: { top: 80, bottom: 80, left: 80, right: 80 },
                 children: [
-                  new Paragraph({ alignment: AlignmentType.CENTER, children: [monoImage(monoWhiteOnNavy, 110, 110)] }),
+                  new Paragraph({ alignment: AlignmentType.CENTER, children: [monoImage(monoWhite, 110, 110)] }),
                   spacer(40),
                   new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "Flat White  #FFFFFF", font: "Inter", bold: true, size: 14, color: WHITE })] }),
                   new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "Foil stamp, dark merchandise", font: "Inter", size: 13, color: LIGHT_GREY, italics: true })] }),
-                ] }),
-              // Black on White
-              new TableCell({ borders: thinBorders, width: { size: 3120, type: WidthType.DXA }, shading: { fill: WHITE, type: ShadingType.CLEAR }, verticalAlign: "center", margins: { top: 80, bottom: 80, left: 80, right: 80 },
-                children: [
-                  new Paragraph({ alignment: AlignmentType.CENTER, children: [monoImage(monoBlackOnWhite, 110, 110)] }),
-                  spacer(40),
-                  new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "Flat Black  #000000", font: "Inter", bold: true, size: 14, color: BLACK })] }),
-                  new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "Fax, newspaper, photocopy", font: "Inter", size: 13, color: MID_GREY, italics: true })] }),
                 ] }),
             ] }),
           ],
         }),
         spacer(100),
-        subTitle("8.2  Additional Monochrome Variants"),
-        bodyText("Two further approved variants for specific print and finishing contexts:"),
-        new Table({
-          width: { size: 9360, type: WidthType.DXA },
-          columnWidths: [4680, 4680],
-          rows: [new TableRow({ height: { value: 1600, rule: "exact" }, children: [
-            // Steel Blue on White
-            new TableCell({ borders: thinBorders, width: { size: 4680, type: WidthType.DXA }, shading: { fill: WHITE, type: ShadingType.CLEAR }, verticalAlign: "center", margins: { top: 80, bottom: 80, left: 120, right: 120 },
-              children: [
-                new Paragraph({ alignment: AlignmentType.CENTER, children: [monoImage(monoSteelBlueOnWhite, 110, 110)] }),
-                spacer(40),
-                new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "Steel Blue  #23447A", font: "Inter", bold: true, size: 14, color: STEEL_BLUE })] }),
-                new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "Single-colour brand blue, light backgrounds", font: "Inter", size: 13, color: MID_GREY, italics: true })] }),
-              ] }),
-            // White on Black
-            new TableCell({ borders: thinBorders, width: { size: 4680, type: WidthType.DXA }, shading: { fill: BLACK, type: ShadingType.CLEAR }, verticalAlign: "center", margins: { top: 80, bottom: 80, left: 120, right: 120 },
-              children: [
-                new Paragraph({ alignment: AlignmentType.CENTER, children: [monoImage(monoWhiteOnBlack, 110, 110)] }),
-                spacer(40),
-                new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "Flat White  #FFFFFF", font: "Inter", bold: true, size: 14, color: WHITE })] }),
-                new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "Requires Marketing Manager approval", font: "Inter", size: 13, color: MFG_AMBER, italics: true })] }),
-              ] }),
-          ] })],
-        }),
+        bodyText("Black, Steel Blue and white-on-black single-colour versions are retired (November 2026). For greyscale-only reproduction, use Mono Navy; it prints as 90% black (see 8.4)."),
 
         spacer(100),
-        subTitle("8.3  Monochrome Asset Index"),
+        subTitle("8.2  Monochrome Asset Index"),
         new Table({
           width: { size: 9360, type: WidthType.DXA },
           columnWidths: [4500, 4860],
           rows: [
             new TableRow({ children: [
               new TableCell({ borders: thinBorders, shading: { fill: DEEP_NAVY, type: ShadingType.CLEAR }, margins: { top: 80, bottom: 80, left: 120, right: 120 },
-                children: [new Paragraph({ children: [new TextRun({ text: "FILENAME", font: "Inter", bold: true, size: 16, color: WHITE })] })] }),
+                children: [new Paragraph({ children: [new TextRun({ text: "FILE (06_Mono)", font: "Inter", bold: true, size: 16, color: WHITE })] })] }),
               new TableCell({ borders: thinBorders, shading: { fill: DEEP_NAVY, type: ShadingType.CLEAR }, margins: { top: 80, bottom: 80, left: 120, right: 120 },
                 children: [new Paragraph({ children: [new TextRun({ text: "USE CASE", font: "Inter", bold: true, size: 16, color: WHITE })] })] }),
             ] }),
             ...([
-              ["BlauBatch_Logo_Mono_Navy_on_White.png",      "Standard print: letterheads, datasheets, embossing on light stock"],
-              ["BlauBatch_Logo_Mono_White_on_Navy.png",      "Dark print: foil stamp, screen print on navy merchandise"],
-              ["BlauBatch_Logo_Mono_Black_on_White.png",     "Greyscale print: fax, newspaper, photocopy"],
-              ["BlauBatch_Logo_Mono_White_on_Black.png",     "Special use only — requires Marketing Manager approval"],
-              ["BlauBatch_Logo_Mono_SteelBlue_on_White.png", "Brand-colour single-tone variant for presentations"],
-              ["BlauBatch_Logo_Mono_Navy_Transparent.png",   "Layering on custom-coloured surfaces (PNG, transparent bg)"],
-              ["BlauBatch_Logo_Mono_White_Transparent.png",  "Layering on dark custom surfaces (PNG, transparent bg)"],
-              ["BlauBatch_Logo_Mono_Black_Transparent.png",  "Greyscale layering (PNG, transparent bg)"],
+              ["BlauBatch_Mono_Navy.svg / .png",  "Single-ink print, letterheads, datasheets, embossing on light stock"],
+              ["BlauBatch_Mono_White.svg / .png", "Foil stamp, screen print and merchandise on dark surfaces"],
             ].map(([file, use]) => new TableRow({ children: [
               new TableCell({ borders: thinBorders, shading: { fill: "F0F4F8", type: ShadingType.CLEAR }, margins: { top: 60, bottom: 60, left: 120, right: 120 },
                 children: [new Paragraph({ children: [new TextRun({ text: file, font: "Courier New", size: 16, color: DEEP_NAVY })] })] }),
@@ -956,13 +918,13 @@ const doc = new Document({
           ],
         }),
 
-        subTitle("8.4  Greyscale Mapping"),
+        subTitle("8.3  Greyscale Mapping"),
         bulletItem("Deep Navy \u2192 90% Black", "Deep Navy"),
         bulletItem("Steel Blue \u2192 65% Black", "Steel Blue"),
         bulletItem("Sky Blue \u2192 45% Black", "Sky Blue"),
         bulletItem("Manufacturing Amber \u2192 55% Black", "Manufacturing Amber"),
 
-        subTitle("8.5  Silhouette / Embossed Mark"),
+        subTitle("8.4  Silhouette / Embossed Mark"),
         bodyText("For embossing, debossing, engraving, or watermark: use the simplified silhouette B lettermark only (no wordmark), reduced to a single flat shape."),
 
         new Paragraph({ children: [new PageBreak()] }),
@@ -1159,12 +1121,12 @@ const doc = new Document({
           ["Source", "Google Fonts / rsms.me/inter (free, SIL OFL) \u2014 files in Brand Assets/Fonts"],
           ["Fallback", "Arial \u2192 Helvetica \u2192 Sans-serif"],
         ]),
-        subTitle("12.2  Logo Wordmark \u2014 Montserrat (logo files only)"),
+        subTitle("12.2  Logo Wordmark \u2014 Inter Black (logo files)"),
         specTable([
-          ["Role", "The BLAU BATCH wordmark and tagline inside the official logo files only. Never used for running text"],
-          ["Weights", "Black (900) for the wordmark"],
-          ["Rule", "Always place the supplied logo file. Never retype the logo in Inter or any other font"],
-          ["Source", "Brand Assets/Fonts/Logo only (Montserrat)"],
+          ["Role", "The BLAU BATCH wordmark in every official logo file (03 Horizontal, 05 Wordmark, 08 Boxed, 10 Co-brand)"],
+          ["Weights", "Inter Black (900), all caps, \u22120.02em tracking"],
+          ["Rule", "Always place the supplied logo file. Never retype the logo; the files are drawn and optically spaced"],
+          ["Source", "Brand Assets/Logos/BlauBatch_Logo_Pack. Montserrat is retired"],
           ["Line height", "Inter: 1.5\u00D7 body, 1.2\u00D7 headings"],
         ]),
         subTitle("12.3  Arabic Typeface \u2014 Cairo"),
@@ -1461,7 +1423,7 @@ const doc = new Document({
         }),
 
         subTitle("17.2  Text-Only Pattern \u2014 BLAU BATCH Wordmark Grid"),
-        bodyText("A repeating grid of the BLAU BATCH wordmark in Montserrat Black. This is the preferred pattern for most applications: it tiles cleanly at any scale, is immediately legible as a brand watermark, and never creates confusion with the primary logo. Use on document backgrounds, presentation slides, social media templates, and promotional materials."),
+        bodyText("A repeating grid of the BLAU BATCH wordmark (05_Wordmark files, Inter Black). This is the preferred pattern for most applications: it tiles cleanly at any scale, is immediately legible as a brand watermark, and never creates confusion with the primary logo. Use on document backgrounds, presentation slides, social media templates, and promotional materials."),
         new Table({
           width: { size: 9360, type: WidthType.DXA },
           columnWidths: [4680, 4680],
@@ -1469,19 +1431,19 @@ const doc = new Document({
             // Light: text-only navy on white
             new TableCell({ borders: thinBorders, width: { size: 4680, type: WidthType.DXA }, shading: { fill: WHITE, type: ShadingType.CLEAR }, verticalAlign: "center", margins: { top: 80, bottom: 80, left: 80, right: 80 },
               children: [
-                new Paragraph({ alignment: AlignmentType.CENTER, children: [textOnlyImage(textOnlyNavyBuffer, 200, 42)] }),
-                new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 20 }, children: [textOnlyImage(textOnlyNavyBuffer, 200, 42)] }),
-                new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 20 }, children: [textOnlyImage(textOnlyNavyBuffer, 200, 42)] }),
-                new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 20 }, children: [textOnlyImage(textOnlyNavyBuffer, 200, 42)] }),
+                new Paragraph({ alignment: AlignmentType.CENTER, children: [textOnlyImage(textOnlyNavyBuffer, 200, 23)] }),
+                new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 20 }, children: [textOnlyImage(textOnlyNavyBuffer, 200, 23)] }),
+                new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 20 }, children: [textOnlyImage(textOnlyNavyBuffer, 200, 23)] }),
+                new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 20 }, children: [textOnlyImage(textOnlyNavyBuffer, 200, 23)] }),
                 new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 60 }, children: [new TextRun({ text: "Navy on white \u2014 reduce to 8% opacity in production", font: "Inter", size: 14, color: MID_GREY, italics: true })] }),
               ] }),
             // Dark: text-only white on navy
             new TableCell({ borders: thinBorders, width: { size: 4680, type: WidthType.DXA }, shading: { fill: DEEP_NAVY, type: ShadingType.CLEAR }, verticalAlign: "center", margins: { top: 80, bottom: 80, left: 80, right: 80 },
               children: [
-                new Paragraph({ alignment: AlignmentType.CENTER, children: [textOnlyImage(textOnlyWhiteBuffer, 200, 42)] }),
-                new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 20 }, children: [textOnlyImage(textOnlyWhiteBuffer, 200, 42)] }),
-                new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 20 }, children: [textOnlyImage(textOnlyWhiteBuffer, 200, 42)] }),
-                new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 20 }, children: [textOnlyImage(textOnlyWhiteBuffer, 200, 42)] }),
+                new Paragraph({ alignment: AlignmentType.CENTER, children: [textOnlyImage(textOnlyWhiteBuffer, 200, 23)] }),
+                new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 20 }, children: [textOnlyImage(textOnlyWhiteBuffer, 200, 23)] }),
+                new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 20 }, children: [textOnlyImage(textOnlyWhiteBuffer, 200, 23)] }),
+                new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 20 }, children: [textOnlyImage(textOnlyWhiteBuffer, 200, 23)] }),
                 new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 60 }, children: [new TextRun({ text: "White on navy \u2014 reduce to 10% opacity in production", font: "Inter", size: 14, color: LIGHT_GREY, italics: true })] }),
               ] }),
           ] })],
@@ -1579,7 +1541,7 @@ const doc = new Document({
             new TableCell({ borders: noBorders, width: { size: 4200, type: WidthType.DXA }, shading: { fill: "F8F9FC", type: ShadingType.CLEAR }, verticalAlign: "center", margins: { top: 80, bottom: 80, left: 200, right: 80 },
               children: [
                 new Paragraph({ alignment: AlignmentType.CENTER, children: [logoImage(80, 86)] }),
-                new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 40 }, children: [new TextRun({ text: "BLAU BATCH", font: "Montserrat", bold: true, size: 18, color: DEEP_NAVY })] }),
+                new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 40 }, children: [new TextRun({ text: "BLAU BATCH", font: "Inter Black", size: 18, color: DEEP_NAVY })] }),
               ] }),
             new TableCell({ borders: { top: noBorder, bottom: noBorder, left: noBorder, right: { style: BorderStyle.SINGLE, size: 2, color: LIGHT_GREY } },
               width: { size: 480, type: WidthType.DXA }, shading: { fill: "F8F9FC", type: ShadingType.CLEAR }, verticalAlign: "center",
@@ -1587,7 +1549,7 @@ const doc = new Document({
             new TableCell({ borders: noBorders, width: { size: 4680, type: WidthType.DXA }, shading: { fill: "F8F9FC", type: ShadingType.CLEAR }, verticalAlign: "center", margins: { top: 80, bottom: 80, left: 200, right: 200 },
               children: [
                 new Paragraph({ alignment: AlignmentType.CENTER, children: [
-                  new ImageRun({ type: "png", data: coraplastBuffer, transformation: { width: 140, height: 50 }, altText: { title: "Coraplast Logo", description: "Coraplast partner logo", name: "Coraplast" } }),
+                  new ImageRun({ type: "png", data: coraplastBuffer, transformation: { width: 140, height: 43 }, altText: { title: "Coraplast Logo", description: "Coraplast partner logo", name: "Coraplast" } }),
                 ] }),
                 new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 20 }, children: [new TextRun({ text: "Authorised Distribution Partner", font: "Inter", italics: true, size: 16, color: MID_GREY })] }),
               ] }),
@@ -1630,7 +1592,7 @@ const doc = new Document({
             margins: { top: 200, bottom: 200, left: 300, right: 300 },
             children: [
               new Paragraph({ alignment: AlignmentType.CENTER, children: [logoImage(80, 86)] }),
-              new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 100 }, children: [new TextRun({ text: "BLAU BATCH", font: "Montserrat", bold: true, size: 32, color: WHITE })] }),
+              new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 100 }, children: [new TextRun({ text: "BLAU BATCH", font: "Inter Black", size: 32, color: WHITE })] }),
               new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 40 }, children: [new TextRun({ text: "\u0628\u0640\u0640\u0644\u0627\u0648 \u0628\u0640\u0640\u0627\u062A\u0634", font: "Cairo", bold: true, size: 24, color: SKY_BLUE })] }),
               new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 60 }, children: [new TextRun({ text: "Full-Spectrum Masterbatch Solutions", font: "Inter", size: 20, color: LIGHT_GREY })] }),
               new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 40 }, children: [new TextRun({ text: "Manufacturer  \u00B7  Distributor  \u00B7  Partner", font: "Inter", size: 18, color: MID_GREY })] }),
@@ -1643,7 +1605,7 @@ const doc = new Document({
 });
 
 // ── Generate ──
-const OUT = __dirname + "/BlauBatch_VisualIdentityGuide_v1.1.docx";
+const OUT = __dirname + "/BlauBatch_VisualIdentityGuide_v1.2.docx";
 Packer.toBuffer(doc).then(buf => {
   fs.writeFileSync(OUT, buf);
   console.log("Done:", OUT, `(${(buf.length / 1024).toFixed(1)} KB)`);

@@ -83,7 +83,7 @@ Git history keeps every deleted file, so any of these can be restored later.
 | `BlauBatch_BrandGuidelines_v4.docx` | **`BlauBatch_BrandGuidelines_v5.docx`**. §5 Typography, §5.3 type scale, stationery, email/web notes and §17.2 quick reference now specify Inter. Montserrat is limited to the logo wordmark. Document text is set in Inter. v4 deleted. |
 | `BlauBatch_VisualIdentityGuide_v1.docx` | **`BlauBatch_VisualIdentityGuide_v1.1.docx`**, rebuilt from `build_visual_identity.js`. §12–13, stationery, web, email and motion now specify Inter, and the document is set in Inter. Typed "BLAU BATCH" logo samples stay in Montserrat. v1 deleted. |
 
-**Current brand set:** Brand Guidelines v5 + Visual Identity Guide v1.1.
+**Current brand set:** Brand Guidelines v5.1 + Visual Identity Guide v1.2 + the logo pack in `Brand Assets/Logos/BlauBatch_Logo_Pack` (see §6).
 
 **Typeface rule:** Inter for all text. Montserrat Black only inside the official logo files and in typed BLAU BATCH wordmarks that stand in for the logo. Cairo for Arabic. Arial only in email signatures (VI §14.3).
 
@@ -116,3 +116,13 @@ Git history keeps every deleted file, so any of these can be restored later.
 **Website:** `zeadham/blaubatch` branch `claude/zen-noether-k0gx2z` removes the last Open Sans (16 files) so Inter is the only Latin font; Arabic stays Cairo. Build and lint pass, and pages were checked in a browser. Not live until merged into `main`.
 
 **AfroPlast 2027 print files:** the A5 flyer and A4 filler savings sheet now use Inter, bundled locally in `assets/fonts/` with Cairo for Arabic. Their PDFs and previews were re-rendered, with the same page sizes and counts as before. The logo SVGs keep their Montserrat wordmark.
+
+---
+
+## 6. Logo pack update (2026-11-03)
+
+- **New logos:** the logo pack (`Brand Assets/Logos/BlauBatch_Logo_Pack/`) replaces the old Montserrat logo set. The wordmark is drawn in Inter Black, every SVG is fully outlined, and the pack adds Arabic, Wordmark, Boxed, Favicon/App icon and Co-brand versions.
+- **Retired:** all old logo files, the Black, Steel Blue and white-on-black one-colour logos, the lockups with the tagline, `generate_logos.py`, and the Montserrat font files.
+- **Guidelines:** Brand Guidelines **v5.1** (§5 and §5.2, logo file formats) and Visual Identity Guide **v1.2** (§2 logo system, §3 wordmark, §4 Arabic, §8 one-colour logos, §12.2, §17 pattern) now describe the pack. Montserrat is no longer part of the brand.
+- **Updated to the pack logos:** the TDS generator and all 57 PDFs, the AfroPlast flyer (with the Arabic logo on the Arabic page) and savings sheet, the product card, and the presentation docs.
+- **Typed wordmarks switched to Inter:** the carousels, the product card and Sales Tools.

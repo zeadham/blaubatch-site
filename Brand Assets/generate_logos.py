@@ -4,7 +4,7 @@ import numpy as np
 
 BASE  = "C:/Users/Adham/Desktop/Blau Batch Master/Brand Assets"
 LOGOS = f"{BASE}/Logos"
-FONTS = f"{BASE}/Fonts"
+FONTS = f"{BASE}/Fonts/Logo only (Montserrat)"  # logo wordmark stays Montserrat; all other text uses Inter
 OUT   = f"{BASE}/Logos/Export"
 
 DEEP_NAVY  = (20,  27,  62)

@@ -7,13 +7,13 @@ const {
 } = require("docx");
 
 // ── Load logo image ──
-const LOGO_PATH = "C:/Users/Adham/Desktop/Blau Batch Master/Brand Assets/Logos/BlauBatch_Logo_Primary.jpg";
+const LOGO_PATH = __dirname + "/Logos/BlauBatch_Logo_Primary.jpg";
 const logoBuffer = fs.readFileSync(LOGO_PATH);
-const CORAPLAST_PATH = "C:/Users/Adham/Desktop/Blau Batch Master/Brand Assets/Logos/coraplast-logo0d-01-01.png";
+const CORAPLAST_PATH = __dirname + "/Logos/coraplast-logo0d-01-01.png";
 const coraplastBuffer = fs.readFileSync(CORAPLAST_PATH);
 
 // ── Monochrome logo variants ──
-const LOGOS_DIR = "C:/Users/Adham/Desktop/Blau Batch Master/Brand Assets/Logos";
+const LOGOS_DIR = __dirname + "/Logos";
 const monoNavyOnWhite     = fs.readFileSync(`${LOGOS_DIR}/BlauBatch_Logo_Mono_Navy_on_White.png`);
 const monoWhiteOnNavy     = fs.readFileSync(`${LOGOS_DIR}/BlauBatch_Logo_Mono_White_on_Navy.png`);
 const monoBlackOnWhite    = fs.readFileSync(`${LOGOS_DIR}/BlauBatch_Logo_Mono_Black_on_White.png`);
@@ -77,8 +77,8 @@ function colorSwatch(hexColor, name, rgb, cmyk, pantone) {
         shading: { fill: hexColor, type: ShadingType.CLEAR },
         margins: { top: 120, bottom: 120, left: 120, right: 120 },
         children: [
-          new Paragraph({ children: [new TextRun({ text: " ", font: "Open Sans", size: 20 })] }),
-          new Paragraph({ children: [new TextRun({ text: " ", font: "Open Sans", size: 20 })] }),
+          new Paragraph({ children: [new TextRun({ text: " ", font: "Inter", size: 20 })] }),
+          new Paragraph({ children: [new TextRun({ text: " ", font: "Inter", size: 20 })] }),
         ],
       }),
       new TableCell({
@@ -86,11 +86,11 @@ function colorSwatch(hexColor, name, rgb, cmyk, pantone) {
         width: { size: 7560, type: WidthType.DXA },
         margins: { top: 100, bottom: 100, left: 200, right: 120 },
         children: [
-          new Paragraph({ children: [new TextRun({ text: name, font: "Montserrat", bold: true, size: 22, color: DEEP_NAVY })] }),
-          new Paragraph({ spacing: { before: 40 }, children: [new TextRun({ text: `HEX: #${hexColor}`, font: "Open Sans", size: 18, color: DARK_GREY })] }),
-          new Paragraph({ children: [new TextRun({ text: `RGB: ${rgb}`, font: "Open Sans", size: 18, color: DARK_GREY })] }),
-          new Paragraph({ children: [new TextRun({ text: `CMYK: ${cmyk}`, font: "Open Sans", size: 18, color: DARK_GREY })] }),
-          new Paragraph({ children: [new TextRun({ text: `Pantone: ${pantone}`, font: "Open Sans", size: 18, color: DARK_GREY })] }),
+          new Paragraph({ children: [new TextRun({ text: name, font: "Inter", bold: true, size: 22, color: DEEP_NAVY })] }),
+          new Paragraph({ spacing: { before: 40 }, children: [new TextRun({ text: `HEX: #${hexColor}`, font: "Inter", size: 18, color: DARK_GREY })] }),
+          new Paragraph({ children: [new TextRun({ text: `RGB: ${rgb}`, font: "Inter", size: 18, color: DARK_GREY })] }),
+          new Paragraph({ children: [new TextRun({ text: `CMYK: ${cmyk}`, font: "Inter", size: 18, color: DARK_GREY })] }),
+          new Paragraph({ children: [new TextRun({ text: `Pantone: ${pantone}`, font: "Inter", size: 18, color: DARK_GREY })] }),
         ],
       }),
     ],
@@ -101,32 +101,32 @@ function sectionTitle(text) {
   return new Paragraph({
     spacing: { before: 480, after: 200 },
     border: { bottom: { style: BorderStyle.SINGLE, size: 6, color: SKY_BLUE, space: 8 } },
-    children: [new TextRun({ text: text.toUpperCase(), font: "Montserrat", bold: true, size: 36, color: DEEP_NAVY })],
+    children: [new TextRun({ text: text.toUpperCase(), font: "Inter", bold: true, size: 36, color: DEEP_NAVY })],
   });
 }
 
 function subTitle(text) {
   return new Paragraph({
     spacing: { before: 360, after: 120 },
-    children: [new TextRun({ text, font: "Montserrat", bold: true, size: 26, color: STEEL_BLUE })],
+    children: [new TextRun({ text, font: "Inter", bold: true, size: 26, color: STEEL_BLUE })],
   });
 }
 
 function bodyText(text) {
   return new Paragraph({
     spacing: { before: 60, after: 100 },
-    children: [new TextRun({ text, font: "Open Sans", size: 21, color: DARK_GREY })],
+    children: [new TextRun({ text, font: "Inter", size: 21, color: DARK_GREY })],
   });
 }
 
 function bulletItem(text, bold = "") {
   const children = [];
-  if (bold) children.push(new TextRun({ text: bold + " ", font: "Open Sans", bold: true, size: 21, color: DEEP_NAVY }));
-  children.push(new TextRun({ text, font: "Open Sans", size: 21, color: DARK_GREY }));
+  if (bold) children.push(new TextRun({ text: bold + " ", font: "Inter", bold: true, size: 21, color: DEEP_NAVY }));
+  children.push(new TextRun({ text, font: "Inter", size: 21, color: DARK_GREY }));
   return new Paragraph({
     spacing: { before: 40, after: 40 },
     indent: { left: 460, hanging: 230 },
-    children: [new TextRun({ text: "\u2022  ", font: "Open Sans", size: 21, color: SKY_BLUE }), ...children],
+    children: [new TextRun({ text: "\u2022  ", font: "Inter", size: 21, color: SKY_BLUE }), ...children],
   });
 }
 
@@ -135,8 +135,8 @@ function ruleItem(text, icon = "\u2713") {
     spacing: { before: 40, after: 40 },
     indent: { left: 460, hanging: 230 },
     children: [
-      new TextRun({ text: icon + "  ", font: "Open Sans", bold: true, size: 21, color: icon === "\u2713" ? "22883E" : "CC2233" }),
-      new TextRun({ text, font: "Open Sans", size: 21, color: DARK_GREY }),
+      new TextRun({ text: icon + "  ", font: "Inter", bold: true, size: 21, color: icon === "\u2713" ? "22883E" : "CC2233" }),
+      new TextRun({ text, font: "Inter", size: 21, color: DARK_GREY }),
     ],
   });
 }
@@ -150,7 +150,7 @@ function contentHeader() {
     alignment: AlignmentType.RIGHT,
     children: [
       new TextRun({ text: "BLAU BATCH", font: "Montserrat", bold: true, size: 16, color: STEEL_BLUE }),
-      new TextRun({ text: "  Visual Identity Guide", font: "Open Sans", size: 16, color: MID_GREY }),
+      new TextRun({ text: "  Visual Identity Guide", font: "Inter", size: 16, color: MID_GREY }),
     ],
   })] });
 }
@@ -160,8 +160,8 @@ function contentFooter() {
     alignment: AlignmentType.CENTER,
     border: { top: { style: BorderStyle.SINGLE, size: 1, color: LIGHT_GREY, space: 4 } },
     children: [
-      new TextRun({ text: "BLAU BATCH Visual Identity Guide  |  Page ", font: "Open Sans", size: 16, color: MID_GREY }),
-      new TextRun({ children: [PageNumber.CURRENT], font: "Open Sans", size: 16, color: MID_GREY }),
+      new TextRun({ text: "BLAU BATCH Visual Identity Guide  |  Page ", font: "Inter", size: 16, color: MID_GREY }),
+      new TextRun({ children: [PageNumber.CURRENT], font: "Inter", size: 16, color: MID_GREY }),
     ],
   })] });
 }
@@ -178,12 +178,12 @@ function specTable(rows) {
             borders: thinBorders, width: { size: 2800, type: WidthType.DXA },
             shading: { fill: "F0F4F8", type: ShadingType.CLEAR },
             margins: { top: 80, bottom: 80, left: 120, right: 120 },
-            children: [new Paragraph({ children: [new TextRun({ text: label, font: "Montserrat", bold: true, size: 18, color: DEEP_NAVY })] })],
+            children: [new Paragraph({ children: [new TextRun({ text: label, font: "Inter", bold: true, size: 18, color: DEEP_NAVY })] })],
           }),
           new TableCell({
             borders: thinBorders, width: { size: 6560, type: WidthType.DXA },
             margins: { top: 80, bottom: 80, left: 120, right: 120 },
-            children: [new Paragraph({ children: [new TextRun({ text: value, font: "Open Sans", size: 18, color: DARK_GREY })] })],
+            children: [new Paragraph({ children: [new TextRun({ text: value, font: "Inter", size: 18, color: DARK_GREY })] })],
           }),
         ],
       })
@@ -194,13 +194,13 @@ function specTable(rows) {
 // ── Build Document ──
 const doc = new Document({
   styles: {
-    default: { document: { run: { font: "Open Sans", size: 22 } } },
+    default: { document: { run: { font: "Inter", size: 22 } } },
     paragraphStyles: [
       { id: "Heading1", name: "Heading 1", basedOn: "Normal", next: "Normal", quickFormat: true,
-        run: { size: 36, bold: true, font: "Montserrat", color: DEEP_NAVY },
+        run: { size: 36, bold: true, font: "Inter", color: DEEP_NAVY },
         paragraph: { spacing: { before: 480, after: 200 }, outlineLevel: 0 } },
       { id: "Heading2", name: "Heading 2", basedOn: "Normal", next: "Normal", quickFormat: true,
-        run: { size: 28, bold: true, font: "Montserrat", color: STEEL_BLUE },
+        run: { size: 28, bold: true, font: "Inter", color: STEEL_BLUE },
         paragraph: { spacing: { before: 360, after: 120 }, outlineLevel: 1 } },
     ],
   },
@@ -230,13 +230,13 @@ const doc = new Document({
                 new Paragraph({ alignment: AlignmentType.LEFT, children: [new TextRun({ text: "BLAU BATCH", font: "Montserrat", bold: true, size: 56, color: WHITE })] }),
                 new Paragraph({ alignment: AlignmentType.LEFT, spacing: { before: 80 },
                   border: { bottom: { style: BorderStyle.SINGLE, size: 4, color: SKY_BLUE, space: 12 } },
-                  children: [new TextRun({ text: "Visual Identity Guide", font: "Montserrat", size: 36, color: SKY_BLUE })] }),
+                  children: [new TextRun({ text: "Visual Identity Guide", font: "Inter", size: 36, color: SKY_BLUE })] }),
                 spacer(300),
-                new Paragraph({ alignment: AlignmentType.LEFT, children: [new TextRun({ text: "Full-Spectrum Masterbatch Solutions", font: "Open Sans", size: 22, color: LIGHT_GREY })] }),
-                new Paragraph({ alignment: AlignmentType.LEFT, spacing: { before: 120 }, children: [new TextRun({ text: "v1.0  |  2026", font: "Open Sans", size: 20, color: MID_GREY })] }),
+                new Paragraph({ alignment: AlignmentType.LEFT, children: [new TextRun({ text: "Full-Spectrum Masterbatch Solutions", font: "Inter", size: 22, color: LIGHT_GREY })] }),
+                new Paragraph({ alignment: AlignmentType.LEFT, spacing: { before: 120 }, children: [new TextRun({ text: "v1.1  |  2026", font: "Inter", size: 20, color: MID_GREY })] }),
                 spacer(2000),
-                new Paragraph({ alignment: AlignmentType.LEFT, children: [new TextRun({ text: "www.blaubatch.com", font: "Open Sans", size: 18, color: SKY_BLUE })] }),
-                new Paragraph({ alignment: AlignmentType.LEFT, spacing: { before: 40 }, children: [new TextRun({ text: "Confidential \u2014 For authorised use only", font: "Open Sans", size: 16, color: MID_GREY })] }),
+                new Paragraph({ alignment: AlignmentType.LEFT, children: [new TextRun({ text: "www.blaubatch.com", font: "Inter", size: 18, color: SKY_BLUE })] }),
+                new Paragraph({ alignment: AlignmentType.LEFT, spacing: { before: 40 }, children: [new TextRun({ text: "Confidential \u2014 For authorised use only", font: "Inter", size: 16, color: MID_GREY })] }),
               ],
             })],
           })],
@@ -255,7 +255,7 @@ const doc = new Document({
         new Paragraph({
           spacing: { before: 200, after: 400 },
           border: { bottom: { style: BorderStyle.SINGLE, size: 6, color: SKY_BLUE, space: 12 } },
-          children: [new TextRun({ text: "TABLE OF CONTENTS", font: "Montserrat", bold: true, size: 36, color: DEEP_NAVY })],
+          children: [new TextRun({ text: "TABLE OF CONTENTS", font: "Inter", bold: true, size: 36, color: DEEP_NAVY })],
         }),
         spacer(200),
         ...[
@@ -284,8 +284,8 @@ const doc = new Document({
             spacing: { before: 130, after: 130 },
             border: { bottom: { style: BorderStyle.SINGLE, size: 1, color: LIGHT_GREY, space: 6 } },
             children: [
-              new TextRun({ text: num, font: "Montserrat", bold: true, size: 22, color: SKY_BLUE }),
-              new TextRun({ text: `    ${title}`, font: "Open Sans", size: 22, color: DEEP_NAVY }),
+              new TextRun({ text: num, font: "Inter", bold: true, size: 22, color: SKY_BLUE }),
+              new TextRun({ text: `    ${title}`, font: "Inter", size: 22, color: DEEP_NAVY }),
             ],
           })
         ),
@@ -322,7 +322,7 @@ const doc = new Document({
         subTitle("2.1  Primary Logo (Full Lockup)"),
         bodyText("The primary logo consists of the \u2018B\u2019 lettermark on its official navy square background. This is the default logo for all branded communications including brochures, trade show displays, proposals, product catalogues, and formal print materials."),
         new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 200, after: 100 }, children: [logoImage(280, 302)] }),
-        new Paragraph({ alignment: AlignmentType.CENTER, spacing: { after: 200 }, children: [new TextRun({ text: "Primary Logo \u2014 B lettermark on navy background", font: "Open Sans", italics: true, size: 18, color: MID_GREY })] }),
+        new Paragraph({ alignment: AlignmentType.CENTER, spacing: { after: 200 }, children: [new TextRun({ text: "Primary Logo \u2014 B lettermark on navy background", font: "Inter", italics: true, size: 18, color: MID_GREY })] }),
         bodyText("Always use this version when space permits and the logo will be displayed at a prominent size."),
 
         subTitle("2.2  Horizontal Logo (Wordmark Lockup)"),
@@ -338,7 +338,7 @@ const doc = new Document({
               new TableCell({ borders: thinBorders, width: { size: 7160, type: WidthType.DXA }, shading: { fill: WHITE, type: ShadingType.CLEAR }, verticalAlign: "center", margins: { top: 80, bottom: 80, left: 300, right: 120 },
                 children: [
                   new Paragraph({ children: [new TextRun({ text: "BLAU BATCH", font: "Montserrat", bold: true, size: 44, color: DEEP_NAVY })] }),
-                  new Paragraph({ spacing: { before: 40 }, children: [new TextRun({ text: "Full-Spectrum Masterbatch Solutions", font: "Open Sans", size: 18, color: MID_GREY })] }),
+                  new Paragraph({ spacing: { before: 40 }, children: [new TextRun({ text: "Full-Spectrum Masterbatch Solutions", font: "Inter", size: 18, color: MID_GREY })] }),
                 ] }),
             ],
           })],
@@ -355,12 +355,12 @@ const doc = new Document({
               new TableCell({ borders: thinBorders, width: { size: 4680, type: WidthType.DXA }, shading: { fill: DEEP_NAVY, type: ShadingType.CLEAR }, verticalAlign: "center", margins: { top: 80, bottom: 80, left: 120, right: 120 },
                 children: [
                   new Paragraph({ alignment: AlignmentType.CENTER, children: [logoImage(120, 129)] }),
-                  new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 80 }, children: [new TextRun({ text: "On Navy Background", font: "Open Sans", size: 16, color: LIGHT_GREY, italics: true })] }),
+                  new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 80 }, children: [new TextRun({ text: "On Navy Background", font: "Inter", size: 16, color: LIGHT_GREY, italics: true })] }),
                 ] }),
               new TableCell({ borders: thinBorders, width: { size: 4680, type: WidthType.DXA }, shading: { fill: "F5F5F5", type: ShadingType.CLEAR }, verticalAlign: "center", margins: { top: 80, bottom: 80, left: 120, right: 120 },
                 children: [
                   new Paragraph({ alignment: AlignmentType.CENTER, children: [logoImage(120, 129)] }),
-                  new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 80 }, children: [new TextRun({ text: "On Light Background", font: "Open Sans", size: 16, color: MID_GREY, italics: true })] }),
+                  new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 80 }, children: [new TextRun({ text: "On Light Background", font: "Inter", size: 16, color: MID_GREY, italics: true })] }),
                 ] }),
             ],
           })],
@@ -379,9 +379,9 @@ const doc = new Document({
             new TableRow({
               children: [
                 new TableCell({ borders: thinBorders, width: { size: 2340, type: WidthType.DXA }, shading: { fill: "F0F4F8", type: ShadingType.CLEAR }, margins: { top: 80, bottom: 80, left: 120, right: 120 },
-                  children: [new Paragraph({ children: [new TextRun({ text: fmt, font: "Montserrat", bold: true, size: 20, color: DEEP_NAVY })] })] }),
+                  children: [new Paragraph({ children: [new TextRun({ text: fmt, font: "Inter", bold: true, size: 20, color: DEEP_NAVY })] })] }),
                 new TableCell({ borders: thinBorders, width: { size: 7020, type: WidthType.DXA }, margins: { top: 80, bottom: 80, left: 120, right: 120 },
-                  children: [new Paragraph({ children: [new TextRun({ text: desc, font: "Open Sans", size: 20, color: DARK_GREY })] })] }),
+                  children: [new Paragraph({ children: [new TextRun({ text: desc, font: "Inter", size: 20, color: DARK_GREY })] })] }),
               ],
             })
           ),
@@ -397,8 +397,8 @@ const doc = new Document({
             margins: { top: 120, bottom: 120, left: 200, right: 200 },
             children: [
               new Paragraph({ children: [
-                new TextRun({ text: "\u2139  ASSET NOTE:  ", font: "Montserrat", bold: true, size: 18, color: STEEL_BLUE }),
-                new TextRun({ text: "Logo files in all four versions (Primary, Horizontal, Logomark, Text-Only) and all formats (AI/EPS, SVG, PNG, JPG) are available from the Marketing & Operations Manager upon request. Always use the official supplied files \u2014 never recreate, trace, or screenshot the logo.", font: "Open Sans", size: 18, color: DARK_GREY }),
+                new TextRun({ text: "\u2139  ASSET NOTE:  ", font: "Inter", bold: true, size: 18, color: STEEL_BLUE }),
+                new TextRun({ text: "Logo files in all four versions (Primary, Horizontal, Logomark, Text-Only) and all formats (AI/EPS, SVG, PNG, JPG) are available from the Marketing & Operations Manager upon request. Always use the official supplied files \u2014 never recreate, trace, or screenshot the logo.", font: "Inter", size: 18, color: DARK_GREY }),
               ] }),
             ],
           })] })],
@@ -423,17 +423,17 @@ const doc = new Document({
               new TableCell({ borders: thinBorders, width: { size: 3120, type: WidthType.DXA }, shading: { fill: WHITE, type: ShadingType.CLEAR }, verticalAlign: "center", margins: { top: 80, bottom: 80, left: 80, right: 80 },
                 children: [
                   new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "BLAU BATCH", font: "Montserrat", bold: true, size: 28, color: DEEP_NAVY })] }),
-                  new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 40 }, children: [new TextRun({ text: "White (#FFFFFF)", font: "Open Sans", size: 14, color: MID_GREY })] }),
+                  new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 40 }, children: [new TextRun({ text: "White (#FFFFFF)", font: "Inter", size: 14, color: MID_GREY })] }),
                 ] }),
               new TableCell({ borders: thinBorders, width: { size: 3120, type: WidthType.DXA }, shading: { fill: "F5F5F5", type: ShadingType.CLEAR }, verticalAlign: "center", margins: { top: 80, bottom: 80, left: 80, right: 80 },
                 children: [
                   new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "BLAU BATCH", font: "Montserrat", bold: true, size: 28, color: DEEP_NAVY })] }),
-                  new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 40 }, children: [new TextRun({ text: "Off-White (#F5F5F5)", font: "Open Sans", size: 14, color: MID_GREY })] }),
+                  new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 40 }, children: [new TextRun({ text: "Off-White (#F5F5F5)", font: "Inter", size: 14, color: MID_GREY })] }),
                 ] }),
               new TableCell({ borders: thinBorders, width: { size: 3120, type: WidthType.DXA }, shading: { fill: LIGHT_GREY, type: ShadingType.CLEAR }, verticalAlign: "center", margins: { top: 80, bottom: 80, left: 80, right: 80 },
                 children: [
                   new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "BLAU BATCH", font: "Montserrat", bold: true, size: 28, color: DEEP_NAVY })] }),
-                  new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 40 }, children: [new TextRun({ text: "Light Grey (#DCDCDC)", font: "Open Sans", size: 14, color: MID_GREY })] }),
+                  new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 40 }, children: [new TextRun({ text: "Light Grey (#DCDCDC)", font: "Inter", size: 14, color: MID_GREY })] }),
                 ] }),
             ],
           })],
@@ -450,24 +450,24 @@ const doc = new Document({
               new TableCell({ borders: thinBorders, width: { size: 3120, type: WidthType.DXA }, shading: { fill: DEEP_NAVY, type: ShadingType.CLEAR }, verticalAlign: "center", margins: { top: 80, bottom: 80, left: 80, right: 80 },
                 children: [
                   new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "BLAU BATCH", font: "Montserrat", bold: true, size: 28, color: WHITE })] }),
-                  new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 40 }, children: [new TextRun({ text: "Deep Navy (#141B3E)", font: "Open Sans", size: 14, color: LIGHT_GREY })] }),
+                  new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 40 }, children: [new TextRun({ text: "Deep Navy (#141B3E)", font: "Inter", size: 14, color: LIGHT_GREY })] }),
                 ] }),
               new TableCell({ borders: thinBorders, width: { size: 3120, type: WidthType.DXA }, shading: { fill: STEEL_BLUE, type: ShadingType.CLEAR }, verticalAlign: "center", margins: { top: 80, bottom: 80, left: 80, right: 80 },
                 children: [
                   new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "BLAU BATCH", font: "Montserrat", bold: true, size: 28, color: WHITE })] }),
-                  new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 40 }, children: [new TextRun({ text: "Steel Blue (#23447A)", font: "Open Sans", size: 14, color: LIGHT_GREY })] }),
+                  new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 40 }, children: [new TextRun({ text: "Steel Blue (#23447A)", font: "Inter", size: 14, color: LIGHT_GREY })] }),
                 ] }),
               new TableCell({ borders: thinBorders, width: { size: 3120, type: WidthType.DXA }, shading: { fill: BLACK, type: ShadingType.CLEAR }, verticalAlign: "center", margins: { top: 80, bottom: 80, left: 80, right: 80 },
                 children: [
                   new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "BLAU BATCH", font: "Montserrat", bold: true, size: 28, color: WHITE })] }),
-                  new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 40 }, children: [new TextRun({ text: "Black (#000000)", font: "Open Sans", size: 14, color: LIGHT_GREY })] }),
+                  new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 40 }, children: [new TextRun({ text: "Black (#000000)", font: "Inter", size: 14, color: LIGHT_GREY })] }),
                 ] }),
             ],
           })],
         }),
 
         subTitle("3.3  Text-Only Logo with Tagline"),
-        bodyText("The text-only logo may optionally include the tagline \u2018Full-Spectrum Masterbatch Solutions\u2019 set below in Open Sans Regular. This version is used for presentations, proposals, and document covers."),
+        bodyText("The text-only logo may optionally include the tagline \u2018Full-Spectrum Masterbatch Solutions\u2019 set below, exactly as supplied in the official logo files. This version is used for presentations, proposals, and document covers."),
         new Table({
           width: { size: 9360, type: WidthType.DXA },
           columnWidths: [4680, 4680],
@@ -477,14 +477,14 @@ const doc = new Document({
               new TableCell({ borders: thinBorders, width: { size: 4680, type: WidthType.DXA }, shading: { fill: WHITE, type: ShadingType.CLEAR }, verticalAlign: "center", margins: { top: 80, bottom: 80, left: 80, right: 80 },
                 children: [
                   new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "BLAU BATCH", font: "Montserrat", bold: true, size: 36, color: DEEP_NAVY })] }),
-                  new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 40 }, children: [new TextRun({ text: "Full-Spectrum Masterbatch Solutions", font: "Open Sans", size: 18, color: STEEL_BLUE })] }),
-                  new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 60 }, children: [new TextRun({ text: "Navy on White", font: "Open Sans", size: 14, color: MID_GREY, italics: true })] }),
+                  new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 40 }, children: [new TextRun({ text: "Full-Spectrum Masterbatch Solutions", font: "Inter", size: 18, color: STEEL_BLUE })] }),
+                  new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 60 }, children: [new TextRun({ text: "Navy on White", font: "Inter", size: 14, color: MID_GREY, italics: true })] }),
                 ] }),
               new TableCell({ borders: thinBorders, width: { size: 4680, type: WidthType.DXA }, shading: { fill: DEEP_NAVY, type: ShadingType.CLEAR }, verticalAlign: "center", margins: { top: 80, bottom: 80, left: 80, right: 80 },
                 children: [
                   new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "BLAU BATCH", font: "Montserrat", bold: true, size: 36, color: WHITE })] }),
-                  new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 40 }, children: [new TextRun({ text: "Full-Spectrum Masterbatch Solutions", font: "Open Sans", size: 18, color: SKY_BLUE })] }),
-                  new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 60 }, children: [new TextRun({ text: "White on Navy", font: "Open Sans", size: 14, color: LIGHT_GREY, italics: true })] }),
+                  new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 40 }, children: [new TextRun({ text: "Full-Spectrum Masterbatch Solutions", font: "Inter", size: 18, color: SKY_BLUE })] }),
+                  new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 60 }, children: [new TextRun({ text: "White on Navy", font: "Inter", size: 14, color: LIGHT_GREY, italics: true })] }),
                 ] }),
             ],
           })],
@@ -525,7 +525,7 @@ const doc = new Document({
         new Paragraph({
           alignment: AlignmentType.CENTER,
           spacing: { before: 60, after: 200 },
-          children: [new TextRun({ text: "Cairo Bold \u00B7 Approved Arabic rendering of BLAU BATCH", font: "Open Sans", italics: true, size: 16, color: MID_GREY })],
+          children: [new TextRun({ text: "Cairo Bold \u00B7 Approved Arabic rendering of BLAU BATCH", font: "Inter", italics: true, size: 16, color: MID_GREY })],
         }),
 
         subTitle("4.2  Arabic on Light Backgrounds"),
@@ -539,17 +539,17 @@ const doc = new Document({
               new TableCell({ borders: thinBorders, width: { size: 3120, type: WidthType.DXA }, shading: { fill: WHITE, type: ShadingType.CLEAR }, verticalAlign: "center", margins: { top: 80, bottom: 80, left: 80, right: 80 },
                 children: [
                   new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "\u0628\u0640\u0640\u0644\u0627\u0648 \u0628\u0640\u0640\u0627\u062A\u0634", font: "Cairo", bold: true, size: 28, color: DEEP_NAVY })] }),
-                  new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 40 }, children: [new TextRun({ text: "White", font: "Open Sans", size: 14, color: MID_GREY })] }),
+                  new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 40 }, children: [new TextRun({ text: "White", font: "Inter", size: 14, color: MID_GREY })] }),
                 ] }),
               new TableCell({ borders: thinBorders, width: { size: 3120, type: WidthType.DXA }, shading: { fill: "F5F5F5", type: ShadingType.CLEAR }, verticalAlign: "center", margins: { top: 80, bottom: 80, left: 80, right: 80 },
                 children: [
                   new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "\u0628\u0640\u0640\u0644\u0627\u0648 \u0628\u0640\u0640\u0627\u062A\u0634", font: "Cairo", bold: true, size: 28, color: DEEP_NAVY })] }),
-                  new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 40 }, children: [new TextRun({ text: "Off-White", font: "Open Sans", size: 14, color: MID_GREY })] }),
+                  new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 40 }, children: [new TextRun({ text: "Off-White", font: "Inter", size: 14, color: MID_GREY })] }),
                 ] }),
               new TableCell({ borders: thinBorders, width: { size: 3120, type: WidthType.DXA }, shading: { fill: LIGHT_GREY, type: ShadingType.CLEAR }, verticalAlign: "center", margins: { top: 80, bottom: 80, left: 80, right: 80 },
                 children: [
                   new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "\u0628\u0640\u0640\u0644\u0627\u0648 \u0628\u0640\u0640\u0627\u062A\u0634", font: "Cairo", bold: true, size: 28, color: DEEP_NAVY })] }),
-                  new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 40 }, children: [new TextRun({ text: "Light Grey", font: "Open Sans", size: 14, color: MID_GREY })] }),
+                  new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 40 }, children: [new TextRun({ text: "Light Grey", font: "Inter", size: 14, color: MID_GREY })] }),
                 ] }),
             ],
           })],
@@ -566,17 +566,17 @@ const doc = new Document({
               new TableCell({ borders: thinBorders, width: { size: 3120, type: WidthType.DXA }, shading: { fill: DEEP_NAVY, type: ShadingType.CLEAR }, verticalAlign: "center", margins: { top: 80, bottom: 80, left: 80, right: 80 },
                 children: [
                   new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "\u0628\u0640\u0640\u0644\u0627\u0648 \u0628\u0640\u0640\u0627\u062A\u0634", font: "Cairo", bold: true, size: 28, color: WHITE })] }),
-                  new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 40 }, children: [new TextRun({ text: "Deep Navy", font: "Open Sans", size: 14, color: LIGHT_GREY })] }),
+                  new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 40 }, children: [new TextRun({ text: "Deep Navy", font: "Inter", size: 14, color: LIGHT_GREY })] }),
                 ] }),
               new TableCell({ borders: thinBorders, width: { size: 3120, type: WidthType.DXA }, shading: { fill: STEEL_BLUE, type: ShadingType.CLEAR }, verticalAlign: "center", margins: { top: 80, bottom: 80, left: 80, right: 80 },
                 children: [
                   new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "\u0628\u0640\u0640\u0644\u0627\u0648 \u0628\u0640\u0640\u0627\u062A\u0634", font: "Cairo", bold: true, size: 28, color: WHITE })] }),
-                  new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 40 }, children: [new TextRun({ text: "Steel Blue", font: "Open Sans", size: 14, color: LIGHT_GREY })] }),
+                  new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 40 }, children: [new TextRun({ text: "Steel Blue", font: "Inter", size: 14, color: LIGHT_GREY })] }),
                 ] }),
               new TableCell({ borders: thinBorders, width: { size: 3120, type: WidthType.DXA }, shading: { fill: BLACK, type: ShadingType.CLEAR }, verticalAlign: "center", margins: { top: 80, bottom: 80, left: 80, right: 80 },
                 children: [
                   new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "\u0628\u0640\u0640\u0644\u0627\u0648 \u0628\u0640\u0640\u0627\u062A\u0634", font: "Cairo", bold: true, size: 28, color: WHITE })] }),
-                  new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 40 }, children: [new TextRun({ text: "Black", font: "Open Sans", size: 14, color: LIGHT_GREY })] }),
+                  new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 40 }, children: [new TextRun({ text: "Black", font: "Inter", size: 14, color: LIGHT_GREY })] }),
                 ] }),
             ],
           })],
@@ -595,14 +595,14 @@ const doc = new Document({
                 children: [
                   new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "BLAU BATCH", font: "Montserrat", bold: true, size: 32, color: DEEP_NAVY })] }),
                   new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 60 }, children: [new TextRun({ text: "\u0628\u0640\u0640\u0644\u0627\u0648 \u0628\u0640\u0640\u0627\u062A\u0634", font: "Cairo", bold: true, size: 28, color: STEEL_BLUE })] }),
-                  new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 60 }, children: [new TextRun({ text: "Bilingual \u2014 Light", font: "Open Sans", size: 14, color: MID_GREY, italics: true })] }),
+                  new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 60 }, children: [new TextRun({ text: "Bilingual \u2014 Light", font: "Inter", size: 14, color: MID_GREY, italics: true })] }),
                 ] }),
               // Dark version
               new TableCell({ borders: thinBorders, width: { size: 4680, type: WidthType.DXA }, shading: { fill: DEEP_NAVY, type: ShadingType.CLEAR }, verticalAlign: "center", margins: { top: 80, bottom: 80, left: 200, right: 200 },
                 children: [
                   new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "BLAU BATCH", font: "Montserrat", bold: true, size: 32, color: WHITE })] }),
                   new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 60 }, children: [new TextRun({ text: "\u0628\u0640\u0640\u0644\u0627\u0648 \u0628\u0640\u0640\u0627\u062A\u0634", font: "Cairo", bold: true, size: 28, color: SKY_BLUE })] }),
-                  new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 60 }, children: [new TextRun({ text: "Bilingual \u2014 Dark", font: "Open Sans", size: 14, color: LIGHT_GREY, italics: true })] }),
+                  new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 60 }, children: [new TextRun({ text: "Bilingual \u2014 Dark", font: "Inter", size: 14, color: LIGHT_GREY, italics: true })] }),
                 ] }),
             ],
           })],
@@ -634,17 +634,17 @@ const doc = new Document({
               shading: { fill: "FAFAFA", type: ShadingType.CLEAR }, verticalAlign: "center",
               margins: { top: 200, bottom: 200, left: 200, right: 200 },
               children: [
-                new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "\u2193  X (clear space)", font: "Montserrat", size: 18, color: SKY_BLUE })] }),
+                new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "\u2193  X (clear space)", font: "Inter", size: 18, color: SKY_BLUE })] }),
                 spacer(80),
                 new Paragraph({ alignment: AlignmentType.CENTER, children: [
-                  new TextRun({ text: "X  \u2190    ", font: "Montserrat", size: 18, color: SKY_BLUE }),
+                  new TextRun({ text: "X  \u2190    ", font: "Inter", size: 18, color: SKY_BLUE }),
                   logoImage(140, 151),
-                  new TextRun({ text: "    \u2192  X", font: "Montserrat", size: 18, color: SKY_BLUE }),
+                  new TextRun({ text: "    \u2192  X", font: "Inter", size: 18, color: SKY_BLUE }),
                 ] }),
                 spacer(80),
-                new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "\u2191  X (clear space)", font: "Montserrat", size: 18, color: SKY_BLUE })] }),
+                new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "\u2191  X (clear space)", font: "Inter", size: 18, color: SKY_BLUE })] }),
                 spacer(80),
-                new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "X = Height of the B letterform. No elements may enter the exclusion zone.", font: "Open Sans", italics: true, size: 18, color: MID_GREY })] }),
+                new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "X = Height of the B letterform. No elements may enter the exclusion zone.", font: "Inter", italics: true, size: 18, color: MID_GREY })] }),
               ],
             })],
           })],
@@ -657,9 +657,9 @@ const doc = new Document({
           columnWidths: [3120, 3120, 3120],
           rows: [
             new TableRow({ children: [
-              new TableCell({ borders: thinBorders, shading: { fill: DEEP_NAVY, type: ShadingType.CLEAR }, margins: { top: 80, bottom: 80, left: 120, right: 120 }, children: [new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "CONTEXT", font: "Montserrat", bold: true, size: 18, color: WHITE })] })] }),
-              new TableCell({ borders: thinBorders, shading: { fill: DEEP_NAVY, type: ShadingType.CLEAR }, margins: { top: 80, bottom: 80, left: 120, right: 120 }, children: [new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "MIN CLEAR SPACE (X)", font: "Montserrat", bold: true, size: 18, color: WHITE })] })] }),
-              new TableCell({ borders: thinBorders, shading: { fill: DEEP_NAVY, type: ShadingType.CLEAR }, margins: { top: 80, bottom: 80, left: 120, right: 120 }, children: [new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "PREFERRED CLEAR SPACE", font: "Montserrat", bold: true, size: 18, color: WHITE })] })] }),
+              new TableCell({ borders: thinBorders, shading: { fill: DEEP_NAVY, type: ShadingType.CLEAR }, margins: { top: 80, bottom: 80, left: 120, right: 120 }, children: [new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "CONTEXT", font: "Inter", bold: true, size: 18, color: WHITE })] })] }),
+              new TableCell({ borders: thinBorders, shading: { fill: DEEP_NAVY, type: ShadingType.CLEAR }, margins: { top: 80, bottom: 80, left: 120, right: 120 }, children: [new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "MIN CLEAR SPACE (X)", font: "Inter", bold: true, size: 18, color: WHITE })] })] }),
+              new TableCell({ borders: thinBorders, shading: { fill: DEEP_NAVY, type: ShadingType.CLEAR }, margins: { top: 80, bottom: 80, left: 120, right: 120 }, children: [new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "PREFERRED CLEAR SPACE", font: "Inter", bold: true, size: 18, color: WHITE })] })] }),
             ] }),
             ...([
               ["Print (brochures, TDS)",    "5 mm",  "10 mm"],
@@ -669,9 +669,9 @@ const doc = new Document({
               ["Social media avatar",       "8 px",  "16 px"],
               ["Favicon / App icon",        "2 px",  "4 px"],
             ].map(([ctx, min, pref]) => new TableRow({ children: [
-              new TableCell({ borders: thinBorders, margins: { top: 70, bottom: 70, left: 120, right: 120 }, children: [new Paragraph({ children: [new TextRun({ text: ctx, font: "Open Sans", size: 18, color: DARK_GREY })] })] }),
-              new TableCell({ borders: thinBorders, margins: { top: 70, bottom: 70, left: 120, right: 120 }, children: [new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: min, font: "Montserrat", bold: true, size: 18, color: DEEP_NAVY })] })] }),
-              new TableCell({ borders: thinBorders, shading: { fill: "F0F8FF", type: ShadingType.CLEAR }, margins: { top: 70, bottom: 70, left: 120, right: 120 }, children: [new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: pref, font: "Open Sans", size: 18, color: STEEL_BLUE })] })] }),
+              new TableCell({ borders: thinBorders, margins: { top: 70, bottom: 70, left: 120, right: 120 }, children: [new Paragraph({ children: [new TextRun({ text: ctx, font: "Inter", size: 18, color: DARK_GREY })] })] }),
+              new TableCell({ borders: thinBorders, margins: { top: 70, bottom: 70, left: 120, right: 120 }, children: [new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: min, font: "Inter", bold: true, size: 18, color: DEEP_NAVY })] })] }),
+              new TableCell({ borders: thinBorders, shading: { fill: "F0F8FF", type: ShadingType.CLEAR }, margins: { top: 70, bottom: 70, left: 120, right: 120 }, children: [new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: pref, font: "Inter", size: 18, color: STEEL_BLUE })] })] }),
             ] }))),
           ],
         }),
@@ -683,9 +683,9 @@ const doc = new Document({
           columnWidths: [3120, 3120, 3120],
           rows: [
             new TableRow({ children: [
-              new TableCell({ borders: thinBorders, width: { size: 3120, type: WidthType.DXA }, shading: { fill: DEEP_NAVY, type: ShadingType.CLEAR }, margins: { top: 100, bottom: 100, left: 120, right: 120 }, children: [new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "APPLICATION", font: "Montserrat", bold: true, size: 18, color: WHITE })] })] }),
-              new TableCell({ borders: thinBorders, width: { size: 3120, type: WidthType.DXA }, shading: { fill: DEEP_NAVY, type: ShadingType.CLEAR }, margins: { top: 100, bottom: 100, left: 120, right: 120 }, children: [new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "MINIMUM SIZE", font: "Montserrat", bold: true, size: 18, color: WHITE })] })] }),
-              new TableCell({ borders: thinBorders, width: { size: 3120, type: WidthType.DXA }, shading: { fill: DEEP_NAVY, type: ShadingType.CLEAR }, margins: { top: 100, bottom: 100, left: 120, right: 120 }, children: [new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "LOGO VERSION", font: "Montserrat", bold: true, size: 18, color: WHITE })] })] }),
+              new TableCell({ borders: thinBorders, width: { size: 3120, type: WidthType.DXA }, shading: { fill: DEEP_NAVY, type: ShadingType.CLEAR }, margins: { top: 100, bottom: 100, left: 120, right: 120 }, children: [new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "APPLICATION", font: "Inter", bold: true, size: 18, color: WHITE })] })] }),
+              new TableCell({ borders: thinBorders, width: { size: 3120, type: WidthType.DXA }, shading: { fill: DEEP_NAVY, type: ShadingType.CLEAR }, margins: { top: 100, bottom: 100, left: 120, right: 120 }, children: [new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "MINIMUM SIZE", font: "Inter", bold: true, size: 18, color: WHITE })] })] }),
+              new TableCell({ borders: thinBorders, width: { size: 3120, type: WidthType.DXA }, shading: { fill: DEEP_NAVY, type: ShadingType.CLEAR }, margins: { top: 100, bottom: 100, left: 120, right: 120 }, children: [new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "LOGO VERSION", font: "Inter", bold: true, size: 18, color: WHITE })] })] }),
             ] }),
             ...[
               ["Print (brochures, datasheets)", "25 mm width", "Primary or Horizontal"],
@@ -694,9 +694,9 @@ const doc = new Document({
               ["Business Card", "15 mm width", "Logomark or Horizontal"],
               ["Large Format (signage)", "100 mm width", "Primary"],
             ].map(([a, s, v]) => new TableRow({ children: [
-              new TableCell({ borders: thinBorders, width: { size: 3120, type: WidthType.DXA }, margins: { top: 80, bottom: 80, left: 120, right: 120 }, children: [new Paragraph({ children: [new TextRun({ text: a, font: "Open Sans", size: 20, color: DARK_GREY })] })] }),
-              new TableCell({ borders: thinBorders, width: { size: 3120, type: WidthType.DXA }, margins: { top: 80, bottom: 80, left: 120, right: 120 }, children: [new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: s, font: "Montserrat", bold: true, size: 20, color: DEEP_NAVY })] })] }),
-              new TableCell({ borders: thinBorders, width: { size: 3120, type: WidthType.DXA }, margins: { top: 80, bottom: 80, left: 120, right: 120 }, children: [new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: v, font: "Open Sans", size: 20, color: STEEL_BLUE })] })] }),
+              new TableCell({ borders: thinBorders, width: { size: 3120, type: WidthType.DXA }, margins: { top: 80, bottom: 80, left: 120, right: 120 }, children: [new Paragraph({ children: [new TextRun({ text: a, font: "Inter", size: 20, color: DARK_GREY })] })] }),
+              new TableCell({ borders: thinBorders, width: { size: 3120, type: WidthType.DXA }, margins: { top: 80, bottom: 80, left: 120, right: 120 }, children: [new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: s, font: "Inter", bold: true, size: 20, color: DEEP_NAVY })] })] }),
+              new TableCell({ borders: thinBorders, width: { size: 3120, type: WidthType.DXA }, margins: { top: 80, bottom: 80, left: 120, right: 120 }, children: [new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: v, font: "Inter", size: 20, color: STEEL_BLUE })] })] }),
             ] })),
           ],
         }),
@@ -736,42 +736,42 @@ const doc = new Document({
           rows: [new TableRow({ children: [
             new TableCell({ borders: thinBorders, width: { size: 4680, type: WidthType.DXA }, shading: { fill: "E8F5E9", type: ShadingType.CLEAR }, margins: { top: 100, bottom: 100, left: 200, right: 200 },
               children: [
-                new Paragraph({ children: [new TextRun({ text: "\u2713  CORRECT", font: "Montserrat", bold: true, size: 20, color: "22883E" })] }),
+                new Paragraph({ children: [new TextRun({ text: "\u2713  CORRECT", font: "Inter", bold: true, size: 20, color: "22883E" })] }),
                 spacer(60),
                 new Paragraph({ children: [new TextRun({ text: "BLAU BATCH", font: "Montserrat", bold: true, size: 22, color: DARK_GREY })] }),
-                new Paragraph({ spacing: { before: 20 }, children: [new TextRun({ text: "All logo and display uses \u2014 always caps", font: "Open Sans", size: 16, color: MID_GREY, italics: true })] }),
+                new Paragraph({ spacing: { before: 20 }, children: [new TextRun({ text: "All logo and display uses \u2014 always caps", font: "Inter", size: 16, color: MID_GREY, italics: true })] }),
                 spacer(60),
-                new Paragraph({ children: [new TextRun({ text: "Blau Batch", font: "Open Sans", bold: true, size: 22, color: DARK_GREY })] }),
-                new Paragraph({ spacing: { before: 20 }, children: [new TextRun({ text: "In running body text only, title case", font: "Open Sans", size: 16, color: MID_GREY, italics: true })] }),
+                new Paragraph({ children: [new TextRun({ text: "Blau Batch", font: "Inter", bold: true, size: 22, color: DARK_GREY })] }),
+                new Paragraph({ spacing: { before: 20 }, children: [new TextRun({ text: "In running body text only, title case", font: "Inter", size: 16, color: MID_GREY, italics: true })] }),
                 spacer(60),
-                new Paragraph({ children: [new TextRun({ text: "blaubatch.com", font: "Open Sans", size: 22, color: DARK_GREY })] }),
-                new Paragraph({ spacing: { before: 20 }, children: [new TextRun({ text: "Domain/URL only, lowercase, no space", font: "Open Sans", size: 16, color: MID_GREY, italics: true })] }),
+                new Paragraph({ children: [new TextRun({ text: "blaubatch.com", font: "Inter", size: 22, color: DARK_GREY })] }),
+                new Paragraph({ spacing: { before: 20 }, children: [new TextRun({ text: "Domain/URL only, lowercase, no space", font: "Inter", size: 16, color: MID_GREY, italics: true })] }),
                 spacer(60),
                 new Paragraph({ children: [new TextRun({ text: "\u0628\u0640\u0640\u0644\u0627\u0648 \u0628\u0640\u0640\u0627\u062A\u0634", font: "Cairo", bold: true, size: 22, color: DARK_GREY })] }),
-                new Paragraph({ spacing: { before: 20 }, children: [new TextRun({ text: "Approved Arabic rendering only", font: "Open Sans", size: 16, color: MID_GREY, italics: true })] }),
+                new Paragraph({ spacing: { before: 20 }, children: [new TextRun({ text: "Approved Arabic rendering only", font: "Inter", size: 16, color: MID_GREY, italics: true })] }),
               ] }),
             new TableCell({ borders: thinBorders, width: { size: 4680, type: WidthType.DXA }, shading: { fill: "FFEBEE", type: ShadingType.CLEAR }, margins: { top: 100, bottom: 100, left: 200, right: 200 },
               children: [
-                new Paragraph({ children: [new TextRun({ text: "\u2717  INCORRECT", font: "Montserrat", bold: true, size: 20, color: "CC2233" })] }),
+                new Paragraph({ children: [new TextRun({ text: "\u2717  INCORRECT", font: "Inter", bold: true, size: 20, color: "CC2233" })] }),
                 spacer(60),
-                new Paragraph({ children: [new TextRun({ text: "BlauBatch", font: "Open Sans", size: 22, color: DARK_GREY, strike: true })] }),
-                new Paragraph({ spacing: { before: 20 }, children: [new TextRun({ text: "No camelCase", font: "Open Sans", size: 16, color: MID_GREY, italics: true })] }),
+                new Paragraph({ children: [new TextRun({ text: "BlauBatch", font: "Inter", size: 22, color: DARK_GREY, strike: true })] }),
+                new Paragraph({ spacing: { before: 20 }, children: [new TextRun({ text: "No camelCase", font: "Inter", size: 16, color: MID_GREY, italics: true })] }),
                 spacer(60),
-                new Paragraph({ children: [new TextRun({ text: "blau batch", font: "Open Sans", size: 22, color: DARK_GREY, strike: true })] }),
-                new Paragraph({ spacing: { before: 20 }, children: [new TextRun({ text: "Never all lowercase in text", font: "Open Sans", size: 16, color: MID_GREY, italics: true })] }),
+                new Paragraph({ children: [new TextRun({ text: "blau batch", font: "Inter", size: 22, color: DARK_GREY, strike: true })] }),
+                new Paragraph({ spacing: { before: 20 }, children: [new TextRun({ text: "Never all lowercase in text", font: "Inter", size: 16, color: MID_GREY, italics: true })] }),
                 spacer(60),
-                new Paragraph({ children: [new TextRun({ text: "Blau-Batch / BB / B.B.", font: "Open Sans", size: 22, color: DARK_GREY, strike: true })] }),
-                new Paragraph({ spacing: { before: 20 }, children: [new TextRun({ text: "No hyphens, abbreviations, or initials", font: "Open Sans", size: 16, color: MID_GREY, italics: true })] }),
+                new Paragraph({ children: [new TextRun({ text: "Blau-Batch / BB / B.B.", font: "Inter", size: 22, color: DARK_GREY, strike: true })] }),
+                new Paragraph({ spacing: { before: 20 }, children: [new TextRun({ text: "No hyphens, abbreviations, or initials", font: "Inter", size: 16, color: MID_GREY, italics: true })] }),
                 spacer(60),
-                new Paragraph({ children: [new TextRun({ text: "Unofficial Arabic transliterations", font: "Open Sans", size: 22, color: DARK_GREY, strike: true })] }),
-                new Paragraph({ spacing: { before: 20 }, children: [new TextRun({ text: "Only the approved Arabic form is permitted", font: "Open Sans", size: 16, color: MID_GREY, italics: true })] }),
+                new Paragraph({ children: [new TextRun({ text: "Unofficial Arabic transliterations", font: "Inter", size: 22, color: DARK_GREY, strike: true })] }),
+                new Paragraph({ spacing: { before: 20 }, children: [new TextRun({ text: "Only the approved Arabic form is permitted", font: "Inter", size: 16, color: MID_GREY, italics: true })] }),
               ] }),
           ] })],
         }),
 
         subTitle("6.3  Tagline"),
         new Paragraph({ spacing: { before: 120, after: 60 }, alignment: AlignmentType.CENTER,
-          children: [new TextRun({ text: "Full-Spectrum Masterbatch Solutions", font: "Montserrat", bold: true, size: 28, color: STEEL_BLUE })] }),
+          children: [new TextRun({ text: "Full-Spectrum Masterbatch Solutions", font: "Inter", bold: true, size: 28, color: STEEL_BLUE })] }),
         bodyText("The tagline is always written in title case. It may appear beneath the logo in formal applications."),
 
         new Paragraph({ children: [new PageBreak()] }),
@@ -789,13 +789,13 @@ const doc = new Document({
             width: { size: 9360, type: WidthType.DXA }, shading: { fill: "F0F8FF", type: ShadingType.CLEAR },
             margins: { top: 120, bottom: 120, left: 200, right: 200 },
             children: [
-              new Paragraph({ children: [new TextRun({ text: "PRIMARY LOGO (JPG)", font: "Montserrat", bold: true, size: 18, color: DEEP_NAVY })] }),
-              new Paragraph({ spacing: { before: 40 }, children: [new TextRun({ text: "Includes the navy background container as part of the image. Use this version on white, light, or photographic backgrounds where the navy square provides brand consistency and clear framing.", font: "Open Sans", size: 18, color: DARK_GREY })] }),
+              new Paragraph({ children: [new TextRun({ text: "PRIMARY LOGO (JPG)", font: "Inter", bold: true, size: 18, color: DEEP_NAVY })] }),
+              new Paragraph({ spacing: { before: 40 }, children: [new TextRun({ text: "Includes the navy background container as part of the image. Use this version on white, light, or photographic backgrounds where the navy square provides brand consistency and clear framing.", font: "Inter", size: 18, color: DARK_GREY })] }),
               spacer(80),
-              new Paragraph({ children: [new TextRun({ text: "LOGOMARK (PNG \u2014 TRANSPARENT)", font: "Montserrat", bold: true, size: 18, color: DEEP_NAVY })] }),
-              new Paragraph({ spacing: { before: 40 }, children: [new TextRun({ text: "The B lettermark without background. Use on dark or navy backgrounds where the container square is unnecessary, or when the logo must float over a coloured surface. Available as a transparent PNG or SVG.", font: "Open Sans", size: 18, color: DARK_GREY })] }),
+              new Paragraph({ children: [new TextRun({ text: "LOGOMARK (PNG \u2014 TRANSPARENT)", font: "Inter", bold: true, size: 18, color: DEEP_NAVY })] }),
+              new Paragraph({ spacing: { before: 40 }, children: [new TextRun({ text: "The B lettermark without background. Use on dark or navy backgrounds where the container square is unnecessary, or when the logo must float over a coloured surface. Available as a transparent PNG or SVG.", font: "Inter", size: 18, color: DARK_GREY })] }),
               spacer(80),
-              new Paragraph({ children: [new TextRun({ text: "RULE OF THUMB:", font: "Montserrat", bold: true, size: 18, color: STEEL_BLUE }), new TextRun({ text: "  If the background is light \u2192 use the Primary (with navy container). If the background is dark navy or black \u2192 use the transparent Logomark.", font: "Open Sans", size: 18, color: DARK_GREY })] }),
+              new Paragraph({ children: [new TextRun({ text: "RULE OF THUMB:", font: "Inter", bold: true, size: 18, color: STEEL_BLUE }), new TextRun({ text: "  If the background is light \u2192 use the Primary (with navy container). If the background is dark navy or black \u2192 use the transparent Logomark.", font: "Inter", size: 18, color: DARK_GREY })] }),
             ],
           })] })],
         }),
@@ -807,11 +807,11 @@ const doc = new Document({
           columnWidths: [3120, 3120, 3120],
           rows: [new TableRow({ height: { value: 1400, rule: "exact" }, children: [
             new TableCell({ borders: thinBorders, width: { size: 3120, type: WidthType.DXA }, shading: { fill: WHITE, type: ShadingType.CLEAR }, verticalAlign: "center", margins: { top: 80, bottom: 80, left: 80, right: 80 },
-              children: [ new Paragraph({ alignment: AlignmentType.CENTER, children: [logoImage(90, 97)] }), new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 60 }, children: [new TextRun({ text: "White", font: "Open Sans", size: 14, color: MID_GREY })] }) ] }),
+              children: [ new Paragraph({ alignment: AlignmentType.CENTER, children: [logoImage(90, 97)] }), new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 60 }, children: [new TextRun({ text: "White", font: "Inter", size: 14, color: MID_GREY })] }) ] }),
             new TableCell({ borders: thinBorders, width: { size: 3120, type: WidthType.DXA }, shading: { fill: "F5F5F5", type: ShadingType.CLEAR }, verticalAlign: "center", margins: { top: 80, bottom: 80, left: 80, right: 80 },
-              children: [ new Paragraph({ alignment: AlignmentType.CENTER, children: [logoImage(90, 97)] }), new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 60 }, children: [new TextRun({ text: "Off-White", font: "Open Sans", size: 14, color: MID_GREY })] }) ] }),
+              children: [ new Paragraph({ alignment: AlignmentType.CENTER, children: [logoImage(90, 97)] }), new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 60 }, children: [new TextRun({ text: "Off-White", font: "Inter", size: 14, color: MID_GREY })] }) ] }),
             new TableCell({ borders: thinBorders, width: { size: 3120, type: WidthType.DXA }, shading: { fill: LIGHT_GREY, type: ShadingType.CLEAR }, verticalAlign: "center", margins: { top: 80, bottom: 80, left: 80, right: 80 },
-              children: [ new Paragraph({ alignment: AlignmentType.CENTER, children: [logoImage(90, 97)] }), new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 60 }, children: [new TextRun({ text: "Light Grey", font: "Open Sans", size: 14, color: MID_GREY })] }) ] }),
+              children: [ new Paragraph({ alignment: AlignmentType.CENTER, children: [logoImage(90, 97)] }), new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 60 }, children: [new TextRun({ text: "Light Grey", font: "Inter", size: 14, color: MID_GREY })] }) ] }),
           ] })],
         }),
 
@@ -821,11 +821,11 @@ const doc = new Document({
           columnWidths: [3120, 3120, 3120],
           rows: [new TableRow({ height: { value: 1400, rule: "exact" }, children: [
             new TableCell({ borders: thinBorders, width: { size: 3120, type: WidthType.DXA }, shading: { fill: DEEP_NAVY, type: ShadingType.CLEAR }, verticalAlign: "center", margins: { top: 80, bottom: 80, left: 80, right: 80 },
-              children: [ new Paragraph({ alignment: AlignmentType.CENTER, children: [logoImage(90, 97)] }), new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 60 }, children: [new TextRun({ text: "Deep Navy", font: "Open Sans", size: 14, color: LIGHT_GREY })] }) ] }),
+              children: [ new Paragraph({ alignment: AlignmentType.CENTER, children: [logoImage(90, 97)] }), new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 60 }, children: [new TextRun({ text: "Deep Navy", font: "Inter", size: 14, color: LIGHT_GREY })] }) ] }),
             new TableCell({ borders: thinBorders, width: { size: 3120, type: WidthType.DXA }, shading: { fill: STEEL_BLUE, type: ShadingType.CLEAR }, verticalAlign: "center", margins: { top: 80, bottom: 80, left: 80, right: 80 },
-              children: [ new Paragraph({ alignment: AlignmentType.CENTER, children: [logoImage(90, 97)] }), new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 60 }, children: [new TextRun({ text: "Steel Blue", font: "Open Sans", size: 14, color: LIGHT_GREY })] }) ] }),
+              children: [ new Paragraph({ alignment: AlignmentType.CENTER, children: [logoImage(90, 97)] }), new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 60 }, children: [new TextRun({ text: "Steel Blue", font: "Inter", size: 14, color: LIGHT_GREY })] }) ] }),
             new TableCell({ borders: thinBorders, width: { size: 3120, type: WidthType.DXA }, shading: { fill: BLACK, type: ShadingType.CLEAR }, verticalAlign: "center", margins: { top: 80, bottom: 80, left: 80, right: 80 },
-              children: [ new Paragraph({ alignment: AlignmentType.CENTER, children: [logoImage(90, 97)] }), new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 60 }, children: [new TextRun({ text: "Black", font: "Open Sans", size: 14, color: LIGHT_GREY })] }) ] }),
+              children: [ new Paragraph({ alignment: AlignmentType.CENTER, children: [logoImage(90, 97)] }), new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 60 }, children: [new TextRun({ text: "Black", font: "Inter", size: 14, color: LIGHT_GREY })] }) ] }),
           ] })],
         }),
 
@@ -839,8 +839,8 @@ const doc = new Document({
             margins: { top: 120, bottom: 120, left: 200, right: 200 },
             children: [
               new Paragraph({ children: [
-                new TextRun({ text: "\u26A0  NOTE ON BLACK BACKGROUND:  ", font: "Montserrat", bold: true, size: 18, color: MFG_AMBER }),
-                new TextRun({ text: "Use of the logo on a pure black (#000000) background is not a standard brand application and is unlikely to arise in normal communications. The logo\u2019s built-in navy container does not provide optimal contrast against black. If a black background is required (e.g., specific exhibition or event context), this must be reviewed and approved by the Marketing & Operations Manager before use.", font: "Open Sans", size: 18, color: DARK_GREY }),
+                new TextRun({ text: "\u26A0  NOTE ON BLACK BACKGROUND:  ", font: "Inter", bold: true, size: 18, color: MFG_AMBER }),
+                new TextRun({ text: "Use of the logo on a pure black (#000000) background is not a standard brand application and is unlikely to arise in normal communications. The logo\u2019s built-in navy container does not provide optimal contrast against black. If a black background is required (e.g., specific exhibition or event context), this must be reviewed and approved by the Marketing & Operations Manager before use.", font: "Inter", size: 18, color: DARK_GREY }),
               ] }),
             ],
           })] })],
@@ -865,11 +865,11 @@ const doc = new Document({
             // Header row
             new TableRow({ children: [
               new TableCell({ borders: thinBorders, width: { size: 3120, type: WidthType.DXA }, shading: { fill: DEEP_NAVY, type: ShadingType.CLEAR }, margins: { top: 80, bottom: 80, left: 80, right: 80 },
-                children: [new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "NAVY ON LIGHT", font: "Montserrat", bold: true, size: 16, color: WHITE })] })] }),
+                children: [new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "NAVY ON LIGHT", font: "Inter", bold: true, size: 16, color: WHITE })] })] }),
               new TableCell({ borders: thinBorders, width: { size: 3120, type: WidthType.DXA }, shading: { fill: DEEP_NAVY, type: ShadingType.CLEAR }, margins: { top: 80, bottom: 80, left: 80, right: 80 },
-                children: [new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "WHITE ON DARK", font: "Montserrat", bold: true, size: 16, color: WHITE })] })] }),
+                children: [new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "WHITE ON DARK", font: "Inter", bold: true, size: 16, color: WHITE })] })] }),
               new TableCell({ borders: thinBorders, width: { size: 3120, type: WidthType.DXA }, shading: { fill: DEEP_NAVY, type: ShadingType.CLEAR }, margins: { top: 80, bottom: 80, left: 80, right: 80 },
-                children: [new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "BLACK (GREYSCALE)", font: "Montserrat", bold: true, size: 16, color: WHITE })] })] }),
+                children: [new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "BLACK (GREYSCALE)", font: "Inter", bold: true, size: 16, color: WHITE })] })] }),
             ] }),
             // Visual row — actual monochrome logo files
             new TableRow({ height: { value: 1800, rule: "exact" }, children: [
@@ -878,24 +878,24 @@ const doc = new Document({
                 children: [
                   new Paragraph({ alignment: AlignmentType.CENTER, children: [monoImage(monoNavyOnWhite, 110, 110)] }),
                   spacer(40),
-                  new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "Flat Navy  #141B3E", font: "Open Sans", bold: true, size: 14, color: DEEP_NAVY })] }),
-                  new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "Letterheads, embossing, engraving", font: "Open Sans", size: 13, color: MID_GREY, italics: true })] }),
+                  new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "Flat Navy  #141B3E", font: "Inter", bold: true, size: 14, color: DEEP_NAVY })] }),
+                  new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "Letterheads, embossing, engraving", font: "Inter", size: 13, color: MID_GREY, italics: true })] }),
                 ] }),
               // White on Navy
               new TableCell({ borders: thinBorders, width: { size: 3120, type: WidthType.DXA }, shading: { fill: DEEP_NAVY, type: ShadingType.CLEAR }, verticalAlign: "center", margins: { top: 80, bottom: 80, left: 80, right: 80 },
                 children: [
                   new Paragraph({ alignment: AlignmentType.CENTER, children: [monoImage(monoWhiteOnNavy, 110, 110)] }),
                   spacer(40),
-                  new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "Flat White  #FFFFFF", font: "Open Sans", bold: true, size: 14, color: WHITE })] }),
-                  new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "Foil stamp, dark merchandise", font: "Open Sans", size: 13, color: LIGHT_GREY, italics: true })] }),
+                  new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "Flat White  #FFFFFF", font: "Inter", bold: true, size: 14, color: WHITE })] }),
+                  new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "Foil stamp, dark merchandise", font: "Inter", size: 13, color: LIGHT_GREY, italics: true })] }),
                 ] }),
               // Black on White
               new TableCell({ borders: thinBorders, width: { size: 3120, type: WidthType.DXA }, shading: { fill: WHITE, type: ShadingType.CLEAR }, verticalAlign: "center", margins: { top: 80, bottom: 80, left: 80, right: 80 },
                 children: [
                   new Paragraph({ alignment: AlignmentType.CENTER, children: [monoImage(monoBlackOnWhite, 110, 110)] }),
                   spacer(40),
-                  new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "Flat Black  #000000", font: "Open Sans", bold: true, size: 14, color: BLACK })] }),
-                  new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "Fax, newspaper, photocopy", font: "Open Sans", size: 13, color: MID_GREY, italics: true })] }),
+                  new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "Flat Black  #000000", font: "Inter", bold: true, size: 14, color: BLACK })] }),
+                  new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "Fax, newspaper, photocopy", font: "Inter", size: 13, color: MID_GREY, italics: true })] }),
                 ] }),
             ] }),
           ],
@@ -912,16 +912,16 @@ const doc = new Document({
               children: [
                 new Paragraph({ alignment: AlignmentType.CENTER, children: [monoImage(monoSteelBlueOnWhite, 110, 110)] }),
                 spacer(40),
-                new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "Steel Blue  #23447A", font: "Open Sans", bold: true, size: 14, color: STEEL_BLUE })] }),
-                new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "Single-colour brand blue, light backgrounds", font: "Open Sans", size: 13, color: MID_GREY, italics: true })] }),
+                new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "Steel Blue  #23447A", font: "Inter", bold: true, size: 14, color: STEEL_BLUE })] }),
+                new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "Single-colour brand blue, light backgrounds", font: "Inter", size: 13, color: MID_GREY, italics: true })] }),
               ] }),
             // White on Black
             new TableCell({ borders: thinBorders, width: { size: 4680, type: WidthType.DXA }, shading: { fill: BLACK, type: ShadingType.CLEAR }, verticalAlign: "center", margins: { top: 80, bottom: 80, left: 120, right: 120 },
               children: [
                 new Paragraph({ alignment: AlignmentType.CENTER, children: [monoImage(monoWhiteOnBlack, 110, 110)] }),
                 spacer(40),
-                new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "Flat White  #FFFFFF", font: "Open Sans", bold: true, size: 14, color: WHITE })] }),
-                new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "Requires Marketing Manager approval", font: "Open Sans", size: 13, color: MFG_AMBER, italics: true })] }),
+                new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "Flat White  #FFFFFF", font: "Inter", bold: true, size: 14, color: WHITE })] }),
+                new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "Requires Marketing Manager approval", font: "Inter", size: 13, color: MFG_AMBER, italics: true })] }),
               ] }),
           ] })],
         }),
@@ -934,9 +934,9 @@ const doc = new Document({
           rows: [
             new TableRow({ children: [
               new TableCell({ borders: thinBorders, shading: { fill: DEEP_NAVY, type: ShadingType.CLEAR }, margins: { top: 80, bottom: 80, left: 120, right: 120 },
-                children: [new Paragraph({ children: [new TextRun({ text: "FILENAME", font: "Montserrat", bold: true, size: 16, color: WHITE })] })] }),
+                children: [new Paragraph({ children: [new TextRun({ text: "FILENAME", font: "Inter", bold: true, size: 16, color: WHITE })] })] }),
               new TableCell({ borders: thinBorders, shading: { fill: DEEP_NAVY, type: ShadingType.CLEAR }, margins: { top: 80, bottom: 80, left: 120, right: 120 },
-                children: [new Paragraph({ children: [new TextRun({ text: "USE CASE", font: "Montserrat", bold: true, size: 16, color: WHITE })] })] }),
+                children: [new Paragraph({ children: [new TextRun({ text: "USE CASE", font: "Inter", bold: true, size: 16, color: WHITE })] })] }),
             ] }),
             ...([
               ["BlauBatch_Logo_Mono_Navy_on_White.png",      "Standard print: letterheads, datasheets, embossing on light stock"],
@@ -951,7 +951,7 @@ const doc = new Document({
               new TableCell({ borders: thinBorders, shading: { fill: "F0F4F8", type: ShadingType.CLEAR }, margins: { top: 60, bottom: 60, left: 120, right: 120 },
                 children: [new Paragraph({ children: [new TextRun({ text: file, font: "Courier New", size: 16, color: DEEP_NAVY })] })] }),
               new TableCell({ borders: thinBorders, margins: { top: 60, bottom: 60, left: 120, right: 120 },
-                children: [new Paragraph({ children: [new TextRun({ text: use, font: "Open Sans", size: 16, color: DARK_GREY })] })] }),
+                children: [new Paragraph({ children: [new TextRun({ text: use, font: "Inter", size: 16, color: DARK_GREY })] })] }),
             ] }))),
           ],
         }),
@@ -981,19 +981,19 @@ const doc = new Document({
           ].map(([t1, d1, t2, d2]) => new TableRow({ children: [
             new TableCell({ borders: thinBorders, width: { size: 4680, type: WidthType.DXA }, shading: { fill: "FFF5F5", type: ShadingType.CLEAR }, margins: { top: 120, bottom: 120, left: 200, right: 200 },
               children: [
-                new Paragraph({ children: [new TextRun({ text: t1, font: "Open Sans", bold: true, size: 20, color: "CC2233" })] }),
-                new Paragraph({ spacing: { before: 40 }, children: [new TextRun({ text: d1, font: "Open Sans", size: 18, color: MID_GREY })] }),
+                new Paragraph({ children: [new TextRun({ text: t1, font: "Inter", bold: true, size: 20, color: "CC2233" })] }),
+                new Paragraph({ spacing: { before: 40 }, children: [new TextRun({ text: d1, font: "Inter", size: 18, color: MID_GREY })] }),
               ] }),
             new TableCell({ borders: thinBorders, width: { size: 4680, type: WidthType.DXA }, shading: { fill: "FFF5F5", type: ShadingType.CLEAR }, margins: { top: 120, bottom: 120, left: 200, right: 200 },
               children: [
-                new Paragraph({ children: [new TextRun({ text: t2, font: "Open Sans", bold: true, size: 20, color: "CC2233" })] }),
-                new Paragraph({ spacing: { before: 40 }, children: [new TextRun({ text: d2, font: "Open Sans", size: 18, color: MID_GREY })] }),
+                new Paragraph({ children: [new TextRun({ text: t2, font: "Inter", bold: true, size: 20, color: "CC2233" })] }),
+                new Paragraph({ spacing: { before: 40 }, children: [new TextRun({ text: d2, font: "Inter", size: 18, color: MID_GREY })] }),
               ] }),
           ] })),
         }),
 
         spacer(200),
-        new Paragraph({ children: [new TextRun({ text: "Visual Example \u2014 What NOT to Do:", font: "Montserrat", bold: true, size: 22, color: "CC2233" })] }),
+        new Paragraph({ children: [new TextRun({ text: "Visual Example \u2014 What NOT to Do:", font: "Inter", bold: true, size: 22, color: "CC2233" })] }),
         new Table({
           width: { size: 9360, type: WidthType.DXA },
           columnWidths: [4680, 4680],
@@ -1002,13 +1002,13 @@ const doc = new Document({
               width: { size: 4680, type: WidthType.DXA }, shading: { fill: WHITE, type: ShadingType.CLEAR }, verticalAlign: "center", margins: { top: 80, bottom: 80, left: 80, right: 80 },
               children: [
                 new Paragraph({ alignment: AlignmentType.CENTER, children: [logoImage(160, 80)] }),
-                new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 60 }, children: [new TextRun({ text: "\u2717 Stretched / distorted", font: "Open Sans", size: 16, color: "CC2233" })] }),
+                new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 60 }, children: [new TextRun({ text: "\u2717 Stretched / distorted", font: "Inter", size: 16, color: "CC2233" })] }),
               ] }),
             new TableCell({ borders: { top: { style: BorderStyle.SINGLE, size: 2, color: "CC2233" }, bottom: { style: BorderStyle.SINGLE, size: 2, color: "CC2233" }, left: { style: BorderStyle.SINGLE, size: 2, color: "CC2233" }, right: { style: BorderStyle.SINGLE, size: 2, color: "CC2233" } },
               width: { size: 4680, type: WidthType.DXA }, shading: { fill: WHITE, type: ShadingType.CLEAR }, verticalAlign: "center", margins: { top: 80, bottom: 80, left: 80, right: 80 },
               children: [
                 new Paragraph({ alignment: AlignmentType.CENTER, children: [logoImage(60, 120)] }),
-                new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 60 }, children: [new TextRun({ text: "\u2717 Compressed / squished", font: "Open Sans", size: 16, color: "CC2233" })] }),
+                new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 60 }, children: [new TextRun({ text: "\u2717 Compressed / squished", font: "Inter", size: 16, color: "CC2233" })] }),
               ] }),
           ] })],
         }),
@@ -1046,9 +1046,9 @@ const doc = new Document({
             [WHITE, "White", "Text on dark backgrounds, clean print backgrounds, whitespace"],
           ].map(([fill, name, desc]) => new TableRow({ children: [
             new TableCell({ borders: thinBorders, width: { size: 2400, type: WidthType.DXA }, shading: { fill, type: ShadingType.CLEAR }, margins: { top: 100, bottom: 100, left: 120, right: 120 },
-              children: [new Paragraph({ children: [new TextRun({ text: name, font: "Montserrat", bold: true, size: 20, color: (fill === LIGHT_GREY || fill === WHITE) ? DARK_GREY : WHITE })] })] }),
+              children: [new Paragraph({ children: [new TextRun({ text: name, font: "Inter", bold: true, size: 20, color: (fill === LIGHT_GREY || fill === WHITE) ? DARK_GREY : WHITE })] })] }),
             new TableCell({ borders: thinBorders, width: { size: 6960, type: WidthType.DXA }, margins: { top: 100, bottom: 100, left: 120, right: 120 },
-              children: [new Paragraph({ children: [new TextRun({ text: desc, font: "Open Sans", size: 20, color: DARK_GREY })] })] }),
+              children: [new Paragraph({ children: [new TextRun({ text: desc, font: "Inter", size: 20, color: DARK_GREY })] })] }),
           ] })),
         }),
         subTitle("11.1  Colour Ratio"),
@@ -1067,7 +1067,7 @@ const doc = new Document({
             new TableRow({ children: [
               ...[["COMBINATION", DEEP_NAVY], ["CONTRAST RATIO", DEEP_NAVY], ["WCAG AA", DEEP_NAVY], ["WCAG AAA", DEEP_NAVY], ["NOTES", DEEP_NAVY]].map(([t, c]) =>
                 new TableCell({ borders: thinBorders, shading: { fill: DEEP_NAVY, type: ShadingType.CLEAR }, margins: { top: 80, bottom: 80, left: 100, right: 100 },
-                  children: [new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: t, font: "Montserrat", bold: true, size: 16, color: WHITE })] })] })
+                  children: [new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: t, font: "Inter", bold: true, size: 16, color: WHITE })] })] })
               ),
             ] }),
             ...([
@@ -1080,11 +1080,11 @@ const doc = new Document({
               ["White on Steel Blue",   "#FFF / #23447A",   "7.2:1",  "\u2705 Pass", "\u2705 Pass", "Safe for reversed text"],
               ["Dark Grey on White",    "#333333 / #FFF",   "12.6:1", "\u2705 Pass", "\u2705 Pass", "Body text default"],
             ].map(([combo, codes, ratio, aa, aaa, note]) => new TableRow({ children: [
-              new TableCell({ borders: thinBorders, margins: { top: 60, bottom: 60, left: 100, right: 100 }, children: [new Paragraph({ children: [new TextRun({ text: combo, font: "Open Sans", bold: true, size: 16, color: DARK_GREY })] })] }),
+              new TableCell({ borders: thinBorders, margins: { top: 60, bottom: 60, left: 100, right: 100 }, children: [new Paragraph({ children: [new TextRun({ text: combo, font: "Inter", bold: true, size: 16, color: DARK_GREY })] })] }),
               new TableCell({ borders: thinBorders, margins: { top: 60, bottom: 60, left: 100, right: 100 }, children: [new Paragraph({ children: [new TextRun({ text: codes, font: "Courier New", size: 14, color: MID_GREY })] })] }),
-              new TableCell({ borders: thinBorders, margins: { top: 60, bottom: 60, left: 100, right: 100 }, children: [new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: ratio, font: "Montserrat", bold: true, size: 16, color: DEEP_NAVY })] })] }),
-              new TableCell({ borders: thinBorders, margins: { top: 60, bottom: 60, left: 100, right: 100 }, children: [new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: aa, font: "Open Sans", size: 16 })] })] }),
-              new TableCell({ borders: thinBorders, margins: { top: 60, bottom: 60, left: 100, right: 100 }, children: [new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: aaa, font: "Open Sans", size: 16 })] })] }),
+              new TableCell({ borders: thinBorders, margins: { top: 60, bottom: 60, left: 100, right: 100 }, children: [new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: ratio, font: "Inter", bold: true, size: 16, color: DEEP_NAVY })] })] }),
+              new TableCell({ borders: thinBorders, margins: { top: 60, bottom: 60, left: 100, right: 100 }, children: [new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: aa, font: "Inter", size: 16 })] })] }),
+              new TableCell({ borders: thinBorders, margins: { top: 60, bottom: 60, left: 100, right: 100 }, children: [new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: aaa, font: "Inter", size: 16 })] })] }),
               // Note col omitted (5 cols) — fold into last cell
             ] }))),
           ],
@@ -1097,8 +1097,8 @@ const doc = new Document({
             width: { size: 9360, type: WidthType.DXA }, shading: { fill: "FFF8E1", type: ShadingType.CLEAR },
             margins: { top: 100, bottom: 100, left: 200, right: 200 },
             children: [new Paragraph({ children: [
-              new TextRun({ text: "\u26A0  AMBER TEXT RULE:  ", font: "Montserrat", bold: true, size: 18, color: MFG_AMBER }),
-              new TextRun({ text: "Manufacturing Amber (#D4840A) has a contrast ratio of only 3.2:1 on white \u2014 below WCAG 2.1 AA. It must NEVER be used for body text or any text below 18pt / Bold. Permitted uses: graphic accents, badge labels (e.g. \u2018MANUFACTURED\u2019 chips), decorative callouts at large size only.", font: "Open Sans", size: 18, color: DARK_GREY }),
+              new TextRun({ text: "\u26A0  AMBER TEXT RULE:  ", font: "Inter", bold: true, size: 18, color: MFG_AMBER }),
+              new TextRun({ text: "Manufacturing Amber (#D4840A) has a contrast ratio of only 3.2:1 on white \u2014 below WCAG 2.1 AA. It must NEVER be used for body text or any text below 18pt / Bold. Permitted uses: graphic accents, badge labels (e.g. \u2018MANUFACTURED\u2019 chips), decorative callouts at large size only.", font: "Inter", size: 18, color: DARK_GREY }),
             ] })],
           })] })],
         }),
@@ -1111,9 +1111,9 @@ const doc = new Document({
           columnWidths: [2800, 2200, 4360],
           rows: [
             new TableRow({ children: [
-              new TableCell({ borders: thinBorders, shading: { fill: DEEP_NAVY, type: ShadingType.CLEAR }, margins: { top: 80, bottom: 80, left: 120, right: 120 }, children: [new Paragraph({ children: [new TextRun({ text: "TOKEN", font: "Montserrat", bold: true, size: 18, color: WHITE })] })] }),
-              new TableCell({ borders: thinBorders, shading: { fill: DEEP_NAVY, type: ShadingType.CLEAR }, margins: { top: 80, bottom: 80, left: 120, right: 120 }, children: [new Paragraph({ children: [new TextRun({ text: "VALUE", font: "Montserrat", bold: true, size: 18, color: WHITE })] })] }),
-              new TableCell({ borders: thinBorders, shading: { fill: DEEP_NAVY, type: ShadingType.CLEAR }, margins: { top: 80, bottom: 80, left: 120, right: 120 }, children: [new Paragraph({ children: [new TextRun({ text: "USAGE", font: "Montserrat", bold: true, size: 18, color: WHITE })] })] }),
+              new TableCell({ borders: thinBorders, shading: { fill: DEEP_NAVY, type: ShadingType.CLEAR }, margins: { top: 80, bottom: 80, left: 120, right: 120 }, children: [new Paragraph({ children: [new TextRun({ text: "TOKEN", font: "Inter", bold: true, size: 18, color: WHITE })] })] }),
+              new TableCell({ borders: thinBorders, shading: { fill: DEEP_NAVY, type: ShadingType.CLEAR }, margins: { top: 80, bottom: 80, left: 120, right: 120 }, children: [new Paragraph({ children: [new TextRun({ text: "VALUE", font: "Inter", bold: true, size: 18, color: WHITE })] })] }),
+              new TableCell({ borders: thinBorders, shading: { fill: DEEP_NAVY, type: ShadingType.CLEAR }, margins: { top: 80, bottom: 80, left: 120, right: 120 }, children: [new Paragraph({ children: [new TextRun({ text: "USAGE", font: "Inter", bold: true, size: 18, color: WHITE })] })] }),
             ] }),
             ...([
               // Border radius
@@ -1141,8 +1141,8 @@ const doc = new Document({
               ["shadow-mid",           "0 4px 12px rgba(20,27,62,0.18)", "Modals, floating panels, popovers"],
             ].map(([token, value, usage]) => new TableRow({ children: [
               new TableCell({ borders: thinBorders, shading: { fill: "F0F4F8", type: ShadingType.CLEAR }, margins: { top: 60, bottom: 60, left: 120, right: 120 }, children: [new Paragraph({ children: [new TextRun({ text: token, font: "Courier New", size: 16, color: STEEL_BLUE })] })] }),
-              new TableCell({ borders: thinBorders, margins: { top: 60, bottom: 60, left: 120, right: 120 }, children: [new Paragraph({ children: [new TextRun({ text: value, font: "Montserrat", bold: true, size: 16, color: DEEP_NAVY })] })] }),
-              new TableCell({ borders: thinBorders, margins: { top: 60, bottom: 60, left: 120, right: 120 }, children: [new Paragraph({ children: [new TextRun({ text: usage, font: "Open Sans", size: 16, color: DARK_GREY })] })] }),
+              new TableCell({ borders: thinBorders, margins: { top: 60, bottom: 60, left: 120, right: 120 }, children: [new Paragraph({ children: [new TextRun({ text: value, font: "Inter", bold: true, size: 16, color: DEEP_NAVY })] })] }),
+              new TableCell({ borders: thinBorders, margins: { top: 60, bottom: 60, left: 120, right: 120 }, children: [new Paragraph({ children: [new TextRun({ text: usage, font: "Inter", size: 16, color: DARK_GREY })] })] }),
             ] }))),
           ],
         }),
@@ -1151,21 +1151,21 @@ const doc = new Document({
 
         // ── 12 TYPOGRAPHY ──
         sectionTitle("12  Typography System"),
-        subTitle("12.1  Primary Typeface \u2014 Montserrat"),
+        subTitle("12.1  Brand Typeface \u2014 Inter"),
         specTable([
-          ["Role", "Logo lockups, display titles, section headers, brand callouts"],
-          ["Weights", "Black (900) \u00B7 ExtraBold (800) \u00B7 Bold (700)"],
-          ["Style", "All Caps preferred for brand headlines; Title Case for subheadings"],
-          ["Source", "Google Fonts (free) \u2014 fonts.google.com/specimen/Montserrat"],
-          ["Fallback", "Arial Black \u2192 Arial \u2192 Sans-serif"],
-        ]),
-        subTitle("12.2  Body Typeface \u2014 Open Sans"),
-        specTable([
-          ["Role", "Body copy, captions, data tables, UI text, email, TDS"],
-          ["Weights", "Regular (400) \u00B7 Semi-Bold (600) \u00B7 Bold (700)"],
-          ["Style", "Sentence case. Line height 1.5\u00D7 body, 1.2\u00D7 headings"],
-          ["Source", "Google Fonts (free) \u2014 fonts.google.com/specimen/Open+Sans"],
+          ["Role", "All Latin text: display titles, headings, body copy, captions, data tables, UI, TDS, presentations"],
+          ["Weights", "Black (900) \u00B7 ExtraBold (800) \u00B7 Bold (700) \u00B7 SemiBold (600) \u00B7 Medium (500) \u00B7 Regular (400)"],
+          ["Style", "All Caps preferred for brand headlines; Title Case for subheadings; Sentence case for body. Tabular figures for spec data"],
+          ["Source", "Google Fonts / rsms.me/inter (free, SIL OFL) \u2014 files in Brand Assets/Fonts"],
           ["Fallback", "Arial \u2192 Helvetica \u2192 Sans-serif"],
+        ]),
+        subTitle("12.2  Logo Wordmark \u2014 Montserrat (logo files only)"),
+        specTable([
+          ["Role", "The BLAU BATCH wordmark and tagline inside the official logo files only. Never used for running text"],
+          ["Weights", "Black (900) for the wordmark"],
+          ["Rule", "Always place the supplied logo file. Never retype the logo in Inter or any other font"],
+          ["Source", "Brand Assets/Fonts/Logo only (Montserrat)"],
+          ["Line height", "Inter: 1.5\u00D7 body, 1.2\u00D7 headings"],
         ]),
         subTitle("12.3  Arabic Typeface \u2014 Cairo"),
         specTable([
@@ -1181,24 +1181,24 @@ const doc = new Document({
         // ── 13 TYPE HIERARCHY ──
         sectionTitle("13  Typography Hierarchy & Scale"),
         new Paragraph({ spacing: { before: 200, after: 60 }, shading: { fill: DEEP_NAVY, type: ShadingType.CLEAR },
-          children: [new TextRun({ text: "  FULL-SPECTRUM MASTERBATCH SOLUTIONS", font: "Montserrat", bold: true, size: 36, color: WHITE })] }),
-        new Paragraph({ children: [new TextRun({ text: "Display / Cover Title  \u2014  Montserrat Black \u00B7 48\u201372pt \u00B7 All Caps", font: "Open Sans", italics: true, size: 16, color: MID_GREY })] }),
+          children: [new TextRun({ text: "  FULL-SPECTRUM MASTERBATCH SOLUTIONS", font: "Inter", bold: true, size: 36, color: WHITE })] }),
+        new Paragraph({ children: [new TextRun({ text: "Display / Cover Title  \u2014  Inter Black \u00B7 48\u201372pt \u00B7 All Caps", font: "Inter", italics: true, size: 16, color: MID_GREY })] }),
         spacer(100),
         new Paragraph({ spacing: { before: 60, after: 60 }, border: { bottom: { style: BorderStyle.SINGLE, size: 2, color: SKY_BLUE, space: 4 } },
-          children: [new TextRun({ text: "SECTION HEADING \u2014 HEADING 1", font: "Montserrat", bold: true, size: 32, color: DEEP_NAVY })] }),
-        new Paragraph({ children: [new TextRun({ text: "Montserrat ExtraBold \u00B7 36\u201348pt \u00B7 All Caps", font: "Open Sans", italics: true, size: 16, color: MID_GREY })] }),
+          children: [new TextRun({ text: "SECTION HEADING \u2014 HEADING 1", font: "Inter", bold: true, size: 32, color: DEEP_NAVY })] }),
+        new Paragraph({ children: [new TextRun({ text: "Inter ExtraBold \u00B7 36\u201348pt \u00B7 All Caps", font: "Inter", italics: true, size: 16, color: MID_GREY })] }),
         spacer(100),
-        new Paragraph({ children: [new TextRun({ text: "Subsection Heading \u2014 Heading 2", font: "Montserrat", bold: true, size: 28, color: STEEL_BLUE })] }),
-        new Paragraph({ children: [new TextRun({ text: "Montserrat Bold \u00B7 28\u201332pt \u00B7 Title Case", font: "Open Sans", italics: true, size: 16, color: MID_GREY })] }),
+        new Paragraph({ children: [new TextRun({ text: "Subsection Heading \u2014 Heading 2", font: "Inter", bold: true, size: 28, color: STEEL_BLUE })] }),
+        new Paragraph({ children: [new TextRun({ text: "Inter Bold \u00B7 28\u201332pt \u00B7 Title Case", font: "Inter", italics: true, size: 16, color: MID_GREY })] }),
         spacer(100),
-        new Paragraph({ children: [new TextRun({ text: "Sub-Subsection Heading \u2014 Heading 3", font: "Open Sans", bold: true, size: 24, color: STEEL_BLUE })] }),
-        new Paragraph({ children: [new TextRun({ text: "Open Sans Bold \u00B7 20\u201324pt \u00B7 Title Case", font: "Open Sans", italics: true, size: 16, color: MID_GREY })] }),
+        new Paragraph({ children: [new TextRun({ text: "Sub-Subsection Heading \u2014 Heading 3", font: "Inter", bold: true, size: 24, color: STEEL_BLUE })] }),
+        new Paragraph({ children: [new TextRun({ text: "Inter SemiBold \u00B7 20\u201324pt \u00B7 Title Case", font: "Inter", italics: true, size: 16, color: MID_GREY })] }),
         spacer(100),
-        new Paragraph({ children: [new TextRun({ text: "Body copy set in Open Sans Regular at 11\u201312pt with 1.5\u00D7 line height for readability.", font: "Open Sans", size: 22, color: DARK_GREY })] }),
-        new Paragraph({ children: [new TextRun({ text: "Open Sans Regular \u00B7 10\u201312pt \u00B7 Sentence Case", font: "Open Sans", italics: true, size: 16, color: MID_GREY })] }),
+        new Paragraph({ children: [new TextRun({ text: "Body copy set in Inter Regular at 11\u201312pt with 1.5\u00D7 line height for readability.", font: "Inter", size: 22, color: DARK_GREY })] }),
+        new Paragraph({ children: [new TextRun({ text: "Inter Regular \u00B7 10\u201312pt \u00B7 Sentence Case", font: "Inter", italics: true, size: 16, color: MID_GREY })] }),
         spacer(100),
-        new Paragraph({ children: [new TextRun({ text: "CAPTION AND LABEL TEXT \u2014 METADATA AND ANNOTATIONS", font: "Open Sans", size: 16, color: MID_GREY })] }),
-        new Paragraph({ children: [new TextRun({ text: "Open Sans Regular \u00B7 8\u20139pt \u00B7 All Caps or Sentence Case", font: "Open Sans", italics: true, size: 16, color: MID_GREY })] }),
+        new Paragraph({ children: [new TextRun({ text: "CAPTION AND LABEL TEXT \u2014 METADATA AND ANNOTATIONS", font: "Inter", size: 16, color: MID_GREY })] }),
+        new Paragraph({ children: [new TextRun({ text: "Inter Medium \u00B7 8\u20139pt \u00B7 All Caps or Sentence Case", font: "Inter", italics: true, size: 16, color: MID_GREY })] }),
 
         new Paragraph({ children: [new PageBreak()] }),
 
@@ -1207,9 +1207,9 @@ const doc = new Document({
         subTitle("14.1  Business Card"),
         specTable([
           ["Dimensions", "90 \u00D7 55 mm (standard international)"],
-          ["Front \u2014 Name", "Montserrat Bold 10pt, charcoal"],
-          ["Front \u2014 Title", "Montserrat Regular 8pt, Steel Blue (#23447A)"],
-          ["Front \u2014 Contact", "Open Sans Regular 7.5pt \u2014 phone, email, website"],
+          ["Front \u2014 Name", "Inter Bold 10pt, charcoal"],
+          ["Front \u2014 Title", "Inter Regular 8pt, Steel Blue (#23447A)"],
+          ["Front \u2014 Contact", "Inter Regular 7.5pt \u2014 phone, email, website"],
           ["Back", "Full B lettermark centred on navy background"],
           ["Print Spec", "CMYK \u00B7 350gsm coated \u00B7 Matt laminate + UV spot on logo"],
         ]),
@@ -1223,28 +1223,28 @@ const doc = new Document({
               children: [
                 new Paragraph({ children: [logoImage(40, 43)] }),
                 spacer(60),
-                new Paragraph({ children: [new TextRun({ text: "Adham Zahran", font: "Montserrat", bold: true, size: 20, color: DARK_GREY })] }),
-                new Paragraph({ spacing: { before: 20 }, children: [new TextRun({ text: "Marketing & Operations Manager", font: "Montserrat", size: 16, color: STEEL_BLUE })] }),
+                new Paragraph({ children: [new TextRun({ text: "Adham Zahran", font: "Inter", bold: true, size: 20, color: DARK_GREY })] }),
+                new Paragraph({ spacing: { before: 20 }, children: [new TextRun({ text: "Marketing & Operations Manager", font: "Inter", size: 16, color: STEEL_BLUE })] }),
                 spacer(40),
-                new Paragraph({ children: [new TextRun({ text: "+2 0102 2227723", font: "Open Sans", size: 15, color: DARK_GREY })] }),
-                new Paragraph({ children: [new TextRun({ text: "adham.zahran@blaubatch.com", font: "Open Sans", size: 15, color: SKY_BLUE })] }),
-                new Paragraph({ children: [new TextRun({ text: "www.blaubatch.com", font: "Open Sans", size: 15, color: SKY_BLUE })] }),
+                new Paragraph({ children: [new TextRun({ text: "+2 0102 2227723", font: "Inter", size: 15, color: DARK_GREY })] }),
+                new Paragraph({ children: [new TextRun({ text: "adham.zahran@blaubatch.com", font: "Inter", size: 15, color: SKY_BLUE })] }),
+                new Paragraph({ children: [new TextRun({ text: "www.blaubatch.com", font: "Inter", size: 15, color: SKY_BLUE })] }),
                 spacer(40),
-                new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "FRONT", font: "Open Sans", size: 14, color: LIGHT_GREY, italics: true })] }),
+                new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "FRONT", font: "Inter", size: 14, color: LIGHT_GREY, italics: true })] }),
               ] }),
             new TableCell({ borders: thinBorders, width: { size: 4680, type: WidthType.DXA }, shading: { fill: DEEP_NAVY, type: ShadingType.CLEAR }, verticalAlign: "center", margins: { top: 120, bottom: 120, left: 200, right: 200 },
               children: [
                 new Paragraph({ alignment: AlignmentType.CENTER, children: [logoImage(100, 108)] }),
                 spacer(60),
-                new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "BACK", font: "Open Sans", size: 14, color: MID_GREY, italics: true })] }),
+                new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "BACK", font: "Inter", size: 14, color: MID_GREY, italics: true })] }),
               ] }),
           ] })],
         }),
 
         subTitle("14.2  Letterhead"),
         bulletItem("Header: BLAU BATCH horizontal lockup + www.blaubatch.com \u2014 top left"),
-        bulletItem("Body: Open Sans 11pt, single spacing, 1.15 line height"),
-        bulletItem("Footer: Office address \u00B7 Phone \u00B7 Email \u00B7 Website in Open Sans 8pt"),
+        bulletItem("Body: Inter 11pt, single spacing, 1.15 line height"),
+        bulletItem("Footer: Office address \u00B7 Phone \u00B7 Email \u00B7 Website in Inter 8pt"),
         bulletItem("Paper: A4 white 100gsm for print; digital PDF on white"),
         bulletItem("Colour accents: Navy and Sky Blue only \u2014 no amber on letterhead"),
 
@@ -1256,8 +1256,8 @@ const doc = new Document({
             width: { size: 9360, type: WidthType.DXA }, shading: { fill: "F0F8FF", type: ShadingType.CLEAR },
             margins: { top: 80, bottom: 80, left: 200, right: 200 },
             children: [new Paragraph({ children: [
-              new TextRun({ text: "\u2139  PLATFORM CONSTRAINT \u2014 ARIAL ONLY:  ", font: "Montserrat", bold: true, size: 18, color: SKY_BLUE }),
-              new TextRun({ text: "Email clients (Outlook, Gmail, Apple Mail) do not load web fonts. Arial is specified here as a platform constraint, not as a brand preference. The brand fonts \u2014 Montserrat and Open Sans \u2014 remain the standard for all other touchpoints. The logo image embedded as a PNG ensures brand consistency regardless of font rendering.", font: "Open Sans", size: 18, color: DARK_GREY }),
+              new TextRun({ text: "\u2139  PLATFORM CONSTRAINT \u2014 ARIAL ONLY:  ", font: "Inter", bold: true, size: 18, color: SKY_BLUE }),
+              new TextRun({ text: "Email clients (Outlook, Gmail, Apple Mail) do not load web fonts. Arial is specified here as a platform constraint, not as a brand preference. The brand typeface \u2014 Inter \u2014 remains the standard for all other touchpoints. The logo image embedded as a PNG ensures brand consistency regardless of font rendering.", font: "Inter", size: 18, color: DARK_GREY }),
             ] })],
           })] })],
         }),
@@ -1280,7 +1280,7 @@ const doc = new Document({
         bulletItem("Clean, minimal layouts \u2014 product information first"),
         bulletItem("Mobile-responsive across all breakpoints"),
         bulletItem("Navy backgrounds, Sky Blue CTAs, Amber for manufacturing highlights only"),
-        bulletItem("Arial/Helvetica as web-safe fallbacks for Montserrat and Open Sans"),
+        bulletItem("Inter loaded from Google Fonts; Arial/Helvetica as web-safe fallbacks"),
 
         subTitle("15.2  Social Media Profiles"),
         specTable([
@@ -1295,11 +1295,11 @@ const doc = new Document({
           columnWidths: [3120, 3120, 3120],
           rows: [new TableRow({ height: { value: 1200, rule: "exact" }, children: [
             new TableCell({ borders: thinBorders, width: { size: 3120, type: WidthType.DXA }, shading: { fill: DEEP_NAVY, type: ShadingType.CLEAR }, verticalAlign: "center", margins: { top: 80, bottom: 80, left: 80, right: 80 },
-              children: [ new Paragraph({ alignment: AlignmentType.CENTER, children: [logoImage(70, 75)] }), new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 40 }, children: [new TextRun({ text: "LinkedIn", font: "Open Sans", size: 14, color: LIGHT_GREY })] }) ] }),
+              children: [ new Paragraph({ alignment: AlignmentType.CENTER, children: [logoImage(70, 75)] }), new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 40 }, children: [new TextRun({ text: "LinkedIn", font: "Inter", size: 14, color: LIGHT_GREY })] }) ] }),
             new TableCell({ borders: thinBorders, width: { size: 3120, type: WidthType.DXA }, shading: { fill: DEEP_NAVY, type: ShadingType.CLEAR }, verticalAlign: "center", margins: { top: 80, bottom: 80, left: 80, right: 80 },
-              children: [ new Paragraph({ alignment: AlignmentType.CENTER, children: [logoImage(70, 75)] }), new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 40 }, children: [new TextRun({ text: "Instagram", font: "Open Sans", size: 14, color: LIGHT_GREY })] }) ] }),
+              children: [ new Paragraph({ alignment: AlignmentType.CENTER, children: [logoImage(70, 75)] }), new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 40 }, children: [new TextRun({ text: "Instagram", font: "Inter", size: 14, color: LIGHT_GREY })] }) ] }),
             new TableCell({ borders: thinBorders, width: { size: 3120, type: WidthType.DXA }, shading: { fill: DEEP_NAVY, type: ShadingType.CLEAR }, verticalAlign: "center", margins: { top: 80, bottom: 80, left: 80, right: 80 },
-              children: [ new Paragraph({ alignment: AlignmentType.CENTER, children: [logoImage(70, 75)] }), new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 40 }, children: [new TextRun({ text: "Facebook", font: "Open Sans", size: 14, color: LIGHT_GREY })] }) ] }),
+              children: [ new Paragraph({ alignment: AlignmentType.CENTER, children: [logoImage(70, 75)] }), new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 40 }, children: [new TextRun({ text: "Facebook", font: "Inter", size: 14, color: LIGHT_GREY })] }) ] }),
           ] })],
         }),
 
@@ -1332,9 +1332,9 @@ const doc = new Document({
             new TableRow({
               children: [
                 new TableCell({ borders: thinBorders, width: { size: 2800, type: WidthType.DXA }, shading: { fill: "F0F4F8", type: ShadingType.CLEAR }, margins: { top: 80, bottom: 80, left: 120, right: 120 },
-                  children: [new Paragraph({ children: [new TextRun({ text: label, font: "Montserrat", bold: true, size: 18, color: DEEP_NAVY })] })] }),
+                  children: [new Paragraph({ children: [new TextRun({ text: label, font: "Inter", bold: true, size: 18, color: DEEP_NAVY })] })] }),
                 new TableCell({ borders: thinBorders, width: { size: 6560, type: WidthType.DXA }, margins: { top: 80, bottom: 80, left: 120, right: 120 },
-                  children: [new Paragraph({ children: [new TextRun({ text: value, font: "Open Sans", size: 18, color: DARK_GREY })] })] }),
+                  children: [new Paragraph({ children: [new TextRun({ text: value, font: "Inter", size: 18, color: DARK_GREY })] })] }),
               ],
             })
           ),
@@ -1355,9 +1355,9 @@ const doc = new Document({
           ].map(([label, value]) =>
             new TableRow({ children: [
               new TableCell({ borders: thinBorders, shading: { fill: "F0F4F8", type: ShadingType.CLEAR }, margins: { top: 80, bottom: 80, left: 120, right: 120 },
-                children: [new Paragraph({ children: [new TextRun({ text: label, font: "Montserrat", bold: true, size: 18, color: DEEP_NAVY })] })] }),
+                children: [new Paragraph({ children: [new TextRun({ text: label, font: "Inter", bold: true, size: 18, color: DEEP_NAVY })] })] }),
               new TableCell({ borders: thinBorders, margins: { top: 80, bottom: 80, left: 120, right: 120 },
-                children: [new Paragraph({ children: [new TextRun({ text: value, font: "Open Sans", size: 18, color: DARK_GREY })] })] }),
+                children: [new Paragraph({ children: [new TextRun({ text: value, font: "Inter", size: 18, color: DARK_GREY })] })] }),
             ] })
           ),
         }),
@@ -1395,8 +1395,8 @@ const doc = new Document({
             width: { size: 9360, type: WidthType.DXA }, shading: { fill: "F0F8FF", type: ShadingType.CLEAR },
             margins: { top: 80, bottom: 80, left: 200, right: 200 },
             children: [new Paragraph({ children: [
-              new TextRun({ text: "\u2605  PREFERRED PATTERN:  ", font: "Montserrat", bold: true, size: 18, color: SKY_BLUE }),
-              new TextRun({ text: "The Text-Only pattern (Section 17.2) is the recommended choice for all background pattern applications. It reads clearly at any scale, tiles cleanly, and never creates visual confusion with the primary B lettermark logo.", font: "Open Sans", size: 18, color: DARK_GREY }),
+              new TextRun({ text: "\u2605  PREFERRED PATTERN:  ", font: "Inter", bold: true, size: 18, color: SKY_BLUE }),
+              new TextRun({ text: "The Text-Only pattern (Section 17.2) is the recommended choice for all background pattern applications. It reads clearly at any scale, tiles cleanly, and never creates visual confusion with the primary B lettermark logo.", font: "Inter", size: 18, color: DARK_GREY }),
             ] })],
           })] })],
         }),
@@ -1422,7 +1422,7 @@ const doc = new Document({
                     ] })),
                   ],
                 }),
-                new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 60 }, children: [new TextRun({ text: "On white \u2014 reduce to 8% opacity in production", font: "Open Sans", size: 14, color: MID_GREY, italics: true })] }),
+                new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 60 }, children: [new TextRun({ text: "On white \u2014 reduce to 8% opacity in production", font: "Inter", size: 14, color: MID_GREY, italics: true })] }),
               ] }),
             // Dark: cutout on navy
             new TableCell({ borders: thinBorders, width: { size: 4680, type: WidthType.DXA }, shading: { fill: DEEP_NAVY, type: ShadingType.CLEAR }, verticalAlign: "center", margins: { top: 60, bottom: 60, left: 60, right: 60 },
@@ -1438,7 +1438,7 @@ const doc = new Document({
                     ] })),
                   ],
                 }),
-                new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 60 }, children: [new TextRun({ text: "On navy \u2014 reduce to 10% lighter than base in production", font: "Open Sans", size: 14, color: LIGHT_GREY, italics: true })] }),
+                new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 60 }, children: [new TextRun({ text: "On navy \u2014 reduce to 10% lighter than base in production", font: "Inter", size: 14, color: LIGHT_GREY, italics: true })] }),
               ] }),
           ] })],
         }),
@@ -1455,7 +1455,7 @@ const doc = new Document({
             width: { size: 9360, type: WidthType.DXA }, shading: { fill: "EBF5FB", type: ShadingType.CLEAR },
             margins: { top: 100, bottom: 100, left: 240, right: 240 },
             children: [new Paragraph({ alignment: AlignmentType.CENTER, children: [
-              new TextRun({ text: "\u2605  PREFERRED PATTERN USE  \u2605", font: "Montserrat", bold: true, size: 22, color: SKY_BLUE }),
+              new TextRun({ text: "\u2605  PREFERRED PATTERN USE  \u2605", font: "Inter", bold: true, size: 22, color: SKY_BLUE }),
             ] })],
           })] })],
         }),
@@ -1473,7 +1473,7 @@ const doc = new Document({
                 new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 20 }, children: [textOnlyImage(textOnlyNavyBuffer, 200, 42)] }),
                 new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 20 }, children: [textOnlyImage(textOnlyNavyBuffer, 200, 42)] }),
                 new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 20 }, children: [textOnlyImage(textOnlyNavyBuffer, 200, 42)] }),
-                new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 60 }, children: [new TextRun({ text: "Navy on white \u2014 reduce to 8% opacity in production", font: "Open Sans", size: 14, color: MID_GREY, italics: true })] }),
+                new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 60 }, children: [new TextRun({ text: "Navy on white \u2014 reduce to 8% opacity in production", font: "Inter", size: 14, color: MID_GREY, italics: true })] }),
               ] }),
             // Dark: text-only white on navy
             new TableCell({ borders: thinBorders, width: { size: 4680, type: WidthType.DXA }, shading: { fill: DEEP_NAVY, type: ShadingType.CLEAR }, verticalAlign: "center", margins: { top: 80, bottom: 80, left: 80, right: 80 },
@@ -1482,7 +1482,7 @@ const doc = new Document({
                 new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 20 }, children: [textOnlyImage(textOnlyWhiteBuffer, 200, 42)] }),
                 new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 20 }, children: [textOnlyImage(textOnlyWhiteBuffer, 200, 42)] }),
                 new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 20 }, children: [textOnlyImage(textOnlyWhiteBuffer, 200, 42)] }),
-                new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 60 }, children: [new TextRun({ text: "White on navy \u2014 reduce to 10% opacity in production", font: "Open Sans", size: 14, color: LIGHT_GREY, italics: true })] }),
+                new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 60 }, children: [new TextRun({ text: "White on navy \u2014 reduce to 10% opacity in production", font: "Inter", size: 14, color: LIGHT_GREY, italics: true })] }),
               ] }),
           ] })],
         }),
@@ -1522,9 +1522,9 @@ const doc = new Document({
             new TableRow({
               children: [
                 new TableCell({ borders: thinBorders, width: { size: 2800, type: WidthType.DXA }, shading: { fill: "F0F4F8", type: ShadingType.CLEAR }, margins: { top: 80, bottom: 80, left: 120, right: 120 },
-                  children: [new Paragraph({ children: [new TextRun({ text: label, font: "Montserrat", bold: true, size: 18, color: DEEP_NAVY })] })] }),
+                  children: [new Paragraph({ children: [new TextRun({ text: label, font: "Inter", bold: true, size: 18, color: DEEP_NAVY })] })] }),
                 new TableCell({ borders: thinBorders, width: { size: 6560, type: WidthType.DXA }, margins: { top: 80, bottom: 80, left: 120, right: 120 },
-                  children: [new Paragraph({ children: [new TextRun({ text: value, font: "Open Sans", size: 18, color: DARK_GREY })] })] }),
+                  children: [new Paragraph({ children: [new TextRun({ text: value, font: "Inter", size: 18, color: DARK_GREY })] })] }),
               ],
             })
           ),
@@ -1539,10 +1539,10 @@ const doc = new Document({
 
         subTitle("18.3  Video & Presentation"),
         bulletItem("Opening bumper: logo animation (as above) on navy background, 3 seconds total"),
-        bulletItem("Lower thirds: navy bar with white Montserrat text, Sky Blue accent line, fade-in 400ms"),
+        bulletItem("Lower thirds: navy bar with white Inter text, Sky Blue accent line, fade-in 400ms"),
         bulletItem("End card: full logo lockup centred on navy, tagline below, hold for 4 seconds minimum"),
         bulletItem("Transitions between sections: simple crossfade (500ms) \u2014 no wipes, no star transitions"),
-        bulletItem("Title cards: Montserrat Bold white text on navy, fade-in with 200ms stagger per line"),
+        bulletItem("Title cards: Inter Bold white text on navy, fade-in with 200ms stagger per line"),
 
         subTitle("18.4  Motion Principles"),
         new Table({
@@ -1554,9 +1554,9 @@ const doc = new Document({
             [SKY_BLUE, "Consistent", "Use the same easing curve (ease-out) and timing scale across all touchpoints. Motion should feel unified."],
           ].map(([fill, name, desc]) => new TableRow({ children: [
             new TableCell({ borders: thinBorders, width: { size: 2400, type: WidthType.DXA }, shading: { fill, type: ShadingType.CLEAR }, margins: { top: 100, bottom: 100, left: 120, right: 120 },
-              children: [new Paragraph({ children: [new TextRun({ text: name, font: "Montserrat", bold: true, size: 20, color: WHITE })] })] }),
+              children: [new Paragraph({ children: [new TextRun({ text: name, font: "Inter", bold: true, size: 20, color: WHITE })] })] }),
             new TableCell({ borders: thinBorders, width: { size: 6960, type: WidthType.DXA }, margins: { top: 100, bottom: 100, left: 120, right: 120 },
-              children: [new Paragraph({ children: [new TextRun({ text: desc, font: "Open Sans", size: 20, color: DARK_GREY })] })] }),
+              children: [new Paragraph({ children: [new TextRun({ text: desc, font: "Inter", size: 20, color: DARK_GREY })] })] }),
           ] })),
         }),
 
@@ -1589,7 +1589,7 @@ const doc = new Document({
                 new Paragraph({ alignment: AlignmentType.CENTER, children: [
                   new ImageRun({ type: "png", data: coraplastBuffer, transformation: { width: 140, height: 50 }, altText: { title: "Coraplast Logo", description: "Coraplast partner logo", name: "Coraplast" } }),
                 ] }),
-                new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 20 }, children: [new TextRun({ text: "Authorised Distribution Partner", font: "Open Sans", italics: true, size: 16, color: MID_GREY })] }),
+                new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 20 }, children: [new TextRun({ text: "Authorised Distribution Partner", font: "Inter", italics: true, size: 16, color: MID_GREY })] }),
               ] }),
           ] })],
         }),
@@ -1608,14 +1608,14 @@ const doc = new Document({
             width: { size: 9360, type: WidthType.DXA }, shading: { fill: "F0F4F8", type: ShadingType.CLEAR },
             margins: { top: 200, bottom: 200, left: 300, right: 300 },
             children: [
-              new Paragraph({ spacing: { after: 120 }, children: [logoImage(40, 43), new TextRun({ text: "   BRAND APPROVAL CONTACT", font: "Montserrat", bold: true, size: 24, color: DEEP_NAVY })] }),
-              new Paragraph({ children: [new TextRun({ text: "Adham Zahran", font: "Montserrat", bold: true, size: 22, color: DEEP_NAVY })] }),
-              new Paragraph({ spacing: { before: 40 }, children: [new TextRun({ text: "Marketing & Operations Manager", font: "Open Sans", size: 20, color: STEEL_BLUE })] }),
+              new Paragraph({ spacing: { after: 120 }, children: [logoImage(40, 43), new TextRun({ text: "   BRAND APPROVAL CONTACT", font: "Inter", bold: true, size: 24, color: DEEP_NAVY })] }),
+              new Paragraph({ children: [new TextRun({ text: "Adham Zahran", font: "Inter", bold: true, size: 22, color: DEEP_NAVY })] }),
+              new Paragraph({ spacing: { before: 40 }, children: [new TextRun({ text: "Marketing & Operations Manager", font: "Inter", size: 20, color: STEEL_BLUE })] }),
               spacer(100),
-              new Paragraph({ children: [new TextRun({ text: "Email:  ", font: "Open Sans", bold: true, size: 20, color: DARK_GREY }), new TextRun({ text: "adham.zahran@blaubatch.com", font: "Open Sans", size: 20, color: SKY_BLUE })] }),
-              new Paragraph({ spacing: { before: 40 }, children: [new TextRun({ text: "Company:  ", font: "Open Sans", bold: true, size: 20, color: DARK_GREY }), new TextRun({ text: "info@blaubatch.com", font: "Open Sans", size: 20, color: SKY_BLUE })] }),
-              new Paragraph({ spacing: { before: 40 }, children: [new TextRun({ text: "Phone:  ", font: "Open Sans", bold: true, size: 20, color: DARK_GREY }), new TextRun({ text: "+2 0102 2227723", font: "Open Sans", size: 20, color: DARK_GREY })] }),
-              new Paragraph({ spacing: { before: 40 }, children: [new TextRun({ text: "Website:  ", font: "Open Sans", bold: true, size: 20, color: DARK_GREY }), new TextRun({ text: "www.blaubatch.com", font: "Open Sans", size: 20, color: SKY_BLUE })] }),
+              new Paragraph({ children: [new TextRun({ text: "Email:  ", font: "Inter", bold: true, size: 20, color: DARK_GREY }), new TextRun({ text: "adham.zahran@blaubatch.com", font: "Inter", size: 20, color: SKY_BLUE })] }),
+              new Paragraph({ spacing: { before: 40 }, children: [new TextRun({ text: "Company:  ", font: "Inter", bold: true, size: 20, color: DARK_GREY }), new TextRun({ text: "info@blaubatch.com", font: "Inter", size: 20, color: SKY_BLUE })] }),
+              new Paragraph({ spacing: { before: 40 }, children: [new TextRun({ text: "Phone:  ", font: "Inter", bold: true, size: 20, color: DARK_GREY }), new TextRun({ text: "+2 0102 2227723", font: "Inter", size: 20, color: DARK_GREY })] }),
+              new Paragraph({ spacing: { before: 40 }, children: [new TextRun({ text: "Website:  ", font: "Inter", bold: true, size: 20, color: DARK_GREY }), new TextRun({ text: "www.blaubatch.com", font: "Inter", size: 20, color: SKY_BLUE })] }),
             ],
           })] })],
         }),
@@ -1632,8 +1632,8 @@ const doc = new Document({
               new Paragraph({ alignment: AlignmentType.CENTER, children: [logoImage(80, 86)] }),
               new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 100 }, children: [new TextRun({ text: "BLAU BATCH", font: "Montserrat", bold: true, size: 32, color: WHITE })] }),
               new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 40 }, children: [new TextRun({ text: "\u0628\u0640\u0640\u0644\u0627\u0648 \u0628\u0640\u0640\u0627\u062A\u0634", font: "Cairo", bold: true, size: 24, color: SKY_BLUE })] }),
-              new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 60 }, children: [new TextRun({ text: "Full-Spectrum Masterbatch Solutions", font: "Open Sans", size: 20, color: LIGHT_GREY })] }),
-              new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 40 }, children: [new TextRun({ text: "Manufacturer  \u00B7  Distributor  \u00B7  Partner", font: "Open Sans", size: 18, color: MID_GREY })] }),
+              new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 60 }, children: [new TextRun({ text: "Full-Spectrum Masterbatch Solutions", font: "Inter", size: 20, color: LIGHT_GREY })] }),
+              new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 40 }, children: [new TextRun({ text: "Manufacturer  \u00B7  Distributor  \u00B7  Partner", font: "Inter", size: 18, color: MID_GREY })] }),
             ],
           })] })],
         }),
@@ -1643,7 +1643,7 @@ const doc = new Document({
 });
 
 // ── Generate ──
-const OUT = "C:/Users/Adham/Desktop/Blau Batch Master/Brand Assets/BlauBatch_VisualIdentityGuide_v1.docx";
+const OUT = __dirname + "/BlauBatch_VisualIdentityGuide_v1.1.docx";
 Packer.toBuffer(doc).then(buf => {
   fs.writeFileSync(OUT, buf);
   console.log("Done:", OUT, `(${(buf.length / 1024).toFixed(1)} KB)`);

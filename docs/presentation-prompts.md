@@ -139,7 +139,7 @@ Do this before pasting the prompt, so Canva applies the brand automatically.
 4. **Uploads:** upload these images:
    - all PNGs from `Brand Assets/Photos & Visuals/Presentation/` (from the Antigravity step)
    - `Brand Assets/Photos & Visuals/BlauBatchFacility.jpg`
-   - the 8 website industry images from `public/images/industries/`
+   - the 8 website industry images from `public/images/industries/` in the website repo (`zeadham/blaubatch`)
 5. Create a **Presentation (16:9)** design, open **Canva AI / Magic Design**, select the BLAU BATCH Brand Kit and paste the prompt below.
 
 ### 2b. Prompt

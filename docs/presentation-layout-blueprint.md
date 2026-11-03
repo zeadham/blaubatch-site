@@ -342,7 +342,7 @@ This layout has the text on the left and the cards on the right, so it uses a 40
 |---|---|
 | Eyebrow / H1 | Caption, White: APPLICATIONS / H1, White: BUILT FOR THE LINES YOU RUN |
 | Tiles | 8 tiles, 422 × 300 px, 24 px gutters, 4 px radius |
-| Tile image | Application-sample images [BG §16.4 "Material Detail"]: Packaging film, Pipe, Agricultural film, Textiles / non-woven, Construction sheet, Wire & cable jacket, Automotive moulding, Consumer goods. Reuse the existing set in `public/images/industries/` (`packaging.png`, `pipes.png`, `agriculture.png`, `textiles.png`, `construction.png`, `wire_cable.png`, `automotive.png`, `consumer_goods.png`) so the deck matches the website. |
+| Tile image | Application-sample images [BG §16.4 "Material Detail"]: Packaging film, Pipe, Agricultural film, Textiles / non-woven, Construction sheet, Wire & cable jacket, Automotive moulding, Consumer goods. Reuse the website's existing set in `public/images/industries/` (repo `zeadham/blaubatch`) (`packaging.png`, `pipes.png`, `agriculture.png`, `textiles.png`, `construction.png`, `wire_cable.png`, `automotive.png`, `consumer_goods.png`) so the deck matches the website. |
 | Tile label | Separate Deep Navy strip below each tile (64 px tall) with an H3 White label and Caption grade codes, e.g. "FMPE-1070 · FMPE-1080". This avoids text over photography. |
 
 **Antigravity shot brief (only for gaps in the existing set):** *"Close-up of [finished product sample, e.g. cut end of HDPE pipe] on a white seamless background, centred"* + base suffix. Tiles are centre-weighted because their labels sit below the image.
@@ -452,7 +452,7 @@ The co-branded slide needs approval from the Marketing & Operations Manager [VI 
 | P2 | 5 product-family pellet close-ups, one prompt | Antigravity | White | 3, 10 |
 | P3 | PE pellets on blown film | Antigravity | White | 4 |
 | P4 | PP pellets on raffia weave | Antigravity | Light Grey | 5 |
-| P5 | 8 application samples | Existing `public/images/industries/` set | White | 7 |
+| P5 | 8 application samples | Existing website set: `public/images/industries/` in the `zeadham/blaubatch` repo | White | 7 |
 | P6 | Blank 25 kg bag with pellets (logo composited in post) | Antigravity | Deep Navy | 8 |
 | P7 | Facility | **Real:** `Photos & Visuals/BlauBatchFacility.jpg` | — | 9 |
 | P8 | Lab sample weighing, hands only | Antigravity or existing `Blue masterbatch in lab.png` | Navy fall-off | 11 |

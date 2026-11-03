@@ -1,14 +1,16 @@
 # BLAU BATCH Company Profile — Antigravity & Canva Prompts
 
-A 17-slide 16:9 company profile. All facts come from **Brand Guidelines v5.1**. Layout, colour and type follow the global system in `docs/presentation-layout-blueprint.md` §0 and **Visual Identity Guide v1.2**.
+A 17-slide 16:9 company profile. All facts come from **Brand Guidelines v5.1**. Layout, colour and type follow the global system in `docs/presentation-layout-blueprint.md` §0 (in this repo) and **Visual Identity Guide v1.2**.
 
 **Order:** run the Antigravity prompt (§1) to create the images, set up Canva (§2a), then paste the Canva prompt (§2b) in two parts.
 
-**Facts deliberately kept conservative**, because the guidelines are inconsistent or the claim isn't backed:
-- **What's manufactured:** only Filler masterbatch is described as manufactured. White, Black, Additive and Colour are "via Coraplast". Brand Guidelines §1.3 says otherwise, but §6.2, §8 and §10 agree with this.
+**Key facts (confirmed 2026-11-03):**
+- **Founded:** 2023.
+- **Manufactured by Blau Batch:** Filler masterbatch, made in the 6th of October factory.
+- **White, Black, Colour and Additive:** supplied through Blau Batch's Coraplast partnership. Standard grades come from the Coraplast range, and custom grades can be produced to the customer's specification by Coraplast, ordered through Blau Batch.
 - **ISO 9001:** stated as "aligned with ISO 9001 principles", not "certified".
-- **Food-contact grades:** described as available through Coraplast. No food-contact claims are made for Blau Batch-made products.
-- **History:** the timeline uses stages, not years, because no founding year is documented.
+- **Food-contact grades:** available through Coraplast. No food-contact claims are made for Blau Batch-made filler.
+- **Timeline:** only the founding year is documented, so the later stages carry no years.
 
 ---
 
@@ -23,7 +25,7 @@ and distributor. Generate each image below, save it at the exact filename and
 size, and verify it against the checklist before moving on.
 
 OUTPUT FOLDER
-Brand Assets/Photos & Visuals/Company Profile/   (create it if missing)
+Company Profile 2026/images/   (create it if missing)
 
 GLOBAL STYLE (append to every generation prompt)
 "photorealistic studio or industrial photography, sharp focus across the
@@ -145,7 +147,7 @@ pass the checklist.
    - `01_Primary/PNG/BlauBatch_Primary.png`
    - `10_CoBrand/PNG/BlauBatch_x_Coraplast_Horizontal.png`
 4. **Uploads:**
-   - all PNGs from `Brand Assets/Photos & Visuals/Company Profile/` (from §1)
+   - all PNGs from `Company Profile 2026/images/` (from §1)
    - `Brand Assets/Photos & Visuals/BlauBatchFacility.jpg`
    - the 8 industry images from the website repo `zeadham/blaubatch`, `public/images/industries/` (packaging, pipes, agriculture, textiles, construction, wire_cable, automotive, consumer_goods)
 5. Create a **Presentation (16:9)** design, open **Canva AI / Magic Design**, select the BLAU BATCH Brand Kit and paste **Part A**. When it finishes, use **Add slides** with the same Brand Kit and paste **Part B**.
@@ -196,11 +198,11 @@ SLIDES
 
 3. OUR STORY (light). Label "OUR STORY"; title "FROM FILLER SPECIALIST TO
    FULL-SPECTRUM SUPPLIER". Horizontal 4-step timeline on a 2 px Sky Blue line,
-   no years, step names in Inter SemiBold:
-     FOUNDED: Filler masterbatch manufacturer producing CaCO₃ compounds for MENA
-       plastics producers.
+   step names in Inter SemiBold; only the first step shows a year:
+     2023 · FOUNDED: Filler masterbatch manufacturer producing CaCO₃ compounds
+       for MENA plastics producers.
      GROWTH: Authorised Coraplast distributor, adding white, black, colour,
-       additive and specialty grades.
+       additive and specialty grades, standard or made to customer specification.
      EXPANSION: Serving manufacturers across MENA and Europe with manufactured
        and distributed grades.
      TODAY: An independent full-spectrum supplier that manufactures,
@@ -228,7 +230,8 @@ SLIDES
      01 Manufacture: Filler masterbatch made in our own factory with full
         process control, QC and traceability. [Amber MANUFACTURED chip]
      02 Distribute: Authorised Coraplast distributor for white, black,
-        additive and colour masterbatch.
+        colour and additive masterbatch, standard grades or produced to your
+        specification by Coraplast through Blau Batch.
      03 Partner: Technical consultation, custom formulation and application
         support alongside your team.
      04 Innovate: New grades and service improvements driven by market and
@@ -263,6 +266,8 @@ SLIDES
      Black: Carbon black, UV-stable pipe, cable and film grades. [VIA CORAPLAST]
      Colour: RAL/Pantone range, custom matching, special effects. [VIA CORAPLAST]
      Additive: UV, slip, antiblock, anti-static, processing aids. [VIA CORAPLAST]
+   Under the four Coraplast cards, one centred line in white Inter Regular:
+   "White, Black, Colour and Additive: standard grades or made to your specification by Coraplast, through Blau Batch."
 
 TRANSITIONS: simple fade only.
 ```
@@ -294,9 +299,10 @@ slides 10–16; use the uploaded logo files, never retype the logo.
 11. CORAPLAST PARTNERSHIP (light). Left 50%: the BLAU BATCH x Coraplast
     co-brand logo file; label "AUTHORISED DISTRIBUTION PARTNER"; title "A
     COMPLETE RANGE, ONE RELATIONSHIP"; body "Through our authorised Coraplast
-    partnership we supply white, black, additive and colour masterbatch from an
-    international manufacturer, under one order, one set of terms and one
-    technical team." Right 50%: 2×2 tiles with a big bold number and label:
+    partnership we supply white, black, colour and additive masterbatch from an
+    international manufacturer: standard grades, or produced to your
+    specification by Coraplast. One order, one set of terms, one technical
+    team." Right 50%: 2×2 tiles with a big bold number and label:
     "15" Black grades · "11" White grades · "5" UV stabiliser grades ·
     "17" Additive grades. No Amber.
 

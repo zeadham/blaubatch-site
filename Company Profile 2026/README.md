@@ -1,6 +1,6 @@
 # BLAU BATCH Company Profile 2026
 
-A 17-slide 16:9 company profile, built from Brand Guidelines v5.1, the Visual Identity Guide v1.2 and the logo pack.
+A 17-slide 16:9 company profile, built from Brand Guidelines v5.2, the Visual Identity Guide v1.2 and the logo pack.
 
 ## Folder
 

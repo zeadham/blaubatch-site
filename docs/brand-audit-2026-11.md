@@ -83,7 +83,7 @@ Git history keeps every deleted file, so any of these can be restored later.
 | `BlauBatch_BrandGuidelines_v4.docx` | **`BlauBatch_BrandGuidelines_v5.docx`**. §5 Typography, §5.3 type scale, stationery, email/web notes and §17.2 quick reference now specify Inter. Montserrat is limited to the logo wordmark. Document text is set in Inter. v4 deleted. |
 | `BlauBatch_VisualIdentityGuide_v1.docx` | **`BlauBatch_VisualIdentityGuide_v1.1.docx`**, rebuilt from `build_visual_identity.js`. §12–13, stationery, web, email and motion now specify Inter, and the document is set in Inter. Typed "BLAU BATCH" logo samples stay in Montserrat. v1 deleted. |
 
-**Current brand set:** Brand Guidelines v5.1 + Visual Identity Guide v1.2 + the logo pack in `Brand Assets/Logos/BlauBatch_Logo_Pack` (see §6).
+**Current brand set:** Brand Guidelines v5.2 + Visual Identity Guide v1.2 + the logo pack in `Brand Assets/Logos/BlauBatch_Logo_Pack` (see §6).
 
 **Typeface rule:** Inter for all text. Montserrat Black only inside the official logo files and in typed BLAU BATCH wordmarks that stand in for the logo. Cairo for Arabic. Arial only in email signatures (VI §14.3).
 
@@ -126,3 +126,14 @@ Git history keeps every deleted file, so any of these can be restored later.
 - **Guidelines:** Brand Guidelines **v5.1** (§5 and §5.2, logo file formats) and Visual Identity Guide **v1.2** (§2 logo system, §3 wordmark, §4 Arabic, §8 one-colour logos, §12.2, §17 pattern) now describe the pack. Montserrat is no longer part of the brand.
 - **Updated to the pack logos:** the TDS generator and all 57 PDFs, the AfroPlast flyer (with the Arabic logo on the Arabic page) and savings sheet, the product card, and the presentation docs.
 - **Typed wordmarks switched to Inter:** the carousels, the product card and Sales Tools.
+
+---
+
+## 7. Company facts corrected (2026-11-03)
+
+**Brand Guidelines v5.2** replaces v5.1:
+- **Founded:** 2023 (§1.1, §1.2).
+- **What's manufactured (§1.3):** Manufacture now lists only filler masterbatch, including custom filler formulations. White, Black, Additive and Colour sit under Distribute, as standard Coraplast grades or produced to customer specification by Coraplast, supplied through Blau Batch. §1.1, §6.2 and §8.2 say the same.
+- **Heavy metals (§13.1):** the statement now refers to manufactured filler grades, because Blau Batch has no manufactured colour range.
+
+The company profile project is in `Company Profile 2026/`.

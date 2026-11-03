@@ -1,5 +1,5 @@
 BLAU BATCH — LOGO PACK
-Full-Spectrum Masterbatch Solutions · Brand Guidelines v5.1 · Updated Nov 2026
+Full-Spectrum Masterbatch Solutions · Brand Guidelines v5.2 · Updated Nov 2026
 
 WHAT CHANGED
   • Wordmark redrawn in Inter Black 900 at −0.02em tracking (was Montserrat Black at +0.04em).

@@ -1,6 +1,6 @@
 # BLAU BATCH Company Profile — Antigravity & Canva Prompts
 
-A 17-slide 16:9 company profile. All facts come from **Brand Guidelines v5.1**. Layout, colour and type follow the global system in `docs/presentation-layout-blueprint.md` §0 (in this repo) and **Visual Identity Guide v1.2**.
+A 17-slide 16:9 company profile. All facts come from **Brand Guidelines v5.2**. Layout, colour and type follow the global system in `docs/presentation-layout-blueprint.md` §0 (in this repo) and **Visual Identity Guide v1.2**.
 
 **Order:** run the Antigravity prompt (§1) to create the images, set up Canva (§2a), then paste the Canva prompt (§2b) in two parts.
 

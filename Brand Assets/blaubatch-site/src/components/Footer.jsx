@@ -81,7 +81,7 @@ export default function Footer() {
               <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
                 <img src="/logo-mark.png" alt="Blau Batch" style={{ height: 32, objectFit: 'contain' }} />
                 <span style={{
-                  fontFamily: 'Montserrat, sans-serif', fontWeight: 900,
+                  fontFamily: 'Inter, sans-serif', fontWeight: 900,
                   fontSize: 14, color: '#fffffe', letterSpacing: '0.12em',
                   textTransform: 'uppercase', lineHeight: 1,
                 }}>BLAU BATCH</span>
@@ -99,7 +99,7 @@ export default function Footer() {
               padding: '6px 12px', marginBottom: 22,
             }}>
               <div style={{ width: 5, height: 5, borderRadius: '50%', background: '#22C55E' }} />
-              <span style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 9, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.5)' }}>Authorised Coraplast Distributor</span>
+              <span style={{ fontFamily: 'Inter, sans-serif', fontSize: 9, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.5)' }}>Authorised Coraplast Distributor</span>
             </div>
 
             {/* Social */}
@@ -124,7 +124,7 @@ export default function Footer() {
           {NAV_COLS.map(col => (
             <div key={col.title}>
               <div style={{
-                fontFamily: 'Montserrat, sans-serif', fontSize: 10, fontWeight: 800,
+                fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800,
                 letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.4)',
                 marginBottom: 18,
               }}>{col.title}</div>
@@ -156,7 +156,7 @@ export default function Footer() {
             { label: 'Phone', val: '+2 0102 2227723' },
           ].map(item => (
             <div key={item.label}>
-              <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 9, fontWeight: 800, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: 4 }}>{item.label}</div>
+              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 9, fontWeight: 800, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: 4 }}>{item.label}</div>
               <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.55)' }}>{item.val}</div>
             </div>
           ))}

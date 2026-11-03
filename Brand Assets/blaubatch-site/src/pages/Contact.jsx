@@ -33,7 +33,7 @@ export default function ContactPage() {
             animate={sidebarInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.35)', marginBottom: 20 }}>Direct Channels</div>
+            <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.35)', marginBottom: 20 }}>Direct Channels</div>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: 4, marginBottom: 32 }}>
               {[
@@ -61,7 +61,7 @@ export default function ContactPage() {
                     <c.icon size={17} color={c.green ? '#25D366' : '#2B8DD0'} strokeWidth={1.5} />
                   </div>
                   <div>
-                    <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 10, fontWeight: 800, color: 'rgba(255,255,255,0.35)', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 2 }}>{c.label}</div>
+                    <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, color: 'rgba(255,255,255,0.35)', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 2 }}>{c.label}</div>
                     <div style={{ fontSize: 14, fontWeight: 500, color: c.green ? '#25D366' : '#fff' }}>{c.val}</div>
                   </div>
                 </motion.a>
@@ -69,11 +69,11 @@ export default function ContactPage() {
             </div>
 
             <div style={{ background: '#23447A', border: '1px solid rgba(255,255,255,0.09)', borderRadius: 12, padding: '20px', marginBottom: 16 }}>
-              <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.35)', marginBottom: 14 }}>⏱ Working Hours</div>
+              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.35)', marginBottom: 14 }}>⏱ Working Hours</div>
               <div style={{ fontSize: 13, color: 'rgba(255,255,255,0.65)', lineHeight: 2, marginBottom: 4 }}>
                 Saturday – Thursday
               </div>
-              <div style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 800, fontSize: 14, color: '#fff' }}>9:00 AM – 5:00 PM</div>
+              <div style={{ fontFamily: 'Inter, sans-serif', fontWeight: 800, fontSize: 14, color: '#fff' }}>9:00 AM – 5:00 PM</div>
               <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.35)', marginTop: 2 }}>Cairo EET / UTC+2</div>
             </div>
 
@@ -85,7 +85,7 @@ export default function ContactPage() {
             </div>
 
             <div style={{ background: '#23447A', border: '1px solid rgba(255,255,255,0.09)', borderRadius: 12, padding: '20px' }}>
-              <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.35)', marginBottom: 14 }}>Our Locations</div>
+              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.35)', marginBottom: 14 }}>Our Locations</div>
               {[
                 { label: 'Head Office', addr: 'Arkan Plaza, Building 4, 4th Floor, Sheikh Zayed City, Giza, Egypt' },
                 { label: 'Factory', addr: '79, 6th Industrial Zone, 6th of October City, Giza, Egypt' },
@@ -93,7 +93,7 @@ export default function ContactPage() {
                 <div key={l.label} style={{ display: 'flex', gap: 12, marginBottom: 14 }}>
                   <MapPin size={15} color="rgba(255,255,255,0.35)" style={{ flexShrink: 0, marginTop: 2 }} />
                   <div>
-                    <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 10, fontWeight: 800, color: 'rgba(255,255,255,0.35)', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 3 }}>{l.label}</div>
+                    <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, color: 'rgba(255,255,255,0.35)', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 3 }}>{l.label}</div>
                     <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.6)', lineHeight: 1.6 }}>{l.addr}</div>
                   </div>
                 </div>

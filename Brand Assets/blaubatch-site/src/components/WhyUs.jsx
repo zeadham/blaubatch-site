@@ -25,7 +25,7 @@ export default function WhyUs() {
             initial={{ opacity: 0, y: 16 }} animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5 }}
             style={{
-              display: 'inline-block', fontFamily: 'Montserrat, sans-serif', fontSize: 10,
+              display: 'inline-block', fontFamily: 'Inter, sans-serif', fontSize: 10,
               fontWeight: 800, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#2B8DD0',
               border: '1px solid rgba(46,127,208,0.3)', borderRadius: 4, padding: '4px 12px', marginBottom: 16,
             }}
@@ -34,7 +34,7 @@ export default function WhyUs() {
           <motion.h2
             initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.55, delay: 0.07 }}
-            style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 'clamp(26px, 3vw, 40px)', fontWeight: 900, letterSpacing: '-0.025em', marginBottom: 12, lineHeight: 1.1, color: '#1a2744' }}
+            style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(26px, 3vw, 40px)', fontWeight: 900, letterSpacing: '-0.025em', marginBottom: 12, lineHeight: 1.1, color: '#1a2744' }}
           >The Single Source Advantage</motion.h2>
         </div>
 
@@ -54,7 +54,7 @@ export default function WhyUs() {
           >
             <img src="/logo-textonly-navy.png" alt="Blau Batch" style={{ height: 48, objectFit: 'contain' }} />
             <div style={{
-              fontFamily: 'Montserrat, sans-serif', fontSize: 10, fontWeight: 700,
+              fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 700,
               letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(26,39,68,0.4)',
             }}>
               Full-Spectrum Masterbatch
@@ -125,7 +125,7 @@ export default function WhyUs() {
                     <Icon size={18} color={r.color} strokeWidth={1.8} />
                   </div>
                   <div>
-                    <h3 style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 13, fontWeight: 800, color: '#1a2744', marginBottom: 4, letterSpacing: '-0.01em' }}>{r.title}</h3>
+                    <h3 style={{ fontFamily: 'Inter, sans-serif', fontSize: 13, fontWeight: 800, color: '#1a2744', marginBottom: 4, letterSpacing: '-0.01em' }}>{r.title}</h3>
                     <p style={{ fontSize: 12, color: 'rgba(26,39,68,0.55)', lineHeight: 1.6 }}>{r.body}</p>
                   </div>
                 </div>

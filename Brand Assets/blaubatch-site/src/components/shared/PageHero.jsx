@@ -46,7 +46,7 @@ export default function PageHero({
           <motion.div {...fade(0.04)} style={{
             display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: 11,
             color: 'rgba(20,27,62,0.5)', marginBottom: 24,
-            fontFamily: 'Montserrat, sans-serif', fontWeight: 700,
+            fontFamily: 'Inter, sans-serif', fontWeight: 700,
             letterSpacing: '0.07em', textTransform: 'uppercase',
           }}>
             <Link to="/" style={{ color: 'rgba(20,27,62,0.5)', transition: 'color 0.15s' }}
@@ -68,7 +68,7 @@ export default function PageHero({
         {badge && (
           <motion.div {...fade(0.06)} style={{
             display: 'inline-flex', alignItems: 'center', gap: 6,
-            fontFamily: 'Montserrat, sans-serif', fontSize: 9, fontWeight: 800,
+            fontFamily: 'Inter, sans-serif', fontSize: 9, fontWeight: 800,
             letterSpacing: '0.14em', textTransform: 'uppercase',
             color: badgeColor, border: `1px solid ${badgeColor}45`,
             borderRadius: 20, padding: '5px 12px', marginBottom: 18,
@@ -81,7 +81,7 @@ export default function PageHero({
         {/* Tag */}
         {tag && (
           <motion.div {...fade(0.06)} style={{
-            display: 'inline-block', fontFamily: 'Montserrat, sans-serif', fontSize: 10,
+            display: 'inline-block', fontFamily: 'Inter, sans-serif', fontSize: 10,
             fontWeight: 800, letterSpacing: '0.14em', textTransform: 'uppercase',
             color: tagColor, border: `1px solid ${tagColor}50`,
             borderRadius: 4, padding: '4px 12px', marginBottom: 16,
@@ -90,7 +90,7 @@ export default function PageHero({
 
         {/* Title */}
         <motion.h1 {...fade(0.1)} style={{
-          fontFamily: 'Montserrat, sans-serif', fontWeight: 900,
+          fontFamily: 'Inter, sans-serif', fontWeight: 900,
           fontSize: 'clamp(34px, 4vw, 58px)', lineHeight: 1.05,
           letterSpacing: '-0.03em', marginBottom: 20, color: '#141B3E',
           maxWidth: 700, margin: '0 auto 20px',
@@ -120,7 +120,7 @@ export default function PageHero({
             <a href={cta.primary.href} style={{
               display: 'inline-flex', alignItems: 'center', gap: 8,
               padding: '13px 26px', background: '#2B8DD0', color: '#fff',
-              borderRadius: 9, fontFamily: 'Montserrat, sans-serif', fontSize: 12,
+              borderRadius: 9, fontFamily: 'Inter, sans-serif', fontSize: 12,
               fontWeight: 800, letterSpacing: '0.07em', textTransform: 'uppercase',
               transition: 'all 0.2s', border: '1px solid transparent',
             }}
@@ -133,7 +133,7 @@ export default function PageHero({
               <a href={cta.secondary.href} style={{
                 display: 'inline-flex', alignItems: 'center', gap: 8,
                 padding: '13px 24px', background: 'rgba(20,27,62,0.07)', color: 'rgba(20,27,62,0.85)',
-                borderRadius: 9, fontFamily: 'Montserrat, sans-serif', fontSize: 12,
+                borderRadius: 9, fontFamily: 'Inter, sans-serif', fontSize: 12,
                 fontWeight: 700, letterSpacing: '0.06em',
                 border: '1px solid rgba(20,27,62,0.2)', transition: 'all 0.2s',
                 backdropFilter: 'blur(8px)',

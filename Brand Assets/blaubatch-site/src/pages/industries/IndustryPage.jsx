@@ -46,8 +46,8 @@ export default function IndustryPage({ config }) {
           >
             {/* Section header */}
             <div style={{ marginBottom: 40 }}>
-              <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.14em', textTransform: 'uppercase', color: hero.accentColor, border: `1px solid ${hero.accentColor}45`, borderRadius: 4, padding: '4px 12px', display: 'inline-block', marginBottom: 14 }}>Applications</div>
-              <h2 style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 'clamp(22px, 2.5vw, 34px)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 8, color: '#1a2744' }}>{applications.title}</h2>
+              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.14em', textTransform: 'uppercase', color: hero.accentColor, border: `1px solid ${hero.accentColor}45`, borderRadius: 4, padding: '4px 12px', display: 'inline-block', marginBottom: 14 }}>Applications</div>
+              <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(22px, 2.5vw, 34px)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 8, color: '#1a2744' }}>{applications.title}</h2>
               <p style={{ fontSize: 14, color: 'rgba(26,39,68,0.6)', lineHeight: 1.8, maxWidth: 520 }}>{applications.sub}</p>
             </div>
 
@@ -65,7 +65,7 @@ export default function IndustryPage({ config }) {
                     boxShadow: '0 2px 12px rgba(0,0,0,0.04)',
                   }}
                 >
-                  <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 13, fontWeight: 800, color: '#1a2744', marginBottom: 8 }}>{app.name}</div>
+                  <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 13, fontWeight: 800, color: '#1a2744', marginBottom: 8 }}>{app.name}</div>
                   <div style={{ fontSize: 12, color: 'rgba(26,39,68,0.55)', lineHeight: 1.6 }}>{app.desc}</div>
                 </motion.div>
               ))}
@@ -94,8 +94,8 @@ export default function IndustryPage({ config }) {
             transition={{ duration: 0.6 }}
           >
             <div style={{ marginBottom: 36 }}>
-              <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.14em', textTransform: 'uppercase', color: hero.accentColor, border: `1px solid ${hero.accentColor}45`, borderRadius: 4, padding: '4px 12px', display: 'inline-block', marginBottom: 14 }}>Recommended Grades</div>
-              <h2 style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 'clamp(22px, 2.5vw, 34px)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 8, color: '#fff' }}>Products for {products.industryName}</h2>
+              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.14em', textTransform: 'uppercase', color: hero.accentColor, border: `1px solid ${hero.accentColor}45`, borderRadius: 4, padding: '4px 12px', display: 'inline-block', marginBottom: 14 }}>Recommended Grades</div>
+              <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(22px, 2.5vw, 34px)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 8, color: '#fff' }}>Products for {products.industryName}</h2>
               <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.55)', lineHeight: 1.8, maxWidth: 520 }}>{products.sub}</p>
             </div>
 
@@ -113,18 +113,18 @@ export default function IndustryPage({ config }) {
                   }}
                 >
                   <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 10, flexWrap: 'wrap' }}>
-                    <span style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 11, fontWeight: 800, color: hero.accentColor, letterSpacing: '0.06em' }}>{prod.series}</span>
+                    <span style={{ fontFamily: 'Inter, sans-serif', fontSize: 11, fontWeight: 800, color: hero.accentColor, letterSpacing: '0.06em' }}>{prod.series}</span>
                     {prod.tag && (
-                      <span style={{ fontSize: 8, fontWeight: 800, padding: '2px 6px', borderRadius: 3, background: `${hero.accentColor}20`, color: hero.accentColor, fontFamily: 'Montserrat, sans-serif', letterSpacing: '0.06em', border: `1px solid ${hero.accentColor}35` }}>{prod.tag}</span>
+                      <span style={{ fontSize: 8, fontWeight: 800, padding: '2px 6px', borderRadius: 3, background: `${hero.accentColor}20`, color: hero.accentColor, fontFamily: 'Inter, sans-serif', letterSpacing: '0.06em', border: `1px solid ${hero.accentColor}35` }}>{prod.tag}</span>
                     )}
                   </div>
-                  <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 14, fontWeight: 800, color: '#fff', marginBottom: 8 }}>{prod.name}</div>
+                  <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 14, fontWeight: 800, color: '#fff', marginBottom: 8 }}>{prod.name}</div>
                   <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.55)', lineHeight: 1.6, flex: 1, marginBottom: 16 }}>{prod.desc}</div>
                   <Link
                     to={prod.href}
                     style={{
                       display: 'inline-flex', alignItems: 'center', gap: 6,
-                      fontSize: 11, fontFamily: 'Montserrat, sans-serif', fontWeight: 700,
+                      fontSize: 11, fontFamily: 'Inter, sans-serif', fontWeight: 700,
                       color: hero.accentColor, letterSpacing: '0.04em',
                     }}
                     onMouseEnter={e => e.currentTarget.style.opacity = '0.75'}
@@ -148,8 +148,8 @@ export default function IndustryPage({ config }) {
             transition={{ duration: 0.55 }}
             style={{ marginBottom: 36 }}
           >
-            <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#D4840A', border: '1px solid rgba(212,132,10,0.3)', borderRadius: 4, padding: '4px 12px', display: 'inline-block', marginBottom: 14 }}>Request a Quote</div>
-            <h2 style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 'clamp(22px, 2.5vw, 34px)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 8, color: '#fff' }}>Get Pricing for {quoteForm.industryLabel}</h2>
+            <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#D4840A', border: '1px solid rgba(212,132,10,0.3)', borderRadius: 4, padding: '4px 12px', display: 'inline-block', marginBottom: 14 }}>Request a Quote</div>
+            <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(22px, 2.5vw, 34px)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 8, color: '#fff' }}>Get Pricing for {quoteForm.industryLabel}</h2>
             <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.55)', lineHeight: 1.8, maxWidth: 520 }}>Tell us your application and volume — we'll respond within 24 hours with grade recommendations and pricing.</p>
           </motion.div>
           <QuoteForm

@@ -53,12 +53,12 @@ class ErrorBoundary extends Component {
         }}>
           <div style={{ maxWidth: 440 }}>
             <div style={{
-              fontFamily: 'Montserrat, sans-serif', fontSize: 10, fontWeight: 800,
+              fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800,
               letterSpacing: '0.14em', textTransform: 'uppercase', color: '#D4840A',
               border: '1px solid rgba(212,132,10,0.3)', borderRadius: 4,
               padding: '4px 12px', display: 'inline-block', marginBottom: 20,
             }}>Error</div>
-            <h1 style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 900, fontSize: 28, color: '#fff', marginBottom: 12, letterSpacing: '-0.02em' }}>
+            <h1 style={{ fontFamily: 'Inter, sans-serif', fontWeight: 900, fontSize: 28, color: '#fff', marginBottom: 12, letterSpacing: '-0.02em' }}>
               Something went wrong
             </h1>
             <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.5)', lineHeight: 1.8, marginBottom: 28 }}>
@@ -69,7 +69,7 @@ class ErrorBoundary extends Component {
                 onClick={() => window.location.reload()}
                 style={{
                   padding: '10px 22px', background: '#2B8DD0', color: '#fff', border: 'none',
-                  borderRadius: 8, fontFamily: 'Montserrat, sans-serif', fontSize: 12,
+                  borderRadius: 8, fontFamily: 'Inter, sans-serif', fontSize: 12,
                   fontWeight: 800, letterSpacing: '0.06em', cursor: 'pointer',
                 }}
               >Refresh Page</button>
@@ -78,7 +78,7 @@ class ErrorBoundary extends Component {
                 style={{
                   padding: '10px 22px', background: 'transparent', color: '#fff',
                   border: '1px solid rgba(255,255,255,0.2)', borderRadius: 8,
-                  fontFamily: 'Montserrat, sans-serif', fontSize: 12, fontWeight: 700,
+                  fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 700,
                   letterSpacing: '0.06em',
                 }}
               >Return Home</a>

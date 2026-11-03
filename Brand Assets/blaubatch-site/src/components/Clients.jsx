@@ -66,7 +66,7 @@ export default function Clients() {
           style={{ textAlign: 'center', marginBottom: 28 }}
         >
           <div style={{
-            fontFamily: 'Montserrat, sans-serif', fontSize: 10, fontWeight: 800,
+            fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800,
             letterSpacing: '0.14em', textTransform: 'uppercase',
             color: 'rgba(20,27,62,0.5)',
           }}>

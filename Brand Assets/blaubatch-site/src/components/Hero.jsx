@@ -65,7 +65,7 @@ export default function Hero() {
           display: 'inline-flex', alignItems: 'center', gap: 7,
           border: '1px solid rgba(46,127,208,0.35)', borderRadius: 20,
           padding: '5px 14px', marginBottom: 24,
-          fontFamily: 'Montserrat, sans-serif', fontSize: 10, fontWeight: 800,
+          fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800,
           letterSpacing: '0.16em', textTransform: 'uppercase', color: '#2B8DD0',
           background: 'rgba(255,255,255,0.75)', backdropFilter: 'blur(8px)',
         }}>
@@ -75,7 +75,7 @@ export default function Hero() {
 
         {/* H1 with animated product word */}
         <motion.h1 {...fadeUp(0.12)} style={{
-          fontFamily: 'Montserrat, sans-serif', fontWeight: 900,
+          fontFamily: 'Inter, sans-serif', fontWeight: 900,
           fontSize: 'clamp(36px, 4vw, 56px)', lineHeight: 1.1, // Smaller text
           letterSpacing: '-0.02em', margin: '0 0 22px',
           maxWidth: 600,
@@ -113,7 +113,7 @@ export default function Hero() {
           <a href="/contact#quote-form" style={{
             display: 'inline-flex', alignItems: 'center', gap: 8,
             padding: '14px 30px', background: '#2B8DD0', color: '#fff',
-            borderRadius: 8, fontFamily: 'Montserrat, sans-serif', fontSize: 13,
+            borderRadius: 8, fontFamily: 'Inter, sans-serif', fontSize: 13,
             fontWeight: 800, letterSpacing: '0.07em', textTransform: 'uppercase',
             transition: 'all 0.2s', border: '1px solid transparent',
           }}
@@ -125,7 +125,7 @@ export default function Hero() {
           <a href="https://wa.me/201022227723" target="_blank" rel="noopener noreferrer" style={{
             display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
             padding: '14px 30px', background: 'rgba(37,211,102,0.15)', color: '#25D366',
-            borderRadius: 8, fontFamily: 'Montserrat, sans-serif', fontSize: 13,
+            borderRadius: 8, fontFamily: 'Inter, sans-serif', fontSize: 13,
             fontWeight: 700, letterSpacing: '0.06em',
             border: '1px solid rgba(37,211,102,0.35)', transition: 'all 0.2s',
             backdropFilter: 'blur(8px)',
@@ -138,7 +138,7 @@ export default function Hero() {
           <a href="#products" style={{
             display: 'inline-flex', alignItems: 'center', gap: 8,
             padding: '14px 30px', background: 'rgba(20,27,62,0.07)', color: '#141B3E',
-            borderRadius: 8, fontFamily: 'Montserrat, sans-serif', fontSize: 13,
+            borderRadius: 8, fontFamily: 'Inter, sans-serif', fontSize: 13,
             fontWeight: 700, letterSpacing: '0.06em',
             border: '1px solid rgba(20,27,62,0.18)', transition: 'all 0.2s',
             backdropFilter: 'blur(8px)',
@@ -162,10 +162,10 @@ export default function Hero() {
             <div key={s.label} style={{
               background: 'rgba(255,255,255,0.82)', padding: '16px 10px', textAlign: 'center',
             }}>
-              <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 20, fontWeight: 900, color: '#141B3E', lineHeight: 1 }}>
+              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 20, fontWeight: 900, color: '#141B3E', lineHeight: 1 }}>
                 {s.n}<span style={{ color: '#2B8DD0', fontSize: 15 }}>{s.unit}</span>
               </div>
-              <div style={{ fontSize: 9, color: 'rgba(20,27,62,0.55)', textTransform: 'uppercase', letterSpacing: '0.1em', fontFamily: 'Montserrat, sans-serif', marginTop: 5, fontWeight: 700 }}>{s.label}</div>
+              <div style={{ fontSize: 9, color: 'rgba(20,27,62,0.55)', textTransform: 'uppercase', letterSpacing: '0.1em', fontFamily: 'Inter, sans-serif', marginTop: 5, fontWeight: 700 }}>{s.label}</div>
             </div>
           ))}
         </motion.div>

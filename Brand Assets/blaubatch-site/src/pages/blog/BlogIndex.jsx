@@ -72,15 +72,15 @@ export default function BlogIndex() {
                   >
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 16, flexWrap: 'wrap', marginBottom: 16 }}>
                       <span style={{
-                        fontFamily: 'Montserrat, sans-serif', fontSize: 9, fontWeight: 800,
+                        fontFamily: 'Inter, sans-serif', fontSize: 9, fontWeight: 800,
                         letterSpacing: '0.12em', textTransform: 'uppercase',
                         color: post.categoryColor, border: `1px solid ${post.categoryColor}44`,
                         borderRadius: 4, padding: '3px 10px',
                       }}>{post.category}</span>
-                      <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.35)', fontFamily: 'Montserrat, sans-serif' }}>{post.date} · {post.readTime}</span>
+                      <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.35)', fontFamily: 'Inter, sans-serif' }}>{post.date} · {post.readTime}</span>
                     </div>
 
-                    <h2 style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 800, fontSize: 'clamp(16px, 2vw, 22px)', color: '#fff', letterSpacing: '-0.015em', lineHeight: 1.3, marginBottom: 12 }}>
+                    <h2 style={{ fontFamily: 'Inter, sans-serif', fontWeight: 800, fontSize: 'clamp(16px, 2vw, 22px)', color: '#fff', letterSpacing: '-0.015em', lineHeight: 1.3, marginBottom: 12 }}>
                       {post.title}
                     </h2>
 
@@ -88,7 +88,7 @@ export default function BlogIndex() {
                       {post.excerpt}
                     </p>
 
-                    <div style={{ display: 'flex', alignItems: 'center', gap: 5, color: post.categoryColor, fontFamily: 'Montserrat, sans-serif', fontSize: 12, fontWeight: 700 }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 5, color: post.categoryColor, fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 700 }}>
                       Read article <ArrowRight size={13} />
                     </div>
                   </div>

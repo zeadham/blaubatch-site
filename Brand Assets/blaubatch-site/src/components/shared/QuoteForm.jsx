@@ -27,12 +27,12 @@ const REGIONS = [
 const inputStyle = {
   width: '100%', padding: '12px 14px',
   background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)',
-  borderRadius: 8, color: '#fff', fontFamily: 'Open Sans, sans-serif', fontSize: 14,
+  borderRadius: 8, color: '#fff', fontFamily: 'Inter, sans-serif', fontSize: 14,
   outline: 'none', transition: 'border-color 0.2s', boxSizing: 'border-box',
 }
 
 const labelStyle = {
-  display: 'block', fontFamily: 'Montserrat, sans-serif', fontSize: 10, fontWeight: 800,
+  display: 'block', fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800,
   letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.5)', marginBottom: 7,
 }
 
@@ -60,13 +60,13 @@ function FocusInput(props) {
 
 const btnNext = {
   padding: '12px 24px', background: '#fff', color: '#1A5AB8', border: 'none',
-  borderRadius: 7, fontFamily: 'Montserrat, sans-serif', fontSize: 13, fontWeight: 800,
+  borderRadius: 7, fontFamily: 'Inter, sans-serif', fontSize: 13, fontWeight: 800,
   cursor: 'pointer', transition: 'background 0.2s',
 }
 const btnBack = {
   padding: '12px 20px', background: 'transparent', color: 'rgba(255,255,255,0.6)',
   border: '1px solid rgba(255,255,255,0.15)', borderRadius: 7,
-  fontFamily: 'Montserrat, sans-serif', fontSize: 13, fontWeight: 600, cursor: 'pointer', transition: 'all 0.2s',
+  fontFamily: 'Inter, sans-serif', fontSize: 13, fontWeight: 600, cursor: 'pointer', transition: 'all 0.2s',
 }
 
 export default function QuoteForm({
@@ -135,7 +135,7 @@ export default function QuoteForm({
               onClick={() => completed && goStep(n)}
               >
                 <div style={{
-                  fontFamily: 'Montserrat, sans-serif', fontSize: 11, fontWeight: 800,
+                  fontFamily: 'Inter, sans-serif', fontSize: 11, fontWeight: 800,
                   color: completed ? '#fff' : active ? '#fff' : 'rgba(255,255,255,0.5)',
                   marginBottom: 2, letterSpacing: '0.05em',
                 }}>
@@ -161,7 +161,7 @@ export default function QuoteForm({
               display: 'flex', alignItems: 'center', justifyContent: 'center',
               margin: '0 auto 20px', fontSize: 28,
             }}>✅</div>
-            <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 22, fontWeight: 900, marginBottom: 10, color: '#fff' }}>
+            <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 22, fontWeight: 900, marginBottom: 10, color: '#fff' }}>
               Quote request received.
             </div>
             <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.55)', lineHeight: 1.75, maxWidth: 360, margin: '0 auto 28px' }}>
@@ -171,7 +171,7 @@ export default function QuoteForm({
               display: 'inline-flex', alignItems: 'center', gap: 8,
               background: 'rgba(37,211,102,0.12)', border: '1px solid rgba(37,211,102,0.25)',
               color: '#25D366', padding: '12px 20px', borderRadius: 8,
-              fontFamily: 'Montserrat, sans-serif', fontSize: 13, fontWeight: 700,
+              fontFamily: 'Inter, sans-serif', fontSize: 13, fontWeight: 700,
             }}>
               💬 Follow up on WhatsApp
             </a>
@@ -183,7 +183,7 @@ export default function QuoteForm({
             exit={{ opacity: 0, x: -20 }} transition={{ duration: 0.25 }}
             style={{ padding: '32px' }}
           >
-            <h3 style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 18, fontWeight: 900, marginBottom: 6, color: '#fff' }}>{step1Title}</h3>
+            <h3 style={{ fontFamily: 'Inter, sans-serif', fontSize: 18, fontWeight: 900, marginBottom: 6, color: '#fff' }}>{step1Title}</h3>
             <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.5)', marginBottom: 24 }}>{step1Sub}</p>
 
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10, marginBottom: 24 }}>
@@ -196,7 +196,7 @@ export default function QuoteForm({
                     background: product === p.value ? 'rgba(255,255,255,0.15)' : 'rgba(255,255,255,0.05)',
                   }}
                 >
-                  <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 13, fontWeight: 700, marginBottom: 3, color: '#fff' }}>{p.name}</div>
+                  <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 13, fontWeight: 700, marginBottom: 3, color: '#fff' }}>{p.name}</div>
                   <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.35)' }}>{p.sub}</div>
                 </div>
               ))}
@@ -229,7 +229,7 @@ export default function QuoteForm({
             exit={{ opacity: 0, x: -20 }} transition={{ duration: 0.25 }}
             style={{ padding: '32px' }}
           >
-            <h3 style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 18, fontWeight: 900, marginBottom: 6, color: '#fff' }}>Order details</h3>
+            <h3 style={{ fontFamily: 'Inter, sans-serif', fontSize: 18, fontWeight: 900, marginBottom: 6, color: '#fff' }}>Order details</h3>
             <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.5)', marginBottom: 24 }}>Help us prepare a precise quote.</p>
 
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 16 }}>
@@ -283,7 +283,7 @@ export default function QuoteForm({
             exit={{ opacity: 0, x: -20 }} transition={{ duration: 0.25 }}
             style={{ padding: '32px' }}
           >
-            <h3 style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 18, fontWeight: 900, marginBottom: 6, color: '#fff' }}>Your contact details</h3>
+            <h3 style={{ fontFamily: 'Inter, sans-serif', fontSize: 18, fontWeight: 900, marginBottom: 6, color: '#fff' }}>Your contact details</h3>
             <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.5)', marginBottom: 24 }}>We'll send your quote directly to you.</p>
 
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 16 }}>
@@ -325,7 +325,7 @@ export default function QuoteForm({
 
             <button onClick={submit} disabled={submitting} style={{
               width: '100%', padding: '14px', background: submitting ? 'rgba(255,255,255,0.5)' : '#fff', color: '#1A5AB8', border: 'none',
-              borderRadius: 7, fontFamily: 'Montserrat, sans-serif', fontSize: 13, fontWeight: 900,
+              borderRadius: 7, fontFamily: 'Inter, sans-serif', fontSize: 13, fontWeight: 900,
               letterSpacing: '0.06em', textTransform: 'uppercase', cursor: submitting ? 'not-allowed' : 'pointer',
               display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, transition: 'all 0.2s',
               opacity: submitting ? 0.75 : 1,

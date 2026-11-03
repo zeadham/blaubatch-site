@@ -94,7 +94,7 @@ function HeroSection() {
         <div>
           <motion.div {...fade(0.04)} style={{
             display: 'inline-flex', alignItems: 'center', gap: 6,
-            fontFamily: 'Montserrat, sans-serif', fontSize: 9, fontWeight: 800,
+            fontFamily: 'Inter, sans-serif', fontSize: 9, fontWeight: 800,
             letterSpacing: '0.14em', textTransform: 'uppercase',
             color: '#D4840A', border: '1px solid rgba(212,132,10,0.4)',
             borderRadius: 20, padding: '5px 14px', marginBottom: 20,
@@ -104,7 +104,7 @@ function HeroSection() {
           </motion.div>
 
           <motion.h1 {...fade(0.1)} style={{
-            fontFamily: 'Montserrat, sans-serif', fontWeight: 900,
+            fontFamily: 'Inter, sans-serif', fontWeight: 900,
             fontSize: 'clamp(36px, 4.5vw, 60px)', lineHeight: 1.05,
             letterSpacing: '-0.03em', marginBottom: 22, color: '#fff',
           }}>
@@ -126,7 +126,7 @@ function HeroSection() {
             <a href="#get-quote" style={{
               display: 'inline-flex', alignItems: 'center', gap: 10,
               padding: '15px 32px', background: '#2B8DD0', color: '#fff',
-              borderRadius: 9, fontFamily: 'Montserrat, sans-serif', fontSize: 13,
+              borderRadius: 9, fontFamily: 'Inter, sans-serif', fontSize: 13,
               fontWeight: 800, letterSpacing: '0.07em', textTransform: 'uppercase',
               transition: 'all 0.2s', border: '1px solid transparent',
             }}
@@ -138,7 +138,7 @@ function HeroSection() {
             <a href="https://wa.me/201022227723" target="_blank" rel="noopener noreferrer" style={{
               display: 'inline-flex', alignItems: 'center', gap: 10,
               padding: '15px 28px', background: 'transparent', color: '#25D366',
-              borderRadius: 9, fontFamily: 'Montserrat, sans-serif', fontSize: 13,
+              borderRadius: 9, fontFamily: 'Inter, sans-serif', fontSize: 13,
               fontWeight: 800, letterSpacing: '0.06em', textTransform: 'uppercase',
               border: '1px solid rgba(37,211,102,0.35)', transition: 'all 0.2s',
             }}
@@ -157,8 +157,8 @@ function HeroSection() {
               { n: '24h', label: 'Quote Response' },
             ].map(s => (
               <div key={s.label}>
-                <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 22, fontWeight: 900, color: '#2B8DD0', letterSpacing: '-0.02em' }}>{s.n}</div>
-                <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.4)', fontFamily: 'Montserrat, sans-serif', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', marginTop: 2 }}>{s.label}</div>
+                <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 22, fontWeight: 900, color: '#2B8DD0', letterSpacing: '-0.02em' }}>{s.n}</div>
+                <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.4)', fontFamily: 'Inter, sans-serif', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', marginTop: 2 }}>{s.label}</div>
               </div>
             ))}
           </motion.div>
@@ -181,7 +181,7 @@ function HeroSection() {
             {/* Large background text */}
             <div style={{
               position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center',
-              fontFamily: 'Montserrat, sans-serif', fontWeight: 900, fontSize: 'clamp(72px, 10vw, 130px)',
+              fontFamily: 'Inter, sans-serif', fontWeight: 900, fontSize: 'clamp(72px, 10vw, 130px)',
               color: 'rgba(255,255,255,0.04)', letterSpacing: '-0.04em', userSelect: 'none',
             }}>B</div>
 
@@ -189,7 +189,7 @@ function HeroSection() {
             {/* Suggested: Factory production line, masterbatch pellets close-up, or team photo */}
             <div style={{
               position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center',
-              fontSize: 12, color: 'rgba(255,255,255,0.25)', fontFamily: 'Montserrat, sans-serif',
+              fontSize: 12, color: 'rgba(255,255,255,0.25)', fontFamily: 'Inter, sans-serif',
               fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase',
             }}>
               {/* <img src="/campaign-hero.jpg" alt="Blau Batch masterbatch production" style={{ width: '100%', height: '100%', objectFit: 'cover' }} /> */}
@@ -208,7 +208,7 @@ function HeroSection() {
               position: 'absolute', top: 20, right: 20,
               background: 'rgba(0,0,0,0.35)', backdropFilter: 'blur(16px)',
               border: '1px solid rgba(43,141,208,0.4)', borderRadius: 8, padding: '7px 14px',
-              fontFamily: 'Montserrat, sans-serif', fontSize: 9, fontWeight: 800,
+              fontFamily: 'Inter, sans-serif', fontSize: 9, fontWeight: 800,
               letterSpacing: '0.14em', textTransform: 'uppercase', color: '#2B8DD0',
             }}>Full-Spectrum Supplier</div>
 
@@ -218,8 +218,8 @@ function HeroSection() {
               background: 'rgba(13,24,41,0.65)', backdropFilter: 'blur(20px)',
               border: '1px solid rgba(255,255,255,0.14)', borderRadius: 16, padding: '16px 22px',
             }}>
-              <div style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 900, fontSize: 28, color: '#D4840A', lineHeight: 1, letterSpacing: '-0.02em', marginBottom: 5 }}>MENA</div>
-              <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.5)', fontFamily: 'Montserrat, sans-serif', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase' }}>& Europe Coverage</div>
+              <div style={{ fontFamily: 'Inter, sans-serif', fontWeight: 900, fontSize: 28, color: '#D4840A', lineHeight: 1, letterSpacing: '-0.02em', marginBottom: 5 }}>MENA</div>
+              <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.5)', fontFamily: 'Inter, sans-serif', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase' }}>& Europe Coverage</div>
             </div>
 
             {/* Decorative rings */}
@@ -262,7 +262,7 @@ function TrustStripSection() {
         ].map(item => (
           <div key={item} style={{
             display: 'flex', alignItems: 'center', gap: 8,
-            fontFamily: 'Montserrat, sans-serif', fontSize: 10, fontWeight: 800,
+            fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800,
             letterSpacing: '0.1em', textTransform: 'uppercase',
             color: 'rgba(255,255,255,0.65)',
           }}>
@@ -286,13 +286,13 @@ function ProblemSection() {
     <section style={{ background: '#141B3E', padding: '96px 48px' }}>
       <div ref={ref} style={{ maxWidth: 900, margin: '0 auto', textAlign: 'center' }}>
         <motion.div {...inFade(inView, 0)} style={{
-          display: 'inline-block', fontFamily: 'Montserrat, sans-serif', fontSize: 10,
+          display: 'inline-block', fontFamily: 'Inter, sans-serif', fontSize: 10,
           fontWeight: 800, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#D4840A',
           border: '1px solid rgba(212,132,10,0.3)', borderRadius: 4, padding: '4px 12px', marginBottom: 16,
         }}>The Problem</motion.div>
 
         <motion.h2 {...inFade(inView, 0.08)} style={{
-          fontFamily: 'Montserrat, sans-serif', fontWeight: 900,
+          fontFamily: 'Inter, sans-serif', fontWeight: 900,
           fontSize: 'clamp(26px, 3.5vw, 44px)', lineHeight: 1.1, letterSpacing: '-0.03em',
           marginBottom: 24, color: '#fff',
         }}>
@@ -317,8 +317,8 @@ function ProblemSection() {
               background: '#23447A', border: '1px solid rgba(255,255,255,0.09)',
               borderRadius: 14, padding: '28px 22px', textAlign: 'center',
             }}>
-              <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 28, fontWeight: 900, color: '#D4840A', marginBottom: 8, letterSpacing: '-0.02em' }}>{s.num}</div>
-              <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 11, fontWeight: 800, letterSpacing: '0.06em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.7)', marginBottom: 6 }}>{s.label}</div>
+              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 28, fontWeight: 900, color: '#D4840A', marginBottom: 8, letterSpacing: '-0.02em' }}>{s.num}</div>
+              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 11, fontWeight: 800, letterSpacing: '0.06em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.7)', marginBottom: 6 }}>{s.label}</div>
               <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.4)', lineHeight: 1.6 }}>{s.sub}</div>
             </div>
           ))}
@@ -350,12 +350,12 @@ function ProductsSection() {
       <div ref={ref} style={{ maxWidth: 1200, margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: 56 }}>
           <motion.div {...inFade(inView, 0)} style={{
-            display: 'inline-block', fontFamily: 'Montserrat, sans-serif', fontSize: 10,
+            display: 'inline-block', fontFamily: 'Inter, sans-serif', fontSize: 10,
             fontWeight: 800, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#2B8DD0',
             border: '1px solid rgba(74,170,224,0.3)', borderRadius: 4, padding: '4px 12px', marginBottom: 16,
           }}>Our Products</motion.div>
           <motion.h2 {...inFade(inView, 0.08)} style={{
-            fontFamily: 'Montserrat, sans-serif', fontWeight: 900,
+            fontFamily: 'Inter, sans-serif', fontWeight: 900,
             fontSize: 'clamp(26px, 3vw, 40px)', letterSpacing: '-0.025em', lineHeight: 1.1, color: '#fff', marginBottom: 14,
           }}>
             Full-Spectrum Masterbatch Range
@@ -383,7 +383,7 @@ function ProductsSection() {
                 height: 120, borderRadius: 10, background: `linear-gradient(135deg, ${p.badgeColor}15, ${p.badgeColor}08)`,
                 border: `1px solid ${p.badgeColor}20`,
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
-                fontFamily: 'Montserrat, sans-serif', fontWeight: 900, fontSize: 24,
+                fontFamily: 'Inter, sans-serif', fontWeight: 900, fontSize: 24,
                 color: `${p.badgeColor}30`, letterSpacing: '-0.02em',
               }}>
                 {/* <img src={`/products/${p.code.toLowerCase()}.jpg`} alt={p.name} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: 10 }} /> */}
@@ -392,18 +392,18 @@ function ProductsSection() {
 
               <div style={{
                 display: 'inline-flex', alignItems: 'center', gap: 5,
-                fontFamily: 'Montserrat, sans-serif', fontSize: 8, fontWeight: 800,
+                fontFamily: 'Inter, sans-serif', fontSize: 8, fontWeight: 800,
                 letterSpacing: '0.14em', textTransform: 'uppercase', color: p.badgeColor,
               }}>
                 <span style={{ width: 4, height: 4, borderRadius: '50%', background: p.badgeColor }} />
                 {p.badge}
               </div>
 
-              <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 15, fontWeight: 800, color: '#fff', letterSpacing: '-0.01em' }}>{p.name}</div>
+              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 15, fontWeight: 800, color: '#fff', letterSpacing: '-0.01em' }}>{p.name}</div>
 
               <div style={{
                 display: 'flex', alignItems: 'center', gap: 6,
-                fontSize: 11, color: '#2B8DD0', fontFamily: 'Montserrat, sans-serif', fontWeight: 700,
+                fontSize: 11, color: '#2B8DD0', fontFamily: 'Inter, sans-serif', fontWeight: 700,
                 letterSpacing: '0.06em', textTransform: 'uppercase', marginTop: 'auto',
               }}>
                 View Details <ArrowRight size={12} />
@@ -443,13 +443,13 @@ function IndustriesSection() {
         {/* Left — Text */}
         <div>
           <motion.div {...inFade(inView, 0)} style={{
-            display: 'inline-block', fontFamily: 'Montserrat, sans-serif', fontSize: 10,
+            display: 'inline-block', fontFamily: 'Inter, sans-serif', fontSize: 10,
             fontWeight: 800, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#2B8DD0',
             border: '1px solid rgba(74,170,224,0.3)', borderRadius: 4, padding: '4px 12px', marginBottom: 16,
           }}>Industries</motion.div>
 
           <motion.h2 {...inFade(inView, 0.08)} style={{
-            fontFamily: 'Montserrat, sans-serif', fontWeight: 900,
+            fontFamily: 'Inter, sans-serif', fontWeight: 900,
             fontSize: 'clamp(26px, 3vw, 40px)', letterSpacing: '-0.025em', lineHeight: 1.1, color: '#fff', marginBottom: 16,
           }}>
             Built for Plastics<br />
@@ -471,7 +471,7 @@ function IndustriesSection() {
             background: 'linear-gradient(135deg, #0a1628, #162040)',
             border: '1px solid rgba(255,255,255,0.09)',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
-            fontSize: 12, color: 'rgba(255,255,255,0.25)', fontFamily: 'Montserrat, sans-serif',
+            fontSize: 12, color: 'rgba(255,255,255,0.25)', fontFamily: 'Inter, sans-serif',
             fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase',
           }}>
             {/* <img src="/campaign-industries.jpg" alt="Industries served by Blau Batch" style={{ width: '100%', height: '100%', objectFit: 'cover' }} /> */}
@@ -498,7 +498,7 @@ function IndustriesSection() {
               }}>
                 <ind.icon size={19} color="#2B8DD0" strokeWidth={1.5} />
               </div>
-              <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 15, fontWeight: 800, color: '#fff', letterSpacing: '-0.01em', marginBottom: 6 }}>{ind.label}</div>
+              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 15, fontWeight: 800, color: '#fff', letterSpacing: '-0.01em', marginBottom: 6 }}>{ind.label}</div>
               <div style={{ fontSize: 13, color: 'rgba(255,255,255,0.5)', lineHeight: 1.6 }}>{ind.sub}</div>
             </Link>
           ))}
@@ -533,12 +533,12 @@ function AdvantagesSection() {
       <div ref={ref} style={{ maxWidth: 1200, margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: 56 }}>
           <motion.div {...inFade(inView, 0)} style={{
-            display: 'inline-block', fontFamily: 'Montserrat, sans-serif', fontSize: 10,
+            display: 'inline-block', fontFamily: 'Inter, sans-serif', fontSize: 10,
             fontWeight: 800, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#2B8DD0',
             border: '1px solid rgba(74,170,224,0.3)', borderRadius: 4, padding: '4px 12px', marginBottom: 16,
           }}>Why Blau Batch</motion.div>
           <motion.h2 {...inFade(inView, 0.08)} style={{
-            fontFamily: 'Montserrat, sans-serif', fontWeight: 900,
+            fontFamily: 'Inter, sans-serif', fontWeight: 900,
             fontSize: 'clamp(26px, 3vw, 40px)', letterSpacing: '-0.025em', lineHeight: 1.1, color: '#fff',
           }}>
             The Single Source Advantage
@@ -564,7 +564,7 @@ function AdvantagesSection() {
               }}>
                 <a.icon size={20} color={i === 0 ? '#D4840A' : '#2B8DD0'} strokeWidth={1.5} />
               </div>
-              <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 14, fontWeight: 800, color: '#fff', letterSpacing: '-0.01em', marginBottom: 8 }}>{a.title}</div>
+              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 14, fontWeight: 800, color: '#fff', letterSpacing: '-0.01em', marginBottom: 8 }}>{a.title}</div>
               <div style={{ fontSize: 13, color: 'rgba(255,255,255,0.55)', lineHeight: 1.7 }}>{a.desc}</div>
             </div>
           ))}
@@ -599,7 +599,7 @@ function TestimonialsSection() {
     }}>
       <div ref={ref} style={{ maxWidth: 1000, margin: '0 auto', textAlign: 'center' }}>
         <motion.div {...inFade(inView, 0)} style={{
-          display: 'inline-block', fontFamily: 'Montserrat, sans-serif', fontSize: 10,
+          display: 'inline-block', fontFamily: 'Inter, sans-serif', fontSize: 10,
           fontWeight: 800, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#2B8DD0',
           border: '1px solid rgba(74,170,224,0.3)', borderRadius: 4, padding: '4px 12px', marginBottom: 16,
         }}>What Our Customers Say</motion.div>
@@ -629,7 +629,7 @@ function TestimonialsSection() {
                 width: 48, height: 48, borderRadius: 10, marginBottom: 18,
                 background: 'rgba(43,141,208,0.12)', border: '1px solid rgba(43,141,208,0.2)',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
-                fontSize: 9, color: 'rgba(255,255,255,0.3)', fontFamily: 'Montserrat, sans-serif',
+                fontSize: 9, color: 'rgba(255,255,255,0.3)', fontFamily: 'Inter, sans-serif',
                 fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase',
               }}>
                 {/* <img src={`/testimonials/logo-${i+1}.png`} alt={t.name} style={{ width: '100%', height: '100%', objectFit: 'contain', padding: 8 }} /> */}
@@ -638,7 +638,7 @@ function TestimonialsSection() {
               <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.75)', lineHeight: 1.8, marginBottom: 20, fontStyle: 'italic' }}>
                 "{t.quote}"
               </p>
-              <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 12, fontWeight: 800, color: '#fff', marginBottom: 2 }}>{t.name}</div>
+              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, color: '#fff', marginBottom: 2 }}>{t.name}</div>
               <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.4)' }}>{t.role}</div>
             </div>
           ))}
@@ -673,12 +673,12 @@ function LeadFormSection() {
     width: '100%', padding: '13px 16px',
     background: '#F8FAFC', border: '1px solid #CBD5E1',
     borderRadius: 8, color: '#1E293B',
-    fontFamily: 'Open Sans, sans-serif', fontSize: 14,
+    fontFamily: 'Inter, sans-serif', fontSize: 14,
     transition: 'border-color 0.2s', outline: 'none',
   }
 
   const labelStyle = {
-    fontFamily: 'Montserrat, sans-serif', fontSize: 10, fontWeight: 800,
+    fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800,
     letterSpacing: '0.1em', textTransform: 'uppercase', color: '#64748B',
     marginBottom: 8, display: 'block',
   }
@@ -693,13 +693,13 @@ function LeadFormSection() {
         {/* Left — CTA text */}
         <div>
           <motion.div {...inFade(inView, 0)} style={{
-            display: 'inline-block', fontFamily: 'Montserrat, sans-serif', fontSize: 10,
+            display: 'inline-block', fontFamily: 'Inter, sans-serif', fontSize: 10,
             fontWeight: 800, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#2B8DD0',
             border: '1px solid rgba(74,170,224,0.3)', borderRadius: 4, padding: '4px 12px', marginBottom: 16,
           }}>Request a Quote</motion.div>
 
           <motion.h2 {...inFade(inView, 0.08)} style={{
-            fontFamily: 'Montserrat, sans-serif', fontWeight: 900,
+            fontFamily: 'Inter, sans-serif', fontWeight: 900,
             fontSize: 'clamp(26px, 3vw, 40px)', letterSpacing: '-0.025em', lineHeight: 1.1, color: '#fff', marginBottom: 16,
           }}>
             Let's Talk<br />
@@ -754,7 +754,7 @@ function LeadFormSection() {
                   <c.icon size={15} color={c.green ? '#25D366' : '#2B8DD0'} strokeWidth={1.5} />
                 </div>
                 <div>
-                  <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 9, fontWeight: 800, color: 'rgba(255,255,255,0.35)', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 2 }}>{c.label}</div>
+                  <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 9, fontWeight: 800, color: 'rgba(255,255,255,0.35)', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 2 }}>{c.label}</div>
                   <div style={{ fontSize: 13, fontWeight: 500, color: c.green ? '#25D366' : '#fff' }}>{c.val}</div>
                 </div>
               </a>
@@ -775,7 +775,7 @@ function LeadFormSection() {
               }}>
                 <CheckCircle2 size={28} color="#22C55E" />
               </div>
-              <h3 style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 900, fontSize: 22, color: '#141B3E', marginBottom: 10, letterSpacing: '-0.02em' }}>Quote Request Received</h3>
+              <h3 style={{ fontFamily: 'Inter, sans-serif', fontWeight: 900, fontSize: 22, color: '#141B3E', marginBottom: 10, letterSpacing: '-0.02em' }}>Quote Request Received</h3>
               <p style={{ fontSize: 14, color: '#64748B', lineHeight: 1.7, maxWidth: 340, margin: '0 auto' }}>
                 Our technical team will review your requirements and respond within 24 business hours with a grade recommendation and pricing.
               </p>
@@ -789,10 +789,10 @@ function LeadFormSection() {
                     <div style={{
                       width: 28, height: 28, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center',
                       background: step >= s ? '#2B8DD0' : '#E2E8F0', color: step >= s ? '#fff' : '#94A3B8',
-                      fontFamily: 'Montserrat, sans-serif', fontSize: 11, fontWeight: 800,
+                      fontFamily: 'Inter, sans-serif', fontSize: 11, fontWeight: 800,
                     }}>{s}</div>
                     <span style={{
-                      fontFamily: 'Montserrat, sans-serif', fontSize: 10, fontWeight: 700,
+                      fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 700,
                       letterSpacing: '0.06em', textTransform: 'uppercase',
                       color: step >= s ? '#1E293B' : '#94A3B8',
                     }}>{s === 1 ? 'Product' : 'Your Details'}</span>
@@ -810,7 +810,7 @@ function LeadFormSection() {
                         padding: '14px 16px', borderRadius: 10, border: form.product === p ? '2px solid #2B8DD0' : '1px solid #E2E8F0',
                         background: form.product === p ? 'rgba(43,141,208,0.06)' : '#F8FAFC',
                         cursor: 'pointer', textAlign: 'left',
-                        fontFamily: 'Open Sans, sans-serif', fontSize: 13,
+                        fontFamily: 'Inter, sans-serif', fontSize: 13,
                         color: form.product === p ? '#2B8DD0' : '#475569', fontWeight: form.product === p ? 600 : 400,
                         transition: 'all 0.15s',
                       }}>
@@ -833,7 +833,7 @@ function LeadFormSection() {
                   <button onClick={() => form.product && setStep(2)} style={{
                     width: '100%', padding: '14px', background: form.product ? '#2B8DD0' : '#CBD5E1',
                     color: '#fff', border: 'none', borderRadius: 9,
-                    fontFamily: 'Montserrat, sans-serif', fontSize: 12, fontWeight: 800,
+                    fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800,
                     letterSpacing: '0.07em', textTransform: 'uppercase',
                     cursor: form.product ? 'pointer' : 'not-allowed', transition: 'all 0.2s',
                     display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
@@ -901,12 +901,12 @@ function LeadFormSection() {
                     display: 'flex', alignItems: 'center', justifyContent: 'space-between',
                   }}>
                     <div>
-                      <div style={{ fontSize: 10, color: '#94A3B8', fontFamily: 'Montserrat, sans-serif', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 2 }}>Selected Product</div>
+                      <div style={{ fontSize: 10, color: '#94A3B8', fontFamily: 'Inter, sans-serif', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 2 }}>Selected Product</div>
                       <div style={{ fontSize: 13, color: '#1E293B', fontWeight: 600 }}>{form.product}</div>
                     </div>
                     <button onClick={() => setStep(1)} style={{
                       fontSize: 11, color: '#2B8DD0', background: 'none', border: 'none', cursor: 'pointer',
-                      fontFamily: 'Montserrat, sans-serif', fontWeight: 700,
+                      fontFamily: 'Inter, sans-serif', fontWeight: 700,
                     }}>Change</button>
                   </div>
 
@@ -914,7 +914,7 @@ function LeadFormSection() {
                     <button onClick={() => setStep(1)} style={{
                       padding: '14px 20px', background: 'transparent', color: '#64748B',
                       border: '1px solid #CBD5E1', borderRadius: 9,
-                      fontFamily: 'Montserrat, sans-serif', fontSize: 12, fontWeight: 700,
+                      fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 700,
                       letterSpacing: '0.06em', cursor: 'pointer',
                     }}>Back</button>
 
@@ -923,7 +923,7 @@ function LeadFormSection() {
                     }} style={{
                       flex: 1, padding: '14px', background: (form.name && form.company && form.email) ? '#2B8DD0' : '#CBD5E1',
                       color: '#fff', border: 'none', borderRadius: 9,
-                      fontFamily: 'Montserrat, sans-serif', fontSize: 12, fontWeight: 800,
+                      fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800,
                       letterSpacing: '0.07em', textTransform: 'uppercase',
                       cursor: (form.name && form.company && form.email) ? 'pointer' : 'not-allowed',
                       transition: 'all 0.2s', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,

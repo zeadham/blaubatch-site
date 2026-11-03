@@ -77,8 +77,8 @@ export default function TermsPage() {
     <>
       <section style={{ background: '#141B3E', padding: '80px 48px 40px' }}>
         <div style={{ maxWidth: 860, margin: '0 auto' }}>
-          <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#D4840A', border: '1px solid rgba(212,132,10,0.3)', borderRadius: 4, padding: '4px 12px', display: 'inline-block', marginBottom: 20 }}>Legal</div>
-          <h1 style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 'clamp(28px, 4vw, 48px)', fontWeight: 900, letterSpacing: '-0.025em', color: '#fff', marginBottom: 16, lineHeight: 1.1 }}>Terms &amp; Conditions</h1>
+          <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#D4840A', border: '1px solid rgba(212,132,10,0.3)', borderRadius: 4, padding: '4px 12px', display: 'inline-block', marginBottom: 20 }}>Legal</div>
+          <h1 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(28px, 4vw, 48px)', fontWeight: 900, letterSpacing: '-0.025em', color: '#fff', marginBottom: 16, lineHeight: 1.1 }}>Terms &amp; Conditions</h1>
           <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.45)', lineHeight: 1.8 }}>Last updated: March 2026 · Blau Batch Trading &amp; Distribution Co.</p>
         </div>
       </section>
@@ -91,7 +91,7 @@ export default function TermsPage() {
 
           {SECTIONS.map((s, i) => (
             <div key={s.title} style={{ marginBottom: 44, paddingBottom: 44, borderBottom: i < SECTIONS.length - 1 ? '1px solid rgba(255,255,255,0.08)' : 'none' }}>
-              <h2 style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 18, fontWeight: 800, color: '#fff', marginBottom: 16, letterSpacing: '-0.01em' }}>
+              <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 18, fontWeight: 800, color: '#fff', marginBottom: 16, letterSpacing: '-0.01em' }}>
                 <span style={{ color: '#D4840A', marginRight: 10, fontWeight: 900 }}>{String(i + 1).padStart(2, '0')}</span>{s.title}
               </h2>
               {s.body.map((para, j) => (

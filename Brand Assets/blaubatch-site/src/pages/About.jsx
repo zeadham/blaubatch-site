@@ -54,8 +54,8 @@ export default function AboutPage() {
         <div style={{ maxWidth: 1200, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 0 }}>
           {STATS.map((s, i) => (
             <div key={s.label} style={{ textAlign: 'center', padding: '16px 24px', borderRight: i < STATS.length - 1 ? '1px solid #E2E8F0' : 'none' }}>
-              <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 'clamp(28px, 3vw, 40px)', fontWeight: 900, color: '#2B8DD0', lineHeight: 1, marginBottom: 6 }}>{s.val}</div>
-              <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 11, fontWeight: 800, color: '#141B3E', letterSpacing: '0.04em', marginBottom: 3 }}>{s.label}</div>
+              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(28px, 3vw, 40px)', fontWeight: 900, color: '#2B8DD0', lineHeight: 1, marginBottom: 6 }}>{s.val}</div>
+              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 11, fontWeight: 800, color: '#141B3E', letterSpacing: '0.04em', marginBottom: 3 }}>{s.label}</div>
               <div style={{ fontSize: 11, color: '#94A3B8' }}>{s.sub}</div>
             </div>
           ))}
@@ -67,10 +67,10 @@ export default function AboutPage() {
         <div style={{ maxWidth: 1200, margin: '0 auto' }}>
           <div ref={ref1}>
             <motion.div initial={{ opacity: 0, y: 16 }} animate={inView1 ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5 }}
-              style={{ display: 'inline-block', fontFamily: 'Montserrat, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#2B8DD0', border: '1px solid rgba(46,127,208,0.3)', borderRadius: 4, padding: '4px 12px', marginBottom: 16 }}
+              style={{ display: 'inline-block', fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#2B8DD0', border: '1px solid rgba(46,127,208,0.3)', borderRadius: 4, padding: '4px 12px', marginBottom: 16 }}
             >How We Operate</motion.div>
             <motion.h2 initial={{ opacity: 0, y: 20 }} animate={inView1 ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.55, delay: 0.07 }}
-              style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 900, letterSpacing: '-0.025em', marginBottom: 40, lineHeight: 1.1, color: '#141B3E' }}
+              style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 900, letterSpacing: '-0.025em', marginBottom: 40, lineHeight: 1.1, color: '#141B3E' }}
             >Our Four Pillars</motion.h2>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2,1fr)', gap: 16 }}>
@@ -84,7 +84,7 @@ export default function AboutPage() {
                   <p.icon size={22} color="#2B8DD0" strokeWidth={1.5} />
                 </div>
                 <div>
-                  <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 15, fontWeight: 900, color: '#141B3E', marginBottom: 8 }}>{p.title}</div>
+                  <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 15, fontWeight: 900, color: '#141B3E', marginBottom: 8 }}>{p.title}</div>
                   <p style={{ fontSize: 13, color: '#475569', lineHeight: 1.75 }}>{p.desc}</p>
                 </div>
               </motion.div>
@@ -98,10 +98,10 @@ export default function AboutPage() {
         <div style={{ maxWidth: 1200, margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1.4fr', gap: 72, alignItems: 'start' }}>
           <div ref={ref2}>
             <motion.div initial={{ opacity: 0, y: 16 }} animate={inView2 ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5 }}
-              style={{ display: 'inline-block', fontFamily: 'Montserrat, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#D4840A', border: '1px solid rgba(212,132,10,0.35)', borderRadius: 4, padding: '4px 12px', marginBottom: 16 }}
+              style={{ display: 'inline-block', fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#D4840A', border: '1px solid rgba(212,132,10,0.35)', borderRadius: 4, padding: '4px 12px', marginBottom: 16 }}
             >Our Journey</motion.div>
             <motion.h2 initial={{ opacity: 0, y: 20 }} animate={inView2 ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.55, delay: 0.07 }}
-              style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 900, letterSpacing: '-0.025em', marginBottom: 18, lineHeight: 1.1, color: '#141B3E' }}
+              style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 900, letterSpacing: '-0.025em', marginBottom: 18, lineHeight: 1.1, color: '#141B3E' }}
             >Built to Last</motion.h2>
             <p style={{ fontSize: 14, color: '#475569', lineHeight: 1.8 }}>From a focused PE filler masterbatch producer to a full-spectrum masterbatch partner for the MENA region — our growth has been deliberate and technically grounded.</p>
           </div>
@@ -117,7 +117,7 @@ export default function AboutPage() {
                   {i < TIMELINE.length - 1 && <div style={{ width: 1, flex: 1, background: 'rgba(46,127,208,0.25)', marginTop: 6 }} />}
                 </div>
                 <div style={{ paddingBottom: i < TIMELINE.length - 1 ? 12 : 0 }}>
-                  <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 11, fontWeight: 800, color: '#2B8DD0', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 6 }}>{t.year}</div>
+                  <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 11, fontWeight: 800, color: '#2B8DD0', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 6 }}>{t.year}</div>
                   <p style={{ fontSize: 13, color: '#334155', lineHeight: 1.75 }}>{t.event}</p>
                 </div>
               </motion.div>
@@ -131,10 +131,10 @@ export default function AboutPage() {
         <div style={{ maxWidth: 1200, margin: '0 auto' }}>
           <div ref={ref3} style={{ textAlign: 'center', marginBottom: 56 }}>
             <motion.div initial={{ opacity: 0, y: 16 }} animate={inView3 ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5 }}
-              style={{ display: 'inline-block', fontFamily: 'Montserrat, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#2B8DD0', border: '1px solid rgba(46,127,208,0.3)', borderRadius: 4, padding: '4px 12px', marginBottom: 16 }}
+              style={{ display: 'inline-block', fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#2B8DD0', border: '1px solid rgba(46,127,208,0.3)', borderRadius: 4, padding: '4px 12px', marginBottom: 16 }}
             >What We Stand For</motion.div>
             <motion.h2 initial={{ opacity: 0, y: 20 }} animate={inView3 ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.55, delay: 0.07 }}
-              style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 900, letterSpacing: '-0.025em', lineHeight: 1.1, color: '#141B3E' }}
+              style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 900, letterSpacing: '-0.025em', lineHeight: 1.1, color: '#141B3E' }}
             >Our Commitments</motion.h2>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 16 }}>
@@ -148,7 +148,7 @@ export default function AboutPage() {
                 transition={{ duration: 0.5, delay: 0.1 + i * 0.1 }}
                 style={{ background: '#FFFFFF', border: '1px solid #E2E8F0', borderRadius: 14, padding: '28px' }}
               >
-                <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 15, fontWeight: 900, color: '#141B3E', marginBottom: 12 }}>{v.title}</div>
+                <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 15, fontWeight: 900, color: '#141B3E', marginBottom: 12 }}>{v.title}</div>
                 <p style={{ fontSize: 13, color: '#475569', lineHeight: 1.75 }}>{v.desc}</p>
               </motion.div>
             ))}
@@ -159,15 +159,15 @@ export default function AboutPage() {
       {/* CTA */}
       <section style={{ background: 'linear-gradient(150deg, #EFF6FF, #F4F7FB)', padding: '80px 48px', borderTop: '1px solid #E2E8F0', textAlign: 'center' }}>
         <div style={{ maxWidth: 600, margin: '0 auto' }}>
-          <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#D4840A', marginBottom: 16 }}>Work With Us</div>
-          <h2 style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 'clamp(24px, 3vw, 38px)', fontWeight: 900, letterSpacing: '-0.025em', marginBottom: 16, lineHeight: 1.1, color: '#141B3E' }}>Ready to discuss your requirements?</h2>
+          <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#D4840A', marginBottom: 16 }}>Work With Us</div>
+          <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(24px, 3vw, 38px)', fontWeight: 900, letterSpacing: '-0.025em', marginBottom: 16, lineHeight: 1.1, color: '#141B3E' }}>Ready to discuss your requirements?</h2>
           <p style={{ fontSize: 14, color: '#475569', lineHeight: 1.8, marginBottom: 32 }}>Tell us about your process, your polymer, and your target application. We'll respond within 24 hours.</p>
           <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
-            <a href="mailto:info@blaubatch.com" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '13px 28px', background: '#2B8DD0', color: '#fff', borderRadius: 8, fontFamily: 'Montserrat, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.07em', textTransform: 'uppercase', transition: 'all 0.2s' }}
+            <a href="mailto:info@blaubatch.com" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '13px 28px', background: '#2B8DD0', color: '#fff', borderRadius: 8, fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.07em', textTransform: 'uppercase', transition: 'all 0.2s' }}
               onMouseEnter={e => { e.currentTarget.style.background = '#2B8DD0'; e.currentTarget.style.transform = 'translateY(-2px)' }}
               onMouseLeave={e => { e.currentTarget.style.background = '#2B8DD0'; e.currentTarget.style.transform = 'none' }}
             >Contact Us <ArrowRight size={14} /></a>
-            <Link to="/distributors" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '13px 28px', background: 'transparent', color: '#141B3E', border: '1px solid #E2E8F0', borderRadius: 8, fontFamily: 'Montserrat, sans-serif', fontSize: 12, fontWeight: 700, letterSpacing: '0.07em', textTransform: 'uppercase', transition: 'all 0.2s' }}
+            <Link to="/distributors" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '13px 28px', background: 'transparent', color: '#141B3E', border: '1px solid #E2E8F0', borderRadius: 8, fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 700, letterSpacing: '0.07em', textTransform: 'uppercase', transition: 'all 0.2s' }}
               onMouseEnter={e => { e.currentTarget.style.borderColor = '#94A3B8'; e.currentTarget.style.background = 'rgba(0,0,0,0.02)' }}
               onMouseLeave={e => { e.currentTarget.style.borderColor = '#E2E8F0'; e.currentTarget.style.background = 'transparent' }}
             >Find a Distributor</Link>

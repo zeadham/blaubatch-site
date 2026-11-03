@@ -4,11 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FMPP Series — Instagram Carousel</title>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #0a0a0a; display: flex; flex-direction: column; align-items: center; gap: 40px; padding: 40px; font-family: 'Open Sans', sans-serif; }
-  .slide-label { color: #666; font-size: 14px; font-family: 'Open Sans', sans-serif; margin-bottom: -30px; }
+  body { background: #0a0a0a; display: flex; flex-direction: column; align-items: center; gap: 40px; padding: 40px; font-family: 'Inter', sans-serif; }
+  .slide-label { color: #666; font-size: 14px; font-family: 'Inter', sans-serif; margin-bottom: -30px; }
   .slide {
     width: 1080px; height: 1080px;
     position: relative; overflow: hidden;
@@ -22,11 +22,11 @@
     justify-content: center; align-items: center; text-align: center;
     background: radial-gradient(ellipse at 70% 30%, #23447A 0%, #141B3E 60%);
   }
-  .slide-1 .tag { font-family: 'Open Sans', sans-serif; font-size: 18px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: #2B8DD0; margin-bottom: 24px; }
-  .slide-1 h1 { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 96px; letter-spacing: 6px; text-transform: uppercase; line-height: 1.05; }
+  .slide-1 .tag { font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: #2B8DD0; margin-bottom: 24px; }
+  .slide-1 h1 { font-family: 'Inter', sans-serif; font-weight: 900; font-size: 96px; letter-spacing: 6px; text-transform: uppercase; line-height: 1.05; }
   .slide-1 .accent-line { width: 120px; height: 4px; background: #2B8DD0; margin: 32px auto; }
-  .slide-1 .sub { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 28px; color: #DCDCDC; letter-spacing: 2px; text-transform: uppercase; }
-  .slide-1 .desc { font-family: 'Open Sans', sans-serif; font-size: 22px; color: #DCDCDC; margin-top: 20px; max-width: 700px; line-height: 1.6; }
+  .slide-1 .sub { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 28px; color: #DCDCDC; letter-spacing: 2px; text-transform: uppercase; }
+  .slide-1 .desc { font-family: 'Inter', sans-serif; font-size: 22px; color: #DCDCDC; margin-top: 20px; max-width: 700px; line-height: 1.6; }
   .slide-1 .corner-accent { position: absolute; width: 200px; height: 200px; border: 2px solid rgba(43,141,208,0.2); border-radius: 50%; }
   .slide-1 .ca-tr { top: -60px; right: -60px; }
   .slide-1 .ca-bl { bottom: -80px; left: -80px; width: 300px; height: 300px; }
@@ -34,45 +34,45 @@
 
   /* ── Slide 2: Four Grades ── */
   .slide-2 { padding: 80px 72px; background: linear-gradient(160deg, #141B3E 0%, #1a2348 100%); }
-  .slide-2 .tag { font-family: 'Open Sans', sans-serif; font-size: 16px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: #2B8DD0; margin-bottom: 16px; }
-  .slide-2 h2 { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 48px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 48px; }
+  .slide-2 .tag { font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: #2B8DD0; margin-bottom: 16px; }
+  .slide-2 h2 { font-family: 'Inter', sans-serif; font-weight: 800; font-size: 48px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 48px; }
   .grade-card { background: rgba(35,68,122,0.4); border: 1px solid rgba(220,220,220,0.15); border-radius: 12px; padding: 28px 36px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; }
-  .grade-card .name { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 32px; color: #2B8DD0; }
-  .grade-card .specs { font-family: 'Open Sans', sans-serif; font-size: 20px; color: #DCDCDC; text-align: right; line-height: 1.5; }
+  .grade-card .name { font-family: 'Inter', sans-serif; font-weight: 800; font-size: 32px; color: #2B8DD0; }
+  .grade-card .specs { font-family: 'Inter', sans-serif; font-size: 20px; color: #DCDCDC; text-align: right; line-height: 1.5; }
   .grade-card .specs strong { color: #fff; font-weight: 700; }
   .grade-card.highlight-card { border-color: #D4840A; background: rgba(212,132,10,0.1); }
   .grade-card.highlight-card .name { color: #D4840A; }
-  .mfg-badge { display: inline-block; background: #D4840A; color: #fff; font-family: 'Open Sans', sans-serif; font-size: 13px; font-weight: 700; padding: 4px 12px; border-radius: 4px; letter-spacing: 1px; text-transform: uppercase; margin-left: 12px; vertical-align: middle; }
+  .mfg-badge { display: inline-block; background: #D4840A; color: #fff; font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 700; padding: 4px 12px; border-radius: 4px; letter-spacing: 1px; text-transform: uppercase; margin-left: 12px; vertical-align: middle; }
 
   /* ── Slide 3: PPH Focus ── */
   .slide-3 { padding: 80px 72px; justify-content: center; background: radial-gradient(ellipse at 30% 70%, #23447A 0%, #141B3E 60%); }
-  .slide-3 .tag { font-family: 'Open Sans', sans-serif; font-size: 16px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: #D4840A; margin-bottom: 16px; }
-  .slide-3 h2 { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 52px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; }
-  .slide-3 .subtitle { font-family: 'Open Sans', sans-serif; font-size: 24px; color: #DCDCDC; margin-bottom: 48px; line-height: 1.5; }
+  .slide-3 .tag { font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: #D4840A; margin-bottom: 16px; }
+  .slide-3 h2 { font-family: 'Inter', sans-serif; font-weight: 800; font-size: 52px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; }
+  .slide-3 .subtitle { font-family: 'Inter', sans-serif; font-size: 24px; color: #DCDCDC; margin-bottom: 48px; line-height: 1.5; }
   .feature-list { list-style: none; }
-  .feature-list li { font-family: 'Open Sans', sans-serif; font-size: 26px; color: #DCDCDC; padding: 16px 0; border-bottom: 1px solid rgba(220,220,220,0.1); display: flex; align-items: center; gap: 16px; }
+  .feature-list li { font-family: 'Inter', sans-serif; font-size: 26px; color: #DCDCDC; padding: 16px 0; border-bottom: 1px solid rgba(220,220,220,0.1); display: flex; align-items: center; gap: 16px; }
   .feature-list li:last-child { border-bottom: none; }
   .feature-list .arrow { color: #D4840A; font-weight: 700; font-size: 28px; }
   .feature-list strong { color: #fff; }
 
   /* ── Slide 4: Applications Grid ── */
   .slide-4 { padding: 80px 72px; background: linear-gradient(160deg, #141B3E 0%, #1a2348 100%); }
-  .slide-4 .tag { font-family: 'Open Sans', sans-serif; font-size: 16px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: #2B8DD0; margin-bottom: 16px; }
-  .slide-4 h2 { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 48px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 48px; }
+  .slide-4 .tag { font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: #2B8DD0; margin-bottom: 16px; }
+  .slide-4 h2 { font-family: 'Inter', sans-serif; font-weight: 800; font-size: 48px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 48px; }
   .app-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; flex: 1; }
   .app-card { background: rgba(35,68,122,0.35); border: 1px solid rgba(220,220,220,0.12); border-radius: 12px; padding: 36px 32px; display: flex; flex-direction: column; justify-content: center; }
   .app-card .icon { font-size: 48px; margin-bottom: 16px; }
-  .app-card h4 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 24px; margin-bottom: 10px; text-transform: uppercase; }
-  .app-card p { font-family: 'Open Sans', sans-serif; font-size: 18px; color: #DCDCDC; line-height: 1.5; }
+  .app-card h4 { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 24px; margin-bottom: 10px; text-transform: uppercase; }
+  .app-card p { font-family: 'Inter', sans-serif; font-size: 18px; color: #DCDCDC; line-height: 1.5; }
 
   /* ── Slide 5: CTA ── */
   .slide-5 { justify-content: center; align-items: center; text-align: center; background: radial-gradient(ellipse at 50% 50%, #23447A 0%, #141B3E 60%); }
-  .slide-5 .quote-text { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 40px; text-transform: uppercase; letter-spacing: 2px; max-width: 800px; line-height: 1.3; margin-bottom: 32px; }
+  .slide-5 .quote-text { font-family: 'Inter', sans-serif; font-weight: 800; font-size: 40px; text-transform: uppercase; letter-spacing: 2px; max-width: 800px; line-height: 1.3; margin-bottom: 32px; }
   .slide-5 .accent-line { width: 120px; height: 4px; background: #2B8DD0; margin: 0 auto 40px; }
-  .slide-5 .cta-item { font-family: 'Open Sans', sans-serif; font-size: 24px; color: #DCDCDC; margin-bottom: 12px; }
+  .slide-5 .cta-item { font-family: 'Inter', sans-serif; font-size: 24px; color: #DCDCDC; margin-bottom: 12px; }
   .slide-5 .cta-item strong { color: #2B8DD0; }
-  .slide-5 .cta-button { display: inline-block; margin-top: 40px; background: #2B8DD0; color: #fff; border-radius: 8px; padding: 20px 56px; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 22px; text-transform: uppercase; letter-spacing: 2px; }
-  .slide-5 .response-time { margin-top: 20px; font-family: 'Open Sans', sans-serif; font-size: 20px; color: rgba(255,255,255,0.5); }
+  .slide-5 .cta-button { display: inline-block; margin-top: 40px; background: #2B8DD0; color: #fff; border-radius: 8px; padding: 20px 56px; font-family: 'Inter', sans-serif; font-weight: 800; font-size: 22px; text-transform: uppercase; letter-spacing: 2px; }
+  .slide-5 .response-time { margin-top: 20px; font-family: 'Inter', sans-serif; font-size: 20px; color: rgba(255,255,255,0.5); }
   .slide-5 .logo-bar { position: absolute; bottom: 48px; left: 0; right: 0; text-align: center; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 18px; color: rgba(255,255,255,0.4); letter-spacing: 6px; text-transform: uppercase; }
 </style>
 </head>

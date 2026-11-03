@@ -26,7 +26,7 @@ export default function Process() {
             initial={{ opacity: 0, y: 16 }} animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5 }}
             style={{
-              display: 'inline-block', fontFamily: 'Montserrat, sans-serif', fontSize: 10,
+              display: 'inline-block', fontFamily: 'Inter, sans-serif', fontSize: 10,
               fontWeight: 800, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#2B8DD0',
               border: '1px solid rgba(74,170,224,0.3)', borderRadius: 4, padding: '4px 12px', marginBottom: 16,
             }}
@@ -35,7 +35,7 @@ export default function Process() {
           <motion.h2
             initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.55, delay: 0.07 }}
-            style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 'clamp(26px, 3vw, 40px)', fontWeight: 900, letterSpacing: '-0.025em', marginBottom: 12, lineHeight: 1.1, color: '#141B3E' }}
+            style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(26px, 3vw, 40px)', fontWeight: 900, letterSpacing: '-0.025em', marginBottom: 12, lineHeight: 1.1, color: '#141B3E' }}
           >From Enquiry to Delivery</motion.h2>
 
           <motion.p
@@ -77,12 +77,12 @@ export default function Process() {
                 </div>
 
                 <div style={{
-                  fontFamily: 'Montserrat, sans-serif', fontSize: 9, fontWeight: 900,
+                  fontFamily: 'Inter, sans-serif', fontSize: 9, fontWeight: 900,
                   letterSpacing: '0.12em', color: step.color, marginBottom: 8,
                 }}>STEP {step.n}</div>
 
                 <h3 style={{
-                  fontFamily: 'Montserrat, sans-serif', fontSize: 13, fontWeight: 800,
+                  fontFamily: 'Inter, sans-serif', fontSize: 13, fontWeight: 800,
                   marginBottom: 10, lineHeight: 1.35, letterSpacing: '-0.01em', color: '#141B3E',
                 }}>{step.title}</h3>
 
@@ -105,7 +105,7 @@ export default function Process() {
             display: 'inline-flex', alignItems: 'center', gap: 8,
             padding: '12px 28px', background: '#2B8DD0',
             color: '#fff',
-            borderRadius: 8, fontFamily: 'Montserrat, sans-serif', fontSize: 12,
+            borderRadius: 8, fontFamily: 'Inter, sans-serif', fontSize: 12,
             fontWeight: 800, letterSpacing: '0.07em', textTransform: 'uppercase',
             transition: 'all 0.2s',
           }}

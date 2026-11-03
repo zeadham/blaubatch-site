@@ -30,7 +30,7 @@ export default function IsoBadges({ certNumber = '[CERT-TBD]', issuer = 'Corapla
       marginTop: 40,
     }}>
       <div style={{
-        fontFamily: 'Montserrat, sans-serif', fontSize: 10, fontWeight: 800,
+        fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800,
         letterSpacing: '0.14em', textTransform: 'uppercase',
         color: 'rgba(255,255,255,0.35)', marginBottom: 20,
       }}>
@@ -62,7 +62,7 @@ export default function IsoBadges({ certNumber = '[CERT-TBD]', issuer = 'Corapla
             </div>
             <div>
               <div style={{
-                fontFamily: 'Montserrat, sans-serif', fontSize: 14, fontWeight: 900,
+                fontFamily: 'Inter, sans-serif', fontSize: 14, fontWeight: 900,
                 color: b.color, lineHeight: 1,
               }}>{b.code}:{b.year}</div>
               <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.5)', marginTop: 3 }}>{b.label}</div>
@@ -76,15 +76,15 @@ export default function IsoBadges({ certNumber = '[CERT-TBD]', issuer = 'Corapla
         paddingTop: 16, borderTop: '1px solid rgba(255,255,255,0.07)',
       }}>
         <div>
-          <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: 4 }}>Certificate No.</div>
-          <div style={{ fontSize: 13, color: 'rgba(255,255,255,0.7)', fontFamily: 'Montserrat, sans-serif', fontWeight: 700 }}>{certNumber}</div>
+          <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: 4 }}>Certificate No.</div>
+          <div style={{ fontSize: 13, color: 'rgba(255,255,255,0.7)', fontFamily: 'Inter, sans-serif', fontWeight: 700 }}>{certNumber}</div>
         </div>
         <div>
-          <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: 4 }}>Issuing Body</div>
-          <div style={{ fontSize: 13, color: 'rgba(255,255,255,0.7)', fontFamily: 'Montserrat, sans-serif', fontWeight: 700 }}>{issuer}</div>
+          <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: 4 }}>Issuing Body</div>
+          <div style={{ fontSize: 13, color: 'rgba(255,255,255,0.7)', fontFamily: 'Inter, sans-serif', fontWeight: 700 }}>{issuer}</div>
         </div>
         <div>
-          <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: 4 }}>Scope</div>
+          <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: 4 }}>Scope</div>
           <div style={{ fontSize: 13, color: 'rgba(255,255,255,0.7)' }}>Manufacture and distribution of masterbatch concentrates</div>
         </div>
       </div>

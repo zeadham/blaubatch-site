@@ -56,12 +56,12 @@ const CORAPLAST_MARKETS = [
 const inputStyle = {
   width: '100%', padding: '12px 14px',
   background: '#23447A', border: '1px solid rgba(255,255,255,0.09)',
-  borderRadius: 8, color: '#fff', fontFamily: 'Open Sans, sans-serif', fontSize: 14,
+  borderRadius: 8, color: '#fff', fontFamily: 'Inter, sans-serif', fontSize: 14,
   outline: 'none', transition: 'border-color 0.2s', boxSizing: 'border-box',
 }
 
 const labelStyle = {
-  display: 'block', fontFamily: 'Montserrat, sans-serif', fontSize: 10, fontWeight: 800,
+  display: 'block', fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800,
   letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.5)', marginBottom: 7,
 }
 
@@ -106,7 +106,7 @@ function DistributorForm() {
   if (done) return (
     <div style={{ background: '#141B3E', border: '1px solid rgba(255,255,255,0.09)', borderRadius: 14, padding: '48px 36px', textAlign: 'center' }}>
       <div style={{ width: 60, height: 60, borderRadius: '50%', background: 'rgba(34,197,94,0.12)', border: '1px solid rgba(34,197,94,0.25)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 18px', fontSize: 26 }}>✅</div>
-      <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 20, fontWeight: 800, marginBottom: 8 }}>Application received.</div>
+      <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 20, fontWeight: 800, marginBottom: 8 }}>Application received.</div>
       <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.6)', lineHeight: 1.7, maxWidth: 360, margin: '0 auto 24px' }}>
         Thank you for applying. We'll review your application and reach out within 48 business hours.
       </p>
@@ -114,14 +114,14 @@ function DistributorForm() {
         display: 'inline-flex', alignItems: 'center', gap: 8,
         background: 'rgba(37,211,102,0.12)', border: '1px solid rgba(37,211,102,0.25)',
         color: '#25D366', padding: '12px 20px', borderRadius: 8,
-        fontFamily: 'Montserrat, sans-serif', fontSize: 13, fontWeight: 700,
+        fontFamily: 'Inter, sans-serif', fontSize: 13, fontWeight: 700,
       }}>💬 Follow up on WhatsApp</a>
     </div>
   )
 
   return (
     <div style={{ background: '#141B3E', border: '1px solid rgba(255,255,255,0.09)', borderRadius: 14, padding: '36px' }}>
-      <h3 style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 18, fontWeight: 800, marginBottom: 6 }}>Distributor Application</h3>
+      <h3 style={{ fontFamily: 'Inter, sans-serif', fontSize: 18, fontWeight: 800, marginBottom: 6 }}>Distributor Application</h3>
       <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.55)', marginBottom: 28 }}>Takes about 3 minutes to complete.</p>
 
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 16 }}>
@@ -184,7 +184,7 @@ function DistributorForm() {
 
       <button onClick={submit} style={{
         width: '100%', padding: '14px', background: '#2B8DD0', color: '#fff', border: 'none',
-        borderRadius: 8, fontFamily: 'Montserrat, sans-serif', fontSize: 14, fontWeight: 700,
+        borderRadius: 8, fontFamily: 'Inter, sans-serif', fontSize: 14, fontWeight: 700,
         cursor: 'pointer', transition: 'background 0.2s',
         display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 8, marginTop: 8,
       }}
@@ -220,10 +220,10 @@ export default function DistributorsPage() {
         <div style={{ maxWidth: 1200, margin: '0 auto' }}>
           <div ref={ref1}>
             <motion.div initial={{ opacity: 0, y: 16 }} animate={inView1 ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5 }}
-              style={{ display: 'inline-block', fontFamily: 'Montserrat, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#2B8DD0', border: '1px solid rgba(46,127,208,0.3)', borderRadius: 4, padding: '4px 12px', marginBottom: 16 }}
+              style={{ display: 'inline-block', fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#2B8DD0', border: '1px solid rgba(46,127,208,0.3)', borderRadius: 4, padding: '4px 12px', marginBottom: 16 }}
             >Regional Coverage</motion.div>
             <motion.h2 initial={{ opacity: 0, y: 20 }} animate={inView1 ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.55, delay: 0.07 }}
-              style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 900, letterSpacing: '-0.025em', marginBottom: 40, lineHeight: 1.1 }}
+              style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 900, letterSpacing: '-0.025em', marginBottom: 40, lineHeight: 1.1 }}
             >Markets We Serve</motion.h2>
           </div>
 
@@ -235,20 +235,20 @@ export default function DistributorsPage() {
                 style={{ background: '#23447A', border: `1px solid ${r.type === 'direct' ? 'rgba(212,132,10,0.25)' : 'rgba(255,255,255,0.09)'}`, borderRadius: 14, padding: '28px', position: 'relative', overflow: 'hidden' }}
               >
                 {r.type === 'direct' && (
-                  <div style={{ position: 'absolute', top: 18, right: 18, fontFamily: 'Montserrat, sans-serif', fontSize: 8, fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase', padding: '3px 8px', borderRadius: 3, background: 'rgba(212,132,10,0.2)', color: '#D4840A', border: '1px solid rgba(212,132,10,0.3)' }}>Direct Sales</div>
+                  <div style={{ position: 'absolute', top: 18, right: 18, fontFamily: 'Inter, sans-serif', fontSize: 8, fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase', padding: '3px 8px', borderRadius: 3, background: 'rgba(212,132,10,0.2)', color: '#D4840A', border: '1px solid rgba(212,132,10,0.3)' }}>Direct Sales</div>
                 )}
                 <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 12 }}>
                   <span style={{ fontSize: 24 }}>{r.flag}</span>
                   <div>
-                    <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 14, fontWeight: 900, color: '#fff' }}>{r.region}</div>
-                    <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 10, color: 'rgba(255,255,255,0.4)', fontWeight: 600, marginTop: 2 }}>{r.coverage}</div>
+                    <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 14, fontWeight: 900, color: '#fff' }}>{r.region}</div>
+                    <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, color: 'rgba(255,255,255,0.4)', fontWeight: 600, marginTop: 2 }}>{r.coverage}</div>
                   </div>
                 </div>
                 <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.6)', lineHeight: 1.75, marginBottom: 18 }}>{r.desc}</p>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
                   {r.contacts.map(c => (
                     <div key={c.label} style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
-                      <span style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 10, fontWeight: 700, color: 'rgba(255,255,255,0.35)', letterSpacing: '0.08em', textTransform: 'uppercase', minWidth: 90 }}>{c.label}</span>
+                      <span style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 700, color: 'rgba(255,255,255,0.35)', letterSpacing: '0.08em', textTransform: 'uppercase', minWidth: 90 }}>{c.label}</span>
                       {c.href ? (
                         <a href={c.href} style={{ fontSize: 12, color: '#2B8DD0', fontWeight: 600 }}>{c.val}</a>
                       ) : (
@@ -268,16 +268,16 @@ export default function DistributorsPage() {
         <div style={{ maxWidth: 1200, margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 72, alignItems: 'start' }}>
           <div ref={ref2}>
             <motion.div initial={{ opacity: 0, y: 16 }} animate={inView2 ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5 }}
-              style={{ display: 'inline-block', fontFamily: 'Montserrat, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#2B8DD0', border: '1px solid rgba(46,127,208,0.3)', borderRadius: 4, padding: '4px 12px', marginBottom: 16 }}
+              style={{ display: 'inline-block', fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#2B8DD0', border: '1px solid rgba(46,127,208,0.3)', borderRadius: 4, padding: '4px 12px', marginBottom: 16 }}
             >Our Supply Partner</motion.div>
             <motion.h2 initial={{ opacity: 0, y: 20 }} animate={inView2 ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.55, delay: 0.07 }}
-              style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 900, letterSpacing: '-0.025em', marginBottom: 16, lineHeight: 1.1 }}
+              style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 900, letterSpacing: '-0.025em', marginBottom: 16, lineHeight: 1.1 }}
             >Coraplast — Global Reach</motion.h2>
             <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.55)', lineHeight: 1.8, marginBottom: 24 }}>For white, black, colour, and additive masterbatch lines, Blau Batch is the regional distributor for Coraplast — an internationally certified manufacturer with a global distribution footprint and an ISO 9001 / ISO 14001 quality system.</p>
             <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.55)', lineHeight: 1.8 }}>European customers sourcing Coraplast products can be connected directly. Contact us with your product requirements and region.</p>
           </div>
           <div>
-            <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.35)', marginBottom: 18 }}>Coraplast European Markets</div>
+            <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.35)', marginBottom: 18 }}>Coraplast European Markets</div>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2,1fr)', gap: 8 }}>
               {CORAPLAST_MARKETS.map(m => (
                 <div key={m} style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '10px 14px', background: '#141B3E', borderRadius: 8, border: '1px solid rgba(255,255,255,0.07)' }}>
@@ -287,7 +287,7 @@ export default function DistributorsPage() {
               ))}
             </div>
             <div style={{ marginTop: 20, padding: '16px 20px', background: 'rgba(46,127,208,0.1)', border: '1px solid rgba(46,127,208,0.2)', borderRadius: 10 }}>
-              <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 11, fontWeight: 800, color: '#2B8DD0', marginBottom: 4 }}>Coraplast Certifications</div>
+              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 11, fontWeight: 800, color: '#2B8DD0', marginBottom: 4 }}>Coraplast Certifications</div>
               <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.5)', lineHeight: 1.7 }}>ISO 9001 · ISO 14001 · REACH compliant · EU 10/2011 food-contact grades available</p>
             </div>
           </div>
@@ -300,12 +300,12 @@ export default function DistributorsPage() {
 
           {/* Left info */}
           <div>
-            <div style={{ display: 'inline-block', fontFamily: 'Montserrat, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#2B8DD0', border: '1px solid rgba(74,170,224,0.25)', borderRadius: 4, padding: '4px 10px', marginBottom: 16 }}>Apply Now</div>
-            <h2 style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 'clamp(22px,3vw,32px)', fontWeight: 800, letterSpacing: '-0.02em', lineHeight: 1.2, marginBottom: 12 }}>Tell us about your business.</h2>
+            <div style={{ display: 'inline-block', fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#2B8DD0', border: '1px solid rgba(74,170,224,0.25)', borderRadius: 4, padding: '4px 10px', marginBottom: 16 }}>Apply Now</div>
+            <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(22px,3vw,32px)', fontWeight: 800, letterSpacing: '-0.02em', lineHeight: 1.2, marginBottom: 12 }}>Tell us about your business.</h2>
             <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.6)', lineHeight: 1.75, marginBottom: 24 }}>We review every application personally. You'll hear from us within 48 business hours. No automated rejection emails — if we're not the right fit, we'll tell you why.</p>
 
             <div style={{ background: '#23447A', border: '1px solid rgba(255,255,255,0.09)', borderRadius: 10, padding: '20px', marginBottom: 16 }}>
-              <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#2B8DD0', marginBottom: 12 }}>Our commitment to you</div>
+              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#2B8DD0', marginBottom: 12 }}>Our commitment to you</div>
               {['Response within 48 business hours', 'Honest feedback even if we pass', 'Your information stays confidential', 'No pushy sales follow-up'].map(item => (
                 <div key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: 10, marginBottom: 10, fontSize: 13, color: 'rgba(255,255,255,0.6)' }}>
                   <CheckCircle2 size={14} color="#22C55E" strokeWidth={2.5} style={{ flexShrink: 0, marginTop: 2 }} />
@@ -315,8 +315,8 @@ export default function DistributorsPage() {
             </div>
 
             <div style={{ padding: '20px', background: 'rgba(46,127,208,0.06)', border: '1px solid rgba(46,127,208,0.15)', borderRadius: 10 }}>
-              <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 12, fontWeight: 700, color: '#2B8DD0', marginBottom: 8 }}>Prefer to talk first?</div>
-              <a href="https://wa.me/201022227723" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, color: '#25D366', fontFamily: 'Montserrat, sans-serif', fontSize: 13, fontWeight: 700 }}>
+              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 700, color: '#2B8DD0', marginBottom: 8 }}>Prefer to talk first?</div>
+              <a href="https://wa.me/201022227723" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, color: '#25D366', fontFamily: 'Inter, sans-serif', fontSize: 13, fontWeight: 700 }}>
                 💬 WhatsApp us before applying
               </a>
             </div>

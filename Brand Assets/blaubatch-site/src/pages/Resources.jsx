@@ -56,7 +56,7 @@ function FAQItem({ q, a }) {
         onClick={() => setOpen(o => !o)}
         style={{ width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '18px 0', background: 'none', border: 'none', cursor: 'pointer', gap: 16, textAlign: 'left' }}
       >
-        <span style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 13, fontWeight: 700, color: '#fff', lineHeight: 1.5 }}>{q}</span>
+        <span style={{ fontFamily: 'Inter, sans-serif', fontSize: 13, fontWeight: 700, color: '#fff', lineHeight: 1.5 }}>{q}</span>
         <ChevronDown size={16} color="rgba(255,255,255,0.4)" style={{ flexShrink: 0, transform: open ? 'rotate(180deg)' : 'none', transition: 'transform 0.25s' }} />
       </button>
       <motion.div
@@ -111,10 +111,10 @@ export default function ResourcesPage() {
               style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 16 }}
             >
               <FileText size={14} color="#2B8DD0" />
-              <span style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#2B8DD0' }}>Technical Documents</span>
+              <span style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#2B8DD0' }}>Technical Documents</span>
             </motion.div>
             <motion.h2 initial={{ opacity: 0, y: 20 }} animate={inView1 ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.55, delay: 0.07 }}
-              style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 900, letterSpacing: '-0.025em', marginBottom: 8, lineHeight: 1.1 }}
+              style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 900, letterSpacing: '-0.025em', marginBottom: 8, lineHeight: 1.1 }}
             >Download Library</motion.h2>
             <motion.p initial={{ opacity: 0 }} animate={inView1 ? { opacity: 1 } : {}} transition={{ duration: 0.5, delay: 0.15 }}
               style={{ fontSize: 13, color: 'rgba(255,255,255,0.45)', marginBottom: 40 }}
@@ -129,13 +129,13 @@ export default function ResourcesPage() {
                 style={{ background: '#23447A', border: '1px solid rgba(255,255,255,0.09)', borderRadius: 14, padding: '22px', display: 'flex', flexDirection: 'column' }}
               >
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 10 }}>
-                  <span style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 9, fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase', padding: '3px 8px', borderRadius: 3, background: 'rgba(46,127,208,0.2)', color: '#2B8DD0' }}>{d.type}</span>
+                  <span style={{ fontFamily: 'Inter, sans-serif', fontSize: 9, fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase', padding: '3px 8px', borderRadius: 3, background: 'rgba(46,127,208,0.2)', color: '#2B8DD0' }}>{d.type}</span>
                   <FileText size={14} color="rgba(255,255,255,0.25)" />
                 </div>
-                <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 13, fontWeight: 800, color: '#fff', marginBottom: 8, lineHeight: 1.4 }}>{d.title}</div>
+                <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 13, fontWeight: 800, color: '#fff', marginBottom: 8, lineHeight: 1.4 }}>{d.title}</div>
                 <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.5)', lineHeight: 1.65, flex: 1, marginBottom: 16 }}>{d.desc}</p>
                 <a href={`mailto:info@blaubatch.com?subject=${d.subject}`}
-                  style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '9px 14px', background: 'rgba(46,127,208,0.15)', border: '1px solid rgba(46,127,208,0.25)', borderRadius: 7, color: '#2B8DD0', fontFamily: 'Montserrat, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.07em', textTransform: 'uppercase', transition: 'all 0.2s', width: 'fit-content' }}
+                  style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '9px 14px', background: 'rgba(46,127,208,0.15)', border: '1px solid rgba(46,127,208,0.25)', borderRadius: 7, color: '#2B8DD0', fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.07em', textTransform: 'uppercase', transition: 'all 0.2s', width: 'fit-content' }}
                   onMouseEnter={e => { e.currentTarget.style.background = 'rgba(46,127,208,0.25)'; e.currentTarget.style.borderColor = 'rgba(46,127,208,0.5)' }}
                   onMouseLeave={e => { e.currentTarget.style.background = 'rgba(46,127,208,0.15)'; e.currentTarget.style.borderColor = 'rgba(46,127,208,0.25)' }}
                 ><Download size={11} /> Request</a>
@@ -153,13 +153,13 @@ export default function ResourcesPage() {
               style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 16 }}
             >
               <HelpCircle size={14} color="#D4840A" />
-              <span style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#D4840A' }}>FAQ</span>
+              <span style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#D4840A' }}>FAQ</span>
             </motion.div>
             <motion.h2 initial={{ opacity: 0, y: 20 }} animate={inView2 ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.55, delay: 0.07 }}
-              style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 'clamp(22px, 2.5vw, 32px)', fontWeight: 900, letterSpacing: '-0.025em', marginBottom: 16, lineHeight: 1.1 }}
+              style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(22px, 2.5vw, 32px)', fontWeight: 900, letterSpacing: '-0.025em', marginBottom: 16, lineHeight: 1.1 }}
             >Frequently Asked Questions</motion.h2>
             <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.45)', lineHeight: 1.75, marginBottom: 24 }}>Can't find your answer? Contact us directly.</p>
-            <a href="mailto:info@blaubatch.com?subject=Technical Question" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, padding: '10px 18px', background: '#2B8DD0', color: '#fff', borderRadius: 7, fontFamily: 'Montserrat, sans-serif', fontSize: 11, fontWeight: 800, letterSpacing: '0.06em', textTransform: 'uppercase', transition: 'background 0.2s' }}
+            <a href="mailto:info@blaubatch.com?subject=Technical Question" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, padding: '10px 18px', background: '#2B8DD0', color: '#fff', borderRadius: 7, fontFamily: 'Inter, sans-serif', fontSize: 11, fontWeight: 800, letterSpacing: '0.06em', textTransform: 'uppercase', transition: 'background 0.2s' }}
               onMouseEnter={e => e.currentTarget.style.background = '#2B8DD0'}
               onMouseLeave={e => e.currentTarget.style.background = '#2B8DD0'}
             >Ask a Question <ArrowRight size={12} /></a>
@@ -175,13 +175,13 @@ export default function ResourcesPage() {
         <div style={{ maxWidth: 1200, margin: '0 auto' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 16 }}>
             <BookOpen size={14} color="#2B8DD0" />
-            <span style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#2B8DD0' }}>Terminology</span>
+            <span style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#2B8DD0' }}>Terminology</span>
           </div>
-          <h2 style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 900, letterSpacing: '-0.025em', marginBottom: 40, lineHeight: 1.1 }}>Masterbatch Glossary</h2>
+          <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 900, letterSpacing: '-0.025em', marginBottom: 40, lineHeight: 1.1 }}>Masterbatch Glossary</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2,1fr)', gap: 0 }}>
             {GLOSSARY.map((g, i) => (
               <div key={g.term} style={{ padding: '20px 0', borderBottom: '1px solid rgba(255,255,255,0.07)', paddingRight: i % 2 === 0 ? 40 : 0, paddingLeft: i % 2 === 1 ? 40 : 0, borderRight: i % 2 === 0 ? '1px solid rgba(255,255,255,0.07)' : 'none' }}>
-                <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 13, fontWeight: 900, color: '#2B8DD0', marginBottom: 6 }}>{g.term}</div>
+                <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 13, fontWeight: 900, color: '#2B8DD0', marginBottom: 6 }}>{g.term}</div>
                 <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.55)', lineHeight: 1.75 }}>{g.def}</p>
               </div>
             ))}
@@ -193,8 +193,8 @@ export default function ResourcesPage() {
       <section style={{ background: '#F4F7FB', padding: '88px 48px', borderTop: '1px solid #E2E8F0' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto' }}>
           <div style={{ marginBottom: 48 }}>
-            <div style={{ display: 'inline-block', fontFamily: 'Montserrat, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#D4840A', border: '1px solid rgba(212,132,10,0.3)', borderRadius: 4, padding: '4px 12px', marginBottom: 16 }}>Technical Blog</div>
-            <h2 style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 900, letterSpacing: '-0.025em', marginBottom: 12, lineHeight: 1.1, color: '#141B3E' }}>Coming Soon: Technical Articles</h2>
+            <div style={{ display: 'inline-block', fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#D4840A', border: '1px solid rgba(212,132,10,0.3)', borderRadius: 4, padding: '4px 12px', marginBottom: 16 }}>Technical Blog</div>
+            <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 900, letterSpacing: '-0.025em', marginBottom: 12, lineHeight: 1.1, color: '#141B3E' }}>Coming Soon: Technical Articles</h2>
             <p style={{ fontSize: 14, color: '#475569', lineHeight: 1.8, maxWidth: 560 }}>In-depth guides on masterbatch selection, processing, and applications — written by our compounding team for plastics engineers and procurement professionals.</p>
           </div>
 
@@ -213,16 +213,16 @@ export default function ResourcesPage() {
                 borderTop: `3px solid ${a.borderColor}`,
               }}>
                 <div style={{
-                  display: 'inline-block', fontFamily: 'Montserrat, sans-serif', fontSize: 9, fontWeight: 800,
+                  display: 'inline-block', fontFamily: 'Inter, sans-serif', fontSize: 9, fontWeight: 800,
                   letterSpacing: '0.1em', textTransform: 'uppercase', color: a.color,
                   border: `1px solid ${a.borderColor}`, borderRadius: 4, padding: '3px 8px',
                   alignSelf: 'flex-start',
                 }}>{a.tag}</div>
-                <h3 style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 14, fontWeight: 800, color: '#141B3E', lineHeight: 1.4, flex: 1 }}>{a.title}</h3>
+                <h3 style={{ fontFamily: 'Inter, sans-serif', fontSize: 14, fontWeight: 800, color: '#141B3E', lineHeight: 1.4, flex: 1 }}>{a.title}</h3>
                 <p style={{ fontSize: 12, color: '#64748B', lineHeight: 1.7 }}>{a.desc}</p>
                 <div style={{
                   display: 'inline-flex', alignItems: 'center', gap: 6,
-                  fontFamily: 'Montserrat, sans-serif', fontSize: 10, fontWeight: 800,
+                  fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800,
                   letterSpacing: '0.06em', textTransform: 'uppercase', color: '#94A3B8',
                   paddingTop: 12, borderTop: '1px solid #F1F5F9',
                 }}>

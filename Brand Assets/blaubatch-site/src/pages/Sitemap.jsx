@@ -60,8 +60,8 @@ export default function SitemapPage() {
     <>
       <section style={{ background: '#141B3E', padding: '80px 48px 40px' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto' }}>
-          <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#2B8DD0', border: '1px solid rgba(43,141,208,0.3)', borderRadius: 4, padding: '4px 12px', display: 'inline-block', marginBottom: 20 }}>Navigation</div>
-          <h1 style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 'clamp(28px, 4vw, 48px)', fontWeight: 900, letterSpacing: '-0.025em', color: '#fff', marginBottom: 12, lineHeight: 1.1 }}>Sitemap</h1>
+          <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#2B8DD0', border: '1px solid rgba(43,141,208,0.3)', borderRadius: 4, padding: '4px 12px', display: 'inline-block', marginBottom: 20 }}>Navigation</div>
+          <h1 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(28px, 4vw, 48px)', fontWeight: 900, letterSpacing: '-0.025em', color: '#fff', marginBottom: 12, lineHeight: 1.1 }}>Sitemap</h1>
           <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.45)', lineHeight: 1.8 }}>A complete index of all pages on blaubatch.com</p>
         </div>
       </section>
@@ -72,7 +72,7 @@ export default function SitemapPage() {
             <div key={group.section}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 20 }}>
                 <div style={{ width: 3, height: 20, background: group.color, borderRadius: 2, flexShrink: 0 }} />
-                <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 11, fontWeight: 800, letterSpacing: '0.12em', textTransform: 'uppercase', color: group.color }}>{group.section}</div>
+                <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 11, fontWeight: 800, letterSpacing: '0.12em', textTransform: 'uppercase', color: group.color }}>{group.section}</div>
               </div>
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: 10 }}>
                 {group.pages.map(page => (
@@ -88,9 +88,9 @@ export default function SitemapPage() {
                     onMouseEnter={e => { e.currentTarget.style.borderColor = group.color === '#D4840A' ? 'rgba(212,132,10,0.4)' : 'rgba(43,141,208,0.4)'; e.currentTarget.style.background = '#2a5090' }}
                     onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.09)'; e.currentTarget.style.background = '#23447A' }}
                   >
-                    <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 13, fontWeight: 800, color: '#fff', marginBottom: 5 }}>{page.label}</div>
+                    <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 13, fontWeight: 800, color: '#fff', marginBottom: 5 }}>{page.label}</div>
                     <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.45)', lineHeight: 1.6 }}>{page.desc}</div>
-                    <div style={{ fontSize: 10, color: group.color, marginTop: 8, fontFamily: 'Montserrat, sans-serif', fontWeight: 700 }}>{page.path}</div>
+                    <div style={{ fontSize: 10, color: group.color, marginTop: 8, fontFamily: 'Inter, sans-serif', fontWeight: 700 }}>{page.path}</div>
                   </Link>
                 ))}
               </div>

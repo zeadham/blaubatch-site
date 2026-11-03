@@ -75,10 +75,10 @@ export default function ColorMBPage() {
         <div style={{ maxWidth: 1200, margin: '0 auto' }}>
           <div ref={ref1}>
             <motion.div initial={{ opacity: 0, y: 16 }} animate={inView1 ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5 }}
-              style={{ display: 'inline-block', fontFamily: 'Montserrat, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#2B8DD0', border: '1px solid rgba(46,127,208,0.35)', borderRadius: 4, padding: '4px 12px', marginBottom: 16 }}
+              style={{ display: 'inline-block', fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#2B8DD0', border: '1px solid rgba(46,127,208,0.35)', borderRadius: 4, padding: '4px 12px', marginBottom: 16 }}
             >Product Range</motion.div>
             <motion.h2 initial={{ opacity: 0, y: 20 }} animate={inView1 ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.55, delay: 0.07 }}
-              style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 900, letterSpacing: '-0.025em', marginBottom: 40, lineHeight: 1.1, color: '#141B3E' }}
+              style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 900, letterSpacing: '-0.025em', marginBottom: 40, lineHeight: 1.1, color: '#141B3E' }}
             >Colour Product Families</motion.h2>
           </div>
 
@@ -93,8 +93,8 @@ export default function ColorMBPage() {
                 <div style={{ width: 40, height: 40, borderRadius: 10, background: 'rgba(43,141,208,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 14 }}>
                   <f.icon size={20} strokeWidth={1.5} color="#2B8DD0" />
                 </div>
-                <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 15, fontWeight: 900, color: '#141B3E', marginBottom: 4 }}>{f.name}</div>
-                <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 10, fontWeight: 700, color: '#2B8DD0', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 12 }}>{f.sub}</div>
+                <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 15, fontWeight: 900, color: '#141B3E', marginBottom: 4 }}>{f.name}</div>
+                <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 700, color: '#2B8DD0', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 12 }}>{f.sub}</div>
                 <p style={{ fontSize: 13, color: '#475569', lineHeight: 1.7 }}>{f.desc}</p>
               </motion.div>
             ))}
@@ -106,8 +106,8 @@ export default function ColorMBPage() {
       <section style={{ background: '#FFFFFF', borderTop: '1px solid #E2E8F0', padding: '88px 48px' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 64 }}>
           <div ref={ref2}>
-            <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#2B8DD0', border: '1px solid rgba(46,127,208,0.3)', borderRadius: 4, padding: '4px 12px', marginBottom: 16, display: 'inline-block' }}>Why Choose Us</div>
-            <h2 style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 28, fontWeight: 900, marginBottom: 28, letterSpacing: '-0.02em', lineHeight: 1.15, color: '#141B3E' }}>Technical Advantages</h2>
+            <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#2B8DD0', border: '1px solid rgba(46,127,208,0.3)', borderRadius: 4, padding: '4px 12px', marginBottom: 16, display: 'inline-block' }}>Why Choose Us</div>
+            <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 28, fontWeight: 900, marginBottom: 28, letterSpacing: '-0.02em', lineHeight: 1.15, color: '#141B3E' }}>Technical Advantages</h2>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
               {ADVANTAGES.map(a => (
                 <div key={a} style={{ display: 'flex', gap: 12, padding: '14px 0', borderBottom: '1px solid #E2E8F0', alignItems: 'flex-start' }}>
@@ -118,16 +118,16 @@ export default function ColorMBPage() {
             </div>
           </div>
           <div>
-            <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#2B8DD0', border: '1px solid rgba(46,127,208,0.3)', borderRadius: 4, padding: '4px 12px', marginBottom: 16, display: 'inline-block' }}>Carrier Compatibility</div>
-            <h2 style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 28, fontWeight: 900, marginBottom: 28, letterSpacing: '-0.02em', lineHeight: 1.15, color: '#141B3E' }}>By Resin Type</h2>
+            <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#2B8DD0', border: '1px solid rgba(46,127,208,0.3)', borderRadius: 4, padding: '4px 12px', marginBottom: 16, display: 'inline-block' }}>Carrier Compatibility</div>
+            <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 28, fontWeight: 900, marginBottom: 28, letterSpacing: '-0.02em', lineHeight: 1.15, color: '#141B3E' }}>By Resin Type</h2>
             <div style={{ background: '#F4F7FB', border: '1px solid #E2E8F0', borderRadius: 12, overflow: 'hidden' }}>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', background: '#EFF6FF', borderBottom: '1px solid #E2E8F0', padding: '10px 20px' }}>
-                <span style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#475569' }}>Carrier Resin</span>
-                <span style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#475569' }}>Typical Applications</span>
+                <span style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#475569' }}>Carrier Resin</span>
+                <span style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#475569' }}>Typical Applications</span>
               </div>
               {CARRIERS.map((c, i) => (
                 <div key={c.resin} style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', padding: '13px 20px', borderBottom: i < CARRIERS.length - 1 ? '1px solid #E2E8F0' : 'none' }}>
-                  <span style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 12, fontWeight: 800, color: '#2B8DD0' }}>{c.resin}</span>
+                  <span style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, color: '#2B8DD0' }}>{c.resin}</span>
                   <span style={{ fontSize: 12, color: '#475569' }}>{c.use}</span>
                 </div>
               ))}
@@ -140,8 +140,8 @@ export default function ColorMBPage() {
       <section style={{ background: '#F4F7FB', padding: '88px 48px', borderTop: '1px solid #E2E8F0' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: 56 }}>
-            <div style={{ display: 'inline-block', fontFamily: 'Montserrat, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#D4840A', border: '1px solid rgba(212,132,10,0.35)', borderRadius: 4, padding: '4px 12px', marginBottom: 16 }}>Custom Development</div>
-            <h2 style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 900, letterSpacing: '-0.025em', marginBottom: 12, lineHeight: 1.1, color: '#141B3E' }}>Colour Matching Process</h2>
+            <div style={{ display: 'inline-block', fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#D4840A', border: '1px solid rgba(212,132,10,0.35)', borderRadius: 4, padding: '4px 12px', marginBottom: 16 }}>Custom Development</div>
+            <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 900, letterSpacing: '-0.025em', marginBottom: 12, lineHeight: 1.1, color: '#141B3E' }}>Colour Matching Process</h2>
             <p style={{ fontSize: 14, color: '#475569', maxWidth: 520, margin: '0 auto', lineHeight: 1.75 }}>From reference to production-ready masterbatch in 5 business days</p>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 2 }}>
@@ -152,8 +152,8 @@ export default function ColorMBPage() {
               { step: '04', title: 'Production Release', desc: 'Approved formula locked — consistent batch-to-batch ΔE ≤ 0.5' },
             ].map((s, i) => (
               <div key={s.step} style={{ background: '#FFFFFF', border: '1px solid #E2E8F0', borderRadius: i === 0 ? '14px 0 0 14px' : i === 3 ? '0 14px 14px 0' : 0, padding: '28px 24px', position: 'relative' }}>
-                <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 36, fontWeight: 900, color: 'rgba(0,0,0,0.08)', lineHeight: 1, marginBottom: 12 }}>{s.step}</div>
-                <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 13, fontWeight: 800, color: '#141B3E', marginBottom: 8 }}>{s.title}</div>
+                <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 36, fontWeight: 900, color: 'rgba(0,0,0,0.08)', lineHeight: 1, marginBottom: 12 }}>{s.step}</div>
+                <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 13, fontWeight: 800, color: '#141B3E', marginBottom: 8 }}>{s.title}</div>
                 <p style={{ fontSize: 12, color: '#94A3B8', lineHeight: 1.7 }}>{s.desc}</p>
               </div>
             ))}
@@ -165,16 +165,16 @@ export default function ColorMBPage() {
       <section style={{ background: '#FFFFFF', padding: '80px 48px', borderTop: '1px solid #E2E8F0' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24 }}>
           <div style={{ background: 'linear-gradient(150deg, #23447A, #23447A)', border: '1px solid rgba(46,127,208,0.25)', borderRadius: 16, padding: '36px' }}>
-            <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#2B8DD0', marginBottom: 12 }}>Start Your Colour Project</div>
-            <h2 style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 26, fontWeight: 900, marginBottom: 14, letterSpacing: '-0.02em', color: '#fff' }}>Request Samples or Custom Match</h2>
+            <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#2B8DD0', marginBottom: 12 }}>Start Your Colour Project</div>
+            <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 26, fontWeight: 900, marginBottom: 14, letterSpacing: '-0.02em', color: '#fff' }}>Request Samples or Custom Match</h2>
             <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.6)', lineHeight: 1.75, marginBottom: 24 }}>Share your colour target, target resin, and required volume — we'll handle the rest from formulation to delivery.</p>
-            <a href="mailto:info@blaubatch.com?subject=Colour Masterbatch Enquiry" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '13px 26px', background: '#2B8DD0', color: '#fff', borderRadius: 8, fontFamily: 'Montserrat, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.07em', textTransform: 'uppercase', transition: 'all 0.2s' }}
+            <a href="mailto:info@blaubatch.com?subject=Colour Masterbatch Enquiry" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '13px 26px', background: '#2B8DD0', color: '#fff', borderRadius: 8, fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.07em', textTransform: 'uppercase', transition: 'all 0.2s' }}
               onMouseEnter={e => { e.currentTarget.style.background = '#2B8DD0'; e.currentTarget.style.transform = 'translateY(-2px)' }}
               onMouseLeave={e => { e.currentTarget.style.background = '#2B8DD0'; e.currentTarget.style.transform = 'none' }}
             >Get Started <ArrowRight size={14} /></a>
           </div>
           <div style={{ background: '#F4F7FB', border: '1px solid #E2E8F0', borderRadius: 16, padding: '36px' }}>
-            <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#94A3B8', marginBottom: 16 }}>Related Products</div>
+            <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#94A3B8', marginBottom: 16 }}>Related Products</div>
             {[
               { name: 'FMPE Series', sub: 'PE Filler Masterbatch · 70–80% CaCO₃', href: '/fmpe' },
               { name: 'FMPP Series', sub: 'PP Filler Masterbatch · 70–80% CaCO₃', href: '/fmpp' },
@@ -185,7 +185,7 @@ export default function ColorMBPage() {
                 onMouseLeave={e => e.currentTarget.style.opacity = '1'}
               >
                 <div>
-                  <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 13, fontWeight: 800, color: '#141B3E', marginBottom: 3 }}>{p.name}</div>
+                  <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 13, fontWeight: 800, color: '#141B3E', marginBottom: 3 }}>{p.name}</div>
                   <div style={{ fontSize: 12, color: '#94A3B8' }}>{p.sub}</div>
                 </div>
                 <ArrowRight size={16} color="rgba(0,0,0,0.2)" />
@@ -199,8 +199,8 @@ export default function ColorMBPage() {
       <section style={{ background: '#141B3E', padding: '72px 48px', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto' }}>
           <div style={{ marginBottom: 40 }}>
-            <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#2B8DD0', border: '1px solid rgba(43,141,208,0.3)', borderRadius: 4, padding: '4px 12px', display: 'inline-block', marginBottom: 14 }}>Industries</div>
-            <h2 style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 'clamp(22px, 2.5vw, 34px)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 10, color: '#fff' }}>Where Colour Masterbatch Is Used</h2>
+            <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#2B8DD0', border: '1px solid rgba(43,141,208,0.3)', borderRadius: 4, padding: '4px 12px', display: 'inline-block', marginBottom: 14 }}>Industries</div>
+            <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(22px, 2.5vw, 34px)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 10, color: '#fff' }}>Where Colour Masterbatch Is Used</h2>
             <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.55)', lineHeight: 1.8, maxWidth: 520 }}>Colour masterbatch is used wherever colour consistency, brand matching, and substrate compatibility are critical — from consumer packaging to technical automotive parts.</p>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: 16 }}>
@@ -213,10 +213,10 @@ export default function ColorMBPage() {
                   <div style={{ width: 40, height: 40, borderRadius: 10, background: 'rgba(43,141,208,0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 14 }}>
                     <ind.icon size={20} strokeWidth={1.5} color="#2B8DD0" />
                   </div>
-                  <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 14, fontWeight: 800, marginBottom: 8, color: '#fff' }}>{ind.name}</div>
+                  <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 14, fontWeight: 800, marginBottom: 8, color: '#fff' }}>{ind.name}</div>
                   <div style={{ fontSize: 13, color: 'rgba(255,255,255,0.6)', lineHeight: 1.7 }}>{ind.desc}</div>
                   <div style={{ marginTop: 12, display: 'flex', flexWrap: 'wrap', gap: 5 }}>
-                    {ind.tags.map(t => <span key={t} style={{ fontSize: 10, padding: '2px 8px', background: 'rgba(43,141,208,0.12)', borderRadius: 4, color: '#2B8DD0', fontFamily: 'Montserrat, sans-serif', fontWeight: 700 }}>{t}</span>)}
+                    {ind.tags.map(t => <span key={t} style={{ fontSize: 10, padding: '2px 8px', background: 'rgba(43,141,208,0.12)', borderRadius: 4, color: '#2B8DD0', fontFamily: 'Inter, sans-serif', fontWeight: 700 }}>{t}</span>)}
                   </div>
                 </Tag>
               )
@@ -229,8 +229,8 @@ export default function ColorMBPage() {
       <section id="quote-form" style={{ background: '#141B3E', padding: '80px 48px', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: 40 }}>
-            <div style={{ display: 'inline-block', fontFamily: 'Montserrat, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#2B8DD0', border: '1px solid rgba(74,170,224,0.25)', borderRadius: 4, padding: '4px 10px', marginBottom: 14 }}>Request a Sample or Quote</div>
-            <h2 style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 'clamp(24px,3vw,36px)', fontWeight: 800, letterSpacing: '-0.02em', marginBottom: 10 }}>Get a colour masterbatch quote.</h2>
+            <div style={{ display: 'inline-block', fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#2B8DD0', border: '1px solid rgba(74,170,224,0.25)', borderRadius: 4, padding: '4px 10px', marginBottom: 14 }}>Request a Sample or Quote</div>
+            <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(24px,3vw,36px)', fontWeight: 800, letterSpacing: '-0.02em', marginBottom: 10 }}>Get a colour masterbatch quote.</h2>
             <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.55)', fontWeight: 300 }}>We respond within 24 hours.</p>
           </div>
           <div style={{ maxWidth: 640, margin: '0 auto' }}>

@@ -7,9 +7,9 @@ Generates branded PDF Technical Data Sheets:
 - Blau Batch branded for manufactured products (Filler Masterbatch)
 - Blau Batch + Coraplast co-branded for distributed products
 
-Brand Guidelines v4 compliance:
+Brand Guidelines v5 compliance:
 - Colors: Deep Navy #141B3E, Steel Blue #23447A, Sky Blue #2B8DD0, Mfg Amber #D4840A
-- Typography: Montserrat (headings), Open Sans (body) — with Arial fallback
+- Typography: Inter (headings and body), from Brand Assets/Fonts — Helvetica fallback
 - Logos: Blau Batch primary + Coraplast logo for co-branded
 """
 
@@ -34,8 +34,9 @@ from reportlab.lib.utils import ImageReader
 # ============================================================
 # PATHS
 # ============================================================
-BASE_DIR = r"C:\Users\Adham\Desktop\Blau Batch Master"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))  # the "Blau Batch Master" folder
 BRAND_DIR = os.path.join(BASE_DIR, "Brand Assets")
+FONTS_DIR = os.path.join(BRAND_DIR, "Fonts")
 LOGO_BB = os.path.join(BRAND_DIR, "Logos", "BlauBatch_Logo_Primary.jpg")
 LOGO_CP = os.path.join(BRAND_DIR, "Logos", "coraplast-logo0d-01-01.png")
 CORAPLAST_DIR = os.path.join(BRAND_DIR, "Technical Sheets", "Coraplast_extracted")
@@ -55,98 +56,23 @@ TABLE_HEADER_BG = STEEL_BLUE
 TABLE_ALT_ROW = colors.HexColor("#F0F4F8")
 
 # ============================================================
-# FONT REGISTRATION — use Arial as fallback (universally available on Windows)
+# FONT REGISTRATION — Inter from Brand Assets/Fonts
 # ============================================================
 def register_fonts():
-    """Register fonts. Use Arial (Windows built-in) as reliable fallback."""
-    font_dirs = [
-        r"C:\Windows\Fonts",
-        os.path.expanduser(r"~\AppData\Local\Microsoft\Windows\Fonts"),
-    ]
-
-    # Try Montserrat first, fall back to Arial
-    montserrat_found = False
-    opensans_found = False
-
-    for fd in font_dirs:
-        if not os.path.isdir(fd):
-            continue
-        for f in os.listdir(fd):
-            fl = f.lower()
-            if "montserrat" in fl and fl.endswith(".ttf"):
-                if "bold" in fl and "extra" not in fl and "semi" not in fl:
-                    try:
-                        pdfmetrics.registerFont(TTFont("Montserrat-Bold", os.path.join(fd, f)))
-                        montserrat_found = True
-                    except:
-                        pass
-                elif "extrabold" in fl or "extra" in fl:
-                    try:
-                        pdfmetrics.registerFont(TTFont("Montserrat-ExtraBold", os.path.join(fd, f)))
-                    except:
-                        pass
-                elif "black" in fl:
-                    try:
-                        pdfmetrics.registerFont(TTFont("Montserrat-Black", os.path.join(fd, f)))
-                    except:
-                        pass
-                elif "regular" in fl:
-                    try:
-                        pdfmetrics.registerFont(TTFont("Montserrat", os.path.join(fd, f)))
-                    except:
-                        pass
-            if "opensans" in fl.replace("-", "").replace(" ", "") and fl.endswith(".ttf"):
-                if "bold" in fl and "semi" not in fl:
-                    try:
-                        pdfmetrics.registerFont(TTFont("OpenSans-Bold", os.path.join(fd, f)))
-                        opensans_found = True
-                    except:
-                        pass
-                elif "semibold" in fl:
-                    try:
-                        pdfmetrics.registerFont(TTFont("OpenSans-SemiBold", os.path.join(fd, f)))
-                    except:
-                        pass
-                elif "regular" in fl:
-                    try:
-                        pdfmetrics.registerFont(TTFont("OpenSans", os.path.join(fd, f)))
-                    except:
-                        pass
-
-    # Use Arial as universal fallback
-    arial_path = r"C:\Windows\Fonts\arial.ttf"
-    arialbd_path = r"C:\Windows\Fonts\arialbd.ttf"
-
-    if os.path.exists(arial_path):
-        try:
-            pdfmetrics.registerFont(TTFont("Arial", arial_path))
-        except:
-            pass
-    if os.path.exists(arialbd_path):
-        try:
-            pdfmetrics.registerFont(TTFont("Arial-Bold", arialbd_path))
-        except:
-            pass
-
-    # Determine actual fonts to use
-    heading_font = "Montserrat-Bold" if montserrat_found else "Arial-Bold"
-    heading_font_heavy = "Montserrat-ExtraBold" if montserrat_found else "Arial-Bold"
-    body_font = "OpenSans" if opensans_found else "Arial"
-    body_font_bold = "OpenSans-Bold" if opensans_found else "Arial-Bold"
-
-    # If nothing custom found, just use Helvetica (always available in reportlab)
+    """Register Inter (brand typeface) from Brand Assets/Fonts, falling back to Helvetica."""
+    weights = {
+        "Inter": "Inter-Regular.ttf",
+        "Inter-SemiBold": "Inter-SemiBold.ttf",
+        "Inter-Bold": "Inter-Bold.ttf",
+        "Inter-ExtraBold": "Inter-ExtraBold.ttf",
+    }
     try:
-        pdfmetrics.getFont(heading_font)
-    except:
-        heading_font = "Helvetica-Bold"
-        heading_font_heavy = "Helvetica-Bold"
-    try:
-        pdfmetrics.getFont(body_font)
-    except:
-        body_font = "Helvetica"
-        body_font_bold = "Helvetica-Bold"
-
-    return heading_font, heading_font_heavy, body_font, body_font_bold
+        for name, fname in weights.items():
+            pdfmetrics.registerFont(TTFont(name, os.path.join(FONTS_DIR, fname)))
+        return "Inter-Bold", "Inter-ExtraBold", "Inter", "Inter-SemiBold"
+    except Exception as e:
+        print(f"WARNING: Inter not found in {FONTS_DIR} ({e}); using Helvetica")
+        return "Helvetica-Bold", "Helvetica-Bold", "Helvetica", "Helvetica-Bold"
 
 HEADING_FONT, HEADING_FONT_HEAVY, BODY_FONT, BODY_FONT_BOLD = register_fonts()
 
@@ -1203,7 +1129,7 @@ def generate_catalogue(all_bb_products, all_cp_products, output_dir):
 def main():
     print("=" * 60)
     print("BLAU BATCH TDS & CATALOGUE PDF GENERATOR")
-    print("Brand Guidelines v4 Compliant")
+    print("Brand typeface: Inter")
     print("=" * 60)
 
     # ---- 1. Generate Blau Batch Manufactured TDS ----

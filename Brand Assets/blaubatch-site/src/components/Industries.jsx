@@ -30,7 +30,7 @@ export default function Industries() {
             initial={{ opacity: 0, y: 16 }} animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5 }}
             style={{
-              display: 'inline-block', fontFamily: 'Montserrat, sans-serif', fontSize: 10,
+              display: 'inline-block', fontFamily: 'Inter, sans-serif', fontSize: 10,
               fontWeight: 800, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#2B8DD0',
               border: '1px solid rgba(74,170,224,0.3)', borderRadius: 4, padding: '4px 12px', marginBottom: 16,
             }}
@@ -39,7 +39,7 @@ export default function Industries() {
           <motion.h2
             initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.55, delay: 0.07 }}
-            style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 'clamp(26px, 3vw, 40px)', fontWeight: 900, letterSpacing: '-0.025em', marginBottom: 12, lineHeight: 1.1, color: '#141B3E' }}
+            style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(26px, 3vw, 40px)', fontWeight: 900, letterSpacing: '-0.025em', marginBottom: 12, lineHeight: 1.1, color: '#141B3E' }}
           >Built for Plastics Processing</motion.h2>
 
           <motion.p
@@ -71,7 +71,7 @@ export default function Industries() {
               
               <div style={{ position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column' }}>
                 <h3 style={{
-                  fontFamily: 'Montserrat, sans-serif', fontSize: 16, fontWeight: 800,
+                  fontFamily: 'Inter, sans-serif', fontSize: 16, fontWeight: 800,
                   marginBottom: 8, lineHeight: 1.25, color: '#fff',
                 }}>{ind.name}</h3>
 
@@ -82,7 +82,7 @@ export default function Industries() {
                     <span key={p} style={{
                       fontSize: 9, padding: '3px 8px',
                       background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.15)', borderRadius: 4,
-                      fontFamily: 'Montserrat, sans-serif', fontWeight: 700, letterSpacing: '0.04em',
+                      fontFamily: 'Inter, sans-serif', fontWeight: 700, letterSpacing: '0.04em',
                       color: '#fff',
                     }}>{p}</span>
                   ))}
@@ -91,7 +91,7 @@ export default function Industries() {
                 {ind.href && (
                   <Link to={ind.href} style={{
                     display: 'inline-flex', alignItems: 'center', gap: 6,
-                    fontSize: 10, fontFamily: 'Montserrat, sans-serif', fontWeight: 800,
+                    fontSize: 10, fontFamily: 'Inter, sans-serif', fontWeight: 800,
                     letterSpacing: '0.08em', textTransform: 'uppercase',
                     color: '#2B8DD0', transition: 'all 0.2s', alignSelf: 'flex-start',
                     background: 'rgba(255,255,255,0.95)', padding: '6px 12px', borderRadius: 4,

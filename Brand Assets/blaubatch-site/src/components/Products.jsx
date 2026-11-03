@@ -95,17 +95,17 @@ function ProductCard({ p, index }) {
       <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginBottom: 12, gap: 10 }}>
         <div>
           <span style={{
-            fontFamily: 'Montserrat, sans-serif', fontSize: 10, fontWeight: 800,
+            fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800,
             letterSpacing: '0.12em', textTransform: 'uppercase',
             color: p.badgeColor === '#D4840A' ? '#D4840A' : '#2B8DD0',
             border: `1px solid ${p.badgeColor === '#D4840A' ? 'rgba(212,132,10,0.35)' : 'rgba(46,127,208,0.3)'}`,
             borderRadius: 4, padding: '3px 8px', display: 'inline-block', marginBottom: 6,
           }}>{p.badge}</span>
-          <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 10, color: subColor, letterSpacing: '0.06em', fontWeight: 600 }}>{p.code}</div>
+          <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, color: subColor, letterSpacing: '0.06em', fontWeight: 600 }}>{p.code}</div>
         </div>
       </div>
 
-      <h3 style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 18, fontWeight: 900, marginBottom: 12, letterSpacing: '-0.01em', color: textColor }}>{p.name}</h3>
+      <h3 style={{ fontFamily: 'Inter, sans-serif', fontSize: 18, fontWeight: 900, marginBottom: 12, letterSpacing: '-0.01em', color: textColor }}>{p.name}</h3>
       <p style={{ fontSize: 13, color: subColor, lineHeight: 1.65, marginBottom: 18, flex: 1 }}>{p.desc}</p>
 
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginBottom: 20, justifyContent: 'center' }}>
@@ -113,7 +113,7 @@ function ProductCard({ p, index }) {
           <span key={s} style={{
             fontSize: 10, padding: '3px 9px',
             background: specBg, borderRadius: 5,
-            fontFamily: 'Montserrat, sans-serif', fontWeight: 700, letterSpacing: '0.04em',
+            fontFamily: 'Inter, sans-serif', fontWeight: 700, letterSpacing: '0.04em',
             color: specText,
           }}>{s}</span>
         ))}
@@ -124,7 +124,7 @@ function ProductCard({ p, index }) {
           {p.hrefs.map(link => (
             <a key={link.url} href={link.url} style={{
               display: 'inline-flex', alignItems: 'center', gap: 8, flex: 1, justifyContent: 'center',
-              fontFamily: 'Montserrat, sans-serif', fontSize: 12, fontWeight: 900,
+              fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 900,
               letterSpacing: '0.04em', textTransform: 'uppercase',
               color: '#D4840A', border: '2px solid rgba(212,132,10,0.6)',
               borderRadius: 6, padding: '12px 0px',
@@ -141,7 +141,7 @@ function ProductCard({ p, index }) {
       ) : (
         <a href={p.href} style={{
           display: 'inline-flex', alignItems: 'center', gap: 6, width: '100%', justifyContent: 'center',
-          fontFamily: 'Montserrat, sans-serif', fontSize: 11, fontWeight: 800,
+          fontFamily: 'Inter, sans-serif', fontSize: 11, fontWeight: 800,
           letterSpacing: '0.05em', textTransform: 'uppercase',
           color: isFeatured ? '#D4840A' : '#fff',
           background: isFeatured ? 'transparent' : '#2B8DD0',
@@ -173,7 +173,7 @@ export default function Products() {
             initial={{ opacity: 0, y: 16 }} animate={headInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5 }}
             style={{
-              display: 'inline-block', fontFamily: 'Montserrat, sans-serif', fontSize: 10,
+              display: 'inline-block', fontFamily: 'Inter, sans-serif', fontSize: 10,
               fontWeight: 800, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#2B8DD0',
               border: '1px solid rgba(46,127,208,0.3)', borderRadius: 4, padding: '4px 12px', marginBottom: 16,
             }}
@@ -182,7 +182,7 @@ export default function Products() {
           <motion.h2
             initial={{ opacity: 0, y: 20 }} animate={headInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.55, delay: 0.07 }}
-            style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 'clamp(26px, 3vw, 40px)', fontWeight: 900, letterSpacing: '-0.025em', marginBottom: 12, lineHeight: 1.1, color: '#1a2744' }}
+            style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(26px, 3vw, 40px)', fontWeight: 900, letterSpacing: '-0.025em', marginBottom: 12, lineHeight: 1.1, color: '#1a2744' }}
           >Complete Masterbatch Portfolio</motion.h2>
 
           <motion.p

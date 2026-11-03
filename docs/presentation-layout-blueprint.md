@@ -5,8 +5,8 @@
 **Spec data:** `generate_tds_pdfs.py` (TDS values for the 8 filler grades)
 
 **Governing documents** (cited inline):
-- **[BG]** `Brand Assets/BlauBatch_BrandGuidelines_v4.docx`: Corporate Brand Identity Manual v4.0
-- **[VI]** `Brand Assets/BlauBatch_VisualIdentityGuide_v1.docx`: Visual Identity Guide v1.0
+- **[BG]** `Brand Assets/BlauBatch_BrandGuidelines_v5.docx`: Corporate Brand Identity Manual v5.0
+- **[VI]** `Brand Assets/BlauBatch_VisualIdentityGuide_v1.1.docx`: Visual Identity Guide v1.1
 
 Where the two differ, the stricter rule is used and the conflict is noted.
 
@@ -63,7 +63,7 @@ The guides define no slide grid, so this deck uses the web grid tokens ([VI §11
 
 ### 0.3 Text Hierarchy
 
-**Typeface: Inter** for all slide text. It replaces Montserrat (headings) and Open Sans (body), which [BG §5] and [VI §12] still specify; update the guides to match. Hierarchy comes from weight and size, and the sizes follow the [BG §5.3] / [VI §13] scale. Heading line height 1.2×, body 1.5× [VI §12.2]. Inter is free on Google Fonts and built into Canva. Arabic text stays in Cairo [VI §12.3].
+**Typeface: Inter** for all slide text [BG §5.1], [VI §12.1]. Hierarchy comes from weight and size, and the sizes follow the [BG §5.3] / [VI §13] scale. Heading line height 1.2×, body 1.5× [VI §12.2]. Inter is free on Google Fonts and built into Canva. Arabic text stays in Cairo [VI §12.3].
 
 | Level | Font / Weight | pt (px) | Case | Colour: light slide / dark slide | Source |
 |---|---|---|---|---|---|

@@ -31,7 +31,7 @@ export default function Specs() {
             initial={{ opacity: 0, y: 16 }} animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5 }}
             style={{
-              display: 'inline-block', fontFamily: 'Montserrat, sans-serif', fontSize: 10,
+              display: 'inline-block', fontFamily: 'Inter, sans-serif', fontSize: 10,
               fontWeight: 800, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#D4840A',
               border: '1px solid rgba(212,132,10,0.3)', borderRadius: 4, padding: '4px 12px', marginBottom: 16,
             }}
@@ -40,7 +40,7 @@ export default function Specs() {
           <motion.h2
             initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.55, delay: 0.07 }}
-            style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 'clamp(26px, 3vw, 40px)', fontWeight: 900, letterSpacing: '-0.025em', marginBottom: 12, lineHeight: 1.1, color: '#141B3E' }}
+            style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(26px, 3vw, 40px)', fontWeight: 900, letterSpacing: '-0.025em', marginBottom: 12, lineHeight: 1.1, color: '#141B3E' }}
           >Filler Masterbatch<br />Grade Reference</motion.h2>
 
           <motion.p
@@ -69,7 +69,7 @@ export default function Specs() {
           }}>
             {['Series', 'Grade Code', 'Carrier', 'Loading', 'Application', 'MFI'].map(h => (
               <div key={h} style={{
-                fontFamily: 'Montserrat, sans-serif', fontSize: 10, fontWeight: 800,
+                fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800,
                 letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(20,27,62,0.5)',
               }}>{h}</div>
             ))}
@@ -84,9 +84,9 @@ export default function Specs() {
             onMouseEnter={e => e.currentTarget.style.background = 'rgba(20,27,62,0.02)'}
             onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
             >
-              <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 11, fontWeight: 700, color: 'rgba(20,27,62,0.5)' }}>{g.series}</div>
+              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 11, fontWeight: 700, color: 'rgba(20,27,62,0.5)' }}>{g.series}</div>
               <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                <span style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 12, fontWeight: 800, color: '#141B3E' }}>{g.code}</span>
+                <span style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, color: '#141B3E' }}>{g.code}</span>
                 <span style={{
                   fontSize: 9, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase',
                   padding: '2px 6px', borderRadius: 3,
@@ -95,9 +95,9 @@ export default function Specs() {
                 }}>{g.badge}</span>
               </div>
               <div style={{ fontSize: 12, color: 'rgba(20,27,62,0.6)' }}>{g.carrier}</div>
-              <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 13, fontWeight: 800, color: '#D4840A' }}>{g.loading}</div>
+              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 13, fontWeight: 800, color: '#D4840A' }}>{g.loading}</div>
               <div style={{ fontSize: 12, color: 'rgba(20,27,62,0.6)' }}>{g.app}</div>
-              <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 11, fontWeight: 700, color: '#2B8DD0' }}>{g.mfi}</div>
+              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 11, fontWeight: 700, color: '#2B8DD0' }}>{g.mfi}</div>
             </div>
           ))}
         </motion.div>
@@ -108,7 +108,7 @@ export default function Specs() {
             transition={{ duration: 0.5, delay: 0.1 }}
             style={{ background: '#fff', border: '1px solid rgba(20,27,62,0.1)', borderRadius: 12, padding: '22px' }}
           >
-            <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#2B8DD0', marginBottom: 14 }}>In-House QC Tests</div>
+            <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#2B8DD0', marginBottom: 14 }}>In-House QC Tests</div>
             {QC_TESTS.map(t => (
               <div key={t} style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '7px 0', borderBottom: '1px solid rgba(20,27,62,0.08)' }}>
                 <div style={{ width: 5, height: 5, borderRadius: '50%', background: '#2B8DD0', flexShrink: 0 }} />
@@ -122,7 +122,7 @@ export default function Specs() {
             transition={{ duration: 0.5, delay: 0.18 }}
             style={{ background: '#fff', border: '1px solid rgba(20,27,62,0.1)', borderRadius: 12, padding: '22px' }}
           >
-            <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#D4840A', marginBottom: 14 }}>Packaging & Delivery</div>
+            <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#D4840A', marginBottom: 14 }}>Packaging & Delivery</div>
             {[
               { label: 'Standard Bags', val: '25 kg PP bags' },
               { label: 'Big Bags (FIBC)', val: '500–1000 kg' },
@@ -133,7 +133,7 @@ export default function Specs() {
             ].map(r => (
               <div key={r.label} style={{ display: 'flex', justifyContent: 'space-between', padding: '7px 0', borderBottom: '1px solid rgba(20,27,62,0.08)', fontSize: 12 }}>
                 <span style={{ color: 'rgba(20,27,62,0.55)' }}>{r.label}</span>
-                <span style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700, color: '#141B3E', fontSize: 11 }}>{r.val}</span>
+                <span style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700, color: '#141B3E', fontSize: 11 }}>{r.val}</span>
               </div>
             ))}
           </motion.div>
@@ -148,8 +148,8 @@ export default function Specs() {
             }}
           >
             <div>
-              <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#2B8DD0', marginBottom: 14 }}>Documentation</div>
-              <h3 style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 16, fontWeight: 800, marginBottom: 10, letterSpacing: '-0.01em', color: '#141B3E' }}>Technical Data Sheets</h3>
+              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#2B8DD0', marginBottom: 14 }}>Documentation</div>
+              <h3 style={{ fontFamily: 'Inter, sans-serif', fontSize: 16, fontWeight: 800, marginBottom: 10, letterSpacing: '-0.01em', color: '#141B3E' }}>Technical Data Sheets</h3>
               <p style={{ fontSize: 13, color: 'rgba(20,27,62,0.6)', lineHeight: 1.7, marginBottom: 20 }}>
                 Full technical data sheets and safety data sheets available for all manufactured grades. Request documents with your enquiry.
               </p>
@@ -157,7 +157,7 @@ export default function Specs() {
             <a href="mailto:info@blaubatch.com?subject=TDS Request" style={{
               display: 'inline-flex', alignItems: 'center', gap: 8, justifyContent: 'center',
               padding: '12px 20px', background: '#2B8DD0', color: '#fff',
-              borderRadius: 8, fontFamily: 'Montserrat, sans-serif', fontSize: 11,
+              borderRadius: 8, fontFamily: 'Inter, sans-serif', fontSize: 11,
               fontWeight: 800, letterSpacing: '0.07em', textTransform: 'uppercase', transition: 'all 0.2s',
             }}
             onMouseEnter={e => e.currentTarget.style.background = '#2B8DD0'}

@@ -63,15 +63,15 @@ export default function FillerMasterbatch101() {
       <section style={{ background: 'linear-gradient(135deg, #0d1829 0%, #141B3E 60%, #1a2550 100%)', padding: '100px 48px 72px', borderBottom: '1px solid rgba(43,141,208,0.15)' }}>
         <div style={{ maxWidth: 780, margin: '0 auto' }}>
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55 }}>
-            <Link to="/blog" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, color: 'rgba(255,255,255,0.45)', fontFamily: 'Montserrat, sans-serif', fontSize: 11, fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase', textDecoration: 'none', marginBottom: 28 }}>
+            <Link to="/blog" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, color: 'rgba(255,255,255,0.45)', fontFamily: 'Inter, sans-serif', fontSize: 11, fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase', textDecoration: 'none', marginBottom: 28 }}>
               <ArrowLeft size={13} /> Blog
             </Link>
 
-            <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#2B8DD0', border: '1px solid rgba(43,141,208,0.3)', borderRadius: 4, padding: '4px 12px', display: 'inline-block', marginBottom: 20 }}>
+            <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#2B8DD0', border: '1px solid rgba(43,141,208,0.3)', borderRadius: 4, padding: '4px 12px', display: 'inline-block', marginBottom: 20 }}>
               Masterbatch Basics
             </div>
 
-            <h1 style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 900, fontSize: 'clamp(26px, 4vw, 42px)', color: '#fff', letterSpacing: '-0.025em', lineHeight: 1.15, marginBottom: 20 }}>
+            <h1 style={{ fontFamily: 'Inter, sans-serif', fontWeight: 900, fontSize: 'clamp(26px, 4vw, 42px)', color: '#fff', letterSpacing: '-0.025em', lineHeight: 1.15, marginBottom: 20 }}>
               What Is Filler Masterbatch — And Why Does It Matter for Your Production?
             </h1>
 
@@ -80,8 +80,8 @@ export default function FillerMasterbatch101() {
             </p>
 
             <div style={{ marginTop: 28, display: 'flex', gap: 20, alignItems: 'center', flexWrap: 'wrap' }}>
-              <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.35)', fontFamily: 'Montserrat, sans-serif' }}>Blau Batch · April 2026 · 3 min read</span>
-              <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.35)', fontFamily: 'Montserrat, sans-serif' }}>Primary keyword: filler masterbatch</span>
+              <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.35)', fontFamily: 'Inter, sans-serif' }}>Blau Batch · April 2026 · 3 min read</span>
+              <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.35)', fontFamily: 'Inter, sans-serif' }}>Primary keyword: filler masterbatch</span>
             </div>
           </motion.div>
         </div>
@@ -98,7 +98,7 @@ export default function FillerMasterbatch101() {
           >
             {SECTIONS.map((s, i) => (
               <div key={i} style={{ marginBottom: 48 }}>
-                <h2 style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 800, fontSize: 20, color: '#fff', letterSpacing: '-0.015em', marginBottom: 16 }}>{s.heading}</h2>
+                <h2 style={{ fontFamily: 'Inter, sans-serif', fontWeight: 800, fontSize: 20, color: '#fff', letterSpacing: '-0.015em', marginBottom: 16 }}>{s.heading}</h2>
                 {s.body && s.body.split('\n\n').map((para, j) => (
                   <p key={j} style={{ marginBottom: 16 }}>{para}</p>
                 ))}
@@ -106,7 +106,7 @@ export default function FillerMasterbatch101() {
                   <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
                     {s.bullets.map(b => (
                       <div key={b.label} style={{ padding: '16px 20px', background: '#23447A', border: '1px solid rgba(43,141,208,0.15)', borderRadius: 12 }}>
-                        <span style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 800, color: '#2B8DD0', fontSize: 13 }}>{b.label}</span>
+                        <span style={{ fontFamily: 'Inter, sans-serif', fontWeight: 800, color: '#2B8DD0', fontSize: 13 }}>{b.label}</span>
                         <span style={{ color: 'rgba(255,255,255,0.6)', fontSize: 14 }}> — {b.text}</span>
                       </div>
                     ))}
@@ -128,7 +128,7 @@ export default function FillerMasterbatch101() {
                     display: 'inline-flex', alignItems: 'center', gap: 6,
                     padding: '10px 18px', background: i === 2 ? '#2B8DD0' : 'transparent',
                     border: '1px solid rgba(43,141,208,0.4)', borderRadius: 8,
-                    color: i === 2 ? '#fff' : '#2B8DD0', fontFamily: 'Montserrat, sans-serif',
+                    color: i === 2 ? '#fff' : '#2B8DD0', fontFamily: 'Inter, sans-serif',
                     fontSize: 12, fontWeight: 700, textDecoration: 'none',
                     transition: 'all 0.2s',
                   }}
@@ -147,7 +147,7 @@ export default function FillerMasterbatch101() {
       {/* Related post */}
       <section style={{ background: '#0d1829', padding: '48px', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
         <div style={{ maxWidth: 780, margin: '0 auto' }}>
-          <p style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.35)', marginBottom: 16 }}>Related Reading</p>
+          <p style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.35)', marginBottom: 16 }}>Related Reading</p>
           <Link to="/blog/sustainable-plastics-masterbatch" style={{
             display: 'block', padding: '24px 28px',
             background: '#141B3E', border: '1px solid rgba(34,197,94,0.15)',
@@ -157,9 +157,9 @@ export default function FillerMasterbatch101() {
           onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(34,197,94,0.35)' }}
           onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(34,197,94,0.15)' }}
           >
-            <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 9, fontWeight: 800, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#22C55E', marginBottom: 10 }}>Sustainability</div>
-            <div style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 800, fontSize: 16, color: '#fff', marginBottom: 6 }}>Less Virgin Polymer, Lower Footprint: Blau Batch's Approach to Sustainable Manufacturing</div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 5, color: '#22C55E', fontFamily: 'Montserrat, sans-serif', fontSize: 12, fontWeight: 700 }}>Read more <ArrowRight size={12} /></div>
+            <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 9, fontWeight: 800, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#22C55E', marginBottom: 10 }}>Sustainability</div>
+            <div style={{ fontFamily: 'Inter, sans-serif', fontWeight: 800, fontSize: 16, color: '#fff', marginBottom: 6 }}>Less Virgin Polymer, Lower Footprint: Blau Batch's Approach to Sustainable Manufacturing</div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 5, color: '#22C55E', fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 700 }}>Read more <ArrowRight size={12} /></div>
           </Link>
         </div>
       </section>

@@ -32,7 +32,7 @@ export default function TrustBar() {
           <span key={i} style={{
             display: 'inline-flex', alignItems: 'center', gap: 6,
             padding: '0 24px',
-            fontFamily: 'Montserrat, sans-serif', fontSize: 11, fontWeight: 700,
+            fontFamily: 'Inter, sans-serif', fontSize: 11, fontWeight: 700,
             letterSpacing: '0.05em', color: 'rgba(20,27,62,0.6)',
             borderRight: '1px solid rgba(20,27,62,0.08)',
           }}>

@@ -22,7 +22,7 @@ export default function CTA() {
           initial={{ opacity: 0, y: 16 }} animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
           style={{
-            display: 'inline-block', fontFamily: 'Montserrat, sans-serif', fontSize: 10,
+            display: 'inline-block', fontFamily: 'Inter, sans-serif', fontSize: 10,
             fontWeight: 800, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#2B8DD0',
             border: '1px solid rgba(46,127,208,0.3)', borderRadius: 4, padding: '4px 12px', marginBottom: 20,
           }}
@@ -33,7 +33,7 @@ export default function CTA() {
           initial={{ opacity: 0, y: 24 }} animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.08 }}
           style={{
-            fontFamily: 'Montserrat, sans-serif', fontWeight: 900,
+            fontFamily: 'Inter, sans-serif', fontWeight: 900,
             fontSize: 'clamp(30px, 5vw, 56px)', lineHeight: 1.05, letterSpacing: '-0.03em', marginBottom: 20,
           }}
         >
@@ -60,7 +60,7 @@ export default function CTA() {
           <a href="/contact#quote-form" style={{
             display: 'inline-flex', alignItems: 'center', gap: 10,
             padding: '15px 32px', background: '#2B8DD0', color: '#fff',
-            borderRadius: 9, fontFamily: 'Montserrat, sans-serif', fontSize: 13,
+            borderRadius: 9, fontFamily: 'Inter, sans-serif', fontSize: 13,
             fontWeight: 800, letterSpacing: '0.07em', textTransform: 'uppercase',
             transition: 'all 0.2s', border: '1px solid transparent',
           }}
@@ -73,7 +73,7 @@ export default function CTA() {
           <a href="https://wa.me/201022227723" target="_blank" rel="noopener noreferrer" style={{
             display: 'inline-flex', alignItems: 'center', gap: 10,
             padding: '15px 32px', background: 'transparent', color: '#25D366',
-            borderRadius: 9, fontFamily: 'Montserrat, sans-serif', fontSize: 13,
+            borderRadius: 9, fontFamily: 'Inter, sans-serif', fontSize: 13,
             fontWeight: 800, letterSpacing: '0.06em', textTransform: 'uppercase',
             border: '1px solid rgba(37,211,102,0.35)', transition: 'all 0.2s',
           }}
@@ -108,7 +108,7 @@ export default function CTA() {
                 <Icon size={16} color="#2B8DD0" />
               </div>
               <div>
-                <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(20,27,62,0.45)', marginBottom: 3 }}>{label}</div>
+                <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(20,27,62,0.45)', marginBottom: 3 }}>{label}</div>
                 <div style={{ fontSize: 12, color: '#141B3E', fontWeight: 500 }}>{val}</div>
               </div>
             </a>

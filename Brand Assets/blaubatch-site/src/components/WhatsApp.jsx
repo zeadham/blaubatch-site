@@ -28,7 +28,7 @@ export default function WhatsApp() {
               <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
                 <img src="/logo.jpg" alt="Blau Batch" style={{ width: 36, height: 36, borderRadius: '50%', objectFit: 'cover' }} />
                 <div>
-                  <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 13, fontWeight: 800, color: '#fff' }}>Blau Batch</div>
+                  <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 13, fontWeight: 800, color: '#fff' }}>Blau Batch</div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 5, marginTop: 2 }}>
                     <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#fff', display: 'inline-block' }} />
                     <span style={{ fontSize: 11, color: 'rgba(255,255,255,0.85)' }}>Technical Sales Team</span>
@@ -55,7 +55,7 @@ export default function WhatsApp() {
                 style={{
                   display: 'block', textAlign: 'center',
                   padding: '12px 20px', background: '#25D366', color: '#fff',
-                  borderRadius: 9, fontFamily: 'Montserrat, sans-serif', fontSize: 12,
+                  borderRadius: 9, fontFamily: 'Inter, sans-serif', fontSize: 12,
                   fontWeight: 800, letterSpacing: '0.06em', textTransform: 'uppercase',
                   transition: 'background 0.2s',
                 }}
@@ -77,7 +77,7 @@ export default function WhatsApp() {
             style={{
               background: '#23447A', border: '1px solid rgba(255,255,255,0.12)',
               borderRadius: 8, padding: '8px 14px',
-              fontFamily: 'Montserrat, sans-serif', fontSize: 12, fontWeight: 700,
+              fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 700,
               color: '#fff', whiteSpace: 'nowrap', boxShadow: '0 8px 24px rgba(0,0,0,0.4)',
             }}
           >Chat with us</motion.div>

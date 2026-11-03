@@ -1,7 +1,7 @@
 # BLAU BATCH Brand Audit: Typography & File Versions
 
 **Date:** 2026-11-03 · **Scope:** every tracked file on `main` plus this branch, and the unmerged AfroPlast 2027 print branch (read-only).
-**Status:** audit only. **Nothing has been deleted yet**; see §3 for the proposed list awaiting approval.
+**Status:** completed 2026-11-03. Decisions: **Inter is the brand typeface**, and all six deletions in §3 were approved and carried out. See §5 for what changed.
 
 ---
 
@@ -44,7 +44,7 @@ Already cleaned on `main` (2026-09-28): the old website copy `blaubatch-site-v2`
 
 ---
 
-## 3. Proposed deletions (awaiting approval)
+## 3. Deletions (approved and done)
 
 Git history keeps every deleted file, so any of these can be restored later.
 
@@ -71,3 +71,46 @@ Git history keeps every deleted file, so any of these can be restored later.
 |---|---|
 | **A. Inter becomes the brand font** | Update BG v4 §5 and VI §12–13 to Inter (as BG v5 / VI v1.1). Then move the website, Instagram templates, product card, Word datasheet template, generator scripts and AfroPlast print files to Inter, add Inter font files to `Brand Assets/Fonts/` and regenerate all TDS PDFs. Logo files keep their Montserrat Black wordmark. |
 | **B. Montserrat + Open Sans stay** | Revert the presentation blueprint and Canva prompt to Montserrat and Open Sans, and either move Sales Tools to the brand fonts or treat them as internal-only. Add the Open Sans files to `Brand Assets/Fonts/` and regenerate the TDS PDFs with the brand fonts. |
+
+---
+
+## 5. Actions taken (2026-11-03)
+
+**Guidelines**
+
+| Before | After |
+|---|---|
+| `BlauBatch_BrandGuidelines_v4.docx` | **`BlauBatch_BrandGuidelines_v5.docx`**. §5 Typography, §5.3 type scale, stationery, email/web notes and §17.2 quick reference now specify Inter. Montserrat is limited to the logo wordmark. Document text is set in Inter. v4 deleted. |
+| `BlauBatch_VisualIdentityGuide_v1.docx` | **`BlauBatch_VisualIdentityGuide_v1.1.docx`**, rebuilt from `build_visual_identity.js`. §12–13, stationery, web, email and motion now specify Inter, and the document is set in Inter. Typed "BLAU BATCH" logo samples stay in Montserrat. v1 deleted. |
+
+**Current brand set:** Brand Guidelines v5 + Visual Identity Guide v1.1.
+
+**Typeface rule:** Inter for all text. Montserrat Black only inside the official logo files and in typed BLAU BATCH wordmarks that stand in for the logo. Cairo for Arabic. Arial only in email signatures (VI §14.3).
+
+**Font files** (`Brand Assets/Fonts/`)
+- Added Inter 4.1: Regular, Medium, SemiBold, Bold, ExtraBold and Black, plus the OFL licence.
+- Moved Montserrat to `Fonts/Logo only (Montserrat)/`. `generate_logos.py` was repointed there.
+
+**Updated to Inter**
+
+| Item | Change |
+|---|---|
+| Website `Brand Assets/blaubatch-site` | Google Fonts import, `index.css`, and 387 inline `fontFamily` values across 38 files. `npm run build` passes. `npm run lint` shows the same 37 errors as before the change; they are unrelated unused imports. |
+| Instagram carousels (7) and `BlauBatch_ProductCard_Print.html` | All text in Inter. Typed BLAU BATCH wordmarks (`.logo-text`, `.logo-bar`, `.back-wordmark`) keep Montserrat. |
+| Word datasheet template, 8 Word datasheets, `Products Name Convention Rules.docx` | Were pointing at a broken font name, "Montserr", so Word substituted a fallback. Now set to Inter. |
+| `generate_tds_pdfs.py` | Loads Inter from `Brand Assets/Fonts` and uses script-relative paths, so it runs on any machine. |
+| All 57 Generated TDS PDFs + `BlauBatch_ProductCatalogue_2026.pdf` | Regenerated with Inter embedded; previously Helvetica/Arial fallback. |
+| `build_visual_identity.js` | Typography content updated; Windows paths made script-relative. |
+| Presentation blueprint and Canva prompt | Cite BG v5 / VI v1.1. |
+
+**Left as is, on purpose**
+
+| Item | Reason |
+|---|---|
+| `Sales Tools/` | Already Inter. Its one Montserrat rule is the typed wordmark. |
+| `Campaign - One Source Full Spectrum/` | Past campaign (30 Mar – 12 Apr 2026), kept as a record. Its design prompts still name Montserrat. |
+| Website email template (`api/send-quote.js`) and client-logo SVG text | Arial is used deliberately: email clients can't load web fonts, and the client marks belong to the clients. |
+| Logo SVG/PNG/EPS files | The logo wordmark stays Montserrat Black. |
+| Supplier Coraplast TDS originals and original filler TDS PDFs | Not Blau Batch-designed. |
+
+**Follow-up:** the AfroPlast 2027 print files on the unmerged branch `claude/inspiring-clarke-tnhvyb` still bundle Montserrat and Open Sans. Switch them to Inter before the files go to print.

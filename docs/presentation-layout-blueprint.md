@@ -63,22 +63,22 @@ The guides define no slide grid, so this deck uses the web grid tokens ([VI §11
 
 ### 0.3 Text Hierarchy
 
-All levels come from the [BG §5.3] / [VI §13] type scale. Heading line height 1.2×, body 1.5× [VI §12.2].
+**Typeface: Inter** for all slide text. It replaces Montserrat (headings) and Open Sans (body), which [BG §5] and [VI §12] still specify; update the guides to match. Hierarchy comes from weight and size, and the sizes follow the [BG §5.3] / [VI §13] scale. Heading line height 1.2×, body 1.5× [VI §12.2]. Inter is free on Google Fonts and built into Canva. Arabic text stays in Cairo [VI §12.3].
 
 | Level | Font / Weight | pt (px) | Case | Colour: light slide / dark slide | Source |
 |---|---|---|---|---|---|
-| **Display** (slides 1, 12 only) | Montserrat Black 900 | 60 (120) | ALL CAPS | — / White | BG 60–72 pt; VI 48–72 pt → 60 satisfies both |
-| **H1: slide title** | Montserrat ExtraBold 800 | 36 (72) | ALL CAPS | Deep Navy / White | 36–48 pt |
-| **H2: sub-header** | Montserrat Bold 700 | 28 (56) | Title Case | Sky Blue / White | 28–32 pt; Sky Blue for subheadings [BG §4.3] |
-| **H3: card / column title** | Open Sans Bold 700 | 20 (40) | Title Case | Deep Navy / White | 20–24 pt |
-| **Body** | Open Sans Regular 400 | 12 (24) | Sentence case | Deep Navy / White | 10–12 pt |
-| **Caption / label** (eyebrows, spec labels) | Open Sans Regular 400 | 9 (18) | ALL CAPS | Steel Blue / White | 8–9 pt |
-| **Footnote / page no.** | Open Sans Regular 400 | 8 (16) | Sentence case | `#333333` / White | 7–8 pt |
+| **Display** (slides 1, 12 only) | Inter Black 900, tracking −1% | 60 (120) | ALL CAPS | — / White | BG 60–72 pt; VI 48–72 pt → 60 satisfies both |
+| **H1: slide title** | Inter ExtraBold 800 | 36 (72) | ALL CAPS | Deep Navy / White | 36–48 pt |
+| **H2: sub-header** | Inter Bold 700 | 28 (56) | Title Case | Sky Blue / White | 28–32 pt; Sky Blue for subheadings [BG §4.3] |
+| **H3: card / column title** | Inter SemiBold 600 | 20 (40) | Title Case | Deep Navy / White | 20–24 pt |
+| **Body** | Inter Regular 400 | 12 (24) | Sentence case | Deep Navy / White | 10–12 pt |
+| **Caption / label** (eyebrows, spec labels) | Inter Medium 500, tracking +6% | 9 (18) | ALL CAPS | Steel Blue / White | 8–9 pt |
+| **Footnote / page no.** | Inter Regular 400 | 8 (16) | Sentence case | `#333333` / White | 7–8 pt |
 
 **Spec blocks** (no dedicated data style exists in the guides, so existing levels are combined):
 - **Label:** Caption.
-- **Value:** H2 style (Montserrat Bold 28 pt), in Deep Navy or White, *not* Sky Blue, so it reads as data and not as a heading.
-- **Unit:** Body (Open Sans 12 pt), placed on the line below the value.
+- **Value:** H2 style (Inter Bold 28 pt, tabular figures on), in Deep Navy or White, *not* Sky Blue, so it reads as data and not as a heading.
+- **Unit:** Body (Inter Regular 12 pt), placed on the line below the value.
 
 **Hierarchy rules**
 - Maximum 3 levels per slide: Caption eyebrow + H1 + one of H2, Body or spec blocks.
@@ -116,7 +116,7 @@ All files are in `Brand Assets/Logos/`. Paths below are relative to that folder.
 
 - **Footer logos:** the logomark-only versions are allowed because the brand is established on the title slide [VI §2.3].
 - **Don't use on a light background:** `BlauBatch_Logomark_Transparent.png` or `Blaubatch_cutout-logo.png`. Their white stem disappears.
-- **File format:** use the PNG files in PowerPoint. The SVG lockups import Montserrat from Google Fonts for their text, so they render wrongly where that font isn't loaded. Use the EPS files only for print.
+- **File format:** use the PNG files in PowerPoint. The SVG lockups import Montserrat from Google Fonts for their text, so they render wrongly where that font isn't loaded. The logo files keep their Montserrat Black wordmark; Inter is for slide text only, so never retype the logo in Inter. Use the EPS files only for print.
 - **Minimum size and clear space:** at least 120 px wide (60 pt) for any lockup. Clear space at least 20 px, preferably 40 px [VI §5.1b, §5.2]. Never recolour, stretch or re-typeset a logo [BG §3.1].
 - **Footer band:** y 1016 → 1080 (64 px). Logo at x 80. Page number right-aligned at x 1840 in Footnote style.
 - **No footer** on slides 1 and 12.
@@ -326,7 +326,7 @@ This layout has the text on the left and the cards on the right, so it uses a 40
 | Columns (7) | Grade · Carrier · CaCO₃ · MFI · Density / SG · Moisture · Primary applications |
 | Header row | Steel Blue fill, White Caption text, 56 px tall |
 | Body rows | 8 × 64 px, Body style in Deep Navy. Alternate rows White / Light Grey `#DCDCDC` [VI §11]. |
-| Grade column | Open Sans Bold 12 pt |
+| Grade column | Inter SemiBold 12 pt; tabular figures on for all numeric columns |
 | Group divider | 2 px Sky Blue line between the PE block (4 rows) and the PP block (4 rows) |
 | Moisture | < 0.05 for all grades except FMPE-2070 and FMPP-1080, which are < 0.08 |
 | Applications | From the TDS: PE grades for blown film, bags, agricultural film and liners; PP grades for woven sacks, raffia, injection moulding and thermoforming |
@@ -405,7 +405,7 @@ The co-branded slide needs approval from the Marketing & Operations Manager [VI 
 
 | Step | Number | H3 (White) | Body (White) |
 |---|---|---|---|
-| 01 | Montserrat Bold 28 pt, White | Brief | Share your polymer, process and target properties. |
+| 01 | Inter Bold 28 pt, White | Brief | Share your polymer, process and target properties. |
 | 02 | — | Recommend | We recommend the grade, loading and let-down ratio. |
 | 03 | — | Sample | Trial quantity shipped with its TDS. |
 | 04 | — | Supply | Scale to production volumes. |
@@ -438,7 +438,7 @@ The co-branded slide needs approval from the Marketing & Operations Manager [VI 
 |---|---|---|
 | Logo | `Export/Horizontal/BlauBatch_Horizontal_on_Navy.png`, centred, 640 px wide, 40 px clear space. The tagline is built into the file, so don't set it again as text. | — |
 | Sub-header | H2, White | Request Samples or a Technical Data Sheet |
-| CTA button | Sky Blue fill, White Montserrat Bold 18 pt in all caps (large text, 3.6:1, passes AA-large), 4 px radius, 64 px tall, 32 px horizontal padding | REQUEST SAMPLES |
+| CTA button | Sky Blue fill, White Inter Bold 18 pt in all caps (large text, 3.6:1, passes AA-large), 4 px radius, 64 px tall, 32 px horizontal padding | REQUEST SAMPLES |
 | Contact | Body, White | info@blaubatch.com · +2 0102 2227723 · blaubatch.com [BG cover page] |
 | Addresses (optional) | Footnote, White | Office: Arkan Plaza, Building 4, Sheikh Zayed City, Giza · Factory: 79, 6th Industrial Zone, 6th of October, Egypt |
 

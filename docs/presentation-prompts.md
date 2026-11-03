@@ -126,10 +126,10 @@ Do this before pasting the prompt, so Canva applies the brand automatically.
    - Light Grey `#DCDCDC`
    - White `#FFFFFF`
 2. **Brand Kit → Fonts:**
-   - Title: Montserrat ExtraBold
-   - Subtitle: Montserrat Bold
-   - Heading: Open Sans Bold
-   - Body: Open Sans Regular
+   - Title: Inter ExtraBold
+   - Subtitle: Inter Bold
+   - Heading: Inter SemiBold
+   - Body: Inter Regular
 3. **Brand Kit → Logos:** upload these files from `Brand Assets/Logos/`:
    - `Export/Horizontal/BlauBatch_Horizontal_on_Navy.png`
    - `Export/Horizontal/BlauBatch_Horizontal_Transparent.png`
@@ -154,9 +154,11 @@ STYLE RULES (apply to every slide)
   where stated, no stock photos, no decorative illustrations or emojis.
 - Colours only from the Brand Kit. Dark slides = Deep Navy #141B3E background
   with white text. Light slides = White background with Deep Navy text.
-- Slide titles: Montserrat ExtraBold, ALL CAPS. Sub-headers: Montserrat Bold,
-  Title Case (Sky Blue #2B8DD0 on light slides, white on dark). Card titles:
-  Open Sans Bold. Body: Open Sans Regular. Small labels: Open Sans, ALL CAPS.
+- One typeface only: Inter. Slide titles: Inter ExtraBold, ALL CAPS.
+  Sub-headers: Inter Bold, Title Case (Sky Blue #2B8DD0 on light slides, white
+  on dark). Card titles: Inter SemiBold. Body: Inter Regular. Small labels:
+  Inter Medium, ALL CAPS, slightly letter-spaced. Big numbers: Inter Bold.
+- Do not retype the BLAU BATCH logo; always use the uploaded logo files.
 - Never put Sky Blue text on navy. Never use Amber #D4840A for text; Amber is
   ONLY for a small "MANUFACTURED" chip (Amber fill, Deep Navy text).
 - Corners: 4 px on cards and buttons, 2 px on chips, square on tables.
@@ -281,7 +283,7 @@ TRANSITIONS: simple fade between slides only. No zooms, wipes or bounces.
 Canva AI tends to drift from long prompts, so check these by hand:
 
 - [ ] **Amber:** appears only on the "MANUFACTURED" chips (slides 1, 3, 4, 5, 9).
-- [ ] **Titles:** all caps, Montserrat ExtraBold. **Body text:** Open Sans.
+- [ ] **Fonts:** Inter only. Titles all caps in Inter ExtraBold, body in Inter Regular. Canva AI sometimes substitutes template fonts, so select all text and check.
 - [ ] **No stray content:** no Canva stock photos, illustrations or extra colours slipped in. Swap any you find for the uploaded images.
 - [ ] **Logos:** not stretched or recoloured. The transparent horizontal logo appears only on light slides; the navy version only on slides 1 and 12.
 - [ ] **Spec values:** match the tables above exactly.

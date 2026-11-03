@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Blau Batch — Filler Savings Sheet (A4)</title>
+<link href="assets/fonts.css" rel="stylesheet">
+<style>
+  /* A4 single-sided. Section 3 is a fill-in box the sales team completes with
+     the visitor at the stand, so the sheet carries no prices of its own. */
+  @page { size: A4; margin: 0; }
+  :root {
+    --navy: #141B3E; --steel: #23447A; --sky: #2B8DD0; --amber: #D4840A;
+    --lgrey: #DCDCDC; --tint: #F0F4F8; --ink: #1E2433; --muted: #5B6478;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Open Sans', Arial, sans-serif; color: var(--ink); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .page { width: 210mm; height: 297mm; overflow: hidden; display: flex; flex-direction: column; }
+
+  .hero { background: var(--navy); color: #fff; padding: 9mm 14mm 7mm; display: flex; justify-content: space-between; align-items: flex-end; gap: 10mm;
+    background-image: radial-gradient(rgba(255,255,255,.06) 1px, transparent 1px); background-size: 4mm 4mm; }
+  .hero .kicker { font-family: 'Montserrat'; font-weight: 800; font-size: 7.5pt; letter-spacing: .16em; color: var(--amber); text-transform: uppercase; }
+  .hero h1 { font-family: 'Montserrat'; font-weight: 900; font-size: 26pt; line-height: 1.05; margin-top: 3mm; }
+  .hero h1 span { color: var(--sky); }
+  .hero p { font-size: 9.5pt; color: #D5DBE8; margin-top: 3.5mm; max-width: 120mm; line-height: 1.5; }
+  .hero .logo { height: 13mm; flex: none; }
+
+  main { padding: 6mm 14mm 0; display: flex; flex-direction: column; gap: 4.5mm; }
+  .step { display: grid; grid-template-columns: 9mm 1fr; gap: 4mm; }
+  .num { width: 9mm; height: 9mm; border-radius: 50%; background: var(--steel); color: #fff; font-family: 'Montserrat'; font-weight: 900; font-size: 11pt; display: flex; align-items: center; justify-content: center; }
+  h2 { font-family: 'Montserrat'; font-weight: 800; font-size: 12.5pt; color: var(--navy); line-height: 1.2; }
+  .lead { font-size: 9pt; color: var(--muted); margin-top: 1.2mm; line-height: 1.5; }
+
+  .formula { margin-top: 2.5mm; background: var(--tint); border-left: 1.4mm solid var(--amber); padding: 2.8mm 5mm; font-family: 'Montserrat'; font-weight: 800; font-size: 11pt; color: var(--navy); }
+  .formula small { display: block; font-family: 'Open Sans'; font-weight: 400; font-size: 8pt; color: var(--muted); margin-top: 1mm; }
+
+  table { width: 100%; border-collapse: collapse; margin-top: 2.5mm; font-size: 8.6pt; }
+  th { background: var(--steel); color: #fff; font-family: 'Montserrat'; font-weight: 800; font-size: 7.5pt; letter-spacing: .06em; text-transform: uppercase; text-align: left; padding: 1.8mm 3mm; }
+  td { padding: 1.4mm 3mm; border-bottom: .3mm solid #DCE3EC; }
+  tr:nth-child(even) td { background: var(--tint); }
+  td.num-col, th.num-col { text-align: right; font-variant-numeric: tabular-nums; }
+  td b { color: var(--navy); }
+
+  .fill { margin-top: 2.5mm; border: .5mm solid var(--navy); border-radius: 2mm; padding: 3mm 5mm; display: grid; grid-template-columns: 1fr 1fr; gap: 2.5mm 8mm; }
+  .fill .row { display: flex; align-items: flex-end; gap: 2mm; font-size: 9pt; }
+  .fill .row span { white-space: nowrap; }
+  .fill .line { flex: 1; border-bottom: .3mm solid var(--ink); height: 5mm; }
+  .fill .row em { font-style: normal; font-size: 7.5pt; color: var(--muted); white-space: nowrap; }
+  .fill .total { grid-column: 1 / -1; background: var(--navy); color: #fff; border-radius: 1.5mm; padding: 3mm 4mm; font-family: 'Montserrat'; font-weight: 800; font-size: 10pt; }
+  .fill .total .line { border-bottom-color: #fff; }
+  .fill .total em { color: #B9C3D8; }
+  .fill .hint { grid-column: 1 / -1; font-size: 7.5pt; color: var(--muted); }
+
+  .note { font-size: 7.8pt; color: var(--muted); line-height: 1.5; margin-top: 2mm; }
+
+  .footer { margin-top: auto; background: var(--navy); color: #D5DBE8; padding: 4mm 14mm; display: flex; justify-content: space-between; align-items: center; font-size: 8pt; }
+  .footer b { color: #fff; font-family: 'Montserrat'; font-weight: 800; }
+  .footer .qr { display: flex; align-items: center; gap: 3mm; }
+  .footer img { width: 15mm; height: 15mm; background: #fff; padding: 1mm; border-radius: 1mm; }
+</style>
+</head>
+<body>
+<section class="page">
+  <header class="hero">
+    <div>
+      <div class="kicker">Filler Masterbatch · Made in Egypt</div>
+      <h1>How much can filler<br><span>save your line?</span></h1>
+      <p>Every percent of Blau Batch filler masterbatch you dose replaces the same share of virgin resin. Work out your saving here in two minutes.</p>
+    </div>
+    <img class="logo" src="assets/BlauBatch_Horizontal_on_Navy.svg" alt="Blau Batch">
+  </header>
+
+  <main>
+    <div class="step">
+      <div class="num">1</div>
+      <div>
+        <h2>The principle</h2>
+        <div class="formula">
+          Saving per ton = Dosage % × (Resin price − Filler price)
+          <small>Filler masterbatch costs less per ton than virgin PE or PP, so the saving grows with every percent you dose.</small>
+        </div>
+        <table>
+          <thead><tr><th>Dosage</th><th class="num-col">Virgin resin replaced per ton</th><th class="num-col">Per 100 tons of output</th></tr></thead>
+          <tbody>
+            <tr><td><b>10%</b></td><td class="num-col">100 kg</td><td class="num-col">10 tons</td></tr>
+            <tr><td><b>20%</b></td><td class="num-col">200 kg</td><td class="num-col">20 tons</td></tr>
+            <tr><td><b>30%</b></td><td class="num-col">300 kg</td><td class="num-col">30 tons</td></tr>
+            <tr><td><b>40%</b></td><td class="num-col">400 kg</td><td class="num-col">40 tons</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="num">2</div>
+      <div>
+        <h2>Typical starting dosage</h2>
+        <p class="lead">Starting points only. The right level depends on your machine, thickness and performance targets; we confirm it with a trial on your line.</p>
+        <table>
+          <thead><tr><th>Application</th><th>Recommended grade</th><th class="num-col">Starting dosage</th></tr></thead>
+          <tbody>
+            <tr><td>Shopping &amp; T-shirt bags</td><td>FMPE-1075 / 1080</td><td class="num-col">15–30%</td></tr>
+            <tr><td>Garbage bags &amp; liners</td><td>FMPE-1080</td><td class="num-col">20–40%</td></tr>
+            <tr><td>General packaging film</td><td>FMPE-1070 / 2070</td><td class="num-col">10–20%</td></tr>
+            <tr><td>Agricultural film</td><td>FMPE-1070</td><td class="num-col">5–15%</td></tr>
+            <tr><td>PP woven sacks &amp; raffia</td><td>FMPP-1075 / 1080</td><td class="num-col">5–20%</td></tr>
+            <tr><td>PP injection moulding</td><td>FMPP-2180</td><td class="num-col">10–30%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="num">3</div>
+      <div>
+        <h2>Your numbers</h2>
+        <div class="fill">
+          <div class="row"><span>Resin price</span><div class="line"></div><em>EGP / ton</em></div>
+          <div class="row"><span>Filler price</span><div class="line"></div><em>EGP / ton</em></div>
+          <div class="row"><span>Dosage</span><div class="line"></div><em>%</em></div>
+          <div class="row"><span>Monthly output</span><div class="line"></div><em>tons</em></div>
+          <div class="row total"><span>Monthly saving ≈ dosage × price gap × output</span><div class="line"></div><em>EGP / month</em></div>
+          <div class="hint">Filled in with you by our team at the stand. Ask for a sample bag to run a trial.</div>
+        </div>
+        <p class="note">Filler raises film density (for example FMPE-1080 is 1.7 g/cm³), so output per square metre changes with dosage. Our technical team will check the yield on your product with you.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div><b>Blau Batch</b> · +2 0102 222 7723 · info@blaubatch.com · www.blaubatch.com</div>
+    <div class="qr"><span>Data sheets for all 8 grades</span><img src="assets/qr_campaign.svg" alt="QR code"></div>
+  </footer>
+</section>
+</body>
+</html>

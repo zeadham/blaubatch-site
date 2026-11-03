@@ -95,7 +95,7 @@ Git history keeps every deleted file, so any of these can be restored later.
 
 | Item | Change |
 |---|---|
-| Website `Brand Assets/blaubatch-site` | Google Fonts import, `index.css`, and 387 inline `fontFamily` values across 38 files. `npm run build` passes. `npm run lint` shows the same 37 errors as before the change; they are unrelated unused imports. |
+| Website `Brand Assets/blaubatch-site` | 387 inline `fontFamily` values across 38 files switched to Inter; header and footer BLAU BATCH wordmarks kept in Montserrat. **Also fixed an existing bug:** the font `@import` sat after `@import "tailwindcss"`, so the build dropped it and the site never loaded its brand font. Fonts now load via a `<link>` in `index.html`, verified in a browser. `npm run build` passes. `npm run lint` shows the same 37 errors as before the change; they are unrelated unused imports. |
 | Instagram carousels (7) and `BlauBatch_ProductCard_Print.html` | All text in Inter. Typed BLAU BATCH wordmarks (`.logo-text`, `.logo-bar`, `.back-wordmark`) keep Montserrat. |
 | Word datasheet template, 8 Word datasheets, `Products Name Convention Rules.docx` | Were pointing at a broken font name, "Montserr", so Word substituted a fallback. Now set to Inter. |
 | `generate_tds_pdfs.py` | Loads Inter from `Brand Assets/Fonts` and uses script-relative paths, so it runs on any machine. |
@@ -112,5 +112,7 @@ Git history keeps every deleted file, so any of these can be restored later.
 | Website email template (`api/send-quote.js`) and client-logo SVG text | Arial is used deliberately: email clients can't load web fonts, and the client marks belong to the clients. |
 | Logo SVG/PNG/EPS files | The logo wordmark stays Montserrat Black. |
 | Supplier Coraplast TDS originals and original filler TDS PDFs | Not Blau Batch-designed. |
+
+**Follow-up (website):** on phones the site scrolls sideways because the scrolling trust-bar strip overflows. This was already the case before the font change.
 
 **Follow-up:** the AfroPlast 2027 print files on the unmerged branch `claude/inspiring-clarke-tnhvyb` still bundle Montserrat and Open Sans. Switch them to Inter before the files go to print.

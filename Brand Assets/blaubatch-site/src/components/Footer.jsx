@@ -81,7 +81,7 @@ export default function Footer() {
               <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
                 <img src="/logo-mark.png" alt="Blau Batch" style={{ height: 32, objectFit: 'contain' }} />
                 <span style={{
-                  fontFamily: 'Inter, sans-serif', fontWeight: 900,
+                  fontFamily: 'Montserrat, sans-serif', fontWeight: 900, // wordmark matches the logo
                   fontSize: 14, color: '#fffffe', letterSpacing: '0.12em',
                   textTransform: 'uppercase', lineHeight: 1,
                 }}>BLAU BATCH</span>

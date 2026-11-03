@@ -40,7 +40,7 @@ export default function Navbar() {
         <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: 10, flexShrink: 0 }}>
           <img src="/logo-mark.png" alt="Blau Batch" style={{ height: 36, objectFit: 'contain', filter: 'drop-shadow(0 0 6px rgba(0,0,0,0.8))' }} />
           <span style={{
-            fontFamily: 'Inter, sans-serif', fontWeight: 900,
+            fontFamily: 'Montserrat, sans-serif', fontWeight: 900, // wordmark matches the logo
             fontSize: 15, color: '#fffffe', letterSpacing: '0.12em',
             textTransform: 'uppercase', lineHeight: 1,
             textShadow: '0 1px 6px rgba(0,0,0,0.7)',

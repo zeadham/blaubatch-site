@@ -13,28 +13,28 @@
     --lgrey: #DCDCDC; --tint: #F0F4F8; --ink: #1E2433; --muted: #5B6478;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: 'Open Sans', Arial, sans-serif; color: var(--ink); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { font-family: 'Inter', Arial, sans-serif; color: var(--ink); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   .page { width: 210mm; height: 297mm; overflow: hidden; display: flex; flex-direction: column; }
 
   .hero { background: var(--navy); color: #fff; padding: 9mm 14mm 7mm; display: flex; justify-content: space-between; align-items: flex-end; gap: 10mm;
     background-image: radial-gradient(rgba(255,255,255,.06) 1px, transparent 1px); background-size: 4mm 4mm; }
-  .hero .kicker { font-family: 'Montserrat'; font-weight: 800; font-size: 7.5pt; letter-spacing: .16em; color: var(--amber); text-transform: uppercase; }
-  .hero h1 { font-family: 'Montserrat'; font-weight: 900; font-size: 26pt; line-height: 1.05; margin-top: 3mm; }
+  .hero .kicker { font-family: 'Inter'; font-weight: 800; font-size: 7.5pt; letter-spacing: .16em; color: var(--amber); text-transform: uppercase; }
+  .hero h1 { font-family: 'Inter'; font-weight: 900; font-size: 26pt; line-height: 1.05; margin-top: 3mm; }
   .hero h1 span { color: var(--sky); }
   .hero p { font-size: 9.5pt; color: #D5DBE8; margin-top: 3.5mm; max-width: 120mm; line-height: 1.5; }
   .hero .logo { height: 13mm; flex: none; }
 
   main { padding: 6mm 14mm 0; display: flex; flex-direction: column; gap: 4.5mm; }
   .step { display: grid; grid-template-columns: 9mm 1fr; gap: 4mm; }
-  .num { width: 9mm; height: 9mm; border-radius: 50%; background: var(--steel); color: #fff; font-family: 'Montserrat'; font-weight: 900; font-size: 11pt; display: flex; align-items: center; justify-content: center; }
-  h2 { font-family: 'Montserrat'; font-weight: 800; font-size: 12.5pt; color: var(--navy); line-height: 1.2; }
+  .num { width: 9mm; height: 9mm; border-radius: 50%; background: var(--steel); color: #fff; font-family: 'Inter'; font-weight: 900; font-size: 11pt; display: flex; align-items: center; justify-content: center; }
+  h2 { font-family: 'Inter'; font-weight: 800; font-size: 12.5pt; color: var(--navy); line-height: 1.2; }
   .lead { font-size: 9pt; color: var(--muted); margin-top: 1.2mm; line-height: 1.5; }
 
-  .formula { margin-top: 2.5mm; background: var(--tint); border-left: 1.4mm solid var(--amber); padding: 2.8mm 5mm; font-family: 'Montserrat'; font-weight: 800; font-size: 11pt; color: var(--navy); }
-  .formula small { display: block; font-family: 'Open Sans'; font-weight: 400; font-size: 8pt; color: var(--muted); margin-top: 1mm; }
+  .formula { margin-top: 2.5mm; background: var(--tint); border-left: 1.4mm solid var(--amber); padding: 2.8mm 5mm; font-family: 'Inter'; font-weight: 800; font-size: 11pt; color: var(--navy); }
+  .formula small { display: block; font-family: 'Inter'; font-weight: 400; font-size: 8pt; color: var(--muted); margin-top: 1mm; }
 
   table { width: 100%; border-collapse: collapse; margin-top: 2.5mm; font-size: 8.6pt; }
-  th { background: var(--steel); color: #fff; font-family: 'Montserrat'; font-weight: 800; font-size: 7.5pt; letter-spacing: .06em; text-transform: uppercase; text-align: left; padding: 1.8mm 3mm; }
+  th { background: var(--steel); color: #fff; font-family: 'Inter'; font-weight: 800; font-size: 7.5pt; letter-spacing: .06em; text-transform: uppercase; text-align: left; padding: 1.8mm 3mm; }
   td { padding: 1.4mm 3mm; border-bottom: .3mm solid #DCE3EC; }
   tr:nth-child(even) td { background: var(--tint); }
   td.num-col, th.num-col { text-align: right; font-variant-numeric: tabular-nums; }
@@ -45,7 +45,7 @@
   .fill .row span { white-space: nowrap; }
   .fill .line { flex: 1; border-bottom: .3mm solid var(--ink); height: 5mm; }
   .fill .row em { font-style: normal; font-size: 7.5pt; color: var(--muted); white-space: nowrap; }
-  .fill .total { grid-column: 1 / -1; background: var(--navy); color: #fff; border-radius: 1.5mm; padding: 3mm 4mm; font-family: 'Montserrat'; font-weight: 800; font-size: 10pt; }
+  .fill .total { grid-column: 1 / -1; background: var(--navy); color: #fff; border-radius: 1.5mm; padding: 3mm 4mm; font-family: 'Inter'; font-weight: 800; font-size: 10pt; }
   .fill .total .line { border-bottom-color: #fff; }
   .fill .total em { color: #B9C3D8; }
   .fill .hint { grid-column: 1 / -1; font-size: 7.5pt; color: var(--muted); }
@@ -53,7 +53,7 @@
   .note { font-size: 7.8pt; color: var(--muted); line-height: 1.5; margin-top: 2mm; }
 
   .footer { margin-top: auto; background: var(--navy); color: #D5DBE8; padding: 4mm 14mm; display: flex; justify-content: space-between; align-items: center; font-size: 8pt; }
-  .footer b { color: #fff; font-family: 'Montserrat'; font-weight: 800; }
+  .footer b { color: #fff; font-family: 'Inter'; font-weight: 800; }
   .footer .qr { display: flex; align-items: center; gap: 3mm; }
   .footer img { width: 15mm; height: 15mm; background: #fff; padding: 1mm; border-radius: 1mm; }
 </style>

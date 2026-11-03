@@ -33,11 +33,11 @@ const STRUCTURED_DATA = {
   publisher: {
     '@type': 'Organization',
     name: 'Blau Batch',
-    logo: { '@type': 'ImageObject', url: 'https://blaubatch.com/logo.jpg' },
+    logo: { '@type': 'ImageObject', url: 'https://www.blaubatch.com/logo.jpg' },
   },
   datePublished: '2026-04-01',
-  url: 'https://blaubatch.com/blog/what-is-filler-masterbatch',
-  mainEntityOfPage: 'https://blaubatch.com/blog/what-is-filler-masterbatch',
+  url: 'https://www.blaubatch.com/blog/what-is-filler-masterbatch',
+  mainEntityOfPage: 'https://www.blaubatch.com/blog/what-is-filler-masterbatch',
   keywords: 'filler masterbatch, CaCO3 masterbatch, calcium carbonate masterbatch, PE masterbatch, PP masterbatch, cost reduction plastics',
 }
 
@@ -45,7 +45,7 @@ export default function FillerMasterbatch101() {
   useSEO({
     title: 'What Is Filler Masterbatch & Why Does It Matter? | Blau Batch',
     description: 'Learn what filler masterbatch is, how CaCO₃ replaces virgin polymer, and how it reduces costs without compromising quality. Blau Batch FMPE & FMPP grades.',
-    canonical: 'https://blaubatch.com/blog/what-is-filler-masterbatch',
+    canonical: 'https://www.blaubatch.com/blog/what-is-filler-masterbatch',
   })
 
   useEffect(() => {
@@ -123,12 +123,12 @@ export default function FillerMasterbatch101() {
                   { label: 'FMPE Series — Filler Masterbatch for PE', href: '/fmpe' },
                   { label: 'FMPP Series — Filler Masterbatch for PP', href: '/fmpp' },
                   { label: 'Contact our technical team', href: '/contact' },
-                ].map(link => (
+                ].map((link, i) => (
                   <Link key={link.href} to={link.href} style={{
                     display: 'inline-flex', alignItems: 'center', gap: 6,
                     padding: '10px 18px', background: i === 2 ? '#2B8DD0' : 'transparent',
                     border: '1px solid rgba(43,141,208,0.4)', borderRadius: 8,
-                    color: '#2B8DD0', fontFamily: 'Montserrat, sans-serif',
+                    color: i === 2 ? '#fff' : '#2B8DD0', fontFamily: 'Montserrat, sans-serif',
                     fontSize: 12, fontWeight: 700, textDecoration: 'none',
                     transition: 'all 0.2s',
                   }}

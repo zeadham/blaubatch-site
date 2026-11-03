@@ -35,11 +35,11 @@ const STRUCTURED_DATA = {
   publisher: {
     '@type': 'Organization',
     name: 'Blau Batch',
-    logo: { '@type': 'ImageObject', url: 'https://blaubatch.com/logo.jpg' },
+    logo: { '@type': 'ImageObject', url: 'https://www.blaubatch.com/logo.jpg' },
   },
   datePublished: '2026-04-01',
-  url: 'https://blaubatch.com/blog/sustainable-plastics-masterbatch',
-  mainEntityOfPage: 'https://blaubatch.com/blog/sustainable-plastics-masterbatch',
+  url: 'https://www.blaubatch.com/blog/sustainable-plastics-masterbatch',
+  mainEntityOfPage: 'https://www.blaubatch.com/blog/sustainable-plastics-masterbatch',
   keywords: 'sustainable masterbatch, sustainable plastics, circular economy plastics, recyclable masterbatch, filler masterbatch sustainability, CaCO3 carbon footprint',
 }
 
@@ -47,7 +47,7 @@ export default function SustainableMasterbatch() {
   useSEO({
     title: 'Sustainable Plastics Manufacturing with Masterbatch | Blau Batch',
     description: 'How filler and additive masterbatch reduces virgin polymer use, extends product life, and supports recyclability. Blau Batch\'s sustainable manufacturing approach.',
-    canonical: 'https://blaubatch.com/blog/sustainable-plastics-masterbatch',
+    canonical: 'https://www.blaubatch.com/blog/sustainable-plastics-masterbatch',
   })
 
   useEffect(() => {

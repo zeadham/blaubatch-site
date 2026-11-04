@@ -8,6 +8,7 @@ A 17-slide 16:9 company profile, built from Brand Guidelines v5.2, the Visual Id
 |---|---|
 | `Company Profile Prompts.md` | The Antigravity image prompt and the Canva deck prompt (Part A, slides 1–9; Part B, slides 10–17) |
 | `images/` | Antigravity saves the generated images here (`cp01_…` to `cp07_…`) |
+| `Slide Copy Sheet.md` | Slide-by-slide copy for building the profile from a Canva template |
 | `exports/` | Save the finished deck here from Canva (PDF and PPTX) |
 
 ## Steps
